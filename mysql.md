@@ -16,7 +16,7 @@ $ CREATE database db_name;
 $ quit;
 
 //crear usuario
-$ CREATE USER 'db_user' IDENTIFIED BY 'user_password';
+$ CREATE USER 'db_user'@'localhost' IDENTIFIED BY 'user_password';
 $ SELECT * FROM mysql.user;
 //eliminar usuario
 $ DROP USER db_user:
