@@ -22,7 +22,7 @@ $ SELECT * FROM mysql.user;
 $ DROP USER db_user:
 
 //privilegios
-$ GRANT ALL PRIVILEGES ON 'db_name'.* TO 'db_user'@"localhost" IDENTIFIED BY 'db_password' WITH
+$ GRANT ALL PRIVILEGES ON db_name.* TO 'db_user'@'localhost' IDENTIFIED BY 'db_password in hasg format' WITH
 GRANT OPTION;
 $ FLUSH PRIVILEGES;
 $ show grants for bd_user@db_host
