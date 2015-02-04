@@ -66,3 +66,20 @@ $entity->idac->entity->label();
       
 //obtner valor de un atributo de la entidad
 $rule->get('variable')->value
+```
+
+ENLACES Y FUENTES
+=================
+Documentación oficial
+https://api.drupal.org/api/drupal/8
+
+Documentación de la comunidad
+https://www.drupal.org/developing/api/8
+
+Clases de drupal 8
+https://api.drupal.org/api/drupal/classes/8
+
+Hoja resumida de codigo
+http://wizzlern.nl/sites/wizzlern.nl/files/artikel/drupal8_content_entity.pdf
+
+
