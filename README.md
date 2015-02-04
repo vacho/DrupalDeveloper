@@ -1,4 +1,4 @@
-SABERES DE DEVELOPER PARA DRUPAL
+SABERES DE UN DEVELOPER PARA DRUPAL
 ===============================
 Este proyecto pretende ser una guía suficiente que contiene los conocimientos mínimos que debe conocer un desarrolador para trabajar con drupal.
 
