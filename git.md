@@ -3,7 +3,7 @@ GIT
 ```
 //instalación en sistemas centos, redhat, tal vez fedora
 $ yum install git
-//instalación en sistemas debian, ubunto
+//instalación en sistemas debian, ubuntu
 $ apt-get install git
 
 //configuración de usuario
