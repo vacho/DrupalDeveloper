@@ -4,7 +4,9 @@ MYSQL
 ## Comandos básicos
 ```
 //ingresar con usario y clave
-$ mysql --user=user_name --password=your_password db_name;
+$ mysql --user=user_name --password=user_password db_name;
+V
+$ mysql -u user_name -puser_password db_name;
 
 //mostrar bases de datos
 $ SHOW databases;
