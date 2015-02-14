@@ -14,6 +14,11 @@ $ SHOW databases;
 //crear bases de datos
 $ CREATE database db_name;
 
+//usar una bases de datos
+$ USE db_name;
+
+//una vez que se esta con una base de datos seleccionada se puede ejecutar sql.
+
 //salir
 $ quit;
 
