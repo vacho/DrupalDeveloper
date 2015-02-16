@@ -3,36 +3,36 @@ LAMP
 ```
 Instalar Apache/httpd
   //fedora
-  $sudo yum install httpd
+  $ sudo yum install httpd
   //ubuntu
-  $sudo apt-get install apache2
+  $ sudo apt-get install apache2
 
 Instalar Mysql
   //fedora
-  $sudo yum install mysql mysql-server
+  $ sudo yum install mysql mysql-server
   //ubuntu
-  $sudo apt-get install mysql-server mysql-client
+  $ sudo apt-get install mysql-server mysql-client
 
 Ajustar opciones de Seguridad de Mysql
   //fedora
-  $sudo usr/bin/mysql_secure_installation
+  $ sudo usr/bin/mysql_secure_installation
   //ubuntu
-  $sudo mysql_secure_installation
+  $ sudo mysql_secure_installation
 
 Instalar PHP
   //fedora
-  $sudo yum install php php-mysql
+  $ sudo yum install php php-mysql
   //ubuntu
-  $sudo apt-get install php5
+  $ sudo apt-get install php5
 
 Buscar paquetes php a instalar
   //fedora
-  yum search php-
+  $ yum search php-
   //ubuntu
-  sudo apt-cache search php
+  $ sudo apt-cache search php
 
 Levantar/Detener/Reiniciar servicios(apache2/httpd/mysql)
   //fedora
-  sudo systemctl start/stop/restart httpd.service
+  $ sudo systemctl start/stop/restart httpd.service
   //ubuntu
-  sudo service apache2 start/stop/restart
+  $ sudo service apache2 start/stop/restart
