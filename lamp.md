@@ -54,7 +54,7 @@ Rutas amistosas: mod_rewrite
 ```
 UBUNTU
   $sudo a2enmod rewrite
-En /etc/apache2/sistes-available/000-default.conf
+En /etc/apache2/sites-available/000-default.conf
   <Directory /var/www/html> 
     AllowOverride All 
   </Directory>
