@@ -1,39 +1,25 @@
 LAMP
 ===
 ```
+UBUNTU
 Instalar Apache/httpd
-  //fedora
-  $ sudo yum install httpd
-  //ubuntu
   $ sudo apt-get install apache2
 
 Instalar Mysql
-  //fedora
-  $ sudo yum install mysql mysql-server
-  //ubuntu
   $ sudo apt-get install mysql-server mysql-client
 
 Ajustar opciones de Seguridad de Mysql
-  //fedora
-  $ sudo usr/bin/mysql_secure_installation
-  //ubuntu
   $ sudo mysql_secure_installation
 
 Instalar PHP
-  //fedora
-  $ sudo yum install php php-mysql
-  //ubuntu
   $ sudo apt-get install php5
   $ sudo apt-get install php5-cli
+  $ sudo apt-get install libapache2-mod-php5
 
 Buscar paquetes php a instalar
-  //fedora
-  $ yum search php-
-  //ubuntu
   $ sudo apt-cache search php
 
 Paquetes útiles php
-  //ubuntu
   $ sudo apt-get install php5-mysql
   $ sudo apt-get install php5-gd
   $ sudo apt-get install php5-curl
@@ -41,19 +27,34 @@ Paquetes útiles php
   $ sudo apt-get install php-pear
 
 Levantar/Detener/Reiniciar servicios(apache2/httpd/mysql)
-  //fedora
+  $ sudo service apache2 [start/stop/restart]
+
+FEDORA
+Instalar Apache/httpd
+  $ sudo yum install httpd
+
+Instalar Mysql
+  $ sudo yum install mysql mysql-server
+
+Ajustar opciones de Seguridad de Mysql
+  $ sudo usr/bin/mysql_secure_installation
+
+Instalar PHP
+  $ sudo yum install php php-mysql
+
+Buscar paquetes php a instalar
+  $ yum search php-
+
+Levantar/Detener/Reiniciar servicios(apache2/httpd/mysql)
   $ sudo systemctl start/stop/restart httpd.service
-  //ubuntu
-  $ sudo service apache2 start/stop/restart
+  
 ```
 Rutas amistosas: mod_rewrite
 ===
 ```
-  //ubuntu
+UBUNTU
   $sudo a2enmod rewrite
-```  
 En /etc/apache2/sistes-available/000-default.conf
-```
   <Directory /var/www/html> 
     AllowOverride All 
   </Directory>
@@ -61,8 +62,8 @@ En /etc/apache2/sistes-available/000-default.conf
 PHPMYADMIN
 ===
 ```
-  //ubuntu
+UBUNTU
   $ sudo apt-get install phpmyadmin
-  // crear enlace simbólico
+crear enlace simbólico
   $ sudo ln -s /usr/share/phpmyadmin /var/www/html
 ```
