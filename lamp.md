@@ -37,14 +37,17 @@ Levantar/Detener/Reiniciar servicios(apache2/httpd/mysql)
   //ubuntu
   $ sudo service apache2 start/stop/restart
 ```
-Habilitar rutas amistosas: mod_rewrite
+Rutas amistosas: mod_rewrite
 ===
 ```
   //ubuntu
   $sudo a2enmod rewrite
-  //En /etc/apache2/sistes-available/000-default.conf
+```  
+En /etc/apache2/sistes-available/000-default.conf
+```
   <Directory /var/www> 
     AllowOverride All 
   </Directory>
   <Directory> AllowOverride All </Directory>
 ```
+
