@@ -59,6 +59,35 @@ En /etc/apache2/sistes-available/000-default.conf
     AllowOverride All 
   </Directory>
 ```
+Hosts virtuales
+===
+```
+UBUNTU
+Crear archivo midominio.conf
+  $sudo vim /etc/apache2/sites-available/midominio.conf
+
+Dentro del archivo copiar, adaptar y guardar
+  <VirtualHost *:80>
+    ServerName www.midominio.com
+    ServerAlias midominio.com *midominio.com
+    DocumentRoot /var/www/midominio
+  </VirtualHost>
+
+Crear el link simbólico 
+  $ sudo a2ensite midominio.com
+
+Agregar los hosts en el archivo
+  $ sudo vim etc/hosts
+Escribir:
+  127.0.0.1	midominio.com	midominio.com
+
+Reiniciar apache
+
+Opcional: Deshabilitar el sitio
+  $ sudo a2dissite midominio.com
+  $ sudo service apache2 restart
+```
+
 PHPMYADMIN
 ===
 ```
