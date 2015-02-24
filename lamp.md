@@ -24,6 +24,7 @@ Instalar PHP
   $ sudo yum install php php-mysql
   //ubuntu
   $ sudo apt-get install php5
+  $ sudo apt-get install php5-cli
 
 Buscar paquetes php a instalar
   //fedora
@@ -53,14 +54,15 @@ Rutas amistosas: mod_rewrite
 ```  
 En /etc/apache2/sistes-available/000-default.conf
 ```
-  <Directory /var/www> 
+  <Directory /var/www/html> 
     AllowOverride All 
   </Directory>
-  <Directory> AllowOverride All </Directory>
 ```
 PHPMYADMIN
 ===
 ```
   //ubuntu
   $ sudo apt-get install phpmyadmin
+  // crear enlace simbólico
+  $ sudo ln -s /usr/share/phpmyadmin /var/www/html
 ```
