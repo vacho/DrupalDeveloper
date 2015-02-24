@@ -73,15 +73,16 @@ Dentro del archivo copiar, adaptar y guardar
     DocumentRoot /var/www/html/midominio
   </VirtualHost>
 
-Crear el link simbólico 
-  $ sudo a2ensite midominio.com
+Crear el link simbólico estando en /etc/apache2/sites-available
+  $ sudo a2ensite midominio.conf
 
 Agregar los hosts en el archivo
   $ sudo vim etc/hosts
 Escribir:
-  127.0.0.1	midominio.com	midominio.com
+  127.0.0.1	midominio.com	www.midominio.com
 
 Reiniciar apache
+  $ sudo service apache2 restart
 
 Opcional: Deshabilitar el sitio
   $ sudo a2dissite midominio.com
