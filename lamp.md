@@ -31,6 +31,14 @@ Buscar paquetes php a instalar
   //ubuntu
   $ sudo apt-cache search php
 
+Paquetes útiles php
+  //ubuntu
+  $ sudo apt-get install php5-mysql
+  $ sudo apt-get install php5-gd
+  $ sudo apt-get install php5-curl
+  $ sudo apt-get install php5-cgi
+  $ sudo apt-get install php-pear
+
 Levantar/Detener/Reiniciar servicios(apache2/httpd/mysql)
   //fedora
   $ sudo systemctl start/stop/restart httpd.service
