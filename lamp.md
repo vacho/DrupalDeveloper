@@ -70,7 +70,7 @@ Dentro del archivo copiar, adaptar y guardar
   <VirtualHost *:80>
     ServerName www.midominio.com
     ServerAlias midominio.com *midominio.com
-    DocumentRoot /var/www/midominio
+    DocumentRoot /var/www/html/midominio
   </VirtualHost>
 
 Crear el link simbólico 
