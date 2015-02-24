@@ -58,4 +58,9 @@ En /etc/apache2/sistes-available/000-default.conf
   </Directory>
   <Directory> AllowOverride All </Directory>
 ```
-
+PHPMYADMIN
+===
+```
+  //ubuntu
+  $ sudo apt-get install phpmyadmin
+```
