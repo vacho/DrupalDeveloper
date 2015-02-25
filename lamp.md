@@ -101,7 +101,8 @@ crear enlace simbólico
 Optimizar php
 ===
 ```
-En el php.ini
+UBUNTU
+En /etc/php5/apache2/php.ini
   realpath_cache_size = 1024k
   realpath_cache_ttl=3600
   max_execution_time = 3600
@@ -114,6 +115,7 @@ En el php.ini
 Optimizar mysql
 ===
 ```
+UBUNTU
 En /etc/mysql/my.cnf
   max_binlog_size = 100M
   query_cache_limit = 1M
