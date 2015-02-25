@@ -8,12 +8,12 @@ Instalación en sistemas centos, redhat, tal vez fedora
   $ yum install git
 
 Configuración de usuario
-  $ git config --global user.name "usuario"
+  $ git config --global user.name usuario
   $ git config --global user.email usuario@correo.com
   $ git config --global core.editor emacs
 
 Generar las llaves pública y privada
-  $ ssh-keygen -t rsa -C "usuario@correo.com"
+  $ ssh-keygen -t rsa -C usuario@correo.com
 
 Crear una rama o branch nueva
   $ git branch crazy-experiment
