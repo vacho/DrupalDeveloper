@@ -110,6 +110,8 @@ En /etc/php5/apache2/php.ini
   memory_limit = 256M
   post_max_size = 50M
   upload_max_filesize = 256M
+Para ambiente de desarrollo es bueno tener todos los mensajes menos algunos
+  error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_NOTICE
 ```
 
 Optimizar mysql
