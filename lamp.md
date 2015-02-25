@@ -133,3 +133,8 @@ Si se esta empleando innodb
   innodb_flush_log_at_trx_commit = 2
   innodb_lock_wait_timeout = 60
 ```
+
+Referencias
+====
+Drupal al sur
+http://drupalalsur.org/videos/optimizar-php-y-mysql-para-drupal-7
