@@ -104,7 +104,7 @@ Optimizar php
 UBUNTU
 En /etc/php5/apache2/php.ini
   realpath_cache_size = 1024k
-  realpath_cache_ttl=3600
+  realpath_cache_ttl = 3600
   max_execution_time = 3600
   max_input_time = 3600
   memory_limit = 256M
@@ -121,7 +121,7 @@ En /etc/mysql/my.cnf
   query_cache_limit = 1M
   query_cache_size = 16M
   key_buffer = 16M
-  max_allowed_packet	= 16M
+  max_allowed_packet = 16M
 
 Si se esta empleando innodb 
   innodb_buffer_pool_size = 512M
