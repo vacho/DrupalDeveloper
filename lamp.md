@@ -97,3 +97,35 @@ UBUNTU
 crear enlace simbólico
   $ sudo ln -s /usr/share/phpmyadmin /var/www/html
 ```
+
+Optimizar php
+===
+```
+En el php.ini
+  realpath_cache_size = 1024k
+  realpath_cache_ttl=3600
+  max_execution_time = 3600
+  max_input_time = 3600
+  memory_limit = 256M
+  post_max_size = 50M
+  upload_max_filesize = 256M
+```
+
+Optimizar mysql
+===
+```
+En /etc/mysql/my.cnf
+  max_binlog_size = 100M
+  query_cache_limit = 1M
+  query_cache_size = 16M
+  key_buffer = 16M
+  max_allowed_packet	= 16M
+
+Si se esta empleando innodb 
+  innodb_buffer_pool_size = 512M
+  innodb_additional_mem_pool_size = 50M
+  innodb_log_file_size = 128M
+  innodb_log_buffer_size = 8M
+  innodb_flush_log_at_trx_commit = 2
+  innodb_lock_wait_timeout = 60
+```
