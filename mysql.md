@@ -49,3 +49,6 @@ Restaurar backup
   $ mysql --user=[uname] --password=[pwd] [db_to_restore] < [backupfile.sql]
 
 ```
+Referencias
+===
+http://www.rackspace.com/knowledge_center/article/installing-mysql-server-on-centos
