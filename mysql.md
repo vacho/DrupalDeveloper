@@ -25,6 +25,12 @@ Crear usuario
   $ CREATE USER 'db_user'@'localhost' IDENTIFIED BY 'user_password';
   $ SELECT * FROM mysql.user;
 
+Asignar clave a un usuario (ejemplo al usuario root)
+  $ mysql -u root
+  SET PASSWORD FOR 'root'@'localhost' = PASSWORD('clave');
+  SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('clave');
+  SET PASSWORD FOR 'root'@'%' = PASSWORD('clave');
+
 Eliminar usuario
   $ DROP USER db_user:
 
