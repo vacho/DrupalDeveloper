@@ -28,4 +28,11 @@ Listar archivos
   $ ls -l
   //combinamos propiedades y archivos ocultos
   $ ls -la
+Cambiar permisos
+  $ chmod 775 -R /ruta/carpeta
+  4->lectura
+  2->escritura
+  1->ejecución
+Cambiar dueño
+  $ chown usuario:grupo /ruta/carpeta
 ```
