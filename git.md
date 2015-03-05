@@ -36,4 +36,7 @@ Juntar una rama al master
 Eliminar un branch
   $ git branch -D crazy-experiment
   $ git push origin :crazy-experiment
+
+Ver aportes de líneas a un archivo
+  $ git blame /ruta/archivo
 ```
