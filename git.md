@@ -28,6 +28,8 @@ Visualizar una rama existente
 
 Ver el historial gráficamente
   $git log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
+Ver el historial de un archivo
+  $git log /ruta/archivo
 
 Juntar una rama al master
   $ git checkout master
