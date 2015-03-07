@@ -35,4 +35,6 @@ Cambiar permisos
   1->ejecución
 Cambiar dueño
   $ chown usuario:grupo /ruta/carpeta
+Enlaces simbólicos
+  $ ln -s /ruta/carpeta/ nombre_enlace
 ```
