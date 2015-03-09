@@ -23,6 +23,9 @@ Crear una rama o branch nueva
   $ git commit -m "message..."
   $ git push origin crazy-experiment
 
+Cancaler commint
+  $ git reset --hard HEAD~1
+
 Visualizar una rama existente
   $git checkout crazy-experiment
 
