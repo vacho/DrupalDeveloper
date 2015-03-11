@@ -19,7 +19,7 @@ foreach ($result as $record) {
 }
  
 //optener valor de un sólo campo
-$addFactor =  db_query('SELECT value FROM k_factor WHERE id = 1;')->fetchField();
+$addFactor =  db_query('SELECT value FROM k_factor WHERE id = :id;', array(':id' => $id))->fetchField();
 ```
 
 #### Consultas mediante Entidades
