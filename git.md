@@ -23,8 +23,11 @@ Crear una rama o branch nueva
   $ git commit -m "message..."
   $ git push origin crazy-experiment
 
-Cancaler commint
+Cancelar commint
   $ git reset --hard HEAD~1
+  
+Ver cambios de un commit
+  $ git show <id_commit>
 
 Visualizar una rama existente
   $git checkout crazy-experiment
@@ -44,4 +47,7 @@ Eliminar un branch
 
 Ver aportes de líneas a un archivo
   $ git blame /ruta/archivo
+  
+Ver cambios en un archivo
+  $ git diff /ruta/archivo
 ```

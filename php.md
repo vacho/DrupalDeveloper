@@ -5,8 +5,22 @@ Gestión de archivos
 
 ```
 
+Gestión de arreglos
+```
+//Recorrido
+$arr = array(1, 2, 3, 4);
+foreach ($arr as &$value) {
+    $value = $value * 2;
+}
+
+```
+
 Gestion de cadenas
 ```
+//convertir un arreglo en un string
+$array = array('apellido', 'email', 'telefono');
+$comma_separated = implode(",", $array);//apellido,email,telefono
+
 //posición de una cadena
 if (strpos($a,'are') !== false) {
   echo 'true';
