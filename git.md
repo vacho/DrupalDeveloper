@@ -23,7 +23,7 @@ Crear una rama o branch nueva
   $ git commit -m "message..."
   $ git push origin crazy-experiment
 
-Cancelar commint
+Cancelar commint (antes de hacer push)
   $ git reset --hard HEAD~1
   
 Ver cambios de un commit
