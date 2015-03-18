@@ -26,6 +26,19 @@ Paquetes útiles php
   $ sudo apt-get install php5-cgi
   $ sudo apt-get install php-pear
 
+Phpmyadmin
+  $ sudo apt-get install phpmyadmin
+  
+  -Si http://localhost/phpmyadmin: Da error de no se encuentra esa página configura apache2.conf para Phpmyadmin.
+  
+  $ sudo gedit /etc/apache2/apache2.conf
+  
+  -Incliye este código en la última linea, guarda y cierra.
+  
+  Include /etc/phpmyadmin/apache.conf
+  
+  -Luego reinicia Apache
+  
 Levantar/Detener/Reiniciar servicios(apache2/httpd/mysql)
   $ sudo service apache2 [start/stop/restart]
 
