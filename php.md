@@ -17,6 +17,12 @@ foreach ($arr as &$value) {
 
 Gestion de cadenas
 ```
+//Remplazar ocurrencias de una cadena por otra cadena
+$resultado = str_replace("texto a remplazar", "texto remplazador", "texto original");
+
+//Obtener un pedazo de una cadena
+$resultado = substr( "texto original" , 0, 4); //retorna "texto"
+
 //convertir un arreglo en un string
 $array = array('apellido', 'email', 'telefono');
 $comma_separated = implode(",", $array);//apellido,email,telefono
