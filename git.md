@@ -36,6 +36,8 @@ Ver el historial gráficamente
   $git log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
 Ver el historial de un archivo
   $git log /ruta/archivo
+Ver el historial de un usuario
+  $git log --author="vacho"
 
 Juntar una rama al master
   $ git checkout master
