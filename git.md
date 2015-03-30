@@ -50,4 +50,20 @@ Ver aportes de líneas a un archivo
   
 Ver cambios en un archivo
   $ git diff /ruta/archivo
+
+```  
+Trabajar como fork de un repositorio y actualizar
+===
+```
+# Añadir repositorio remoto, llamarlo "upstream":
+git remote add upstream https://github.com/whoever/whatever.git
+
+# Extraer todos los branchs
+git fetch upstream
+
+# Estar seguro de que se está en el branch master
+git checkout master
+
+# Reescribir todos los commits
+git rebase upstream/master
 ```
