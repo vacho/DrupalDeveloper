@@ -23,6 +23,11 @@ Crear una rama o branch nueva
   $ git commit -m "message..."
   $ git push origin crazy-experiment
 
+Cambiar de nombre una rama
+  $ git branch -m <oldname> <newname>
+  # Si estas en la rama que deseas cambiar de nombre
+  $ git branch -m <newname>
+
 Cancelar commint (antes de hacer push)
   $ git reset --hard HEAD~1
   
