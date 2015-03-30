@@ -37,4 +37,6 @@ Cambiar dueño
   $ chown usuario:grupo /ruta/carpeta
 Enlaces simbólicos
   $ ln -s /ruta/carpeta/ nombre_enlace
+Posibilitar que un archivo se ejecute desde cualquier lugar llamando desde la consola
+  $ mv archivo.ext /usr/local/bin/archivo.ext
 ```
