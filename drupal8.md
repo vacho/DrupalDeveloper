@@ -67,6 +67,17 @@ $entity->idac->entity->label();
 //obtner valor de un atributo de la entidad
 $rule->get('variable')->value
 ```
+#### Formularios
+
+```
+//Obtener todos los elementos de un form_state
+foreach ($form_state->getValues() as $key => $value) {
+      drupal_set_message($key . ': ' . $value);
+}
+//Obtener un elemento de un form_state
+$searched = $form_state->getValue('nombre_elemento_formulario');
+    
+```
 
 ENLACES Y FUENTES
 =================
