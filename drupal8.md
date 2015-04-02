@@ -67,6 +67,7 @@ $entity->idac->entity->label();
 //obtner valor de un atributo de la entidad
 $rule->get('variable')->value
 ```
+
 #### Formularios
 
 ```
