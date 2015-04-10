@@ -31,6 +31,9 @@ Asignar clave a un usuario (ejemplo al usuario root)
   SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('clave');
   SET PASSWORD FOR 'root'@'%' = PASSWORD('clave');
 
+Cambiar de clave
+  $ mysql -u user_name -p'user_password' new_password
+
 Eliminar usuario
   $ DROP USER db_user:
 
