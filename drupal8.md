@@ -79,6 +79,15 @@ foreach ($form_state->getValues() as $key => $value) {
 $searched = $form_state->getValue('nombre_elemento_formulario');
     
 ```
+### Seguridad
+```
+Permisos
+sites -> 755
+sites/default -> 755
+sites/default/files -> 775
+sites/default/settings.php -> 444
+sites/default/services.yml -> 444
+```
 
 ENLACES Y FUENTES
 =================
