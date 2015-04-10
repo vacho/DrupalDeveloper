@@ -55,6 +55,12 @@ Restaurar backup
   $ mysql --user=[uname] --password=[pwd] [db_to_restore] < [backupfile.sql]
 
 ```
+## Comandos avanzados
+```
+Eliminar varias bases de datos
+  $ mysql> SELECT CONCAT('DROP DATABASE ',schema_name,' ;') AS stmt FROM information_schema.schemata WHERE schema_name LIKE 'bdkhipu\_%' ESCAPE '\\' ORDER BY schema_name
+```
+
 Referencias
 ===
 http://www.rackspace.com/knowledge_center/article/installing-mysql-server-on-centos
