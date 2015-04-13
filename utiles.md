@@ -1,6 +1,5 @@
 Composer
 ===
-
 #### Instalar globalmente
 ```
 $ curl -sS https://getcomposer.org/installer | php
@@ -11,6 +10,7 @@ $ ln -s /usr/local/bin/composer /usr/bin/composer
 
 Console
 ===
+#### Instalar globalmente
 ```
 Primero instalar composer, luego:
 $ curl -LSs http://drupalconsole.com/installer | php
@@ -20,6 +20,7 @@ $ ln -s /usr/local/bin/drupal /usr/bin/drupal
 
 Drush para drupal 8
 ===
+#### Instalar globalmente
 ```
 Primero instalar composer, luego:
 $ composer global require drush/drush:dev-master
@@ -36,6 +37,9 @@ Referencias
 ===
 Composer
 https://getcomposer.org/doc/00-intro.md#globally
+
+Console
+https://www.drupal.org/project/console
 
 Drush
 http://docs.drush.org/en/master/install/
