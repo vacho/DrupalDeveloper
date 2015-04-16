@@ -47,14 +47,10 @@ Ver el historial de un usuario
 Mezclar una rama con el master
   $ git checkout master
   $ git merge crazy-experimient 
-  Resumido:
-  $ git merge crazy-experiment master
 
 Agregamos una rama delante del master
   $ git checkout master
   $ git rebase crazy-experimient 
-  Resumido:
-  $ git rebase crazy-experiment master
 
 Eliminar un branch
   $ git branch -D crazy-experiment
