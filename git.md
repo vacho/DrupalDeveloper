@@ -83,4 +83,5 @@ git checkout master
 git rebase upstream/master
 ```
 REFERENCIAS
+---
 https://www.atlassian.com/git/tutorials/merging-vs-rebasing/conceptual-overview
