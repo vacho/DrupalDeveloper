@@ -1,8 +1,10 @@
 PHP
 ===
-```
-Gestión de archivos
+Gestión de directorio y archivos
 
+```
+//Ruta actual del proyecto
+getcwd()
 ```
 
 Gestión de arreglos
