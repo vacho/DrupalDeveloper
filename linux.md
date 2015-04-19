@@ -40,3 +40,8 @@ Enlaces simbólicos
 Posibilitar que un archivo se ejecute desde cualquier lugar llamando desde la consola
   $ mv archivo.phar /usr/local/bin/nombre_comando
 ```
+Gestion Ubuntu
+===
+```
+Instalar .deb mediante consola
+  $sudo dpkg -i google-chrome-stable_current_i386.deb
