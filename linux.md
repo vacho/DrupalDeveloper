@@ -44,4 +44,20 @@ Gestion Ubuntu
 ===
 ```
 Instalar .deb mediante consola
-  $sudo dpkg -i google-chrome-stable_current_i386.deb
+  $ sudo dpkg -i google-chrome-stable_current_i386.deb
+  
+Trabajar con la consola en múltiples ventanas
+  $ sudo apt-get install screen
+  $ screen
+  Dividir horizontalmente
+  $ ctrl a + shift s
+  Dividir verticalmente
+  $ ctrl a + shift \
+  Cambiar de ventana
+  $ ctrl a + tab
+  Establecer misma sesión en la ventana
+  $ ctrl a + 0-9
+  Establecer nueva sesión en la ventana
+  $ ctrl a + c
+  Redimencionar la ventana
+  $ ctrl a + resize:25 
