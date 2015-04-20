@@ -60,4 +60,4 @@ Trabajar con la consola en múltiples ventanas
   Establecer nueva sesión en la ventana
   $ ctrl a + c
   Redimencionar la ventana
-  $ ctrl a + resize:25 
+  $ ctrl a :resize enter <numero_líneas>
