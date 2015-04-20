@@ -63,3 +63,8 @@ Trabajar con la consola en múltiples ventanas
   $ ctrl a :resize enter <numero_líneas>
   Remover una region
   $ ctrl+a :remove
+```
+Referencias
+===
+Screen
+http://www.pixelbeat.org/lkdb/screen.html
