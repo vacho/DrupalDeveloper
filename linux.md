@@ -61,3 +61,5 @@ Trabajar con la consola en múltiples ventanas
   $ ctrl a + c
   Redimencionar la ventana
   $ ctrl a :resize enter <numero_líneas>
+  Remover una region
+  $ ctrl+a :remove
