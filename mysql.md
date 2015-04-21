@@ -1,7 +1,7 @@
 MYSQL
 =====
 
-## Comandos básicos
+## Comandos administrativos
 ```
 Ingresar con usario y clave
   $ mysql --user=user_name --password=user_password db_name;
@@ -58,6 +58,12 @@ Restaurar backup
   $ mysql --user=[uname] --password=[pwd] [db_to_restore] < [backupfile.sql]
 
 ```
+## Comandos básicos
+```
+Eliminar todos los registros de una tabla
+  $ TRUNCATE TABLE <nombre_tabla>
+```
+
 ## Comandos avanzados
 ```
 Eliminar varias bases de datos
