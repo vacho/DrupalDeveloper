@@ -49,6 +49,14 @@ $parsed = get_string_between($fullstring, "[tag]", "[/tag]");
 
 ``` 
 
+Timestamp
+```
+$now = time() //Ahora...
+$iniDay = strtotime("midnight", $now); //inicio del día
+$endDay = strtotime("tomorrow", $iniDay) - 1; //final del día
+
+```
+
 Referencias
 ====
 
