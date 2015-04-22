@@ -83,8 +83,11 @@ $searched = $form_state->getValue('nombre_elemento_formulario');
 
 ```
 //Guardar un dato en el log (Watchdog)
-\Drupal::logger('knowledge')->notice("Corrio el cron!!!");
-\Drupal::logger('knowledge')->error("Corrio el cron!!!");
+\Drupal::logger('mi_modulo')->notice(Mi mensaje");
+\Drupal::logger('mi_modulo')->error("Mi mensaje");
+
+//Mensajes del sistema
+drupal_set_message("Mi mensaje");
 ```
 
 ### Seguridad
