@@ -79,6 +79,14 @@ foreach ($form_state->getValues() as $key => $value) {
 $searched = $form_state->getValue('nombre_elemento_formulario');
     
 ```
+#### Sentencias usuales
+
+```
+//Guardar un dato en el log (Watchdog)
+\Drupal::logger('knowledge')->notice("Corrio el cron!!!");
+\Drupal::logger('knowledge')->error("Corrio el cron!!!");
+```
+
 ### Seguridad
 ```
 Permisos
@@ -103,4 +111,5 @@ https://api.drupal.org/api/drupal/classes/8
 Hoja resumida de codigo
 http://wizzlern.nl/sites/wizzlern.nl/files/artikel/drupal8_content_entity.pdf
 
-
+Watchdow drupal 8
+https://www.drupal.org/node/2270941
