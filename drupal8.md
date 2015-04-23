@@ -82,9 +82,13 @@ $searched = $form_state->getValue('nombre_elemento_formulario');
 #### Sentencias usuales
 
 ```
-//Guardar un dato en el log (Watchdog)
+//Guardar un texti en el log (Watchdog)
 \Drupal::logger('mi_modulo')->notice(Mi mensaje");
 \Drupal::logger('mi_modulo')->error("Mi mensaje");
+
+//Acceder a las configuraciones del cron
+\Drupal::config('system.cron')->get('threshold.autorun')
+\Drupal::state()->get('system.cron_last')
 
 //Mensajes del sistema
 drupal_set_message("Mi mensaje");
