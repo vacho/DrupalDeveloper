@@ -16,6 +16,11 @@ foreach ($arr as &$value) {
 }
 
 ```
+Gestión de números
+```
+//Redondeo
+round( $my_number, 2, PHP_ROUND_HALF_UP)
+```
 
 Gestion de cadenas
 ```
