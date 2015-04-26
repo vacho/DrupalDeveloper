@@ -3,6 +3,13 @@ Administración sistema operativo
 ```
 Version sistema Operativo
   $ cat /etc/*-release
+Ver memoria utilizada
+  $ free
+  $ free -m
+
+Ver los recursos usados por el sistemma
+  $ top
+  $ htop
 ```
 
 Gestion de archivos
