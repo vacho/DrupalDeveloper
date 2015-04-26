@@ -6,10 +6,19 @@ Version sistema Operativo
 Ver memoria utilizada
   $ free
   $ free -m
-
 Ver los recursos usados por el sistemma
   $ top
   $ htop
+Ver todos los procesos
+  $ ps
+  $ pstree
+  Ejemplos:
+  $ ps -A | grep firefox
+  $ pgrep firefox
+Matar un proceso dandol el id
+  $ kill <id>
+Monitor de procesos en tiempo real: cpu, memoria, capas de red, prioridad, etc
+  $ atop
 ```
 
 Gestion de archivos
