@@ -79,17 +79,35 @@ foreach ($form_state->getValues() as $key => $value) {
 $searched = $form_state->getValue('nombre_elemento_formulario');
     
 ```
-#### Sentencias usuales
 
+#### Watchdog (log de drupal)
 ```
 //Guardar un texti en el log (Watchdog)
 \Drupal::logger('mi_modulo')->notice(Mi mensaje");
 \Drupal::logger('mi_modulo')->error("Mi mensaje");
+```
 
-//Acceder a las configuraciones del cron
+#### Configuraciones
+```
+//Cron
 \Drupal::config('system.cron')->get('threshold.autorun')
 \Drupal::state()->get('system.cron_last')
 
+//Email
+\Drupal::config('user.mail')->get('register_admin_created.subject');
+\Drupal::config('user.mail')->get('register_admin_created.body');
+
+//Escribiendo configuraciones
+$config = \Drupal::service('config.factory')->getEditable('system.performance');
+$config->set('cache.page.enabled', 1); // Set a scalar value.
+$page_cache_data = array('enabled' => 1, 'max_age' => 5); // Set an array of values.
+$config->set('cache.page', $page_cache_data);
+$config->save();
+
+```
+
+#### Comandos usuales
+```
 //Mensajes del sistema
 drupal_set_message("Mi mensaje");
 ```
