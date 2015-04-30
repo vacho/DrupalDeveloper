@@ -133,6 +133,9 @@ https://www.drupal.org/developing/api/8
 Clases de drupal 8
 https://api.drupal.org/api/drupal/classes/8
 
+Configuraciones
+https://www.drupal.org/developing/api/8/configuration
+
 Hoja resumida de codigo
 http://wizzlern.nl/sites/wizzlern.nl/files/artikel/drupal8_content_entity.pdf
 
