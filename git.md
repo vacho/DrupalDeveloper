@@ -38,11 +38,13 @@ Visualizar una rama existente
   $git checkout crazy-experiment
 
 Ver el historial gráficamente
-  $git log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
+  $ git log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
 Ver el historial de un archivo
-  $git log /ruta/archivo
+  $ git log /ruta/archivo
 Ver el historial de un usuario
-  $git log --author="vacho"
+  $ git log --author="vacho"
+Ver el historia de cada línea de codigo de un archivo
+  $ git blame /ruta/archivo
 
 Mezclar una rama con el master
   $ git checkout master
