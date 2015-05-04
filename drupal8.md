@@ -113,6 +113,15 @@ $config->save();
 drupal_set_message("Mi mensaje");
 ```
 
+#### Usuarios
+```
+//Obtener usuario actual
+$user = \Drupal::currentUser();
+//Verificar si el usuario tiene un permiso
+\Drupal::currentUser()->hasPermission("id_del_permiso")
+```
+
+
 ### Seguridad
 ```
 Permisos
