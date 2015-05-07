@@ -1,6 +1,6 @@
 DRUPAL DEVELOPER
 =================
-Este proyecto pretende ser una guía suficiente que contiene los conocimientos mínimos que debe conocer un desarrolador para trabajar con Drupal.
+Este proyecto pretende ser una guía suficiente que contiene los conocimientos mínimos que debe conocer un desarrollador para trabajar con Drupal.
 
 principios de esta guía:
 
@@ -15,7 +15,8 @@ principios de esta guía:
 * Completar mysql.
 * Crear Javascript.
 * Crear CSS.
-* Crear Linux.
+* Completar Linux.
+* Completar herramientas.
 * Crear programación Drupal 7.
 
 #### LLAMADO
