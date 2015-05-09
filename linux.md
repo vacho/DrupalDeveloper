@@ -56,6 +56,13 @@ Enlaces simbólicos
 Posibilitar que un archivo se ejecute desde cualquier lugar llamando desde la consola
   $ mv archivo.phar /usr/local/bin/nombre_comando
 ```
+Redes
+===
+```
+Lista todas las interfaces de red y su estado
+  $ rfkill list all
+```
+
 Gestion Ubuntu
 ===
 ```
