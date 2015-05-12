@@ -1,10 +1,16 @@
 PHP
 ===
-Gestión de directorio y archivos
+Gestión de rutas, directorio y archivos
 
-```
+```$_SERVER[REQUEST_URI]
 //Ruta actual del proyecto
 getcwd()
+
+//Ruta host (sin http://)
+$_SERVER[HTTP_HOST]
+
+//Ruta url despues del host
+$_SERVER[REQUEST_URI]
 ```
 
 Gestión de arreglos
