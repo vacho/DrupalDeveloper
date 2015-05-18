@@ -11,6 +11,13 @@ $_SERVER[HTTP_HOST]
 
 //Ruta url despues del host
 $_SERVER[REQUEST_URI]
+
+//Llamar una página en background
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "http://example.com/Set.cgi?Image=1");
+curl_setopt($ch, CURLOPT_HEADER, false);
+curl_exec($ch);
+curl_close($ch);
 ```
 
 Gestión de arreglos
