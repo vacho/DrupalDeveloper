@@ -67,11 +67,14 @@ $parsed = get_string_between($fullstring, "[tag]", "[/tag]");
 
 ``` 
 
-Timestamp
+Timestamp y fechas
 ```
 $now = time() //Ahora...
 $iniDay = strtotime("midnight", $now); //inicio del día
 $endDay = strtotime("tomorrow", $iniDay) - 1; //final del día
+
+//Año actual
+$year = date("Y");
 
 ```
 
