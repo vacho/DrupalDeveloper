@@ -65,6 +65,9 @@ function get_string_between($string, $start, $end){
 $fullstring = "this is my [tag]dog[/tag]";
 $parsed = get_string_between($fullstring, "[tag]", "[/tag]");
 
+//Partir una cadena en arreglo
+$pieces = explode(" ", $pizza);
+
 ``` 
 
 Timestamp y fechas
