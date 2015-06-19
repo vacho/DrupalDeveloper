@@ -28,14 +28,7 @@ $addFactor =  db_query('SELECT value FROM k_factor WHERE id = :id;', array(':id'
 //crear entidad
 $voucher =  array(
   'iden' => $_SESSION['entity']['id'],
-  'idam' => 1, //to do: set dinamic this value
-  'number' => NUll, //entity has a presave()
-  'date' => $form_state->getValue('date'),
-  'description' => $form_state->getValue('gloss'),
-  'type' => $form_state->getValue('type'),
-  'subtype' => NULL,
-  'amount' => NULL,
-  'state' => "REGISTERED",
+  'state' => 1,
   'userid' => \Drupal::currentUser()->id(),
 );
       
@@ -59,6 +52,15 @@ $entries = AccountingEntry::loadMultiple($idsEntries);
 foreach ($entries as $entrie) {
  ... hacer algo con las entidades ...
 }
+
+//Obtener entidades con tags (Busca las entidades que tienen el tag 'cats')
+$query = \Drupal::entityQuery('node')
+    ->condition('status', 1)
+    ->condition('field_tags.entity.name', 'cats');
+$nids = $query->execute();
+
+//Operadores de consulta 
+=, <, >, <=, >=, CONTAINS, 
       
 //obtener datos de entidades foraneas
 $entity->idac->target_id;
