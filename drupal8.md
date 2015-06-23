@@ -154,5 +154,8 @@ http://wizzlern.nl/sites/wizzlern.nl/files/artikel/drupal8_content_entity.pdf
 Watchdow drupal 8
 https://www.drupal.org/node/2270941
 
+Lo basico de programar en D8
+http://capgemini.github.io/drupal/drupal-8-in-2-steps/
+
 Webomelette
 http://www.webomelette.com/
