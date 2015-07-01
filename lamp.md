@@ -96,6 +96,8 @@ UBUNTU
   $ sudo apt-get install phpmyadmin
 crear enlace simbólico
   $ sudo ln -s /usr/share/phpmyadmin /var/www/html
+cambiar el tiempo maximo de session (1440 segundos por defecto)
+  Settings->Features->General->Login cookie validity
 ```
 
 Optimizar php
