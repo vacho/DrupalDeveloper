@@ -1,0 +1,8 @@
+#!/bin/bash
+
+chmod 777 -R sites/default/
+cp sites/default/default.settings.php sites/default/settings.php
+cp sites/default/default.services.yml sites/default/services.yml
+chmod 777 -R sites/default
+
+echo "Jarvis: I create settings.php, services.yml writeables"

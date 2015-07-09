@@ -1,0 +1,25 @@
+#!/bin/bash
+MHOST="$1"
+MUSER="$2"
+MPASS="$3"
+MDB="$4"
+BACKUP="$5"
+# Detect paths
+MYSQL=$(which mysql)
+AWK=$(which awk)
+GREP=$(which grep)
+if [ $# -ne 5 ]
+then
+	echo "Jarvis: Use $0 {MySQL-Database-Host} {MySQL-User-Name} {MySQL-User-Password} {MySQL-Database-Name} {Backup-file-name}"
+	echo "Jarvis: I drops all tables from a MySQL"
+	exit 1
+fi
+TABLES=$($MYSQL -h $MHOST -u $MUSER -p$MPASS $MDB -e 'show tables' | $AWK '{ print $1}' | $GREP -v '^Tables' )
+for t in $TABLES
+do
+	#echo "Deleting $t table from $MDB database..."
+	$MYSQL -h $MHOST -u $MUSER -p$MPASS $MDB -e "drop table $t"
+done
+echo "Jarvis: I delete all tables from $MDB"
+mysql --user=$MUSER --password=$MPASS $MDB < $BACKUP
+echo "Jarvis: Database $MDB restored to $BACKUP"
