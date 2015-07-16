@@ -63,6 +63,9 @@ Ver aportes de líneas a un archivo
   
 Ver cambios en un archivo
   $ git diff /ruta/archivo
+  
+Ver cambios entre 2 commits
+  $ git diff --name-only SHA1 SHA2
 
 ```  
 Trabajar como fork de un repositorio y actualizar
