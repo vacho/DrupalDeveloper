@@ -159,3 +159,6 @@ http://capgemini.github.io/drupal/drupal-8-in-2-steps/
 
 Webomelette
 http://www.webomelette.com/
+
+Event dispacher
+http://www.sitepoint.com/drupal-8-hooks-symfony-event-dispatcher/
