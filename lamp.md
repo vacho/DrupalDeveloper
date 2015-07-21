@@ -121,6 +121,8 @@ Optimizar mysql
 ```
 UBUNTU
 En /etc/mysql/my.cnf
+Fedora
+En /etc/my.cnf
   max_binlog_size = 100M
   query_cache_limit = 1M
   query_cache_size = 16M
