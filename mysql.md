@@ -1,5 +1,12 @@
 MYSQL
 =====
+## Comandos gestion
+```
+Reiniciar mysql (ubuntu)
+ $ service mysql restart  
+Reiniciar mysql (fedora)
+ $ /etc/init.d/mysqld restart  
+```
 
 ## Comandos administrativos
 ```
