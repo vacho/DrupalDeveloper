@@ -1,0 +1,26 @@
+#!/bin/bash
+MDOMAIN="$1"
+MEXT="$2"
+
+if [ $# -ne 2 ]
+then
+	echo "Jarvis: Use $0 {domain} {extension}"
+	exit 1
+fi
+
+cd /etc/apache2/sites-available/
+
+cat > $MDOMAIN.conf << EOF
+# Default
+<VirtualHost *:80>
+ServerName www.$MDOMAIN.$MEXT
+ServerAlias $MDOMAIN.$MEXT *$MDOMAIN.$MEXT
+DocumentRoot /var/www/html/$MDOMAIN
+</VirtualHost>
+EOF
+
+echo "127.0.0.1 $MDOMAIN.$MEXT www.$MDOMAIN.$MEXT" >> /etc/hosts
+
+mkdir /var/www/html/$MDOMAIN
+a2ensite $MDOMAIN.conf
+service apache2 restart
