@@ -8,6 +8,10 @@ principios de esta guía:
 * Contiene comandos y trozos de código útiles.
 * Intentar abarcar todos los conocimientos básicos que un developer Drupal debe tener.
 
+#### Jarvis
+Se trata de una colección de scripts que agilizan tareas usuales.
+* Para poder ejecutar los comandos desde cualquier ubicación desde la consola es necesario copiarlos a /usr/local/bin
+
 #### POR HACER
 
 * Completar programación Drupal 8: generación de código, módulos, formularios, entidades, servicios, bloques, etc.
