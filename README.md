@@ -11,6 +11,7 @@ principios de esta guía:
 #### Jarvis
 Se trata de una colección de scripts que agilizan tareas usuales.
 * Para poder ejecutar los comandos desde cualquier ubicación desde la consola es necesario copiarlos a /usr/local/bin
+* ojo el script debe tener permisos de ejecución
 
 #### POR HACER
 
