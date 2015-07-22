@@ -87,7 +87,17 @@ $searched = $form_state->getValue('nombre_elemento_formulario');
 //Guardar un texti en el log (Watchdog)
 \Drupal::logger('mi_modulo')->notice("Mi mensaje");
 \Drupal::logger('mi_modulo')->error("Mi mensaje");
-...
+```
+
+#### Cadenas traducibles 
+```
+drupal_set_message(
+      t("Your account has been created successfully. We have sent an email to @userEmail with login details.",
+        array(
+          '@userEmail' => $userEmail,
+        )
+      )
+    );
 ```
 
 #### Configuraciones
