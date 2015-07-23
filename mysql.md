@@ -70,7 +70,13 @@ Restaurar backup
 Eliminar todos los registros de una tabla
   $ TRUNCATE TABLE <nombre_tabla>
 ```
-
+## Estados y configuraciones de la base de datos
+```
+Ver de una tabla en específico
+  $ SHOW TABLE STATUS LIKE 'k_caeb';
+Ver de los campos de una tabla
+ $ SELECT COLUMN_NAME, TABLE_NAME, CHARACTER_SET_NAME, COLUMN_TYPE COLLATION_NAME FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = 'bdcli_octopus_technologies' AND TABLE_NAME = 'k_caeb';
+```
 ## Comandos avanzados
 ```
 Eliminar varias bases de datos
