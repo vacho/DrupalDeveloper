@@ -36,6 +36,12 @@ $entityVoucher = entity_create('k_voucher', $voucher);
 $entityVoucher->Save();
 $idVoucher = $entityVoucher->id();
 
+//Actualizar una entidad
+$configuration = Configuration::load($idConfiguration);
+$configuration->set('valuation_method', $valuationMethod);
+$configuration->set('costs_method', $costMethod);
+$configuration->save();
+
 //obtener una entidad mediante consulta
 $idsAccountPlan = \Drupal::entityQuery('k_accountplan')
 ->condition('iden', $entity, '=')
