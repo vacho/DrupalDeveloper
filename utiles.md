@@ -32,6 +32,22 @@ $ composer install
 $ drush --version
 ```
 
+Email
+===
+#### Revisar emails mandados localmente
+```
+En php.ini
+sendmail_path = /usr/bin/env catchmail -f some@from.address
+
+$ apt-get install ruby-full g++ sqlite3 libsqlite3-dev
+$ gem install mailcatcher
+$ mailcatcher
+
+mailcatcher
+Go to http://localhost:1080/
+Send mail through smtp://localhost:1025
+
+```
 
 Referencias
 ===
@@ -44,3 +60,5 @@ https://www.drupal.org/project/console
 Drush
 http://docs.drush.org/en/master/install/
 
+Maicatcher
+http://mailcatcher.me/
