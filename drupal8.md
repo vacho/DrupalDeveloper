@@ -75,6 +75,95 @@ $entity->idac->entity->label();
 //obtner valor de un atributo de la entidad
 $rule->get('variable')->value
 ```
+#### Campos de Entidades
+```
+// String
+$fields['name'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Name'))
+      ->setDescription(t('The name of the PriceFactor entity.'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 50,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -4,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => -4,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+//Decimal
+$fields['amount'] = BaseFieldDefinition::create('decimal')
+      ->setLabel(t('Amount'))
+      ->setDescription(t('The amount of the entity'));
+
+//Integer
+$fields['state'] = BaseFieldDefinition::create('integer')
+      ->setLabel(t('State'))
+      ->setDescription(t('The state of the entity'));
+//Boolean (se torna tinyint en mysql)
+$fields['state'] = BaseFieldDefinition::create('boolean')
+      ->setLabel(t('state'))
+      ->setDescription(t('The state'));
+
+//Fecha
+$fields['date'] = BaseFieldDefinition::create('timestamp')
+      ->setLabel(t('Date'))
+      ->setDescription(t('The date of the entity'));
+      
+//Text o String long
+$fields['description'] = BaseFieldDefinition::create('string_long')
+      ->setLabel(t('Description'))
+      ->setDescription(t('The description of the entity'))
+      ->setTranslatable(TRUE)
+      ->setSettings(array(
+          'default_value' => '',
+      ))
+      ->setDisplayOptions('view', array(
+          'label' => 'above',
+          'type' => 'string',
+          'weight' => 4,
+      ))
+      ->setDisplayOptions('form', array(
+          'type' => 'string',
+          'weight' => 4,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+//Referecia circular a la misma entidad
+$fields['parent'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Parent'))
+      ->setDescription(t('The ID of the parent.'))
+      ->setRevisionable(TRUE)
+      ->setSetting('target_type', 'category')
+      ->setSetting('handler', 'default')
+      // ->setDefaultValueCallback('Drupal\node\Entity\Node::getCurrentUserId')
+      ->setTranslatable(TRUE)
+      ->setDisplayOptions('view', array(
+      		'label' => 'hidden',
+      		'type' => 'category',
+      		'weight' => -5,
+      ))
+      ->setDisplayOptions('form', array(
+      		'type' => 'entity_reference_autocomplete',
+      		'weight' => -5,
+      		'settings' => array(
+      				'match_operator' => 'CONTAINS',
+      				'size' => '60',
+      				'autocomplete_type' => 'tags',
+      				'placeholder' => '',
+      		),
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+```
 
 #### Formularios
 
