@@ -200,6 +200,14 @@ $form['payment'] = array(
   ),
   '#default_value' => 'CASH',
 );
+// Radios
+$active = array(1 => t('Yes'), 0 => t('No'));
+$form['typepurchase'] = array(
+  '#type' => 'radios',
+  '#title' => t('This purchases will be in the inventory of merchandise:'),
+  '#default_value' => 1,
+  '#options' => $active
+);
 
 ```
 
