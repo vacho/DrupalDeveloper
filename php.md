@@ -28,6 +28,14 @@ foreach ($arr as &$value) {
     $value = $value * 2;
 }
 
+//Agregar elementos en un array asociativo
+$options = array();
+foreach ($stores as $store) {
+  $options = $options + array(
+    $store->getId() => $store->getName(),
+  );
+}
+
 ```
 Gestión de números
 ```
