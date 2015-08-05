@@ -177,6 +177,33 @@ $searched = $form_state->getValue('nombre_elemento_formulario');
     
 ```
 
+#### Campos de Entidades
+```
+// textfield
+$form['filters']['products'] = array(
+      '#type' => 'textfield',
+      '#placeholder' => '_' . t('Item'),
+      '#autocomplete_route_name' => 'k_product.active.autocomplete',
+      '#prefix' => '<div id="row1">',
+      '#weight' => 11,
+    );
+// Select 
+$form['payment'] = array(
+  '#type' => 'select',
+  '#attributes' => array(
+    'title' => t('Payment Method')
+  ),
+  '#options' => array(
+    'CASH' => t('Cash'),
+    'CHECK' => t('Check'),
+    'TRANSFER' => t('Wire Transfer')
+  ),
+  '#default_value' => 'CASH',
+);
+
+```
+
+
 #### Watchdog (log de drupal)
 ```
 //Guardar un texti en el log (Watchdog)
