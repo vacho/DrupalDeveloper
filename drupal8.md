@@ -230,6 +230,12 @@ drupal_set_message(
     );
 ```
 
+#### Fechas
+```
+// Convertir una fecha a un formato de la isntancia Drupal
+format_date($rowKardex->getDate(), 'khipu_short');
+```
+
 #### Configuraciones
 ```
 //Cron
