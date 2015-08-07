@@ -87,6 +87,9 @@ $endDay = strtotime("tomorrow", $iniDay) - 1; //final del día
 //Año actual
 $year = date("Y");
 
+//Convertir timestamp a Date
+date('m/d/Y', 1299446702);
+
 ```
 
 Referencias
