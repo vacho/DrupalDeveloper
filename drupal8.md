@@ -180,7 +180,7 @@ $searched = $form_state->getValue('nombre_elemento_formulario');
 #### Campos de formularios
 ```
 // Textfield
-$form['filters']['products'] = array(
+$form['products'] = array(
   '#type' => 'textfield',
   '#placeholder' => '_' . t('Item'),
   '#autocomplete_route_name' => 'k_product.active.autocomplete',
@@ -193,6 +193,14 @@ $form['date'] = array(
   '#type' => 'date',
   '#default_value' => $year . "-" . $month . "-" . $day,
   '#weight' => 13,
+);
+
+// Textfield con autocompletado
+$form['products'] = array(
+  '#type' => 'textfield',
+  '#placeholder' => '_' . t('Item'),
+  '#autocomplete_route_name' => 'k_product.active.autocomplete',
+  '#weight' => 17,
 );
 
 // Datetime
