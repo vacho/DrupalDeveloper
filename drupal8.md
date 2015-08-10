@@ -179,14 +179,35 @@ $searched = $form_state->getValue('nombre_elemento_formulario');
 
 #### Campos de formularios
 ```
-// textfield
+// Textfield
 $form['filters']['products'] = array(
-      '#type' => 'textfield',
-      '#placeholder' => '_' . t('Item'),
-      '#autocomplete_route_name' => 'k_product.active.autocomplete',
-      '#prefix' => '<div id="row1">',
-      '#weight' => 11,
-    );
+  '#type' => 'textfield',
+  '#placeholder' => '_' . t('Item'),
+  '#autocomplete_route_name' => 'k_product.active.autocomplete',
+  '#prefix' => '<div id="row1">',
+  '#weight' => 11,
+);
+
+// Date
+$form['date'] = array(
+  '#type' => 'date',
+  '#default_value' => $year . "-" . $month . "-" . $day,
+  '#weight' => 13,
+);
+
+// Datetime
+$form['date_validity'] = array(
+  '#type' => 'datetime',
+  '#date_date_element' => 'date',
+  '#date_time_element' => 'time',
+  '#required' => TRUE,
+  '#default_value' => "",
+  '#attributes' => array(
+    'placeholder' => '_' . t('Validity date'),
+   ),
+  '#weight' => 15,
+);
+
 // Select 
 $form['payment'] = array(
   '#type' => 'select',
