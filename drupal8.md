@@ -177,7 +177,7 @@ $searched = $form_state->getValue('nombre_elemento_formulario');
     
 ```
 
-#### Campos de Entidades
+#### Campos de formularios
 ```
 // textfield
 $form['filters']['products'] = array(
