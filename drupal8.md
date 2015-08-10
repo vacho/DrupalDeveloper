@@ -229,6 +229,7 @@ $form['payment'] = array(
   ),
   '#default_value' => 'CASH',
 );
+
 // Radios
 $active = array(1 => t('Yes'), 0 => t('No'));
 $form['typepurchase'] = array(
@@ -237,6 +238,30 @@ $form['typepurchase'] = array(
   '#default_value' => 1,
   '#options' => $active
 );
+
+// Button
+$form['minus'] = array(
+  '#type' => "button",
+  '#value' => "-",
+  '#attributes' => array(
+    'class' => array('addOperator'),
+  ),
+  '#weight' => 97,
+);
+
+// Textfield
+$form['shortDescription'] = array(
+  '#type' => 'textfield',
+  '#default_value' => $shortDescription,
+  '#size' => 90,
+  '#maxlength' => 90,
+  '#attributes' => array(
+    'placeholder' => '_' . t('Short Description'),
+  ),
+  '#weight' => 1000,
+);
+
+// 
 
 ```
 
