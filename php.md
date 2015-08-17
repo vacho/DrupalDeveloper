@@ -94,4 +94,5 @@ date('m/d/Y', 1299446702);
 
 Referencias
 ====
-
+Programación orientada a objetos
+http://www.startutorial.com/homes/oo_beginner
