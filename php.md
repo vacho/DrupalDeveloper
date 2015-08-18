@@ -90,6 +90,12 @@ $year = date("Y");
 //Convertir timestamp a Date
 date('m/d/Y', 1299446702);
 
+//Convertir Date a timestamp
+strtotime($time);
+
+//Aumentar n(30) días a una fecha
+$date = date('Y-m-d H:i:s', strtotime($date. ' + 30 days'));
+
 ```
 
 Referencias
