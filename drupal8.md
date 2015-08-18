@@ -179,15 +179,6 @@ $searched = $form_state->getValue('nombre_elemento_formulario');
 
 #### Campos de formularios
 ```
-// Textfield
-$form['products'] = array(
-  '#type' => 'textfield',
-  '#placeholder' => '_' . t('Item'),
-  '#autocomplete_route_name' => 'k_product.active.autocomplete',
-  '#prefix' => '<div id="row1">',
-  '#weight' => 11,
-);
-
 // Date
 $form['date'] = array(
   '#type' => 'date',
@@ -261,10 +252,14 @@ $form['shortDescription'] = array(
   '#weight' => 1000,
 );
 
-// 
-
+// Textarea
+$form['pr']['obs'] = array(
+  '#type' => 'textarea',
+  '#placeholder' => '_' . t('Observation'),
+  '#attributes' => array('title' => t('Observation')),
+  '#suffix' => '</div>',
+);
 ```
-
 
 #### Watchdog (log de drupal)
 ```
