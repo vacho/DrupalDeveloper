@@ -98,6 +98,16 @@ $date = date('Y-m-d H:i:s', strtotime($date. ' + 30 days'));
 
 ```
 
+Javascript
+```
+//Codificar un arreglo php para ser rescatado desde js
+$arrayEncodedToJs = json_encode($array);
+
+//Recuperar en un arreglo de php un arreglo js codificado
+$arrayDecodedFromJs = json_decode($array);
+
+```
+
 Referencias
 ====
 Programación orientada a objetos
