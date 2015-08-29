@@ -66,7 +66,9 @@ $query = \Drupal::entityQuery('node')
 $nids = $query->execute();
 
 //Operadores de consulta 
-=, <, >, <=, >=, CONTAINS, 
+'=', '<>', '>', '>=', '<', '<=', 'STARTS_WITH', 'CONTAINS', 'ENDS_WITH'
+'IN', 'NOT IN': Esperan un $value en un array de textos del mismo tipo del campo.
+'BETWEEN': Espera un $value en un array de 2 literales del mismo tipo del campo.
       
 //obtener datos de entidades foraneas
 $entity->idac->target_id;
@@ -380,3 +382,8 @@ http://www.webomelette.com/
 
 Event dispacher
 http://www.sitepoint.com/drupal-8-hooks-symfony-event-dispatcher/
+
+Entity query
+https://api.drupal.org/api/drupal/core!lib!Drupal!Core!Entity!Query!QueryInterface.php/function/QueryInterface%3A%3Acondition/8
+
+
