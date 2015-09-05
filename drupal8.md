@@ -343,6 +343,13 @@ $user = \Drupal::currentUser();
 \Drupal::currentUser()->hasPermission("id_del_permiso")
 ```
 
+#### Redireccionamiento
+```
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+$response = new RedirectResponse("quotation?id=" . $idQuotationClient);
+$response->send();
+```
 
 ### Seguridad
 ```
