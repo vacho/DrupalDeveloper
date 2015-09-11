@@ -31,10 +31,13 @@ $voucher =  array(
   'state' => 1,
   'userid' => \Drupal::currentUser()->id(),
 );
-      
 $entityVoucher = entity_create('k_voucher', $voucher);
 $entityVoucher->Save();
 $idVoucher = $entityVoucher->id();
+
+//Eliminar entidad
+$entityDelete = NombreEntidad::load($idDelete);
+$entityDelete->delete();
 
 //Actualizar una entidad
 $configuration = Configuration::load($idConfiguration);
