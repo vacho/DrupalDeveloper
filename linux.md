@@ -26,6 +26,8 @@ Gestion de archivos
 ```
 Descomprimir tar.gz
   $ tar -xzvf nombre_archivo.tar.gz
+Comprimir tar.gz
+  $ tar -zcvf nombre_archivo.tar.gz nombre_carpeta
 Accesos carpeta
   $ cd carpeta
   $ cd ..
