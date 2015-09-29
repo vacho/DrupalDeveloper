@@ -90,10 +90,11 @@ Montar repositorio para trabajar en remoto
 # En la carpeta a versionar:
 $ git init
 $ git add .
+$ git commit -m "inicio"
 $ git config receive.denyCurrentBranch ignore
 
 # Para clonar
-$ git clone ssh://nombre_cuenta@IP_servidor:puerto/ruta_a_la_carpeta
+$ git clone ssh://nombre_cuenta@ip_servidor:puerto/ruta_a_la_carpeta
 
 ```
 
