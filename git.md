@@ -89,9 +89,24 @@ Montar repositorio para trabajar en remoto
 ```
 # En la carpeta a versionar:
 $ git init
+
+//habilitamos la posibilidad de hacer push
+$ git config receive.denyCurrentBranch ignore
+
+//Git manejará los finales de línea linux-windows
+$ git config --global core.autocrlf true
+$ git config --global core.whitespace cr-at-eol
+
 $ git add .
 $ git commit -m "inicio"
-$ git config receive.denyCurrentBranch ignore
+$ git checkout -f
+
+// Evitar hacer git checkout -f todo el tiempo
+$ cd .git/hooks
+$ vim post-receive
+// Colocar las siguientes 2 líneas
+#!/bin/sh
+GIT_WORK_TREE=../ git checkout -f
 
 # Para clonar
 $ git clone ssh://nombre_cuenta@ip_servidor:puerto/ruta_a_la_carpeta
@@ -101,3 +116,5 @@ $ git clone ssh://nombre_cuenta@ip_servidor:puerto/ruta_a_la_carpeta
 REFERENCIAS
 ---
 https://www.atlassian.com/git/tutorials/merging-vs-rebasing/conceptual-overview
+Hostgator
+http://www.codigogratis.com.ar/como-utilizar-git-con-hostgator/
