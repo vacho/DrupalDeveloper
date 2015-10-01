@@ -67,6 +67,9 @@ Ver cambios en un archivo
 Ver cambios entre 2 commits
   $ git diff --name-only SHA1 SHA2
 
+Aplicar los cambios de un determinado commit
+  $ git cherry-pick <codigo del commit>
+
 ```  
 Trabajar como fork de un repositorio y actualizar
 ===
