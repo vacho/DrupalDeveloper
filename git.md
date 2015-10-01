@@ -120,8 +120,6 @@ Ignorar archivos de un repositorio
 ```
 // Crear un .gitignore  con la ruta relativa a las carpetas o archivos a omitir
 $ git rm -r --cached .
-$ git commit -am "actualizamos .gitignore"
-$ git status
 $ git add .
 $ git commit -m "reiciniamos git"
 ```
