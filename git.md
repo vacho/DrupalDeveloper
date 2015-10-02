@@ -110,6 +110,7 @@ $ vim post-receive
 // Colocar las siguientes 2 líneas
 #!/bin/sh
 GIT_WORK_TREE=../ git checkout -f
+$ chmod +x post-receive
 
 # Para clonar
 $ git clone ssh://nombre_cuenta@ip_servidor:puerto/ruta_a_la_carpeta
