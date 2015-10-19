@@ -28,9 +28,9 @@ Cambiar de nombre una rama
   # Si estas en la rama que deseas cambiar de nombre
   $ git branch -m <newname>
 
-Cancelar commint (antes de hacer push)
+Cancelar commit (antes de hacer push)
   $ git reset --hard HEAD~1
-  
+
 Ver cambios de un commit
   $ git show <id_commit>
 
@@ -48,11 +48,11 @@ Ver el historia de cada línea de codigo de un archivo
 
 Mezclar una rama con el master
   $ git checkout master
-  $ git merge crazy-experimient 
+  $ git merge crazy-experimient
 
 Agregamos una rama delante del master
   $ git checkout master
-  $ git rebase crazy-experimient 
+  $ git rebase crazy-experimient
 
 Eliminar un branch
   $ git branch -D crazy-experiment
@@ -60,17 +60,25 @@ Eliminar un branch
 
 Ver aportes de líneas a un archivo
   $ git blame /ruta/archivo
-  
+
 Ver cambios en un archivo
   $ git diff /ruta/archivo
-  
+
 Ver cambios entre 2 commits
   $ git diff --name-only SHA1 SHA2
 
 Aplicar los cambios de un determinado commit
   $ git cherry-pick <codigo del commit>
 
-```  
+Arreglar el último commit en lugar de un nuevo commit
+  # editamos hola.py y main.py
+  $ git add hola.py
+  $ git commit
+  # añadir los cambios de main.py en el último commit
+  $ git add main.py
+  $ git commit --amend --no-edit
+
+```
 Trabajar como fork de un repositorio y actualizar
 ===
 ```
