@@ -36,6 +36,16 @@ foreach ($stores as $store) {
   );
 }
 
+//Array de arrays asociativos
+$eventsTaron[] = array(
+  'id' => $idEvent,
+  'city' => $event['city_name'],
+  'country' => $event['country_name'],
+  'place' => $place,
+  'product_type' => $productType,
+  'date' => $event['event_date'],
+);
+
 ```
 Gestión de números
 ```
