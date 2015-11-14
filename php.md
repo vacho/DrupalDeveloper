@@ -53,6 +53,13 @@ Gestión de números
 round( $my_number, 2, PHP_ROUND_HALF_UP)
 ```
 
+Gestión de objetos
+```
+//Clonando un objeto
+$dateEvent = $event->getInitTime();
+$deadline = clone $dateEvent;
+```
+
 Gestion de cadenas
 ```
 //Remplazar ocurrencias de una cadena por otra cadena
