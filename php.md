@@ -114,7 +114,11 @@ strtotime($time);
 $date = date('Y-m-d H:i:s', strtotime($date. ' + 30 days'));
 
 ```
-
+Errores
+```
+// escribir en el log de errores de apache
+error_log("Pablito clavo un clavito...!", 0);
+```
 Javascript
 ```
 //Codificar un arreglo php para ser rescatado desde js
