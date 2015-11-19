@@ -133,3 +133,5 @@ Referencias
 ====
 Programación orientada a objetos
 http://www.startutorial.com/homes/oo_beginner
+Buena guía de curl (ingles)
+http://codular.com/curl-with-php
