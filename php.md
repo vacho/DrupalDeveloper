@@ -128,6 +128,29 @@ $arrayEncodedToJs = json_encode($array);
 $arrayDecodedFromJs = json_decode($array);
 
 ```
+Google API
+```
+//Librería oficial
+https://developers.google.com/api-client-library/php/
+
+//Repositorio
+https://github.com/google/google-api-php-client
+
+//Lista de apis
+https://www.googleapis.com/discovery/v1/apis?fields=items(title,discoveryLink)
+
+//Lista de scopes de una api (ejemplo Calendar API)
+https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest?fields=auth(oauth2(scopes))
+
+//Buen post
+http://googleappsdeveloper.blogspot.com.es/2012/01/tips-on-using-apis-discovery-service.html
+
+//Recuperar en un arreglo de php un arreglo js codificado
+$arrayDecodedFromJs = json_decode($array);
+
+```
+
+
 
 Referencias
 ====
