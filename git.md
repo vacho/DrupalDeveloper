@@ -28,9 +28,12 @@ Cambiar de nombre una rama
   # Si estas en la rama que deseas cambiar de nombre
   $ git branch -m <newname>
 
-Cancelar commint (antes de hacer push)
+Retrocedemos al último commit y perdemos todos los cambios hechos.
   $ git reset --hard HEAD~1
   
+Retrocedemos a el último commit y no perdemos los cambiosn hechos; apareceran pendientes de hace commit
+  $ git reset --soft HEAD~1
+
 Ver cambios de un commit
   $ git show <id_commit>
 
