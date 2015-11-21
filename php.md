@@ -145,8 +145,8 @@ https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest?fields=auth(oauth2
 //Buen post
 http://googleappsdeveloper.blogspot.com.es/2012/01/tips-on-using-apis-discovery-service.html
 
-//Recuperar en un arreglo de php un arreglo js codificado
-$arrayDecodedFromJs = json_decode($array);
+//Guia completa del API de google
+https://developers.google.com/google-apps/products
 
 ```
 
