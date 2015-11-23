@@ -113,6 +113,17 @@ strtotime($time);
 //Aumentar n(30) días a una fecha
 $date = date('Y-m-d H:i:s', strtotime($date. ' + 30 days'));
 
+//Zona horaria Ej: America/La_paz
+date_default_timezone_get()
+
+//UTC
+$dec =  floatval(date('Z'));
+$seconds = $dec;
+$hours = intval($dec/3600);
+$seconds -= $hours * 3600;
+$minutes = floor($seconds / 60);
+$utc = $this->getHours($hours).":".$this->getMins($minutes);
+
 ```
 Errores
 ```
