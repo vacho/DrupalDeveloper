@@ -58,6 +58,10 @@ Gestión de objetos
 //Clonando un objeto
 $dateEvent = $event->getInitTime();
 $deadline = clone $dateEvent;
+
+//Si un objeto es de cierto tipo
+if ($questionAnswer instanceof Question)
+...
 ```
 
 Gestion de cadenas
