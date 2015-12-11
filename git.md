@@ -40,6 +40,9 @@ Retrocedemos al último commit y perdemos todos los cambios hechos.
 Retrocedemos a el último commit y no perdemos los cambiosn hechos; apareceran pendientes de hace commit
   $ git reset --soft HEAD~1
 
+Cancelar commit (antes de hacer push)
+  $ git reset --hard HEAD~1
+
 Ver cambios de un commit
   $ git show <id_commit>
 
@@ -48,20 +51,23 @@ Visualizar una rama existente
 
 Ver el historial gráficamente
   $ git log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
+
 Ver el historial de un archivo
   $ git log /ruta/archivo
+
 Ver el historial de un usuario
   $ git log --author="vacho"
+
 Ver el historia de cada línea de codigo de un archivo
   $ git blame /ruta/archivo
 
 Mezclar una rama con el master
   $ git checkout master
-  $ git merge crazy-experimient 
+  $ git merge crazy-experimient
 
 Agregamos una rama delante del master
   $ git checkout master
-  $ git rebase crazy-experimient 
+  $ git rebase crazy-experimient
 
 Eliminar un branch
   $ git branch -D crazy-experiment
@@ -69,17 +75,25 @@ Eliminar un branch
 
 Ver aportes de líneas a un archivo
   $ git blame /ruta/archivo
-  
+
 Ver cambios en un archivo
   $ git diff /ruta/archivo
-  
+
 Ver cambios entre 2 commits
   $ git diff --name-only SHA1 SHA2
 
 Aplicar los cambios de un determinado commit
   $ git cherry-pick <codigo del commit>
 
-```  
+Arreglar el último commit en lugar de un nuevo commit
+  # editamos hola.py y main.py
+  $ git add hola.py
+  $ git commit
+  # añadir los cambios de main.py en el último commit
+  $ git add main.py
+  $ git commit --amend --no-edit
+
+```
 Trabajar como fork de un repositorio y actualizar
 ===
 ```
