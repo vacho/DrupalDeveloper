@@ -15,6 +15,9 @@ Configuración de usuario
 Generar las llaves pública y privada
   $ ssh-keygen -t rsa -C usuario@correo.com
 
+Perder todos los cambios que no fueron commiteados
+  $ git checkout -f
+
 Crear una rama o branch nueva
   $ git branch crazy-experiment
   $ git checkout crazy-experiment
