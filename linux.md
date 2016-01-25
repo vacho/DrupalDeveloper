@@ -19,6 +19,11 @@ Matar un proceso dandol el id
   $ kill <id>
 Monitor de procesos en tiempo real: cpu, memoria, capas de red, prioridad, etc
   $ atop
+muestra el tamaño aprox. en GB
+  $ df -h 
+muestra el tamaño aprox. en nodos
+  $ df -i
+
 ```
 
 Gestion de archivos
@@ -26,10 +31,8 @@ Gestion de archivos
 ```
 Ver el peso de una carpeta/archivo recursivamente
   $ du -sh dir
-muestra el tamaño aprox. en GB
-  $ df -h 
-muestra el tamaño aprox. en nodos
-  $ df -i 
+Calcula el tamaño real de los directorios
+  $ du -h --max-depth=1
 Descomprimir tar.gz
   $ tar -xzvf nombre_archivo.tar.gz
 Comprimir tar.gz
