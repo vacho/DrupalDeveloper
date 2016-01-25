@@ -24,6 +24,12 @@ Monitor de procesos en tiempo real: cpu, memoria, capas de red, prioridad, etc
 Gestion de archivos
 ===
 ```
+Ver el peso de una carpeta/archivo recursivamente
+  $ du -sh dir
+muestra el tamaño aprox. en GB
+  $ df -h 
+muestra el tamaño aprox. en nodos
+  $ df -i 
 Descomprimir tar.gz
   $ tar -xzvf nombre_archivo.tar.gz
 Comprimir tar.gz
