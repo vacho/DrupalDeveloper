@@ -106,3 +106,6 @@ Referencias
 ===
 Screen
 http://www.pixelbeat.org/lkdb/screen.html
+Corregir los permisos de los archivos
+http://boomshadow.net/tech/fixes/fixperms-script/
+https://forums.cpanel.net/threads/fix-permissions-in-accounts.73414/
