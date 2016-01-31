@@ -30,7 +30,7 @@ Gestion de archivos
 ===
 ```
 Ver el peso de una carpeta/archivo recursivamente
-  $ du -sh dir
+  $ du -sh nombre_carpeta
 Calcula el tamaño real de los directorios
   $ du -h --max-depth=1
 Descomprimir tar.gz
