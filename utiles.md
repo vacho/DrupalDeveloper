@@ -15,6 +15,7 @@ Console
 Primero instalar composer, luego:
 $ curl https://drupalconsole.com/installer -L -o drupal.phar
 $ mv drupal.phar /usr/local/bin/drupal
+$ chmod +x /usr/local/bin/drupal
 $ ln -s /usr/local/bin/drupal /usr/bin/drupal
 ```
 
