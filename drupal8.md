@@ -400,4 +400,7 @@ http://www.sitepoint.com/drupal-8-hooks-symfony-event-dispatcher/
 Entity query
 https://api.drupal.org/api/drupal/core!lib!Drupal!Core!Entity!Query!QueryInterface.php/function/QueryInterface%3A%3Acondition/8
 
+Entidades
+http://talks.shawnduncan.org/entity_talk/#/overview
 
+http://talks.shawnduncan.org/entity_talk/images/Entity.svg
