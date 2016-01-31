@@ -32,6 +32,13 @@ $ composer install
 $ drush --version
 ```
 
+#### Tareas administrativas
+```
+Actualizar el core (probado con Drupal 7)
+$ drush rf
+$ drush up drupal
+```
+
 Email
 ===
 #### Revisar emails mandados localmente
