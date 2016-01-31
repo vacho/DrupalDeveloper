@@ -13,7 +13,7 @@ Console
 #### Instalar globalmente
 ```
 Primero instalar composer, luego:
-$ curl -LSs http://drupalconsole.com/installer | php
+$ curl https://drupalconsole.com/installer -L -o drupal.phar
 $ mv console.phar /usr/local/bin/drupal
 $ ln -s /usr/local/bin/drupal /usr/bin/drupal
 ```
