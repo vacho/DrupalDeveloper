@@ -404,3 +404,6 @@ Entidades
 http://talks.shawnduncan.org/entity_talk/#/overview
 
 http://talks.shawnduncan.org/entity_talk/images/Entity.svg
+
+Recurso sobre entidades
+http://shawnduncan.org/entities-core-custom
