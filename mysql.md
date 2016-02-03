@@ -15,8 +15,9 @@ Ingresar con usario y clave
   V
   $ mysql -u user_name -puser_password db_name;
 
-Mostrar bases de datos
+Mostrar bases de datos y tablas
   $ SHOW databases;
+  $ SHOW tables;
 
 Crear bases de datos
   $ CREATE database db_name;
