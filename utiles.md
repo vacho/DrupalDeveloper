@@ -70,3 +70,7 @@ http://docs.drush.org/en/master/install/
 
 Maicatcher
 http://mailcatcher.me/
+
+Fish: Mejora la consola
+https://fishshell.com/docs/current/tutorial.html
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-the-fish-shell-on-an-ubuntu-vps
