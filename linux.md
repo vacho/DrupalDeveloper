@@ -93,6 +93,23 @@ Trabajar con la consola en múltiples ventanas
   Remover una region
   $ ctrl+a :remove
 ```
+
+Buscar y reemplazar
+===
+```
+Buscar archivos por patrón de nombre:
+  $ find /path -type f -iname '*name*'
+Buscar directorios por patrón de nombre:
+  $ find /path -type d -iname '*name*'
+
+Buscar recursivamente por debajo de directorio actual dentro de archivos por patrón:
+  $ grep -rie 'bank'
+
+Buscar archivos por nombre y reemplazar por otra palabra (tener cuidado, probar antes comando anterior):
+  $ find /path -type f -exec sed -i 's/bank/Bank/g' {} \;
+
+```
+
 Referencias
 ===
 Screen
