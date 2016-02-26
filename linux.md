@@ -19,11 +19,20 @@ Matar un proceso dandol el id
   $ kill <id>
 Monitor de procesos en tiempo real: cpu, memoria, capas de red, prioridad, etc
   $ atop
+muestra el tamaño aprox. en GB
+  $ df -h 
+muestra el tamaño aprox. en nodos
+  $ df -i
+
 ```
 
 Gestion de archivos
 ===
 ```
+Ver el peso de una carpeta/archivo recursivamente
+  $ du -sh nombre_carpeta
+Calcula el tamaño real de los directorios
+  $ du -h --max-depth=1
 Descomprimir tar.gz
   $ tar -xzvf nombre_archivo.tar.gz
 Comprimir tar.gz
@@ -114,3 +123,6 @@ Referencias
 ===
 Screen
 http://www.pixelbeat.org/lkdb/screen.html
+Corregir los permisos de los archivos
+http://boomshadow.net/tech/fixes/fixperms-script/
+https://forums.cpanel.net/threads/fix-permissions-in-accounts.73414/

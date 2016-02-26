@@ -11,9 +11,13 @@ Configuración de usuario
   $ git config --global user.name usuario
   $ git config --global user.email usuario@correo.com
   $ git config --global core.editor emacs
+  $ git config --list
 
 Generar las llaves pública y privada
   $ ssh-keygen -t rsa -C usuario@correo.com
+
+Perder todos los cambios que no fueron commiteados
+  $ git checkout -f
 
 Crear una rama o branch nueva
   $ git branch crazy-experiment
@@ -23,10 +27,22 @@ Crear una rama o branch nueva
   $ git commit -m "message..."
   $ git push origin crazy-experiment
 
+Agregar y Quitar archivos (Equivalente git add, git rm juntos)
+  $ git add -u
+  
+Quitar archivos
+  $ git rm
+
 Cambiar de nombre una rama
   $ git branch -m <oldname> <newname>
   # Si estas en la rama que deseas cambiar de nombre
   $ git branch -m <newname>
+
+Retrocedemos al último commit y perdemos todos los cambios hechos.
+  $ git reset --hard HEAD~1
+  
+Retrocedemos a el último commit y no perdemos los cambiosn hechos; apareceran pendientes de hace commit
+  $ git reset --soft HEAD~1
 
 Cancelar commit (antes de hacer push)
   $ git reset --hard HEAD~1
@@ -39,10 +55,13 @@ Visualizar una rama existente
 
 Ver el historial gráficamente
   $ git log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
+
 Ver el historial de un archivo
   $ git log /ruta/archivo
+
 Ver el historial de un usuario
   $ git log --author="vacho"
+
 Ver el historia de cada línea de codigo de un archivo
   $ git blame /ruta/archivo
 

@@ -13,8 +13,9 @@ Console
 #### Instalar globalmente
 ```
 Primero instalar composer, luego:
-$ curl -LSs http://drupalconsole.com/installer | php
-$ mv console.phar /usr/local/bin/drupal
+$ curl https://drupalconsole.com/installer -L -o drupal.phar
+$ mv drupal.phar /usr/local/bin/drupal
+$ chmod +x /usr/local/bin/drupal
 $ ln -s /usr/local/bin/drupal /usr/bin/drupal
 ```
 
@@ -30,6 +31,13 @@ $ git checkout master-fulltest  #or whatever version you want.
 $ ln -s /usr/local/src/drush/drush /usr/bin/drush
 $ composer install
 $ drush --version
+```
+
+#### Tareas administrativas
+```
+Actualizar el core (probado con Drupal 7)
+$ drush rf
+$ drush up drupal
 ```
 
 Email
@@ -62,3 +70,7 @@ http://docs.drush.org/en/master/install/
 
 Maicatcher
 http://mailcatcher.me/
+
+Fish: Mejora la consola
+https://fishshell.com/docs/current/tutorial.html
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-the-fish-shell-on-an-ubuntu-vps

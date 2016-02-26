@@ -36,11 +36,32 @@ foreach ($stores as $store) {
   );
 }
 
+//Array de arrays asociativos
+$eventsTaron[] = array(
+  'id' => $idEvent,
+  'city' => $event['city_name'],
+  'country' => $event['country_name'],
+  'place' => $place,
+  'product_type' => $productType,
+  'date' => $event['event_date'],
+);
+
 ```
 Gestión de números
 ```
 //Redondeo
 round( $my_number, 2, PHP_ROUND_HALF_UP)
+```
+
+Gestión de objetos
+```
+//Clonando un objeto
+$dateEvent = $event->getInitTime();
+$deadline = clone $dateEvent;
+
+//Si un objeto es de cierto tipo
+if ($questionAnswer instanceof Question)
+...
 ```
 
 Gestion de cadenas
@@ -96,8 +117,23 @@ strtotime($time);
 //Aumentar n(30) días a una fecha
 $date = date('Y-m-d H:i:s', strtotime($date. ' + 30 days'));
 
-```
+//Zona horaria Ej: America/La_paz
+date_default_timezone_get()
 
+//UTC
+$dec =  floatval(date('Z'));
+$seconds = $dec;
+$hours = intval($dec/3600);
+$seconds -= $hours * 3600;
+$minutes = floor($seconds / 60);
+$utc = $this->getHours($hours).":".$this->getMins($minutes);
+
+```
+Errores
+```
+// escribir en el log de errores de apache
+error_log("Pablito clavo un clavito...!", 0);
+```
 Javascript
 ```
 //Codificar un arreglo php para ser rescatado desde js
@@ -107,8 +143,33 @@ $arrayEncodedToJs = json_encode($array);
 $arrayDecodedFromJs = json_decode($array);
 
 ```
+Google API
+```
+//Librería oficial
+https://developers.google.com/api-client-library/php/
+
+//Repositorio
+https://github.com/google/google-api-php-client
+
+//Lista de apis
+https://www.googleapis.com/discovery/v1/apis?fields=items(title,discoveryLink)
+
+//Lista de scopes de una api (ejemplo Calendar API)
+https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest?fields=auth(oauth2(scopes))
+
+//Buen post
+http://googleappsdeveloper.blogspot.com.es/2012/01/tips-on-using-apis-discovery-service.html
+
+//Guia completa del API de google
+https://developers.google.com/google-apps/products
+
+```
+
+
 
 Referencias
 ====
 Programación orientada a objetos
 http://www.startutorial.com/homes/oo_beginner
+Buena guía de curl (ingles)
+http://codular.com/curl-with-php
