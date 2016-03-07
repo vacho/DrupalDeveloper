@@ -1,5 +1,26 @@
 CONSOLE
 ========
+Composer (pre-requisito)
+===
+#### Instalar globalmente
+```
+$ curl -sS https://getcomposer.org/installer | php
+$ mv composer.phar /usr/local/bin/composer
+Para fedora, aws EC2
+$ ln -s /usr/local/bin/composer /usr/bin/composer
+```
+
+Console
+===
+#### Instalar globalmente
+```
+$ curl https://drupalconsole.com/installer -L -o drupal.phar
+$ mv drupal.phar /usr/local/bin/drupal
+$ chmod +x /usr/local/bin/drupal
+Probar
+$ drupal list
+```
+
 
 #### Iniciar las configuraciones de la consola
 ```
@@ -28,6 +49,9 @@ $ nombreInstancia> drupal site:install
 
 ENLACES Y FUENTES
 =================
+Composer
+https://getcomposer.org/doc/00-intro.md#globally
+
 Documentación oficial
 https://www.gitbook.com/book/hechoendrupal/drupal-console/details
 
