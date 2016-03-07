@@ -27,10 +27,7 @@ $ drupal list
 Inicializar configuraciones por defecto de drupal
 $ drupal init
 
-Agregar a la comfiguración del shell
-source "$HOME/.console/console.rc" 2>/dev/null
-
-Para usar Fish: Crear enlace simbólico
+(opcional)Para usar Fish: Crear enlace simbólico
 ln -s ~/.console/drupal.fish ~/.config/fish/completions/drupal.fish
 
 ```
