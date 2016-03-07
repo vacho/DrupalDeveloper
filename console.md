@@ -1,8 +1,7 @@
 CONSOLE
 ========
-Composer (pre-requisito)
-===
-#### Instalar globalmente
+
+#### Instalar Composer globalmente (pre-requisito)
 ```
 $ curl -sS https://getcomposer.org/installer | php
 $ mv composer.phar /usr/local/bin/composer
