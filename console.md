@@ -41,6 +41,9 @@ $ drupal site:new nombreInstancia 8.0.3
 Instalar drupal
 $ nombreInstancia> drupal site:install
 
+$ chown www-data:www-data -R sites/default/files/
+$ drupal cache:rebuild
+
 ```
 
 
