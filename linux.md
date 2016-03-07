@@ -101,7 +101,11 @@ Trabajar con la consola en múltiples ventanas
   $ ctrl a :resize enter <numero_líneas>
   Remover una region
   $ ctrl+a :remove
+
+Utilitario que incrementa la eficiencia con el trabajo en la consola
+  $ sudo apt-get install fish
 ```
+
 Referencias
 ===
 Screen
