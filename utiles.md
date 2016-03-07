@@ -1,24 +1,3 @@
-Composer
-===
-#### Instalar globalmente
-```
-$ curl -sS https://getcomposer.org/installer | php
-$ mv composer.phar /usr/local/bin/composer
-Para fedora, aws EC2
-$ ln -s /usr/local/bin/composer /usr/bin/composer
-```
-
-Console
-===
-#### Instalar globalmente
-```
-Primero instalar composer, luego:
-$ curl https://drupalconsole.com/installer -L -o drupal.phar
-$ mv drupal.phar /usr/local/bin/drupal
-$ chmod +x /usr/local/bin/drupal
-$ ln -s /usr/local/bin/drupal /usr/bin/drupal
-```
-
 Drush para drupal 8
 ===
 #### Instalar globalmente
@@ -59,12 +38,6 @@ Send mail through smtp://localhost:1025
 
 Referencias
 ===
-Composer
-https://getcomposer.org/doc/00-intro.md#globally
-
-Console
-https://www.drupal.org/project/console
-
 Drush
 http://docs.drush.org/en/master/install/
 
