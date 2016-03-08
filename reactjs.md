@@ -19,6 +19,7 @@ $ node_modules/.bin/babel --presets es2015,react --watch babel --out-dir transfo
 ```
 
 #### Referenciar codigo en archivo.libraries.yml 
+```
 searcher:
 version: 1.x
 js:
@@ -26,12 +27,16 @@ js/react.min.js: {}
 js/react-dom.min.js: {}
 js/browser.min.js: {}
 js/transformed/searcher.js: {}
+```
 
 ### Referencias
 Instalar nodejs
+
 https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
 
 Probar babel
+
 https://news.ycombinator.com/item?id=10473687
+
 https://facebook.github.io/react/docs/tooling-integration.html
 
