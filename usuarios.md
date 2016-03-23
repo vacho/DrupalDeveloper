@@ -31,6 +31,11 @@ user_user_login($account);
 user_login_finalize($account);
 ```
 
+#### Desloguear usuario
+```
+user_logout();
+```
+
 #### Recuperar todos los usuarios y hacer consultas
 ```
 $idsUsers = \Drupal::entityQuery('user')->execute();
