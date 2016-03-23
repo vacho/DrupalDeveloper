@@ -1,6 +1,29 @@
 Usuarios
 ========
 
+#### Crear usuarios
+```
+$language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+$user = \Drupal\user\Entity\User::create();
+
+//Mandatory settings
+$user->setPassword('clave');
+$user->enforceIsNew();
+$user->setEmail('email');
+$user->setUsername('nombre_usuario');
+
+//Configuraciones opcionales
+$user->set("init", 'email');
+$user->set("langcode", $language);
+$user->set("preferred_langcode", $language);
+$user->set("preferred_admin_langcode", $language);
+
+$user->activate();
+
+//Guardar usuario
+$res = $user->save();
+```
+
 #### Recuperar todos los usuarios y hacer consultas
 ```
 $idsUsers = \Drupal::entityQuery('user')->execute();
