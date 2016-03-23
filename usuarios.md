@@ -24,6 +24,13 @@ $user->activate();
 $res = $user->save();
 ```
 
+#### Loguear usuario
+```
+$account = user_load_by_name('nombre_usuario');
+user_user_login($account);
+user_login_finalize($account);
+```
+
 #### Recuperar todos los usuarios y hacer consultas
 ```
 $idsUsers = \Drupal::entityQuery('user')->execute();
