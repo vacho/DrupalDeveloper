@@ -19,3 +19,6 @@ sale.onlyform.add:
   description: 'Add Sale'
   restrict access: true
 ```
+
+#### Referencias
+Posibilidades de las rutas: https://www.drupal.org/node/2092643
