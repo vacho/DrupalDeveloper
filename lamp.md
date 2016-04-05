@@ -130,8 +130,6 @@ En /etc/my.cnf
   max_allowed_packet = 16M
   max_connections    = 50
   table_cache        = 1024
-  innodb_buffer_pool_size = 128M
-  innodb_flush_log_at_trx_commit = 2
 
 Si se esta empleando innodb 
   innodb_buffer_pool_size = 512M
