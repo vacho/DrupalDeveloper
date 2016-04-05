@@ -104,6 +104,9 @@ Trabajar con la consola en múltiples ventanas
 
 Utilitario que incrementa la eficiencia con el trabajo en la consola
   $ sudo apt-get install fish
+
+Descargar un archivo de internet
+  $ wget http://www.nombreweb.com/archivo.ext
 ```
 
 Referencias
