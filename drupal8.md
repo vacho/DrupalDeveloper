@@ -407,3 +407,7 @@ http://talks.shawnduncan.org/entity_talk/images/Entity.svg
 
 Recurso sobre entidades
 http://shawnduncan.org/entities-core-custom
+
+Programación orientada a objectos para Drupal 8 - php
+https://prakashdrupal.wordpress.com/2016/04/13/want-to-learn-drupal-8-custom-module/
+
