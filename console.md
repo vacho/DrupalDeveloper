@@ -45,7 +45,22 @@ $ chmod 755 -R sites/default/files/
 $ drupal cache:rebuild
 
 ```
+#### Comandos útiles
 
+```
+$ drupal cache:rebuild <opcion>
+Opciones:
+config
+container
+data
+default
+discovery
+dynamic_page_cache
+entity
+menu
+render
+toolbar
+```
 
 ENLACES Y FUENTES
 =================
