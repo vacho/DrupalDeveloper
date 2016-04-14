@@ -48,7 +48,8 @@ $ drupal cache:rebuild
 #### Comandos útiles
 
 ```
-$ drupal cache:rebuild <opcion>
+Limpiar caches
+$ drupal cache:rebuild <opción>
 Opciones:
 config
 container
