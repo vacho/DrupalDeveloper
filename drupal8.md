@@ -411,3 +411,5 @@ http://shawnduncan.org/entities-core-custom
 Programación orientada a objectos para Drupal 8 - php
 https://prakashdrupal.wordpress.com/2016/04/13/want-to-learn-drupal-8-custom-module/
 
+Programación MVC sobre Drupal 8
+https://gist.github.com/jmolivas/d29065493a91f16f35b2
