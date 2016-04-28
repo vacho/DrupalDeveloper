@@ -29,6 +29,8 @@ Paquetes útiles php
   $ sudo apt-get install php-pear
   $ sudo apt-get install php-mcrypt
   $ sudo apt-get install php7.0-mbstring
+  $ sudo apt-get install php-mbstring
+  $ sudo apt-get install php-gettext
 
 Levantar/Detener/Reiniciar servicios(apache2/httpd/mysql)
   $ sudo service apache2 [start/stop/restart]
