@@ -1,7 +1,7 @@
 LAMP
 ===
 ```
-UBUNTU
+UBUNTU 16.04
 Instalar Apache/httpd
   $ sudo apt-get install apache2
 
@@ -12,19 +12,20 @@ Ajustar opciones de Seguridad de Mysql
   $ sudo mysql_secure_installation
 
 Instalar PHP
-  $ sudo apt-get install php5
-  $ sudo apt-get install php5-cli
-  $ sudo apt-get install libapache2-mod-php5
+  $ sudo apt-get install php
+  $ sudo apt-get install php-cli
+  $ sudo apt-get install libapache2-mod-php
 
 Buscar paquetes php a instalar
   $ sudo apt-cache search php
 
 Paquetes útiles php
-  $ sudo apt-get install php5-mysql
-  $ sudo apt-get install php5-gd
-  $ sudo apt-get install php5-curl
-  $ sudo apt-get install php5-cgi
+  $ sudo apt-get install php-mysql
+  $ sudo apt-get install php-gd
+  $ sudo apt-get install php-curl
+  $ sudo apt-get install php-cgi
   $ sudo apt-get install php-pear
+  $ sudo apt-get install php-mcrypt
 
 Levantar/Detener/Reiniciar servicios(apache2/httpd/mysql)
   $ sudo service apache2 [start/stop/restart]
