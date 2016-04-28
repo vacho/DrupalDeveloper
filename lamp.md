@@ -4,6 +4,8 @@ LAMP
 UBUNTU 16.04
 Instalar Apache/httpd
   $ sudo apt-get install apache2
+Ver log de errores de apache 
+  $ vim /var/log/apache2/error.log
 
 Instalar Mysql
   $ sudo apt-get install mysql-server mysql-client
@@ -26,6 +28,7 @@ Paquetes útiles php
   $ sudo apt-get install php-cgi
   $ sudo apt-get install php-pear
   $ sudo apt-get install php-mcrypt
+  $ sudo apt-get install php7.0-mbstring
 
 Levantar/Detener/Reiniciar servicios(apache2/httpd/mysql)
   $ sudo service apache2 [start/stop/restart]
@@ -107,13 +110,13 @@ Optimizar php
 ===
 ```
 UBUNTU
-En /etc/php5/apache2/php.ini
+En /etc/php/7.0/apache2/php.ini
   realpath_cache_size = 1024k
   realpath_cache_ttl = 3600
   max_execution_time = 3600
   max_input_time = 3600
   memory_limit = 256M
-  post_max_size = 50M
+  post_max_size = 56M
   upload_max_filesize = 256M
 Para ambiente de desarrollo es bueno tener todos los mensajes menos algunos
   error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_NOTICE
