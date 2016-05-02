@@ -1,7 +1,7 @@
 LAMP
 ===
 ```
-UBUNTU 16.04
+UBUNTU 16.04 con php 7 y mysql 5.7.x
 Instalar Apache/httpd
   $ sudo apt-get install apache2
 Ver log de errores de apache 
@@ -127,26 +127,7 @@ Para ambiente de desarrollo es bueno tener todos los mensajes menos algunos
 Optimizar mysql
 ===
 ```
-UBUNTU
-En /etc/mysql/my.cnf
-Fedora
-En /etc/my.cnf
-  max_binlog_size = 100M
-  query_cache_limit = 1M
-  query_cache_size = 16M
-  key_buffer = 16M
-  max_allowed_packet = 16M
-  max_connections    = 50
-  table_cache        = 1024
-
-Si se esta empleando innodb 
-  innodb_buffer_pool_size = 512M
-  innodb_additional_mem_pool_size = 50M
-  innodb_log_file_size = 128M
-  innodb_log_buffer_size = 8M
-  innodb_flush_log_at_trx_commit = 2
-  innodb_lock_wait_timeout = 60
-  
+No hace falta porque Mysql 5.6 en adelante mejora bastante su performance (3 veces mas veloz al menos) y por otro lado ya viene relativamente optimizado.
 ```
 
 Referencias
