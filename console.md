@@ -50,18 +50,14 @@ $ drupal cache:rebuild
 
 ```
 Limpiar caches
-$ drupal cache:rebuild <opción>
-Opciones:
-config
-container
-data
-default
-discovery
-dynamic_page_cache
-entity
-menu
-render
-toolbar
+$ drupal cache:rebuild
+(Se puede elegir que cache limpiar despues de dar Enter, elegir con las fechas arriba, abajo)
+
+Instalar un módulo
+$ drupal module:download nombreDelModulo
+$ drupal module:install nombreDelModulo
+
+
 ```
 
 ENLACES Y FUENTES
@@ -70,7 +66,7 @@ Composer
 https://getcomposer.org/doc/00-intro.md#globally
 
 Documentación oficial
-https://www.gitbook.com/book/hechoendrupal/drupal-console/details
+https://hechoendrupal.gitbooks.io/drupal-console/content/es/index.html
 
 Sitio
 https://drupalconsole.com/
