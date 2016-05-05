@@ -32,7 +32,9 @@ Paquetes útiles php
   $ sudo apt-get install php-mbstring
   $ sudo apt-get install php-gettext
   $ sudo apt-get install php-bcmath
-
+o
+  $ sudo apt-get install php-mysql php-gd php-curl php-cgi php-pear php-mcrypt php7.0-mbstring php-mbstring php-gettext php-bcmath
+  
 Levantar/Detener/Reiniciar servicios(apache2/httpd/mysql)
   $ sudo service apache2 [start/stop/restart]
 
