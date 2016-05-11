@@ -1,5 +1,12 @@
 Usuarios
 ========
+#### Usuario actual
+```
+//Obtener usuario actual
+$user = \Drupal::currentUser();
+//Verificar si el usuario tiene un permiso
+\Drupal::currentUser()->hasPermission("id_del_permiso")
+```
 
 #### Crear usuarios
 ```
