@@ -62,6 +62,17 @@ foreach ($entries as $entrie) {
  ... hacer algo con las entidades ...
 }
 
+//obtener multiples entidades mediante consulta con condicionales agrupadas
+$query = \Drupal::entityQuery('k_store')
+  ->condition('state', 1, '=');
+$group = $query->orConditionGroup()
+  ->condition('type', 1, '=')
+  ->condition('type', 5, '=');
+$idsStore = $query
+  ->condition($group)
+  ->execute();
+$entries = Store::loadMultiple($idsStore);
+
 //Obtener entidades con tags (Busca las entidades que tienen el tag 'cats')
 $query = \Drupal::entityQuery('node')
     ->condition('status', 1)
