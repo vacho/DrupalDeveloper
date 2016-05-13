@@ -149,6 +149,25 @@ $fields['parent'] = BaseFieldDefinition::create('entity_reference')
       ))
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
+
+//Campo imagen
+$fields['photo'] = BaseFieldDefinition::create('image')
+      ->setSetting('file_extensions', 'png')
+      ->setSetting ('uri_scheme','public://photos')
+      ->setLabel(t('Photo'))
+      ->setDescription(t('Entity photo'))
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'file',
+        'weight' => -4,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'file',
+        'weight' => -4,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
 ```
 
 ENLACES Y FUENTES
