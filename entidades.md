@@ -92,6 +92,7 @@ $fields['amount'] = BaseFieldDefinition::create('decimal')
 $fields['state'] = BaseFieldDefinition::create('integer')
       ->setLabel(t('State'))
       ->setDescription(t('The state of the entity'));
+
 //Boolean (se torna tinyint en mysql)
 $fields['state'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('state'))
@@ -149,7 +150,6 @@ $fields['parent'] = BaseFieldDefinition::create('entity_reference')
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 ```
-
 
 ENLACES Y FUENTES
 =================
