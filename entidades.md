@@ -191,3 +191,6 @@ http://talks.shawnduncan.org/entity_talk/images/Entity.svg
 
 Recurso sobre entidades
 http://shawnduncan.org/entities-core-custom
+
+Tipos de campos
+http://bit.ly/1qhjSQ6
