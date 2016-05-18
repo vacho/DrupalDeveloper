@@ -18,6 +18,9 @@ $ drupal module:install mailsystem
 Configurar en la ruta admin/config/system/mailsystem
 Formater y Sender deben estar en SwiftMailer, Theme puede estar en el Tema por defecto o en SwiftMailer
 
+// Customizar el template html
+En la ruta /modules/swiftmailer/templates/swiftmailer.html.twig se encuentra el template base.
+
 ```
 
 #### Bug..
