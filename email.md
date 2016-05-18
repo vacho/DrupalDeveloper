@@ -1,21 +1,23 @@
 EMAIL
 ========
-#### Instalar SwiftMailer
+#### SwiftMailer
 ```
 //Estando en la rais del proyecto drupal
 $ composer require swiftmailer/swiftmailer
 
-//instalar el módulo SwiftMailer
+// Instalar el módulo SwiftMailer
 $ drupal module:download swiftmailer
 $ drupal module:install swiftmailer
-// Configurar el mismo en la ruta: /admin/config/swiftmailer/transport
+Configurar en la ruta: /admin/config/swiftmailer/transport
+Transport types puede estar en el de tu preferencia
+En la pestaña mensajes elige HTML y desmarca "Respect provided e-mail format."
 
-//instalar el módulo MailSystem
+// Instalar el módulo MailSystem
 $ drupal module:download mailsystem
 $ drupal module:install mailsystem
-// Configurar : 
-En la ruta admin/config/system/mailsystem
+Configurar en la ruta admin/config/system/mailsystem
 Formater y Sender deben estar en SwiftMailer, Theme puede estar en el Tema por defecto o en SwiftMailer
+
 ```
 
 #### Bug..
