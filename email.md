@@ -13,7 +13,9 @@ $ drupal module:install swiftmailer
 //instalar el módulo MailSystem
 $ drupal module:download mailsystem
 $ drupal module:install mailsystem
-//Configurar el mismo en la ruta: /admin/config/system/mailsystem
+// Configurar : 
+En la ruta admin/config/system/mailsystem
+Formater y Sender deben estar en SwiftMailer, Theme puede estar en el Tema por defecto o en SwiftMailer
 ```
 
 #### Bug..
