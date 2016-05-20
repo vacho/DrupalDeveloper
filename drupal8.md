@@ -101,6 +101,15 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 $response = new RedirectResponse("quotation?id=" . $idQuotationClient);
 $response->send();
 ```
+### Cache
+```
+// Vaciar caches persistentes
+use Drupal\Core\Cache\Cache;
+
+foreach (Cache::getBins() as $service_id => $cache_backend) {
+    $cache_backend->deleteAll();
+}
+```
 
 ### Seguridad
 ```
