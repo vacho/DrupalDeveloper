@@ -29,29 +29,6 @@ $addFactor =  db_query('SELECT value FROM k_factor WHERE id = :id;', array(':id'
 \Drupal::logger('mi_modulo')->error("Mi mensaje");
 ```
 
-#### Comfiguraciones 
-```
-//Servicios
-$resource_id = 'product_resource';
-$resources = \Drupal::config('rest.settings')->get('resources') ?: array();
-$resources[$resource_id] = array(); // reset de resource configuration
-$method = "GET";
-
-$resources[$resource_id][$method] = array();
-$resources[$resource_id][$method]['supported_formats'] = array("json");
-$resources[$resource_id][$method]['supported_auth'] = array("cookie");
-
-\Drupal::configFactory()->getEditable('rest.settings')
-  ->set('resources', $resources)
-  ->save();
-
-//Sistema
-\Drupal::configFactory()->getEditable('system.site')
-  ->set('page.404', 'not-found')
-  ->save();    
-
-```
-
 #### Cadenas traducibles 
 ```
 drupal_set_message(
@@ -89,6 +66,25 @@ $config->set('cache.page.enabled', 1); // Set a scalar value.
 $page_cache_data = array('enabled' => 1, 'max_age' => 5); // Set an array of values.
 $config->set('cache.page', $page_cache_data);
 $config->save();
+
+//Servicios
+$resource_id = 'product_resource';
+$resources = \Drupal::config('rest.settings')->get('resources') ?: array();
+$resources[$resource_id] = array(); // reset de resource configuration
+$method = "GET";
+
+$resources[$resource_id][$method] = array();
+$resources[$resource_id][$method]['supported_formats'] = array("json");
+$resources[$resource_id][$method]['supported_auth'] = array("cookie");
+
+\Drupal::configFactory()->getEditable('rest.settings')
+  ->set('resources', $resources)
+  ->save();
+
+//Sistema
+\Drupal::configFactory()->getEditable('system.site')
+  ->set('page.404', 'not-found')
+  ->save();
 
 ```
 
