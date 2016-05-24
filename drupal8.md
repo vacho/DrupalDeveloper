@@ -170,3 +170,6 @@ https://gist.github.com/jmolivas/d29065493a91f16f35b2
 Seguimiento de cambios en el Core
 https://www.drupal.org/list-changes/drupal
 
+Configuraciones sobre Drupal 8
+http://hojtsy.hu/files/ConfigSchemaCheatSheet1.5.pdf
+
