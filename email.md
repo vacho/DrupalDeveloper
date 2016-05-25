@@ -26,8 +26,15 @@ En la ruta /modules/swiftmailer/templates/swiftmailer.html.twig se encuentra el 
 #### Bug..
 Si aunque este todo bien configurado el sitio no logra mandar email html.. este hook lo resuelve
 ```
-function nombreDeTuModulo_mail_alter(&$message) {
-  $message['headers']['Content-Type'] = 'text/html; charset=UTF-8';
+use Drupal\Core\Render\Markup;
+
+
+/**
+ * Implements hook_mail_alter()
+ * @return mixed
+ */
+function nombreModulo_mail_alter(&$message) {
+  $message['body'][0] = Markup::create($message['body'][0]);
 }
 ```
 
@@ -38,4 +45,6 @@ https://www.drupal.org/node/1590154
 
 Inspiración para le hook
 http://code.tutsplus.com/tutorials/using-and-extending-the-drupal-8-mail-api-part-1--cms-23419
+
+https://api.drupal.org/api/drupal/core!core.api.php/function/hook_mail_alter/8.2.x
 
