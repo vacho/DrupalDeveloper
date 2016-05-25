@@ -48,3 +48,5 @@ http://code.tutsplus.com/tutorials/using-and-extending-the-drupal-8-mail-api-par
 
 https://api.drupal.org/api/drupal/core!core.api.php/function/hook_mail_alter/8.2.x
 
+https://www.drupal.org/node/2677530#comment-11226949
+
