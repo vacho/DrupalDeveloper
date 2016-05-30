@@ -173,3 +173,5 @@ https://www.drupal.org/list-changes/drupal
 Configuraciones sobre Drupal 8
 http://hojtsy.hu/files/ConfigSchemaCheatSheet1.5.pdf
 
+Entidades traducibles en drupal 8
+https://vimeo.com/166918014
