@@ -35,7 +35,7 @@ ln -s ~/.console/drupal.fish ~/.config/fish/completions/drupal.fish
 
 ```
 Bajar drupal
-$ drupal site:new nombreInstancia 8.1.0
+$ drupal site:new nombreInstancia 8.1.2
 
 Instalar drupal
 $ cd nombreInstancia
