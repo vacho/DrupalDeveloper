@@ -168,6 +168,45 @@ $fields['photo'] = BaseFieldDefinition::create('image')
       ))
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
+      
+//Campo referenciado a taxonomias con botones de selección
+$fields ['category'] = BaseFieldDefinition::create ('entity_reference') 
+      ->setLabel(t( 'Category')) 
+      ->setDescription(t('Taxonomi term')) 
+      ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
+      ->setSetting ('target_type','taxonomy_term') 
+      ->setTranslatable (TRUE) 
+      ->setDisplayOptions ('form',array( 
+        'type' =>  'options_buttons', 
+        'weight' => - 10 , 
+        'settings' => array( 
+          'match_operator' => 'CONTAINS' , 
+          'size'  =>  '60' , 
+          'placeholder'  =>  '' , 
+        ), 
+      )) 
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+      
+//Campo referenciado a taxonomias con autocomplete      
+$fields ['category'] = BaseFieldDefinition::create ('entity_reference') 
+      ->setLabel(t( 'Category')) 
+      ->setDescription(t('Taxonomi term')) 
+      ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
+      ->setSetting ('target_type','taxonomy_term') 
+      ->setTranslatable (TRUE) 
+      ->setDisplayOptions ('form',array( 
+        'type' => 'entity_reference_autocomplete',
+        'weight' => - 10 , 
+        'settings' => array( 
+          'match_operator' => 'CONTAINS' , 
+          'size'  =>  '60' , 
+          'autocomplete_type' => 'tags' , 
+          'placeholder'  =>  '' , 
+        ), 
+      )) 
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
 ```
 
 ENLACES Y FUENTES
