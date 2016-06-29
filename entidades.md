@@ -82,6 +82,30 @@ $fields['name'] = BaseFieldDefinition::create('string')
       ))
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
+      
+//Lista (Select list)
+$fields['test'] = BaseFieldDefinition::create('list_string')
+      ->setLabel(t('List'))
+      ->setDescription(t('The list of something.'))
+      ->setSettings(array(
+        'max_length' => 60,
+        'text_processing' => 0,
+        'allowed_values' => array(
+          'key_1' => 'labee_1',
+          ),
+      ))
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => 0,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'options_select',
+        'weight' => 0,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
 
 //Decimal
 $fields['amount'] = BaseFieldDefinition::create('decimal')
