@@ -83,7 +83,7 @@ $fields['name'] = BaseFieldDefinition::create('string')
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
       
-//Lista (Select list)
+//Lista de strings (Select list)
 $fields['test'] = BaseFieldDefinition::create('list_string')
       ->setLabel(t('List'))
       ->setDescription(t('The list of something.'))
@@ -106,6 +106,9 @@ $fields['test'] = BaseFieldDefinition::create('list_string')
       ))
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
+
+// Lista de números
+iden lista de strings, poner 'list_integer' en lugar de 'list_string'
 
 //Decimal
 $fields['amount'] = BaseFieldDefinition::create('decimal')
