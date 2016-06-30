@@ -64,7 +64,7 @@ class NombreControladorController extends ControllerBase {
 <div>
 
     <h2>{{ audio }}</h2>
-    <h3>{% trans %}List of {{ variable_1 }}</h3>
+    <h3>{% trans %} List of {{ variable_1 }} {% endtrans %}</h3>
   
     <ul>
     {% for item in variable_n %}
