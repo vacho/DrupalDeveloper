@@ -130,7 +130,11 @@ Para ambiente de desarrollo es bueno tener todos los mensajes menos algunos
 Optimizar mysql
 ===
 ```
-No hace falta porque Mysql 5.6 en adelante mejora bastante su performance (3 veces mas veloz al menos) y por otro lado ya viene relativamente optimizado.
+En /etc/mysql/my.cnf
+
+[mysqld]
+max_allowed_packet = 64M
+
 ```
 
 Referencias

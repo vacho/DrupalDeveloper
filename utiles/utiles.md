@@ -36,6 +36,13 @@ Send mail through smtp://localhost:1025
 
 ```
 
+Fish
+===
+#### Mejora la consola de linux
+```
+$ sudo apt-get install fish
+```
+
 Referencias
 ===
 Drush
