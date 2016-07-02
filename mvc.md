@@ -49,7 +49,7 @@ class NombreControladorController extends ControllerBase {
     $x = ...
     $y = ...
     
-    // '#cache' es para que el resultado de este controlador no quede cacheado.
+    // '#cache' is for doesn't cache to controller cache
 
     return [
       '#theme' => 'nombre_template',
