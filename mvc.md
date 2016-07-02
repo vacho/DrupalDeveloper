@@ -48,11 +48,16 @@ class NombreControladorController extends ControllerBase {
     ...
     $x = ...
     $y = ...
+    
+    // '#cache' es para que el resultado de este controlador no quede cacheado.
 
     return [
       '#theme' => 'nombre_template',
       '#variable_1' => $x,
       '#variable_n' => $y,
+      '#cache' => array(
+            'max-age' => 0,
+      ),
     ];
   }
 
