@@ -108,6 +108,11 @@ $endDay = strtotime("tomorrow", $iniDay) - 1; //final del día
 //Año actual
 $year = date("Y");
 
+//Convertir string a timestamp
+$date_of_request = $request->request->get('date_of_request');
+$created = strptime($date_of_request, '%d/%m/%Y');
+$timestamp = mktime(0, 0, 0, $created['tm_mon']+1, $created['tm_mday'], $created['tm_year']+1900);
+
 //Convertir timestamp a Date
 date('m/d/Y', 1299446702);
 
