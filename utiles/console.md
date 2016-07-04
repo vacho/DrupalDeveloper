@@ -57,6 +57,11 @@ Instalar un módulo
 $ drupal module:download nombreDelModulo
 $ drupal module:install nombreDelModulo
 
+Poner el sitio en modo dev
+$ drupal site:mode dev
+
+Poner el sitio en modo prod
+$ drupal site:mode prod
 
 ```
 
