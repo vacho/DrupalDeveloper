@@ -132,9 +132,20 @@ $fields['order'] = BaseFieldDefinition::create('integer')
         ->setDisplayConfigurable('view', TRUE);
 
 //Boolean (se torna tinyint en mysql)
-$fields['state'] = BaseFieldDefinition::create('boolean')
-      ->setLabel(t('state'))
-      ->setDescription(t('The state'));
+$fields['default'] = BaseFieldDefinition::create('boolean')
+        ->setLabel(t('default'))
+        ->setDescription(t('Default'))
+        ->setDisplayOptions('view', array(
+            'label' => 'above',
+            'type' => 'string',
+            'weight' => 0,
+        ))
+        ->setDisplayOptions('form', array(
+            'type' => 'boolean',
+            'weight' => 0,
+        ))
+        ->setDisplayConfigurable('form', TRUE)
+        ->setDisplayConfigurable('view', TRUE);
 
 //Fecha
 $fields['date'] = BaseFieldDefinition::create('timestamp')
