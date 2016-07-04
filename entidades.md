@@ -150,29 +150,27 @@ $fields['description'] = BaseFieldDefinition::create('string_long')
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
-//Referecia circular a la misma entidad
-$fields['parent'] = BaseFieldDefinition::create('entity_reference')
-      ->setLabel(t('Parent'))
-      ->setDescription(t('The ID of the parent.'))
-      ->setRevisionable(TRUE)
-      ->setSetting('target_type', 'category')
+//Referecia a otra entidad
+$fields['idstore'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Store'))
+      ->setDescription(t('The store the kardex'))
+      ->setRequired(TRUE)
+      ->setSetting('target_type', 'k_store')
       ->setSetting('handler', 'default')
-      // ->setDefaultValueCallback('Drupal\node\Entity\Node::getCurrentUserId')
-      ->setTranslatable(TRUE)
       ->setDisplayOptions('view', array(
-      		'label' => 'hidden',
-      		'type' => 'category',file:///home/vacho/Desktop/DrupalDeveloper/drupal8.md
-      		'weight' => -5,
+        'label' => 'above',
+        'type' => 'entity_reference',
+        'weight' => 0,
       ))
       ->setDisplayOptions('form', array(
-      		'type' => 'entity_reference_autocomplete',
-      		'weight' => -5,
-      		'settings' => array(
-      				'match_operator' => 'CONTAINS',
-      				'size' => '60',
-      				'autocomplete_type' => 'tags',
-      				'placeholder' => '',
-      		),
+        'type' => 'entity_reference_autocomplete',
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'size' => 60,
+          'autocomplete_type' => 'tags',
+          'placeholder' => '_' . t('Store')
+        ),
+        'weight' => 0,
       ))
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
