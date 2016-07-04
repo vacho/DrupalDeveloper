@@ -116,9 +116,20 @@ $fields['amount'] = BaseFieldDefinition::create('decimal')
       ->setDescription(t('The amount of the entity'));
 
 //Integer
-$fields['state'] = BaseFieldDefinition::create('integer')
-      ->setLabel(t('State'))
-      ->setDescription(t('The state of the entity'));
+$fields['order'] = BaseFieldDefinition::create('integer')
+        ->setLabel(t('Order'))
+        ->setDescription(t('The order'))
+        ->setDisplayOptions('view', array(
+            'label' => 'above',
+            'type' => 'integer',
+            'weight' => -1,
+        ))
+        ->setDisplayOptions('form', array(
+            'type' => 'integer_textfield',
+            'weight' => -1,
+        ))
+        ->setDisplayConfigurable('form', TRUE)
+        ->setDisplayConfigurable('view', TRUE);
 
 //Boolean (se torna tinyint en mysql)
 $fields['state'] = BaseFieldDefinition::create('boolean')
