@@ -67,6 +67,15 @@ Actualizar entidades código respecto base de datos y el sistema
 $ drupal update:entities
 
 ```
+#### Solución errores comunes
+
+```
+Timezone America/Tijuana
+
+/etc/php5/cli/php.ini
+Editar la línea por ejemplo
+date.timezone = America/La_Paz
+```
 
 ENLACES Y FUENTES
 =================
