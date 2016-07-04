@@ -63,6 +63,9 @@ $ drupal site:mode dev
 Poner el sitio en modo prod
 $ drupal site:mode prod
 
+Actualizar entidades código respecto base de datos y el sistema
+$ drupal update:entities
+
 ```
 
 ENLACES Y FUENTES
