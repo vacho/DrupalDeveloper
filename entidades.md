@@ -116,17 +116,17 @@ $fields['amount'] = BaseFieldDefinition::create('decimal')
       ->setDescription(t('The amount of the entity'));
 
 //Integer
-$fields['order'] = BaseFieldDefinition::create('integer')
-        ->setLabel(t('Order'))
+$fields['enum'] = BaseFieldDefinition::create('integer')
+        ->setLabel(t('Enumeration'))
         ->setDescription(t('The order'))
         ->setDisplayOptions('view', array(
             'label' => 'above',
             'type' => 'integer',
-            'weight' => -1,
+            'weight' => 0,
         ))
         ->setDisplayOptions('form', array(
-            'type' => 'integer_textfield',
-            'weight' => -1,
+            'type' => 'number',
+            'weight' => 0,
         ))
         ->setDisplayConfigurable('form', TRUE)
         ->setDisplayConfigurable('view', TRUE);
