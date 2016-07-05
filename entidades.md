@@ -156,9 +156,19 @@ $fields['predefined'] = BaseFieldDefinition::create('boolean')
       ->setDisplayConfigurable('form', TRUE);
 
 //Fecha
-$fields['date'] = BaseFieldDefinition::create('timestamp')
-      ->setLabel(t('Date'))
-      ->setDescription(t('The date of the entity'));
+$fields['date_start'] = BaseFieldDefinition::create('timestamp')
+        ->setLabel(t('Date start'))
+        ->setDescription(t('The date start'))
+        ->setDisplayOptions('view', array(
+            'label' => 'adobe',
+            'type' => 'timestamp',
+            'weight' => 2,
+        ))
+        ->setDisplayOptions('form', array(
+            'type' => 'datetime_timestamp',
+            'weight' => 2,
+        ))
+        ->setDisplayConfigurable('form', TRUE);
       
 //Text o String long
 $fields['description'] = BaseFieldDefinition::create('string_long')
