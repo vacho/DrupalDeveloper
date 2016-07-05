@@ -132,20 +132,17 @@ $fields['enum'] = BaseFieldDefinition::create('integer')
         ->setDisplayConfigurable('view', TRUE);
 
 //Boolean (se torna tinyint en mysql)
-$fields['default'] = BaseFieldDefinition::create('boolean')
-        ->setLabel(t('default'))
-        ->setDescription(t('Default'))
-        ->setDisplayOptions('view', array(
-            'label' => 'above',
-            'type' => 'string',
-            'weight' => 0,
-        ))
-        ->setDisplayOptions('form', array(
-            'type' => 'boolean',
-            'weight' => 0,
-        ))
-        ->setDisplayConfigurable('form', TRUE)
-        ->setDisplayConfigurable('view', TRUE);
+$fields['predefined'] = BaseFieldDefinition::create('boolean')
+        ->setLabel(t('Predefined'))
+        ->setDescription(t('Predefined'))
+      ->setDisplayOptions('form', array(
+        'type' => 'boolean_checkbox',
+        'settings' => array(
+          'display_label' => TRUE,
+        ),
+        'weight' => 0,
+      ))
+      ->setDisplayConfigurable('form', TRUE);
 
 //Fecha
 $fields['date'] = BaseFieldDefinition::create('timestamp')
