@@ -111,9 +111,20 @@ $fields['test'] = BaseFieldDefinition::create('list_string')
 iden lista de strings, poner 'list_integer' en lugar de 'list_string'
 
 //Decimal
-$fields['amount'] = BaseFieldDefinition::create('decimal')
-      ->setLabel(t('Amount'))
-      ->setDescription(t('The amount of the entity'));
+$fields['price'] = BaseFieldDefinition::create('decimal')
+        ->setLabel(t('Price'))
+        ->setDescription(t('The amount of the entity'))
+        ->setDisplayOptions('view', array(
+            'label' => 'above',
+            'type' => 'decimal',
+            'weight' => -3,
+        ))
+        ->setDisplayOptions('form', array(
+            'type' => 'number',
+            'weight' => -3,
+        ))
+        ->setDisplayConfigurable('form', TRUE)
+        ->setDisplayConfigurable('view', TRUE);
 
 //Integer
 $fields['enum'] = BaseFieldDefinition::create('integer')
