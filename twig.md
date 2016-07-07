@@ -14,11 +14,21 @@ parameters:
 
 ```
 
-#### Texto traducible
+#### Texto traducible del ingles
 ```
 
 {% trans %} Hello baby {% endtrans %}
 
+```
+#### Texto con contexto e idioma fuente
+```
+<label>
+{% trans with {'context': 'Expreciones', 'langcode': 'es'} %}
+Delirante
+{% endtrans %}
+</label>
+
+<input value="{% trans 'Delirio' with {'context': 'Estados persona', 'langcode': 'es'} %}">
 ```
 
 ENLACES Y FUENTES
