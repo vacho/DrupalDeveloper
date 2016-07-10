@@ -10,33 +10,33 @@ $voucher =  array(
   'state' => 1,
   'userid' => \Drupal::currentUser()->id(),
 );
-$entityVoucher = entity_create('k_voucher', $voucher);
-$entityVoucher->Save();
-$idVoucher = $entityVoucher->id();
+$Voucher = entity_create('k_voucher', $voucher);
+$Voucher->Save();
+$id = $entityVoucher->id();
 
 //Eliminar entidad
-$entityDelete = NombreEntidad::load($idDelete);
-$entityDelete->delete();
+$Entity = NombreEntidad::load($id);
+$Entity->delete();
 
 //Actualizar una entidad
-$configuration = Configuration::load($idConfiguration);
+$configuration = Configuration::load($id);
 $configuration->set('valuation_method', $valuationMethod);
 $configuration->set('costs_method', $costMethod);
 $configuration->save();
 
 //obtener una entidad mediante consulta
-$idsAccountPlan = \Drupal::entityQuery('k_accountplan')
+$ids = \Drupal::entityQuery('k_accountplan')
 ->condition('iden', $entity, '=')
 ->condition('idac', $account->getIdac(), '=')
 ->condition('idam', $accountingManagement, '=')
 ->execute();
-$accountPlan = AccountPlan::load(reset($idsAccountPlan));
+$AccountPlan = AccountPlan::load(reset($ids));
 
 //obtener multiples entidades mediante consulta
-$idsEntries = \Drupal::entityQuery('k_accountingentry')
+$ids = \Drupal::entityQuery('k_accountingentry')
 ->condition('idvo', $voucher->getIdvo(), '=')
 ->execute();
-$entries = AccountingEntry::loadMultiple($idsEntries);
+$Entries = AccountingEntry::loadMultiple($ids);
 foreach ($entries as $entrie) {
  ... hacer algo con las entidades ...
 }
