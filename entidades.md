@@ -6,7 +6,6 @@ ENTIDADES
 ```
 //crear entidad
 $voucher =  array(
-  'iden' => $_SESSION['entity']['id'],
   'state' => 1,
   'userid' => \Drupal::currentUser()->id(),
 );
