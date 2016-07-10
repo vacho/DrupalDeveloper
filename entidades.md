@@ -10,9 +10,9 @@ $voucher =  array(
   'state' => 1,
   'userid' => \Drupal::currentUser()->id(),
 );
-$Voucher = entity_create('k_voucher', $voucher);
+$Voucher = Vaucher::create($voucher);
 $Voucher->Save();
-$id = $entityVoucher->id();
+$id = $Voucher->id();
 
 //Eliminar entidad
 $Entity = NombreEntidad::load($id);
