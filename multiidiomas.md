@@ -1,6 +1,6 @@
 EMAIL
 ========
-#### Activar un sitio multi-idiomas
+#### Configurar un sitio multi-idiomas
 ```
 
 ```
@@ -8,7 +8,7 @@ EMAIL
 #### Programar etiquetas en otros idiomas
 
 ```
-// En codigo php
+// En php
 t('Instalación', array(), array('langcode' => 'es', 'context' => 'khipu' ))
 
 // En twig
@@ -26,6 +26,9 @@ Delirante | trans({'context': 'pms', 'langcode': 'es'})
 
 // En javascript
 Drupal.t('Mayo', {}, {context: "Calendario", 'langcode': 'es'});
+
+
+// En yml
 
 ```
 
