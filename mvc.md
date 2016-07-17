@@ -43,7 +43,7 @@ use Drupal\Core\Controller\ControllerBase;
 
 class NombreControladorController extends ControllerBase {
 
-  public function nombre_metodo() {
+  public function nombreMetodo() {
   
     ...
     $x = ...
