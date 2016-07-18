@@ -36,6 +36,13 @@ foreach ($stores as $store) {
   );
 }
 
+$options = array();
+foreach ($stores as $store) {
+  $options[] = array(
+    $store->getId() => $store->getName(),
+  );
+}
+
 //Array de arrays asociativos
 $eventsTaron[] = array(
   'id' => $idEvent,
