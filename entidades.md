@@ -5,11 +5,11 @@ ENTIDADES
 
 ```
 //crear entidad
-$voucher =  array(
+$values =  array(
   'state' => 1,
   'userid' => \Drupal::currentUser()->id(),
 );
-$Voucher = Vaucher::create($voucher);
+$Voucher = Vaucher::create($values);
 $Voucher->Save();
 $id = $Voucher->id();
 
