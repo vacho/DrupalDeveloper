@@ -29,21 +29,11 @@ $addFactor =  db_query('SELECT value FROM k_factor WHERE id = :id;', array(':id'
 \Drupal::logger('mi_modulo')->error("Mi mensaje");
 ```
 
-#### Cadenas traducibles 
-```
-drupal_set_message(
-      t("Your account has been created successfully. We have sent an email to @userEmail with login details.",
-        array(
-          '@userEmail' => $userEmail,
-        )
-      )
-    );
-```
-
 #### Fechas
 ```
 // Convertir una fecha a un formato de la isntancia Drupal
-format_date($rowKardex->getDate(), 'khipu_short');
+format_date($rowKardex->getDate(), 'khipu_short'); //deprecado
+\Drupal::service('date.formatter')->format($Service->getDate(), 'khipu_short');
 
 // Fecha actual formateado para Drupal
 $date = date('Y-m-d H:i:s');
