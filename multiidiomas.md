@@ -19,7 +19,7 @@ Delirante
 </label>
 
 <label>
-Delirante | trans({'context': 'pms', 'langcode': 'es'})
+{{ 'Delirante'| trans({'context': 'pms', 'langcode': 'es'}) }}
 </label>
 
 <input value="{% trans 'Delirio' with {'context': 'pms', 'langcode': 'es'} %}">
