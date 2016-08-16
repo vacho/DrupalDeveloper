@@ -28,7 +28,7 @@ foreach ($arr as &$value) {
     $value = $value * 2;
 }
 
-//Agregar elementos en un array asociativo
+//Agregar items en un array asociativo
 $options = array();
 foreach ($stores as $store) {
   $options = $options + array(
@@ -36,6 +36,7 @@ foreach ($stores as $store) {
   );
 }
 
+//Array de arrays asociativos
 $options = array();
 foreach ($stores as $store) {
   $options[] = array(
