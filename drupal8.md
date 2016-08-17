@@ -165,3 +165,8 @@ http://hojtsy.hu/files/ConfigSchemaCheatSheet1.5.pdf
 
 Entidades traducibles en drupal 8
 https://vimeo.com/166918014
+
+Definición de librerias
+https://ffwagency.com/blog/managing-css-and-javascript-files-drupal-8-libraries
+https://www.drupal.org/theme-guide/8/assets
+
