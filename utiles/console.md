@@ -46,6 +46,19 @@ $ chmod 755 -R sites/default/files/
 $ drupal cache:rebuild
 
 ```
+#### Comandos de desarrollo
+
+```
+Crear un módulo
+$ drupal generate:module
+
+Crear una entidad de contenido
+$ drupal generate:conten:entity
+
+Actualizar entidades despues de hacer modificaciones
+$ drupal update:entities
+```
+
 #### Comandos útiles
 
 ```
@@ -62,10 +75,6 @@ $ drupal site:mode dev
 
 Poner el sitio en modo prod
 $ drupal site:mode prod
-
-Actualizar entidades código respecto base de datos y el sistema
-$ drupal update:entities
-
 ```
 #### Solución errores comunes
 
