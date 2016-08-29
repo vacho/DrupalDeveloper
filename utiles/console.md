@@ -53,7 +53,7 @@ Crear un módulo
 $ drupal generate:module
 
 Crear una entidad de contenido
-$ drupal generate:conten:entity
+$ drupal generate:entity:content
 
 Actualizar entidades despues de hacer modificaciones
 $ drupal update:entities
