@@ -3,6 +3,17 @@ DRUPAL 8
 
 #### Consultas mediante sql
 ```
+$db = \Drupal::database();
+
+//Método 1
+$query = $db->select('k_product', 'p');
+$query->fields('p', ['idpr', 'name', 'type']);
+$data = $query->execute()->fetchAllAssoc('idpr', 'name', 'type');
+
+//Método 2
+$data = $db->query('SELECT idpr, name, code, detail FROM k_product')->fetchAllAssoc('idpr', 'name');
+
+DEPRECADOS.
 //múltiples filas
 $result = db_query('SELECT id, qualifier, email, board, popup
           FROM {k_message}
