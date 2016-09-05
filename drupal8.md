@@ -102,6 +102,14 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 $response = new RedirectResponse("quotation?id=" . $idQuotationClient);
 $response->send();
 ```
+
+#### Rutas
+```
+// Obtener nombre routing de la ruta actual
+$url_object = \Drupal::service('path.validator')->getUrlIfValid(\Drupal::service('path.current')->getPath());
+$route_name = $url_object->getRouteName();
+```
+
 ### Cache
 ```
 // Vaciar caches persistentes
