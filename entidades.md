@@ -6,12 +6,12 @@ ENTIDADES
 ```
 //crear entidad
 $values =  array(
-  'state' => 1,
-  'userid' => \Drupal::currentUser()->id(),
+  'name' => 'Jose',
+  'lastname' => 'Lopez',
 );
-$Voucher = Vaucher::create($values);
-$Voucher->Save();
-$id = $Voucher->id();
+$Person = Person::create($values);
+$Person->Save();
+$id = $Person->id();
 
 //Eliminar entidad
 $Entity = NombreEntidad::load($id);
