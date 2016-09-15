@@ -133,14 +133,18 @@ Optimizar mysql
 En /etc/mysql/my.cnf
 
 [mysqld]
-query_cache_size = 32M
-max_allowed_packet = 32M
+query_cache_size   = 64M
+query_cache_type   = ON
+max_allowed_packet = 128M
 max_connections    = 100
 
-innodb_buffer_pool_size = 512M
-innodb_log_buffer_size = 16M
+innodb_buffer_pool_size        = 3072M
+innodb_log_file_size           = 1024M
+innodb_flush_method            = O_DIRECT
+innodb_log_buffer_size         = 128M
 innodb_flush_log_at_trx_commit = 2
-innodb_lock_wait_timeout = 60
+sync_binlog                    = 0
+innodb_thread_concurrency      = 4
 
 ```
 
