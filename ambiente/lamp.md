@@ -148,3 +148,6 @@ Referencias
 ====
 Drupal al sur
 http://drupalalsur.org/videos/optimizar-php-y-mysql-para-drupal-7
+
+Optimizar mysql
+http://www.speedemy.com/17-key-mysql-config-file-settings-mysql-5-7-proof/
