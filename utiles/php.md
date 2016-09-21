@@ -2,7 +2,8 @@ PHP
 ===
 Gestión de rutas, directorio y archivos
 
-```$_SERVER[REQUEST_URI]
+```
+$_SERVER[REQUEST_URI]
 //Ruta actual del proyecto
 getcwd()
 
