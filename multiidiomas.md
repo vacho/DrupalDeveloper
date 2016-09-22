@@ -29,7 +29,15 @@ Drupal.t('Mayo', {}, {context: "Calendario", 'langcode': 'es'});
 
 
 // En yml
-ver https://www.drupal.org/node/2133247
+quotation.proposal:
+  path: '/quotations/proposal'
+  defaults:
+   _form: '\Drupal\inventory_io\Form\ProposalForm'
+   _title: 'Propuesta'
+   _title_context: 'khipu'
+   langcode: es
+  requirements:
+    _permission: quotation.proposal
 ```
 
 ENLACES Y FUENTES
