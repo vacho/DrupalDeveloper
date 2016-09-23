@@ -8,7 +8,16 @@ mimodulo.nombre_de_la_ruta:
       _controller:  Drupal\mimodulo\Controller\NombreControladorController::nombre_metodo
       _title: 'Aqui el título'
     requirements:
-      _permission: 'access content'
+      _permission: mimodulo.nombre_del_permiso
+```
+
+#### Permiso: en mimodulo/mimodulo.permissions.yml
+```
+mimodulo.nombre_del_permiso:
+  title: "Títlo del privilegio"
+  description: "Descripción del privilegio"
+  restrict access: true
+
 ```
 
 #### Hoock en el módulo: en mimodulo/mimodulo.module
