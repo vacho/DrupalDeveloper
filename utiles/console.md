@@ -99,3 +99,6 @@ https://drupalconsole.com/
 
 Repositorio
 https://github.com/hechoendrupal/DrupalConsole
+
+Resumen de comandos
+http://drupalconsole.com/cheatsheet/
