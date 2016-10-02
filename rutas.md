@@ -1,6 +1,5 @@
 Rutas
 ========
-
 #### Crear una ruta
 En el archivo miarchivo.routing.yml
 ```
@@ -19,6 +18,15 @@ sale.onlyform.add:
   description: 'Add Sale'
   restrict access: true
 ```
+#### Crear urls
+```
+  use Drupal\Core\Url;
+  $url = new Url($route_name, $params)​;
+
+  // O mediante el método estático de la url
+  $url = Url::fromRoute($route_name, $params)​
+```
 
 #### Referencias
 Posibilidades de las rutas: https://www.drupal.org/node/2092643
+Cheatsheet https://cryptic.zone/blog/drupal-8-cheatsheet-developers
