@@ -21,10 +21,20 @@ sale.onlyform.add:
 #### Crear urls
 ```
   use Drupal\Core\Url;
-  $url = new Url($route_name, $params)​;
+  $Url = new Url($route_name, $params)​;
 
   // O mediante el método estático de la url
-  $url = Url::fromRoute($route_name, $params)​
+  $Url = Url::fromRoute($route_name, $params)​
+```
+#### Obtener una url
+```
+  $path = $Url->toString();
+  // o usando como base el nombre de la ruta
+  $path = \Drupal::url($route_name)
+  
+  // Sin una ruta como base
+  use Drupal\Core\Url;
+  $Url = Url::fromUri('internal:/mypath/to/style.css');
 ```
 
 #### Referencias
