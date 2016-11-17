@@ -41,8 +41,8 @@ Instalar drupal
 $ cd nombreInstancia
 $ drupal site:install
 
-$ chown www-data:www-data -R sites/default/files/
-$ chmod 755 -R sites/default/files/
+$ chown www-data:www-data -R sites/default
+$ chmod 755 -R sites/default
 $ drupal cache:rebuild
 
 ```
