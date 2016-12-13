@@ -1,4 +1,4 @@
-EMAIL
+Multiidiomas
 ========
 #### Configurar un sitio multi-idiomas
 ```
