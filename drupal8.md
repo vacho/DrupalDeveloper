@@ -13,6 +13,9 @@ $data = $query->execute()->fetchAllAssoc('idpr', 'name', 'type');
 //Método 2
 $data = $db->query('SELECT idpr, name, code, detail FROM k_product')->fetchAllAssoc('idpr', 'name');
 
+// Obtener sólo un dato puntual
+$data = $db->query("SELECT idpr FROM k_product WHERE name = :name;", array(':name' => 'Lapiz'))->fetchField(0);
+
 DEPRECADOS.
 //múltiples filas
 $result = db_query('SELECT id, qualifier, email, board, popup
