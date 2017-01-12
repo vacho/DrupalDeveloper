@@ -37,7 +37,7 @@ foreach ($stores as $store) {
   );
 }
 
-//Array de arrays asociativos
+//Agregar campos en un array asociativo
 $options = array();
 foreach ($stores as $store) {
   $options[] = array(
