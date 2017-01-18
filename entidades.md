@@ -28,6 +28,7 @@ $ids = \Drupal::entityQuery('k_accountplan')
 ->condition('iden', $entity, '=')
 ->condition('idac', $account->getIdac(), '=')
 ->condition('idam', $accountingManagement, '=')
+->sort('number', 'DESC')
 ->execute();
 $AccountPlan = AccountPlan::load(reset($ids));
 
