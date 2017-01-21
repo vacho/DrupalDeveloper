@@ -17,6 +17,8 @@ Instalar PHP
   $ sudo apt-get install php
   $ sudo apt-get install php-cli
   $ sudo apt-get install libapache2-mod-php
+o
+  $ sudo apt-get install php php-cli libapache2-mod-php
 
 Buscar paquetes php a instalar
   $ sudo apt-cache search php
