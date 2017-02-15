@@ -84,6 +84,14 @@ Timezone America/Tijuana
 /etc/php5/cli/php.ini
 Editar la línea por ejemplo
 date.timezone = America/La_Paz
+
+No quiere actualizar dependencia con composer en servidor producción
+1. Ejecutar en ambiente local
+$composer update 
+2. Copiar el archivo "composer.lock" de local al servidor de producción
+3. Ejecutar en el servidor de producción  
+$ composer install
+
 ```
 
 ENLACES Y FUENTES
