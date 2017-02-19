@@ -16,3 +16,10 @@ sudo mv drush /usr/local/bin
 # Opcional. Completar instalación y alias
 drush init
 ```
+
+#### Comandos más útiles
+```
+# Actualizar un proyecto drupal: saca backup, actualiza el código y actualiza la base de datos
+$ drush up
+
+```
