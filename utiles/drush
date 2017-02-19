@@ -1,0 +1,18 @@
+DRUSH
+========
+
+#### Instalar
+```
+# Descargar la última versión estable de github.com/drush-ops/drush/releases.
+php -r "readfile('https://s3.amazonaws.com/files.drush.org/drush.phar');" > drush
+
+# Probar si el archivo funciona
+php drush core-status
+
+# Dar permisos de ejecución y mover el archivo a donde será accesible desde cualquier ruta
+chmod +x drush
+sudo mv drush /usr/local/bin
+
+# Opcional. Completar instalación y alias
+drush init
+```
