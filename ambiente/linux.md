@@ -29,6 +29,8 @@ muestra el tamaño aprox. en nodos
 Gestion de archivos
 ===
 ```
+Limpiar todo el contenido de un archivo (para limpiar logs)
+  $ truncate -s0 error_log
 Ver el peso de una carpeta/archivo recursivamente
   $ du -sh nombre_carpeta
 Calcula el tamaño real de los directorios
