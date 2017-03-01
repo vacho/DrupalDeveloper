@@ -57,6 +57,14 @@ format_date($rowKardex->getDate(), 'khipu_short'); //deprecado
 $date = date('Y-m-d H:i:s');
 new DrupalDateTime($date)
 ```
+#### Variables de estado
+```
+// Obtener un valor
+$value = \Drupal::state()->get('name_variable');
+
+// Colocar un valor
+\Drupal::state()->set('name_variable', valor_variable);
+```
 
 #### Configuraciones
 ```
