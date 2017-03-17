@@ -38,6 +38,11 @@ $ sudo usermod -aG docker <nombre_usuario>
 Bajar contenedor oficial de drupal ()
 $ docker pull drupal
 
+Ejecutar drupal con base de datos SQLite
+$ docker run --name some-drupal -p 8080:80 -d drupal
+
+Ver en el navegador esta instancia:
+http://localhost:8080
 
 ```
 
