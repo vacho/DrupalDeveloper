@@ -33,9 +33,21 @@ $ sudo usermod -aG docker <nombre_usuario>
 
 ```
 
+#### Montar drupal y ejecutarlo
+```
+Bajar contenedor oficial de drupal ()
+$ docker pull drupal
+
+
+```
+
+
 
 ENLACES Y FUENTES
 =================
 Instalar docker
 https://www.digitalocean.com/community/tutorials/como-instalar-y-usar-docker-en-ubuntu-16-04-es
+
+Contenedor oficial de drupal
+https://hub.docker.com/_/drupal/
 
