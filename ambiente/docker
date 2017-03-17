@@ -3,7 +3,30 @@ DOCKER
 
 #### Instalar docker en ubuntu
 ```
+Crear una cuenta de usuario que no sea root, con privilegios de sudo
+$ adduser docker
+$ usermod -aG sudo docker
 
+Actualizar la base de datos de paquetes
+$ sudo apt-get update
+
+Agregar la clave GPG para el repositorio oficial de Docker al sistema
+$ sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
+Agregar el repositorio Docker a fuentes APT
+$ sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
+
+Actualizar la base de datos de paquetes
+$ sudo apt-get update
+
+Verificar que está a punto de instalar desde el repositorio de Docker en lugar del repositorio predeterminado de Ubuntu
+$ apt-cache policy docker-engine
+
+Instalar Docker
+$ sudo apt-get install -y docker-engine
+
+Comprobar que docker se está ejecutando
+$ sudo systemctl status docker
 ```
 
 
