@@ -58,6 +58,21 @@ $entity->idac->entity->label();
       
 //obtner valor de un atributo de la entidad
 $rule->get('variable')->value
+
+// Guardar imagenes en una entidad
+$data = file_get_contents('https://fb-s-b-a.akamaihd.net/h-ak-xpa1/v/t1.0-1/p200x200/15977045_10154309431871267_7175376318146668144_n.jpg?oh=d9e53d50dd85061ce909c3836aa52b09&oe=5925DCAC&__gda__=1499424910_0b04f8498e91f1bff0bbfb6555c8aada');
+$file = file_save_data($data, null, FILE_EXISTS_REPLACE);
+
+//create an entity
+$values = array(
+  'name' => 'My new land',
+  'photo' => [ <=== this is the field name image of my custom entity
+    'target_id' => $file->id(),
+    'alt' => 'Hello world'
+  ],
+);
+$person = DefaultBien::create($values);
+$person->save();
 ```
 
 #### Campos de Entidades
