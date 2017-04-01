@@ -14,7 +14,7 @@ mimodulo.nombre_de_la_ruta:
 #### Permiso: en mimodulo/mimodulo.permissions.yml
 ```
 mimodulo.nombre_del_permiso:
-  title: "Títlo del privilegio"
+  title: "Título del privilegio"
   description: "Descripción del privilegio"
   restrict access: true
 
