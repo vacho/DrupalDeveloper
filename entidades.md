@@ -154,6 +154,7 @@ $fields['enum'] = BaseFieldDefinition::create('integer')
             'type' => 'number',
             'weight' => 0,
         ))
+        ->setSetting('size', 'big');
         ->setDisplayConfigurable('form', TRUE)
         ->setDisplayConfigurable('view', TRUE);
 
