@@ -89,9 +89,6 @@ Ver cambios en un archivo
 Ver cambios entre 2 commits
   $ git diff --name-only SHA1 SHA2
 
-Aplicar los cambios de un determinado commit
-  $ git cherry-pick <codigo del commit>
-
 Arreglar el último commit en lugar de un nuevo commit
   # editamos hola.py y main.py
   $ git add hola.py
@@ -99,6 +96,9 @@ Arreglar el último commit en lugar de un nuevo commit
   # añadir los cambios de main.py en el último commit
   $ git add main.py
   $ git commit --amend --no-edit
+
+Hacer merge de un específico commit de una rama en otra rama (donde se esta trábajando)
+  $ git cherry-pick <codigo_del_commit>
 
 ```
 Trabajar como fork de un repositorio y actualizar
