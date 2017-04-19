@@ -38,7 +38,7 @@ Calcula el tamaño real de los directorios
 Descomprimir tar.gz
   $ tar -xzvf nombre_archivo.tar.gz
 Comprimir tar.gz
-  $ tar -zxvf nombre_archivo.tar.gz nombre_carpeta
+  $ tar -zcvf nombre_archivo.tar.gz nombre_carpeta
 Descomprimir .gz
   $ gunzip nombre_archivo.gz
 Accesos carpeta
