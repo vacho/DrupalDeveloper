@@ -10,7 +10,7 @@ $values =  array(
   'lastname' => 'Lopez',
 );
 $Person = Person::create($values);
-$Person->Save();
+$Person->save();
 $id = $Person->id();
 
 //Eliminar entidad
