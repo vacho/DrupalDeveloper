@@ -29,7 +29,10 @@ Crear una rama o branch nueva
 
 Agregar y Quitar archivos (Equivalente git add, git rm juntos)
   $ git add -u
-  
+
+Añadir porciones de cambios dentro de cada archivo al stage de cambios
+  $ git add -p
+
 Quitar archivos
   $ git rm
 
@@ -43,7 +46,7 @@ Deshacer cambios del pull mas reciente
 
 Retrocedemos al último commit y perdemos todos los cambios hechos.
   $ git reset --hard HEAD~1
-  
+
 Retrocedemos a el último commit y no perdemos los cambiosn hechos; apareceran pendientes de hace commit
   $ git reset --soft HEAD~1
 
