@@ -36,5 +36,11 @@ drush sql-query 'TRUNCATE TABLE sessions;'
 
 # Desloguear un usuario en específoc
 drush sql-query 'DELETE FROM sessions WHERE uid = 2;'
+```
+
+#### REFERENCIAS
+```
+
+https://orga.cat/posts/most-useful-drush-commands
 
 ```
