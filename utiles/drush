@@ -25,7 +25,16 @@ $ drush up
 # Cambiar la contraseña de un usuario
 drush user-password USERNAME --password="SOMEPASSWORD"
 
+# Bloquear un usuario
+drush user-block vacho
+
 # Desbloquear un usuario
 drush user-unblock vacho
+
+# Desloguear todos los usuarios
+drush sql-query 'TRUNCATE TABLE sessions;'
+
+# Desloguear un usuario en específoc
+drush sql-query 'DELETE FROM sessions WHERE uid = 2;'
 
 ```
