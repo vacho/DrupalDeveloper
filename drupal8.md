@@ -11,9 +11,11 @@ $query->fields('p', ['idpr', 'name', 'type']);
 $data = $query->execute()->fetchAllAssoc('idpr', 'name', 'type');
 
 //Método 2
-
-// Obtener un array asociativo. Con 'idpr' como identificador de cada subarray asociativo 
+// Dado:
 $sql = "SELECT idpr, name, code, detail FROM k_product";
+// Obtener un array asociativo simple
+$data = $db->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
+// Obtener un array asociativo. Con 'idpr' como identificador de cada subarray asociativo 
 $data = $db->query($sql)->fetchAllAssoc('idpr', 'FETCH_ASSOC');
 
 // Obtener sólo un dato puntual
