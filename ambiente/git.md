@@ -16,6 +16,12 @@ Configuración de usuario
 Generar las llaves pública y privada
   $ ssh-keygen -t rsa -C usuario@correo.com
 
+Ignorar archivos o carpetas para el versionamiento
+  1. Crear un archivo .gitignore en la rais de la carpeta versionada
+  2. Escribir en el archivo .gitignore los archivos y carpetas a ignorar. Por ejemplo
+  .idea/
+  .gitignore
+
 Perder todos los cambios que no fueron commiteados
   $ git checkout -f
 
