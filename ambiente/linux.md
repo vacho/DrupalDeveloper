@@ -106,8 +106,12 @@ Trabajar con la consola en múltiples ventanas
   Remover una region
   $ ctrl+a :remove
 
-Utilitario que incrementa la eficiencia con el trabajo en la consola
+FISH: Utilitario que incrementa la eficiencia con el trabajo en la consola
+  Instalar
   $ sudo apt-get install fish
+  
+  Establecer fish como el shell por defecto del sistema operativo.
+  $ chsh -s /usr/bin/fish
 
 Descargar un archivo de internet
   $ wget http://www.nombreweb.com/archivo.ext
