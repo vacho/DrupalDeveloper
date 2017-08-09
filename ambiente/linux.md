@@ -133,10 +133,22 @@ Buscar archivos por nombre y reemplazar por otra palabra (tener cuidado, probar 
 
 ```
 
+Conectar entre servidores
+===
+```
+Copiar archivo de un servido a tu equipo  
+  $ sudo scp -P 2222 nombres_usuario@ip_servidor:/ruta_al_archivo /ruta_destino
+```
+
 Referencias
 ===
 Screen
 http://www.pixelbeat.org/lkdb/screen.html
+
 Corregir los permisos de los archivos
 http://boomshadow.net/tech/fixes/fixperms-script/
 https://forums.cpanel.net/threads/fix-permissions-in-accounts.73414/
+
+Acceso remoto a servidor por linea de comandos
+http://www.hypexr.org/linux_scp_help.php
+
