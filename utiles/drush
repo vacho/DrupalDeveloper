@@ -36,6 +36,10 @@ drush sql-query 'TRUNCATE TABLE sessions;'
 
 # Desloguear un usuario en específoc
 drush sql-query 'DELETE FROM sessions WHERE uid = 2;'
+
+# Reconstruir rutas
+drush ev '\Drupal::service("router.builder")->rebuild();'
+
 ```
 
 #### REFERENCIAS
