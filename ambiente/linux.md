@@ -115,6 +115,15 @@ FISH: Utilitario que incrementa la eficiencia con el trabajo en la consola
 
 Descargar un archivo de internet
   $ wget http://www.nombreweb.com/archivo.ext
+  
+Reparar sistema de paquetería cuando estan rotos
+  $ sudo apt-get -f install
+  $ sudo dpkg --configure -a
+  $ sudo apt-get autoremove
+  $ sudo apt-get clean
+  $ sudo rm /var/lib/apt/lists/* -vf
+  $ sudo apt-get update
+  
 ```
 
 Buscar y reemplazar
