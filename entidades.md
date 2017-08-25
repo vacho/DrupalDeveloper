@@ -290,6 +290,37 @@ $fields ['category'] = BaseFieldDefinition::create ('entity_reference')
       ->setDisplayConfigurable('view', TRUE);
 ```
 
+PROGRAMAR REGISTRO DE ENTIDADES EN TRANSACCIONES
+=======
+```
+$database = \Drupal::database();
+$transaction = $database->startTransaction();
+$id_branch = null;
+try {
+  if(empty($id_branch)) {
+      throw new \Exception('Empty: Branch Entity id.');
+  }
+  $Branch = Entities::load($id_branch);
+  $branch_address = $Branch->getAddress();
+
+  for ($i = 0; $i < 8000; $i++) {
+    $values = array(
+      'entity' => $id_branch,
+      'name' => 'Store ' . $i,
+      'address' => $branch_address,
+    );
+    $Store = Store::create($values);
+    $Store->save();
+  }
+
+}
+catch (\Exception $e) {
+  $transaction->rollback();
+  watchdog_exception($e->getMessage(), $e);
+  throw new \Exception(  $e->getMessage(), $e->getCode(), $e->getPrevious());
+}
+```
+
 ENLACES Y FUENTES
 =================
 Documentación oficial
