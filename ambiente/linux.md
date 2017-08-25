@@ -126,6 +126,28 @@ Reparar sistema de paquetería cuando estan rotos
   
 ```
 
+Servidor email para envío sólamente desde php
+===
+```
+Instalamos sendmail
+  $ sudo apt-get install sendmail
+Configuramos sendmail (se pone Si a las preguntas)
+  $ sudo sendmailconfig
+Editamos el archivo hosts
+  $ sudo vim /etc/hosts
+Ponemos este contenido en el principio del archivo. Comentando si hay algo similar
+  127.0.0.1 localhost localhost.localdomain your_domain_name_here.com
+  Ejemplo real:
+  127.0.0.1 localhost localhost.devtest.com skynet
+Reiniciamos apache  
+
+AYUDAS:  
+Obtener el nombre del host (your_domain_name_here.com)
+  $ hostname
+
+```
+
+
 Buscar y reemplazar
 ===
 ```
@@ -161,3 +183,6 @@ https://forums.cpanel.net/threads/fix-permissions-in-accounts.73414/
 Acceso remoto a servidor por linea de comandos
 http://www.hypexr.org/linux_scp_help.php
 
+Enviar emails desde php
+http://lukepeters.me/blog/getting-the-php-mail-function-to-work-on-ubuntu
+https://gist.github.com/adamstac/7462202
