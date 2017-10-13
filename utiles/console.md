@@ -85,6 +85,9 @@ Timezone America/Tijuana
 Editar la línea por ejemplo
 date.timezone = America/La_Paz
 
+No quiere ejecutar porque necesita se añadan dependencias en el proyecto
+$ composer require drupal/console:~1.0 --prefer-dist --optimize-autoloader
+
 No quiere actualizar dependencia con composer en servidor producción
 1. Ejecutar en ambiente local
 $composer update 
