@@ -30,7 +30,7 @@ Usando postman
 ```
 
 ### Ejemplo conexión uso rest post desde Python
-```
+```python
 import requests
 import json
 
