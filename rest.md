@@ -30,7 +30,7 @@ Usando postman
 ```
 
 ### Ejemplo conexión uso rest post desde Python
-```
+```Python
 import requests
 import json
 
@@ -44,8 +44,6 @@ data_json = json.dumps(user_datas)
 response_login = requests.post(url_base + '/user/login?_format=json', data=data_json)
 data_result = json.loads(response_login.text)
 csrf_token = data_result['csrf_token']
-# Ejemplo csrf_token = 'fcZ8bTiCqxqsDVORnDjJoLRDFWQwCPHX7Qjpxg7hbNA'
-
 
 # Enviar un json para registro mediante post
 data = {
@@ -69,7 +67,6 @@ client.auth = (user_drupal,pass_drupal)
 response_post = client.post(url_base + '/url_al_servicio_post?_format=json', data=data_json)
 print (response_post.text)
 ```
-
 
 #### Referencias
 ```
