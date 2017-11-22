@@ -30,16 +30,16 @@ Usando postman
 ```
 
 ### Ejemplo conexión uso rest post desde Python
-```python
+```
 import requests
 import json
 
-user_khipu = "algun_usuario"
-pass_khipu = "alguna_clave"
+user_drupal = "algun_usuario"
+pass_drupal = "alguna_clave"
 url_base = 'http://www.misitio.com'
 
 # Logueo en drupal. El logueo se debe realizar una sola vez, luego con esta sesión se debe realizar las operaciones.
-user_datas = {"name":user_khipu,"pass":pass_khipu}
+user_datas = {"name":user_drupal,"pass":pass_drupal}
 data_json = json.dumps(user_datas)
 response_login = requests.post(url_base + '/user/login?_format=json', data=data_json)
 data_result = json.loads(response_login.text)
@@ -64,7 +64,7 @@ header = {'Content-Type':'application/json','X-CSRF-Token':csrf_token}
 
 client = requests.session()
 client.headers.update(header)
-client.auth = (user_khipu,pass_khipu)
+client.auth = (user_drupal,pass_drupal)
 
 response_post = client.post(url_base + '/url_al_servicio_post?_format=json', data=data_json)
 print (response_post.text)
