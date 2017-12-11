@@ -39,6 +39,8 @@ Descomprimir tar.gz
   $ tar -xzvf nombre_archivo.tar.gz
 Comprimir tar.gz
   $ tar -zcvf nombre_archivo.tar.gz nombre_carpeta
+Comprimir 7z
+  $ 7z a FacturasAExcepcionar.7z FacturasAExcepcionar.txt
 Descomprimir .gz
   $ gunzip nombre_archivo.gz
 Accesos carpeta
