@@ -316,7 +316,7 @@ try {
 }
 catch (\Exception $e) {
   $transaction->rollback();
-  watchdog_exception($e->getMessage(), $e);
+  watchdog_exception('nombre_modulo', $e, $e->getMessage());
   throw new \Exception(  $e->getMessage(), $e->getCode(), $e->getPrevious());
 }
 ```
