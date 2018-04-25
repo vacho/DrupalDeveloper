@@ -3,17 +3,16 @@ DRUSH
 
 #### Instalar
 ```
-# Descargar la última versión estable de github.com/drush-ops/drush/releases.
-php -r "readfile('https://s3.amazonaws.com/files.drush.org/drush.phar');" > drush
+# Visitar https://github.com/drush-ops/drush/releases y descargar drush.phar (8.x recomendado).
 
-# Probar si el archivo funciona
-php drush core-status
+# Verificar archivo.
+php drush.phar core-status
 
-# Dar permisos de ejecución y mover el archivo a donde será accesible desde cualquier ruta
-chmod +x drush
-sudo mv drush /usr/local/bin
+# Renombrar `drush` por `php drush.phar`. y mover archivo $PATH. 
+chmod +x drush.phar
+sudo mv drush.phar /usr/local/bin/drush
 
-# Opcional. Completar instalación y alias
+# Opcional. Habilita alias
 drush init
 ```
 
