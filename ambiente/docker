@@ -50,9 +50,11 @@ http://localhost:8080
 
 ENLACES Y FUENTES
 =================
-Instalar docker
+Instalar docker en ubuntu 16.04
 https://www.digitalocean.com/community/tutorials/como-instalar-y-usar-docker-en-ubuntu-16-04-es
+
+Instalar docker en ubuntu 18.04
+https://www.itzgeek.com/how-tos/linux/ubuntu-how-tos/how-to-install-docker-on-ubuntu-18-04-lts-bionic-beaver.html
 
 Contenedor oficial de drupal
 https://hub.docker.com/_/drupal/
-
