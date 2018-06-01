@@ -33,7 +33,12 @@ Listar usuarios locales
   $ cut -d: -f1 /etc/passwd
 Listar todos los grupos de usuario formato Grupo:Contraseña:ID_Grupo(GID):Lista de usuarios
   $ cat /etc/group
-
+Agregar usuario y crear su propio grupo
+  $ sudo useradd nombre_usuario
+Asignar el usuario al grupo del root
+  $ usermod -aG sudo nombre_usuario
+Asignar el usuario al grupo de apache
+  $ usermod -aG www-data nombre_usuario
 ```
 
 Gestion de archivos
