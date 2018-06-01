@@ -26,6 +26,14 @@ muestra el tamaño aprox. en nodos
 
 ```
 
+Gestión usuarios
+===
+```
+Listar usuarios locales
+  $ cut -d: -f1 /etc/passwd
+
+```
+
 Gestion de archivos
 ===
 ```
