@@ -31,6 +31,8 @@ Gestión usuarios
 ```
 Listar usuarios locales
   $ cut -d: -f1 /etc/passwd
+Listar todos los grupos de usuario formato Grupo:Contraseña:ID_Grupo(GID):Lista de usuarios
+  $ cat /etc/group
 
 ```
 
