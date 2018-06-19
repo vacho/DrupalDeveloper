@@ -109,6 +109,9 @@ Arreglar el último commit en lugar de un nuevo commit
 Hacer merge de un específico commit de una rama en otra rama (donde se esta trábajando)
   $ git cherry-pick <codigo_del_commit>
 
+Lista de los commits que tienen un texto
+  $ git log --all --grep='<texto>'
+
 ```
 Trabajar como fork de un repositorio y actualizar
 ===
