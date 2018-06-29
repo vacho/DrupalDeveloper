@@ -12,7 +12,7 @@ $ ln -s /usr/bin/nodejs /usr/bin/node
 
 #### Instalar sass
 ```
-$ npm install -g node-sass
+$ sudo npm install -g node-sass
 ```
 
 #### Trabajar en un proyecto
