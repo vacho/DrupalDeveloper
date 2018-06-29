@@ -127,6 +127,9 @@ FISH: Utilitario que incrementa la eficiencia con el trabajo en la consola
   Instalar
   $ sudo apt-get install fish
   
+  Configurar
+  $ fish_config
+  
   Establecer fish como el shell por defecto del sistema operativo.
   $ chsh -s /usr/bin/fish
 
