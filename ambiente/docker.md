@@ -14,7 +14,7 @@ $ wget https://download.docker.com/linux/ubuntu/gpg
 $ sudo apt-key add gpg
 $ sudo apt-get update
 
-Verificar si existe un repositorio oficial disponible para la isntalación
+Verificar si existe un repositorio oficial disponible para la instalación
 $ sudo apt-cache policy docker-ce
 En caso de no tener un repositorio agregar esta linea en el archivo /etc/apt/sources.list.d/docker.list
 deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic edge NIGHTLY
@@ -95,3 +95,10 @@ https://linuxconfig.org/how-to-install-docker-on-ubuntu-18-04-bionic-beaver
 
 Contenedor oficial de drupal
 https://hub.docker.com/_/drupal/
+
+Comandos de docker
+https://docs.docker.com/engine/reference/commandline/docker/
+
+Entorno drupal con las herramientas más útiles
+https://cloud.wodby.com/stackhub/ada51e9b-2204-45ee-8e49-a4151912a168/overview
+
