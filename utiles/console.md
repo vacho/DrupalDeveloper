@@ -57,6 +57,12 @@ $ drupal generate:entity:content
 
 Actualizar entidades despues de hacer modificaciones
 $ drupal update:entities
+
+Exportar configuraciones
+$ drupal config_split:export --no-interaction
+
+Debuguear una configuración activa
+$ drupal debug:config mi_modulo.mi_plugin --show-overridden
 ```
 
 #### Comandos útiles
