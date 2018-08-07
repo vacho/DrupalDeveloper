@@ -13,6 +13,10 @@ Instalar Mysql
 Ajustar opciones de Seguridad de Mysql
   $ sudo mysql_secure_installation
 
+Habilitar que el usuario root puede loguearse por consola y web
+  $ sudo mysql -u root
+  $ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mi_clave'; 
+
 Instalar PHP
   $ sudo apt-get install php
   $ sudo apt-get install php-cli
