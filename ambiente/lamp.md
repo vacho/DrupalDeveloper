@@ -44,25 +44,6 @@ o
 Levantar/Detener/Reiniciar servicios(apache2/httpd/mysql)
   $ sudo service apache2 [start/stop/restart]
 
-FEDORA
-Instalar Apache/httpd
-  $ sudo yum install httpd
-
-Instalar Mysql
-  $ sudo yum install mysql mysql-server
-
-Ajustar opciones de Seguridad de Mysql
-  $ sudo usr/bin/mysql_secure_installation
-
-Instalar PHP
-  $ sudo yum install php php-mysql
-
-Buscar paquetes php a instalar
-  $ yum search php-
-
-Levantar/Detener/Reiniciar servicios(apache2/httpd/mysql)
-  $ sudo systemctl start/stop/restart httpd.service
-  
 ```
 Rutas amistosas: mod_rewrite
 ===
