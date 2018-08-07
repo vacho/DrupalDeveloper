@@ -44,6 +44,11 @@ o
 Levantar/Detener/Reiniciar servicios(apache2/httpd/mysql)
   $ sudo service apache2 [start/stop/restart]
 
+Permitir que el usuario funcione como apache
+  $ sudo chown -R usuario:usuario html
+  $ sudo usermod -a -G www-data usuario
+  $ sudo adduser usuario www-data
+  
 ```
 Rutas amistosas: mod_rewrite
 ===
