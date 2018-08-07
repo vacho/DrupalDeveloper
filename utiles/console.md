@@ -4,7 +4,7 @@ CONSOLE
 #### Instalar Composer globalmente (pre-requisito)
 ```
 $ curl -sS https://getcomposer.org/installer | php
-$ mv composer.phar /usr/local/bin/composer
+$ sudo mv composer.phar /usr/local/bin/composer
 Para fedora, aws EC2
 $ ln -s /usr/local/bin/composer /usr/bin/composer
 ```
