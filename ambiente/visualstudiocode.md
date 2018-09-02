@@ -15,7 +15,7 @@ INSTALACIÓN
 ==
 ```
 Desgargar .deb de https://code.visualstudio.com/
-$ sudo apt-get install atom
+$ sudo dpkg -i code_1.26.1-1534444688_amd64.deb
 ```
 
 PAQUETES RECOMENDADOS
