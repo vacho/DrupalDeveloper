@@ -21,6 +21,31 @@ $ sudo dpkg -i code_1.26.1-1534444688_amd64.deb
 PAQUETES RECOMENDADOS
 ==
 ```
+PHP: 
+PHP Intelephense: Autocompletar y refactorizar código (promete ser el más veloz y completo!)
+PHP debug: Debuguear con XDebug
+
+TWIG
+Twig Language: Sintaxis, snippets, autocompletado de twig y html
+
+HTML CSS
+Html Snipets: Autocompletado de código html incluido html 5
+Html Css Support: Autocompletado de clases, ids, archivos remotos.
+
+DRUPAL
+Drupal 8 Twig Snippets: Las funciones más comunes para enlazar drupal-twig
+Drupal 8 Snippets: Los hooks
+Drupal 8 Javascript Snippets: Las funciones más comunes para enlazar drupal-js
+
+GIT
+Git History: Ver el log, historial de un archivo, comparar ramas y commits
+
+JS
+(¿Que recomiendas?)
+
+DOCKER
+Docker (Microsoft): Sintaxis, comandos y tip (on hover) para archivos dockerfile y docker-compose
+
 ```
 
 REFERENCIAS
@@ -31,5 +56,8 @@ https://code.visualstudio.com/
 
 Utilización con Drupal
 https://www.drupal.org/docs/develop/development-tools/configuring-visual-studio-code
+
+Recomendaciónes para trabajar con php
+https://code.visualstudio.com/docs/languages/php
 
 ```
