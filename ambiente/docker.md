@@ -14,16 +14,29 @@ $ wget https://download.docker.com/linux/ubuntu/gpg
 $ sudo apt-key add gpg
 $ sudo apt-get update
 
-Verificar si existe un repositorio oficial disponible para la instalación
-$ sudo apt-cache policy docker-ce
-En caso de no tener un repositorio agregar esta linea en el archivo /etc/apt/sources.list.d/docker.list
-deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic edge NIGHTLY
+Agregar el repositorio docker a las fuentes APT
+$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 
 Actualizar la base de datos de paquetes
 $ sudo apt-get update
 
+Asegurarse de que se va instalar docker del repositorio oficial y no del por defecto de ubuntu
+$ apt-cache policy docker-ce
+Esto desplegará algo como esto:
+Output of apt-cache policy docker-ce
+docker-ce:
+  Installed: (none)
+  Candidate: 18.03.1~ce~3-0~ubuntu
+  Version table:
+     18.03.1~ce~3-0~ubuntu 500
+        500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+Note que docker-ce no está instalado y toma como candidato una versión de repositorio oficial para Ubuntu 18.04 (bionic).
+
 Instalar Docker
 $ sudo apt-get -y install docker-ce
+
+Verificar la instalación de docker
+$ sudo systemctl status docker
 
 Decirle al sistema que arranque siempre con docker
 $ sudo systemctl start docker
@@ -34,6 +47,10 @@ $ sudo docker run hello-world
 
 Opcional: Agregar usuario al grupo docker para evitar esribir sudo todo el tiempo
 $ sudo usermod -aG docker <nombre_usuario>
+Aplicar la membresía al grupo
+$ su - vacho
+Confirmar que el usuario se encuentra en el grupo de docker
+$ id -nG
 ```
 
 
