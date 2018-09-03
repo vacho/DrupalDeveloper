@@ -51,6 +51,15 @@ Aplicar la membresía al grupo
 $ su - vacho
 Confirmar que el usuario se encuentra en el grupo de docker
 $ id -nG
+
+Instalar docker-compose
+Desactivar fish
+$ bash
+Instalar
+$ sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+Revisar si se encuentra bien instalado
+$ docker-compose --version
 ```
 
 
