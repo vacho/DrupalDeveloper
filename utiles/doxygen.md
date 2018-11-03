@@ -9,6 +9,8 @@ $ sudo apt install doxygen-gui
 ```
 #### Generar documentación
 ```
+Correr GUI para configurar y generar documentación.
+$ doxywizard
 ```
 
 
