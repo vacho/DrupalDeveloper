@@ -2,10 +2,15 @@
 DOXYGEN
 ========
 
-#### Instalar 
+#### Instalar doxygen
 ```
-$  sudo apt-get install doxygen
+$ sudo apt-get install doxygen
+$ sudo apt install doxygen-gui
 ```
+#### Generar documentación
+```
+```
+
 
 ENLACES Y FUENTES
 =================
