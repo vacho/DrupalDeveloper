@@ -25,7 +25,11 @@ Delirante
 <input value="{% trans 'Delirio' with {'context': 'pms', 'langcode': 'es'} %}">
 
 // En javascript
-Drupal.t('Mayo', {}, {context: "Calendario", 'langcode': 'es'});
+(function (Drupal) {
+  ...
+  Drupal.t('Mayo', {}, {context: "Calendario", 'langcode': 'es'});
+  ..
+});
 
 
 // En yml
