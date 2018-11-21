@@ -1,6 +1,6 @@
-Contribución
+Entorno
 ========
-#### Entorno de contribución
+#### Docker que permite montar sobre sqlite, correr tests unitarios
 ```
 Descargar el core de drupal
 https://www.drupal.org/project/drupal/git-instructions
