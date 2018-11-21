@@ -13,7 +13,7 @@ $ composer install
 
 Ejecutar ambiente docker
 $ make -s up
-Review: http://localhost:8080/
+Revisar en: http://localhost:8080/
 
 Ejecutar los tests de un módulo. Ejemplo Taxonomy
 $ make t t=core/modules/taxonomy/tests/src/Unit/Menu/TaxonomyLocalTasksTest.php
@@ -28,11 +28,14 @@ PASOS PREVIOS
 https://www.drupal.org/project/issues/search/drupal?issue_tags=Needs+reroll
 
 2. Confirmar que el parche necesita reroll
-- Actualizar el core actualizado
+
+Actualizar el core actualizado
 $ git checkout 8.7.x
 $ git pull --rebase
-- Descargar el parche
-- Verficiar el parche
+
+Descargar el parche
+
+Verficiar el parche
 $ git apply --check nombre-archivo.patch
 Si el resultado es vacio el parche no necesita ser actualizado. 
 - Quitar el tag: "Needs reroll"
