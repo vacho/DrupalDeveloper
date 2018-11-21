@@ -16,7 +16,7 @@ https://www.drupal.org/project/issues/search/drupal?status%5B%5D=13&version%5B%5
 $ git checkout 8.7.x
 $ git pull --rebase
 
-4. Descargar el parche
+4. Descargar el parche en el comentario más reciente
 ```
 
 #### Resolver los problemas
