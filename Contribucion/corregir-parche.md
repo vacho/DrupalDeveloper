@@ -44,6 +44,8 @@ https://www.drupal.org/node/2723783
 
 Si no hay conflictoss
 - RESOLVER LOS PROBLEMAS EN EL PARCHE
+$ git add -p
+$ git commit -m "Solving problem at patch from issue 2599228 comment 12852422"
 - Crear un parche con un diff de tu branch local (test-branch) sobre la rama principal:
 $ git diff -M 8.7.x test-branch > numero_issue-numero_comentario.patch
 Verificar si el parche creado es correcto
