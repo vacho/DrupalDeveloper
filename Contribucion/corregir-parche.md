@@ -45,7 +45,7 @@ https://www.drupal.org/node/2723783
 Si no hay conflictoss
 - RESOLVER LOS PROBLEMAS EN EL PARCHE
 - Crear un parche con un diff de tu branch local (test-branch) sobre la rama principal:
-$ git diff -M 8.7.x test-branch > test-branch.patch
+$ git diff -M 8.7.x test-branch > numero_issye-numero_comentario.patch
 Verificar si el parche creado es correcto
 $ git checkout 8.7.x
 $ git apply --check test-branch.patch
