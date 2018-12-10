@@ -50,6 +50,6 @@ $ git commit -m "Solving problem at patch from issue 2599228 comment 12852422"
 $ git diff -M 8.7.x test-branch > numero_issue-numero_comentario.patch
 Verificar si el parche creado es correcto
 $ git checkout 8.7.x
-$ git apply --check test-branch.patch
+$ git apply --check numero_issue-numero_comentario.patch
 (no output)
 ```
