@@ -52,4 +52,11 @@ Verificar si el parche creado es correcto
 $ git checkout 8.7.x
 $ git apply --check numero_issue-numero_comentario.patch
 (no output)
+Crear un interdiff
+$ interdiff viejo.patch nuevo.patch > interdiff_[numero_comentario_viejo]-[numero_comentario_nuevo].txt
+```
+#### Referencias
+```
+Interdiff
+https://www.drupal.org/documentation/git/interdiff
 ```
