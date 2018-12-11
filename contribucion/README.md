@@ -7,8 +7,7 @@ https://bit.ly/2QoEMyU
 #### Partes del código que se necesitan remplazar-deprecar "Kill includes"
 https://bit.ly/2Eiq8SL
 
-Herramientas útiles
-=================
+#### Herramientas útiles
 Para revizar que el código cumple los standares
 
 PHPlint https://www.drupal.org/node/2571965
