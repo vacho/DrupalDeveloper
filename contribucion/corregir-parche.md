@@ -33,7 +33,6 @@ $ git checkout -b test-branch 749f569c6
 $ git apply --index 2599228-93.patch
 
 5. Commit del parche
-$ git add -p
 $ git commit -m "Applying patch from issue 2599228 comment 12852422"
 
 6. Intenta hace pull de todos los cambios que han sido hechos desde el commit del parche.
