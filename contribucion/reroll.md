@@ -51,10 +51,10 @@ https://www.drupal.org/node/2723783
 
 Si no hay conflictoss
 - Crear un parche con un diff de tu branch local (test-branch) sobre la rama principal:
-$ git diff -M 8.7.x test-branch > test-branch.patch
+$ git diff -M 8.7.x test-branch > nro_caso-nro_comentario.patch
 Verificar si el parche creado es correcto
 $ git checkout 8.7.x
-$ git apply --check test-branch.patch
+$ git apply --check nro_caso-nro_comentario.patch
 (no output)
 ```
 
