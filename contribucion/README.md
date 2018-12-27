@@ -24,3 +24,5 @@ Doc page https://www.drupal.org/node/1955232
 Cómo realizar re-roll
 https://www.drupal.org/patch/reroll
 
+Documentación etiquetas que pueden tener las issues
+https://www.drupal.org/issue-tags
