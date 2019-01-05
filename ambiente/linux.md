@@ -44,6 +44,8 @@ Asignar el usuario al grupo de apache
 Gestion de archivos
 ===
 ```
+Ver los permisos de un archivo/carpeta en modo numérico
+  $ find carpeta/archivo -printf '%m %p\n'
 Limpiar todo el contenido de un archivo (para limpiar logs)
   $ truncate -s0 error_log
 Ver el peso de una carpeta/archivo recursivamente
