@@ -111,6 +111,10 @@ Hacer merge de un espec√≠fico commit de una rama en otra rama (donde se esta tr√
 
 Lista de los commits que tienen un texto
   $ git log --all --grep='<texto>'
+  
+Restaurar un archivo borrado que no ha sido commiteado
+  $ git reset -- <ruta completa archivo>
+  $ git checkout -- <ruta completa archivo>
 
 ```
 Trabajar como fork de un repositorio y actualizar
