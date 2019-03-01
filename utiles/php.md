@@ -13,6 +13,9 @@ $_SERVER[HTTP_HOST]
 //Ruta url despues del host
 $_SERVER[REQUEST_URI]
 
+//Ruta base con protocolo
+$baseUri = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+
 //Llamar una página en background
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "http://example.com/Set.cgi?Image=1");
