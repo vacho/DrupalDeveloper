@@ -47,6 +47,7 @@ $ set PATH $PATH $HOME/.config/composer/vendor/bin
 $ phpcs --config-set installed_paths ~/.config/composer/vendor/drupal/coder/coder_sniffer
 $ phpcs -i
 Debe mostrar "The installed coding standards are Zend, PSR12, PSR1, Squiz, PSR2, MySource, PEAR, DrupalPractice and Drupal"
+$  phpcs --standard=Drupal  /ruta_a_carpeta_o_archivo/
 ```
 ENLACES Y FUENTES
 =================
