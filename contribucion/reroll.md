@@ -13,7 +13,7 @@ https://www.drupal.org/project/issues/search/drupal?issue_tags=Needs+reroll
 2. Confirmar que el parche necesita reroll
 
 Actualizar el core 
-$ git checkout 8.7.x
+$ git checkout 8.8.x
 $ git pull --rebase
 
 Descargar el parche
@@ -44,17 +44,17 @@ $ git apply --index 2599228-93.patch
 $ git commit -m "Applying patch from issue 2599228 comment 12852422"
 
 6. Intenta hace pull de todos los cambios que han sido hechos desde el commit del parche.
-$ git rebase 8.7.x
+$ git rebase 8.8.x
 
-Si hay conflictos: Realizar los conflictos del rebase.
+Si hay conflictos: Resolver los conflictos del rebase.
 https://www.drupal.org/node/2723783
 
 Si no hay conflictoss
 - Crear un parche con un diff de tu branch local (test-branch) sobre la rama principal:
-$ git diff -M 8.7.x test-branch > nro_caso-nro_comentario.patch
+$ git diff -M 8.7.x test-branch > breve_descripción-nro_caso-nro_comentario.patch
 Verificar si el parche creado es correcto
 $ git checkout 8.7.x
-$ git apply --check nro_caso-nro_comentario.patch
+$ git apply --check breve_descripción-nro_caso-nro_comentario.patch
 (no output)
 ```
 
