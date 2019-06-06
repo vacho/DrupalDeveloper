@@ -77,6 +77,9 @@ Ver el historial de un usuario
 Ver el historia de cada línea de codigo de un archivo
   $ git blame /ruta/archivo
 
+Ver el historial de un trozo de código
+git log --all -p -STrozo_de_codigo
+
 Mezclar una rama con el master
   $ git checkout master
   $ git merge crazy-experimient
