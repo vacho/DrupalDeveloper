@@ -13,6 +13,9 @@ Configuración de usuario
   $ git config --global core.editor emacs
   $ git config --list
 
+Configuración estilo de fin de línea para linux-mac: Auto modifica CTRL (Windows) a LF (Unix)
+  $ git config --global core.autocrlf input
+
 Generar las llaves pública y privada
   $ ssh-keygen -t rsa -C usuario@correo.com
 
@@ -179,3 +182,5 @@ REFERENCIAS
 https://www.atlassian.com/git/tutorials/merging-vs-rebasing/conceptual-overview
 Hostgator
 http://www.codigogratis.com.ar/como-utilizar-git-con-hostgator/
+Fin de línea
+https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-what-is-that-and-is-it-important
