@@ -118,6 +118,11 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 $response = new RedirectResponse("quotation?id=" . $idQuotationClient);
 $response->send();
+
+
+$path = Url::fromRoute('mi_nombre_ruta')->toString();
+$response = new RedirectResponse($path);
+$response->send();
 ```
 
 #### Rutas
