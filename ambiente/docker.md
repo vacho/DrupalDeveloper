@@ -99,6 +99,8 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 Verificar versión instalada
 $ docker-compose --version
 
+Instalar comando make
+$ sudo apt-get install make
 ```
 
 #### Montar drupal y ejecutarlo
