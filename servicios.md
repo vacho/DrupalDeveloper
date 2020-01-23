@@ -47,6 +47,33 @@ En services.yml
   }
 ```
 
+INYECTAR SERVICIOS
+===
+```
+  use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+  use Symfony\Component\DependencyInjection\ContainerInterface;
+  use Drupal\Core\Entity\Query\QueryFactory;
+
+  class MyController extends ControllerBase implements ContainerInjectionInterface {
+    protected $entityQuery;
+
+    /**
+     * Constructor. Stores injected services.
+     */
+    public function __construct(QueryFactory $entity_query) {
+      $this->entityQuery = $entity_query;
+    }
+
+    /**
+    * {@inheritdoc}
+    */
+    public static function create(ContainerInterface $container) {
+      return new static(
+        $container->get('entity.query')
+      );
+    }
+  }
+```
 
 #### Referencias
 Cheatsheet https://cryptic.zone/blog/drupal-8-cheatsheet-developers
