@@ -49,6 +49,10 @@ Permitir que el usuario funcione como apache
   $ sudo usermod -a -G www-data usuario
   $ sudo adduser usuario www-data
   
+Deshabilitar que apache levante con el sistema operativo
+  $ sudo systemctl disable apache2
+Levantar apache
+  $ sudo service apache2 start
 ```
 Rutas amistosas: mod_rewrite
 ===
