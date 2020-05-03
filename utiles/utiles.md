@@ -41,6 +41,13 @@ Fish
 #### Mejora la consola de linux
 ```
 $ sudo apt-get install fish
+
+Colocar el shell fish como el por defecto para el usuario
+$ chsh -s `which fish`
+
+Salir de fish
+$ bash
+
 ```
 
 Referencias
