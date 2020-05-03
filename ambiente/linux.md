@@ -134,6 +134,11 @@ FISH: Utilitario que incrementa la eficiencia con el trabajo en la consola
   
   Establecer fish como el shell por defecto del sistema operativo.
   $ chsh -s /usr/bin/fish
+  
+  Sin embargo, en Fish, se encadena comandos con ";" en lugar de "&&" por lo que si necesitas concatenar puedes salirte momentaneamente de fish
+  $ fish bash
+  Para volver
+  $ fish
 
 Descargar un archivo de internet
   $ wget http://www.nombreweb.com/archivo.ext
