@@ -1,5 +1,10 @@
 Entorno
 ========
+#### Docker con mysql, apache, tests unitarios en DOCKSAL
+```
+https://github.com/docksal/drupal8-contrib
+```
+
 #### Docker con sqlite + correr tests unitarios
 ```
 Descargar el core de drupal
