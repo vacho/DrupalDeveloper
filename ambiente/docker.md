@@ -48,7 +48,7 @@ $ sudo docker run hello-world
 Opcional: Agregar usuario al grupo docker para evitar esribir sudo todo el tiempo
 $ sudo usermod -aG docker <nombre_usuario>
 Aplicar la membresía al grupo
-$ su - vacho
+$ su - <nombre_usuario>
 Confirmar que el usuario se encuentra en el grupo de docker
 $ id -nG
 
