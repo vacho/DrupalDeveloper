@@ -12,7 +12,12 @@ $ cd drupal8
 $ fin init
 La ruta http://drupal8.docksal/ 
 El usuario y clave proporcionada en el shell despues de instalar drupal.
-Ej: Installation complete.  User name: admin  User password: XGBV34qWJu  
+Ej: Installation complete.  User name: admin  User password: XGBV34qWJu 
+
+Ejecutar tests unitarios
+$ fin bash
+$ cd docroot
+$ vendor/bin/phpunit -c core modules/contrib/domain/domain/tests/src/Functional/Views/ActiveDomainDefaultArgumentTest.php
 
 ```
 
