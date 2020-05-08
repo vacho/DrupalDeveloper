@@ -16,85 +16,85 @@ $searched = $form_state->getValue('nombre_elemento_formulario');
 #### Campos de formularios
 ```
 // Date
-$form['date'] = array(
+$form['date'] = [
   '#type' => 'date',
   '#default_value' => $year . "-" . $month . "-" . $day,
   '#weight' => 13,
-);
+];
 
 // Textfield con autocompletado
-$form['products'] = array(
+$form['products'] = [
   '#type' => 'textfield',
   '#placeholder' => '_' . t('Item'),
   '#autocomplete_route_name' => 'k_product.active.autocomplete',
   '#weight' => 17,
-);
+];
 
 // Datetime
-$form['date_validity'] = array(
+$form['date_validity'] = [
   '#type' => 'datetime',
   '#date_date_element' => 'date',
   '#date_time_element' => 'time',
   '#required' => TRUE,
   '#default_value' => "",
-  '#attributes' => array(
+  '#attributes' => [
     'placeholder' => '_' . t('Validity date'),
-   ),
+   ],
   '#weight' => 15,
-);
+];
 
 // Select 
-$form['payment'] = array(
+$form['payment'] = [
   '#type' => 'select',
-  '#attributes' => array(
+  '#attributes' => [
     'title' => t('Payment Method')
-  ),
-  '#options' => array(
+  ],
+  '#options' => [
     'CASH' => t('Cash'),
     'CHECK' => t('Check'),
     'TRANSFER' => t('Wire Transfer')
-  ),
+  ],
   '#default_value' => 'CASH',
-);
+];
 
 // Radios
-$active = array(1 => t('Yes'), 0 => t('No'));
-$form['typepurchase'] = array(
+$active = [1 => t('Yes'), 0 => t('No')];
+$form['typepurchase'] = [
   '#type' => 'radios',
   '#title' => t('This purchases will be in the inventory of merchandise:'),
   '#default_value' => 1,
   '#options' => $active
-);
+];
 
 // Button
-$form['minus'] = array(
+$form['minus'] = [
   '#type' => "button",
   '#value' => "-",
-  '#attributes' => array(
-    'class' => array('addOperator'),
-  ),
+  '#attributes' => [
+    'class' => ['addOperator'],
+  ],
   '#weight' => 97,
-);
+];
 
 // Textfield
-$form['shortDescription'] = array(
+$form['shortDescription'] = [
   '#type' => 'textfield',
   '#default_value' => $shortDescription,
   '#size' => 90,
   '#maxlength' => 90,
-  '#attributes' => array(
+  '#attributes' => [
     'placeholder' => '_' . t('Short Description'),
-  ),
+  ],
   '#weight' => 1000,
-);
+];
 
 // Textarea
-$form['pr']['obs'] = array(
+$form['pr']['obs'] = [
   '#type' => 'textarea',
   '#placeholder' => '_' . t('Observation'),
-  '#attributes' => array('title' => t('Observation')),
+  '#attributes' => ['title' => t('Observation')],
   '#suffix' => '</div>',
-);
+];
 ```
 
 
