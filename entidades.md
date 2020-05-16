@@ -5,10 +5,10 @@ ENTIDADES
 
 ```
 //crear entidad
-$values =  array(
+$values =  [
   'name' => 'Jose',
   'lastname' => 'Lopez',
-);
+];
 $Person = Person::create($values);
 $Person->save();
 $id = $Person->id();
@@ -64,13 +64,13 @@ $data = file_get_contents('https://fb-s-b-a.akamaihd.net/h-ak-xpa1/v/t1.0-1/p200
 $file = file_save_data($data, null, FILE_EXISTS_REPLACE);
 
 //create an entity
-$values = array(
+$values = [
   'name' => 'My new land',
   'photo' => [ <=== this is the field name image of my custom entity
     'target_id' => $file->id(),
     'alt' => 'Hello world'
   ],
-);
+];
 $person = DefaultBien::create($values);
 $person->save();
 ```
@@ -81,20 +81,20 @@ $person->save();
 $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
       ->setDescription(t('The name of the PriceFactor entity.'))
-      ->setSettings(array(
+      ->setSettings([
         'default_value' => '',
         'max_length' => 50,
         'text_processing' => 0,
-      ))
-      ->setDisplayOptions('view', array(
+      ])
+      ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'string',
         'weight' => -4,
-      ))
-      ->setDisplayOptions('form', array(
+      ])
+      ->setDisplayOptions('form', [
         'type' => 'string_textfield',
         'weight' => -4,
-      ))
+      ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
       
@@ -102,23 +102,23 @@ $fields['name'] = BaseFieldDefinition::create('string')
 $fields['test'] = BaseFieldDefinition::create('list_string')
       ->setLabel(t('List'))
       ->setDescription(t('The list of something.'))
-      ->setSettings(array(
+      ->setSettings([
         'max_length' => 60,
         'text_processing' => 0,
-        'allowed_values' => array(
+        'allowed_values' => [
           'key_1' => 'labee_1',
-          ),
-      ))
+        ]
+      ]
       ->setDefaultValue('')
-      ->setDisplayOptions('view', array(
+      ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'string',
         'weight' => 0,
-      ))
-      ->setDisplayOptions('form', array(
+      ]
+      ->setDisplayOptions('form', [
         'type' => 'options_select',
         'weight' => 0,
-      ))
+      ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
@@ -129,15 +129,15 @@ iden lista de strings, poner 'list_integer' en lugar de 'list_string'
 $fields['price'] = BaseFieldDefinition::create('decimal')
         ->setLabel(t('Price'))
         ->setDescription(t('The amount of the entity'))
-        ->setDisplayOptions('view', array(
+        ->setDisplayOptions('view', [
             'label' => 'above',
             'type' => 'decimal',
             'weight' => -3,
-        ))
-        ->setDisplayOptions('form', array(
+        ])
+        ->setDisplayOptions('form', [
             'type' => 'number',
             'weight' => -3,
-        ))
+        ])
         ->setDisplayConfigurable('form', TRUE)
         ->setDisplayConfigurable('view', TRUE);
 
@@ -145,15 +145,15 @@ $fields['price'] = BaseFieldDefinition::create('decimal')
 $fields['enum'] = BaseFieldDefinition::create('integer')
         ->setLabel(t('Enumeration'))
         ->setDescription(t('The order'))
-        ->setDisplayOptions('view', array(
+        ->setDisplayOptions('view', [
             'label' => 'above',
             'type' => 'integer',
             'weight' => 0,
-        ))
-        ->setDisplayOptions('form', array(
+        ])
+        ->setDisplayOptions('form', [
             'type' => 'number',
             'weight' => 0,
-        ))
+        ])
         ->setSetting('size', 'big');
         ->setDisplayConfigurable('form', TRUE)
         ->setDisplayConfigurable('view', TRUE);
@@ -162,28 +162,28 @@ $fields['enum'] = BaseFieldDefinition::create('integer')
 $fields['predefined'] = BaseFieldDefinition::create('boolean')
         ->setLabel(t('Predefined'))
         ->setDescription(t('Predefined'))
-      ->setDisplayOptions('form', array(
+      ->setDisplayOptions('form', [
         'type' => 'boolean_checkbox',
-        'settings' => array(
+        'settings' => [
           'display_label' => TRUE,
-        ),
+        ],
         'weight' => 0,
-      ))
+      ])
       ->setDisplayConfigurable('form', TRUE);
 
 //Fecha
 $fields['date_start'] = BaseFieldDefinition::create('timestamp')
         ->setLabel(t('Date start'))
         ->setDescription(t('The date start'))
-        ->setDisplayOptions('view', array(
+        ->setDisplayOptions('view', [
             'label' => 'adobe',
             'type' => 'timestamp',
             'weight' => 2,
-        ))
-        ->setDisplayOptions('form', array(
+        ])
+        ->setDisplayOptions('form', [
             'type' => 'datetime_timestamp',
             'weight' => 2,
-        ))
+        ])
         ->setDisplayConfigurable('form', TRUE);
       
 //Text o String long
@@ -191,18 +191,18 @@ $fields['description'] = BaseFieldDefinition::create('string_long')
       ->setLabel(t('Description'))
       ->setDescription(t('The description of the entity'))
       ->setTranslatable(TRUE)
-      ->setSettings(array(
+      ->setSettings([
           'default_value' => '',
-      ))
-      ->setDisplayOptions('view', array(
+      ])
+      ->setDisplayOptions('view', [
           'label' => 'above',
           'type' => 'string',
           'weight' => 4,
-      ))
-      ->setDisplayOptions('form', array(
+      ])
+      ->setDisplayOptions('form', [
           'type' => 'string',
           'weight' => 4,
-      ))
+      ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
@@ -213,21 +213,21 @@ $fields['idstore'] = BaseFieldDefinition::create('entity_reference')
       ->setRequired(TRUE)
       ->setSetting('target_type', 'k_store')
       ->setSetting('handler', 'default')
-      ->setDisplayOptions('view', array(
+      ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'entity_reference',
         'weight' => 0,
-      ))
-      ->setDisplayOptions('form', array(
+      ])
+      ->setDisplayOptions('form', [
         'type' => 'entity_reference_autocomplete',
-        'settings' => array(
+        'settings' => [
           'match_operator' => 'CONTAINS',
           'size' => 60,
           'autocomplete_type' => 'tags',
           'placeholder' => '_' . t('Store')
-        ),
+        ],
         'weight' => 0,
-      ))
+      ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
@@ -238,15 +238,15 @@ $fields['photo'] = BaseFieldDefinition::create('image')
       ->setLabel(t('Photo'))
       ->setDescription(t('Entity photo'))
       ->setDefaultValue('')
-      ->setDisplayOptions('view', array(
+      ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'file',
         'weight' => -4,
-      ))
-      ->setDisplayOptions('form', array(
+      ])
+      ->setDisplayOptions('form', [
         'type' => 'file',
         'weight' => -4,
-      ))
+      ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
       
@@ -257,15 +257,15 @@ $fields ['category'] = BaseFieldDefinition::create ('entity_reference')
       ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
       ->setSetting ('target_type','taxonomy_term') 
       ->setTranslatable (TRUE) 
-      ->setDisplayOptions ('form',array( 
+      ->setDisplayOptions ('form', [
         'type' =>  'options_buttons', 
         'weight' => - 10 , 
-        'settings' => array( 
+        'settings' => [
           'match_operator' => 'CONTAINS' , 
           'size'  =>  '60' , 
           'placeholder'  =>  '' , 
-        ), 
-      )) 
+        ], 
+      ]) 
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
       
@@ -276,16 +276,16 @@ $fields ['category'] = BaseFieldDefinition::create ('entity_reference')
       ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
       ->setSetting ('target_type','taxonomy_term') 
       ->setTranslatable (TRUE) 
-      ->setDisplayOptions ('form',array( 
+      ->setDisplayOptions ('form', [
         'type' => 'entity_reference_autocomplete',
         'weight' => - 10 , 
-        'settings' => array( 
+        'settings' => [
           'match_operator' => 'CONTAINS' , 
           'size'  =>  '60' , 
           'autocomplete_type' => 'tags' , 
           'placeholder'  =>  '' , 
-        ), 
-      )) 
+        ], 
+      ]) 
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 ```
@@ -304,11 +304,11 @@ try {
   $branch_address = $Branch->getAddress();
 
   for ($i = 0; $i < 8000; $i++) {
-    $values = array(
+    $values = [
       'entity' => $id_branch,
       'name' => 'Store ' . $i,
       'address' => $branch_address,
-    );
+    ];
     $Store = Store::create($values);
     $Store->save();
   }
