@@ -4,9 +4,6 @@ GIT
 Instalación en sistemas debian, ubuntu
   $ apt-get install git
 
-Instalación en sistemas centos, redhat, tal vez fedora
-  $ yum install git
-
 Configuración de usuario
   $ git config --global user.name usuario
   $ git config --global user.email usuario@correo.com
@@ -119,7 +116,9 @@ Lista de los commits que tienen un texto
   $ git log --all --grep='<texto>'
   
 Restaurar un archivo borrado que no ha sido commiteado
+  Restaura el estado del archivo en index
   $ git reset -- <ruta completa archivo>
+  Salida del cambio hecho en el archivo en index
   $ git checkout -- <ruta completa archivo>
 
 ```
