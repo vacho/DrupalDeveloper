@@ -3,6 +3,22 @@ Entorno
 #### Docker con mysql, apache, tests unitarios en DOCKSAL
 ```
 https://github.com/docksal/drupal8-contrib
+
+Clonar el repositorio
+$ git clone git@github.com:docksal/drupal8-contrib.git drupal8
+
+Levantar el entorno
+$ cd drupal8
+$ fin init
+La ruta http://drupal8.docksal/ 
+El usuario y clave proporcionada en el shell despues de instalar drupal.
+Ej: Installation complete.  User name: admin  User password: XGBV34qWJu 
+
+Ejecutar tests unitarios
+$ fin bash
+$ cd docroot
+$ vendor/bin/phpunit -c core modules/contrib/domain/domain/tests/src/Functional/Views/ActiveDomainDefaultArgumentTest.php
+
 ```
 
 #### Docker con sqlite + correr tests unitarios

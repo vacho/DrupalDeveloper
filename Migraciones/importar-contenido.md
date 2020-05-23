@@ -10,8 +10,9 @@ config_devel - Ayuda a configrar el entorno para importaciones y exportaciones a
 ```
 #### Proceso.
 ```
+Crear el tipo de contenido.
 Crear un módulo nuevo.
-Crear la estructura de archivos
+Crear la estructura de archivos.
 Crear el archivo de datos csv.
 Crear el archivo de importación yml.
 Testear la migración (comandos drush)

@@ -11,7 +11,13 @@ Multiidiomas
 // En php
 t('Instalación', array(), array('langcode' => 'es', 'context' => 'khipu' ))
 
+// En javascript
+Drupal.t('Delirant'))
+Drupal.t('Mayo', {}, {context: "Calendario", 'langcode': 'es'});
+
 // En twig
+{{ 'Free carita gift box'|t }}
+
 <label>
 {% trans with {'context': 'khipu', 'langcode': 'es'} %}
 Delirante
@@ -23,13 +29,6 @@ Delirante
 </label>
 
 <input value="{% trans 'Delirio' with {'context': 'pms', 'langcode': 'es'} %}">
-
-// En javascript
-(function (Drupal) {
-  ...
-  Drupal.t('Mayo', {}, {context: "Calendario", 'langcode': 'es'});
-  ..
-});
 
 
 // En yml
