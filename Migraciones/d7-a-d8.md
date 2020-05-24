@@ -66,37 +66,43 @@ $databases['migrate']['default'] = [
 5. Instalar los siguientes módulos:
    - migrate (core)
    - migrate_drupal (core)
-   Opcionales:
-   - migrate_drupal_ui - Si se va hacer la migración por UI.
-   - migrate_drupal_multilingual - Si es un sitio multiidiomas.
+   - migrate_drupal_ui - Opcional, si se va hacer la migración por UI.
+   - migrate_drupal_multilingual - Opcional, si es un sitio multiidiomas.
+   - migrate_upgrade - Soporte para comandos drush de actualización de versión de drupal.
+   - migrate_plus - Extensiones útiles al core de migrate.
+   - migrate_tools - Comandos drush a utilizar en la migración.  
 6. Habilitar todos los módulos homologados de D7 en D8.
+7. Colocar el sitio en modo mantenimiento.
 ```
 
-#### Realizar la migración utilizando DRUSH.
+#### Realizar la migración mediante navegador web.
+```
+Recomendado si eres novato en migraciones con Drupal.
+1. Ir a la interface gráfica:  /upgrade
+Seguir el procedimiento indicado.
+```
+
+#### Realizar la migración mediante DRUSH.
 ```
 Es la manera más robusta y veloz, pero requiere módulos adicionales y configuraciones.
 
 UTILIZANDO COMANDOS DIRECTOS
-1. Instalar módulos.
-   - migrate_upgrade - Soporte para comandos drush de actualización de versión de drupal.
-   - migrate_plus - Extensiones útiles al core de migrate.
-   - migrate_tools - Comandos drush a utilizar en la migración.
-
 2. Generar las migraciones usando migrate-upgrade.
+Ver la lista de migraciones posibles.
+$ drush migrate-status
+
+Ejecutar todas las migraciones.
+drush migrate-import --all 
+
 Generar la migración completa en el sitio D7 desde el espacio D8 
 $ drush migrate-upgrade
 
 Si se necesita sólo migrar las configuraciones.
 $ drush migrate-upgrade --legacy-db-url=mysql://user:password@server/db --legacy-root=http://url-del-sitio-d7.com --configure-only 
 
-Ver la lista de migraciones posibles.
-$ drush migrate-status
-
 Ejecutar migraciones selectivamente. 
 drush migrate-import <nombre_migración>
  
-Ejecutar todas las migraciones.
-drush migrate-import --all 
 
 UTILIZANDO MANIFIESTOS 
 1. Instalar el módulo migrate_manifest
@@ -122,5 +128,9 @@ https://www.drupal.org/docs/8/upgrade/upgrading-from-drupal-6-or-7-to-drupal-8-a
 Lista de módulos útiles para la migración
 https://www.drupal.org/docs/8/upgrade/drupal-8-migrate-modules
 
-Actualizar uzando drush
+Actualizar mediante navegador web
+https://www.drupal.org/docs/8/upgrade/upgrade-using-web-browser
+
+Actualizar mediante drush
 https://www.drupal.org/docs/8/upgrade/upgrade-using-drush
+
