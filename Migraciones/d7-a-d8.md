@@ -1,14 +1,9 @@
 Migrar un sitio completo de drupal 7 a drupal 8
 ========
-#### Módulos involucrados.
-```
-migrate - Framework de migraciones hacia Drupal(nodes, users, files, terms, comments) desde otras fuentes.
-migrate_drupal - Módulo especializado para migrar de versiones anteriores(6,7) a drupal 8.
-```
 
 #### Resumen del proceso
 ```
-Preparar sitio D7 para migrar > Montar sitio D8 > Migrar configuraciones > Migrar contenido > Migraciones manuales.
+Preparar sitio D7 > Prepara sitio D8 > Migrar > Configuraciones manuales.
 ```
 
 #### Preparar D7 para ser migrado.
@@ -75,14 +70,14 @@ $databases['migrate']['default'] = [
 7. Colocar el sitio en modo mantenimiento.
 ```
 
-#### Realizar la migración mediante navegador web.
+#### Migrar mediante navegador web.
 ```
 Recomendado si eres novato en migraciones con Drupal.
 1. Ir a la interface gráfica:  /upgrade
 Seguir el procedimiento indicado.
 ```
 
-#### Realizar la migración mediante DRUSH.
+#### Migrar mediante DRUSH.
 ```
 Es la manera más robusta y veloz, pero requiere módulos adicionales y configuraciones.
 
@@ -119,6 +114,10 @@ Obtener la lista completa de migraciones en un archivo yml
 $ drush migrate-manifest --legacy-db-url=mysql://d7user:d7pass@localhost/drupal_7 manifest.yml 
 ```
 
+#### Configuraciones manuales.
+```
+Luego de migrar el contenido y las configuraciones. Es muy posible que hayan módulos que instalar, configuraciones que completar.
+```
 
 ENLACES Y FUENTES
 =================
