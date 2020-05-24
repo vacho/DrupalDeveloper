@@ -35,33 +35,6 @@ https://www.drupal.org/docs/8/upgrade/known-issues-when-upgrading-from-drupal-6-
 ```
 1. Tener una instalación limpia(sin contenido ni configuraciones adicionadas).
 2. Tener acceso a la base de datos de D7 y D8 desde el mismo host.
-3. Si se necesitan migrar archivos privados de D7
-   Estos deben ser accesibles desde D8 y se deben configurar file_private_path en settings.php antes de corres el upgrade.
-5. Instalar Drush 8 o 9
-6. Instalar los siguientes módulos:
-   - migrate (core)
-   - migrate_drupal (core)
-   Opcionales:
-   - migrate_drupal_ui - Si se va hacer la migración por UI.
-   - migrate_drupal_multilingual - Si es un sitio multiidiomas.
-7. Habilitar todos los módulos homologados de D7 en D8.
-```
-
-#### Realizar la migración utilizando DRUSH.
-```
-Es la manera más robusta y veloz, pero requiere módulos adicionales y configuraciones.
-
-1. Instalar drush.
-Si has instalado drupal mediante composer, yá tienes drush como una dependencia en composer.json
-Si nó puedes ejecutar:
-$ composer require drush/drush
-
-2. Instalar módulos.
-   - migrate_upgrade - Soporte para comandos drush de actualización de versión de drupal.
-   - migrate_plus - Extensiones útiles al core de migrate.
-   - migrate_tools - Comandos drush a utilizar en la migración.
-
-3. Conexión a base de datos.
 En D8 configurar settings.php
 $databases['default']['default'] = [
   'database' => 'd8db',
@@ -84,8 +57,32 @@ $databases['migrate']['default'] = [
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 ];
+3. Si se necesitan migrar archivos privados de D7
+   Estos deben ser accesibles desde D8 y se deben configurar file_private_path en settings.php antes de corres el upgrade.
+4. Instalar Drush 8 o 9 en el proyecto.
+   Si has instalado drupal mediante composer, yá tienes drush como una dependencia en composer.json  
+   Si nó puedes ejecutar:
+   $ composer require drush/drush
+5. Instalar los siguientes módulos:
+   - migrate (core)
+   - migrate_drupal (core)
+   Opcionales:
+   - migrate_drupal_ui - Si se va hacer la migración por UI.
+   - migrate_drupal_multilingual - Si es un sitio multiidiomas.
+6. Habilitar todos los módulos homologados de D7 en D8.
+```
 
-4. Generar las migraciones usando migrate-upgrade.
+#### Realizar la migración utilizando DRUSH.
+```
+Es la manera más robusta y veloz, pero requiere módulos adicionales y configuraciones.
+
+UTILIZANDO COMANDOS DIRECTOS
+1. Instalar módulos.
+   - migrate_upgrade - Soporte para comandos drush de actualización de versión de drupal.
+   - migrate_plus - Extensiones útiles al core de migrate.
+   - migrate_tools - Comandos drush a utilizar en la migración.
+
+2. Generar las migraciones usando migrate-upgrade.
 Generar la migración completa en el sitio D7 desde el espacio D8 
 $ drush migrate-upgrade
 
