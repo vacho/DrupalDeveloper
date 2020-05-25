@@ -2,7 +2,15 @@ Multiidiomas
 ========
 #### Configurar un sitio multi-idiomas
 ```
+Configuraciones generales
+Instalar y habilitar los idiomas deseados: Admin > Config > Regional and Language > Languages
 
+Habilitar los módulos:
+"Content translation" Para traduccior componentes de drupal: bloques, taxonomias, etc.
+"Configuration translation" Para traducir configuraciones: Títulos de bloques, etc.
+
+Habilitar los componentes de drupal que van a ser traducibles: 
+Admin > Config > Regional and language > Content language and translation
 ```
 
 #### Programar etiquetas en otros idiomas
