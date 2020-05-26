@@ -181,6 +181,25 @@ http://googleappsdeveloper.blogspot.com.es/2012/01/tips-on-using-apis-discovery-
 https://developers.google.com/google-apps/products
 
 ```
+POO
+===
+INTERFACES
+- Permiten especifcar los métodos que va contener una clase.
+- Todos los métodos declarados en una interface son públicos.
+- Es posible declarar constructores.
+- Pueden ser extendidas por el operador "extend"
+```
+interface iTemplate {
+  public function setVariable($name, $var);
+}
+
+class Template implements iTemplate {
+  private $vars = array(); 
+  public function setVariable($name, $var) {
+    $this->vars[$name] = $var;
+  }
+}
+```
 
 PHP 7 nuevas sintaxis
 ===
