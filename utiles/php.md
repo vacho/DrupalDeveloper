@@ -182,6 +182,17 @@ https://developers.google.com/google-apps/products
 
 ```
 
+PHP 7 nuevas sintaxis
+===
+NULLABLE
+```
+// Puede retornar NULL o String
+function a(): ?string { }
+
+// Puede recibir como parámetro NULL o String, pero no "valor vacio"
+function test(?string $name) { }
+```
+
 
 
 Referencias
