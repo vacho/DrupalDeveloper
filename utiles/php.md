@@ -200,6 +200,33 @@ class Template implements iTemplate {
   }
 }
 ```
+```
+// Una clase puede implementar n interfaces.
+// Se usa para estandarizar clases.
+interface A {
+  ...
+}
+interface B {
+  ...
+}
+
+class C implements A, B {
+  ...
+}
+```
+```
+// Un interface puede ser implementada por n clases.
+// se usa para estandarizar los nombres de los métodos de un grupo de clases equivalentes.
+interface A {
+  ...
+}
+class B implements A {
+  ...
+}
+class C implements A {
+  ...
+}
+```
 
 PHP 7 nuevas sintaxis
 ===
@@ -228,5 +255,9 @@ Referencias
 ====
 Programación orientada a objetos
 http://www.startutorial.com/homes/oo_beginner
+
 Buena guía de curl (ingles)
 http://codular.com/curl-with-php
+
+Patrones de diseño: Interfaces
+https://phptherightway.com/pages/Design-Patterns.html
