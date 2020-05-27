@@ -211,8 +211,18 @@ function a(): ?string { }
 // Puede recibir como parámetro NULL o String, pero no "valor vacio"
 function test(?string $name) { }
 ```
-
-
+STRICT MODE
+```
+// Los tipos de datos se respetan de manera estrícta.
+<?php declare(strict_types=1); // strict mode
+```
+RETURN TYPE
+```
+// Declaración explísita del tipo de dato del retorno para int, float, string, bool.
+function FunctionName ($a, $b) : string  {
+  return $a.$b;
+}
+```
 
 Referencias
 ====
