@@ -121,6 +121,9 @@ Restaurar un archivo borrado que no ha sido commiteado
   Salida del cambio hecho en el archivo en index
   $ git checkout -- <ruta completa archivo>
 
+Ignorar un archivo en el repositorio sin .gitignore
+  $ git update-index --skip-worktree /sites/default/settings.php
+
 ```
 Trabajar como fork de un repositorio y actualizar
 ===

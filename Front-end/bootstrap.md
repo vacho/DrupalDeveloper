@@ -15,7 +15,7 @@ row
 ```
 Clases para columnas
 
-| Extra small | Small    | Medium   | Large    | Extra large |
+| Extra small | Small    | Medium   | Large    | Extra large |  
 | ----------- | -------- | -------- | -------- | ----------- |
 | .col-       | .col-sm- | .col-md- | .col-lg- | .col-xl-    |
 
