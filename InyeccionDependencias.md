@@ -26,13 +26,13 @@ Inyectar el servicio en el constructor.
 Instanciar el servicio al momento de crear el objeto.
 ```
   ...
-  public static function create(..., ContainerInterface $container, ...) {
-    return new static(
-      ...,
-      $container->get('entity_type.manager'),
-      ...
-    );
-  }
+    public static function create(..., ContainerInterface $container, ...) {
+      return new static(
+        ...,
+        $container->get('entity_type.manager'),
+        ...
+      );
+    }
 ```
 
 Utilizar el servicio.
