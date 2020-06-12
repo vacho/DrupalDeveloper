@@ -10,13 +10,14 @@ NOTA: El módulo "Better normalizers" se utiliza para generar archivos "file" (e
 
 #### 2. Activar los módulos
 ```
-$ drush en -y default_content
-$ drush en -y better_normalizers
+$ drush en -y default_content better_normalizers
 ```
 
 #### 3. Crear un módulo para contener los contenidos
 ```
-
+$ drush generate module-standard
+// Crear carpeta que va contener el contenido generado
+$ mkdir docroot/modules/custom/<carpeta_módulo_custom>/content
 ```
 
 #### 4. Crear los contenidos haciendo site building
@@ -38,7 +39,7 @@ $ drush dcer commerce_product 1
 
 Comandos para genear contenidos customizando la ruta donde colocarlo.
 ```
-$ drush dcer node --folder=modules/custom/<carpeta_módulo_custom>
+$ drush dcer node <node_id> --folder=modules/custom/<carpeta_módulo_custom>/content
 ```
 
 #### 5. Desactivar los módulos para generar contenidos
