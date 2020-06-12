@@ -1,6 +1,6 @@
 DRUPAL DEVELOPER
 =================
-Este proyecto pretende ser una guía suficiente que contiene los conocimientos mínimos que debe conocer un desarrollador para trabajar con Drupal 8.
+Este proyecto es una guía suficiente, con los conocimientos para desarrollar potentes aplicacines web sibre Drupal 8 y 9.
 
 principios de esta guía:
 
@@ -8,14 +8,23 @@ principios de esta guía:
 * Contiene comandos y trozos de código útiles.
 * Intentar abarcar todos los conocimientos básicos que un programador en Drupal 8 debe tener.
 
-#### Ambiente
-Se trada de guías para montar un ambiente productivo
+#### Backend [semi-completo]
+Se trada de trozos de código y refencias para realizar trabajos con el API de drupal. 
 
-#### Utiles
-Se trada de guías para trabajar con tecnologías complementarias y scripts o herramientas de apoyo
+#### Contribución [completo]
+Guías para montar un entorno de contribución productivo y poder corregir-mejorar el código de Drupal. 
 
-##### Jarvis
-Se trata de una colección de scripts que agilizan tareas usuales.
+#### Ecosistema [empezando]
+Módulos, Temas, Distribuciones y recursos disponibles y listos para montar. 
+
+#### Infraestructura [semi-completo]
+Se trada de guías para montar un ambiente productivo 
+
+#### Utiles [empezando]
+Se trada de guías para trabajar con tecnologías complementarias y scripts o herramientas de apoyo 
+
+##### Jarvis [empezando]
+Se trata de una colección de scripts bash que agilizan tareas usuales.
 * Para poder ejecutar los comandos desde cualquier ubicación desde la consola es necesario copiarlos a /usr/local/bin
 ojo el script debe tener permisos de ejecución
 si el sistema es fedora o aws se debe colocar enlace simbólico a /usr/bin
@@ -23,13 +32,8 @@ ln -s /usr/local/bin/<nombre_app> /usr/bin/composer/<nombre_app>
 
 #### POR HACER
 
-* Completar programación Drupal 8: generación de código, módulos, formularios, entidades, servicios, bloques, etc.
-* Completar git.
-* Completar mysql.
-* Crear Javascript.
-* Crear CSS.
-* Completar Linux.
-* Completar herramientas.
+* Corregir trozos de código antiguos que tienen mejores prácticas por estos días.
+* Completar las scciones que se encuentran en [empezando] y [semi-completo].
 
 #### LLAMADO
 Cualquier persona puede contribuir a estos documentos:
