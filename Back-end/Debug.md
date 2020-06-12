@@ -75,3 +75,5 @@ https://lucidar.me/en/aws-cloud9/how-to-install-and-configure-xdebug-on-ubuntu/
 https://dev.to/thamaraiselvam/configure-xdebug-php-7-nginx-any-linux-distribution-3ic0
 
 https://gist.github.com/RazaChohan/51bffc660d52eae8a75dd0f9503740bf
+
+https://blog.liip.ch/archive/2016/06/20/lets-debug-drupal-8.html

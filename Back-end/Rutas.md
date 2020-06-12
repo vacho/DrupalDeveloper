@@ -37,6 +37,25 @@ sale.onlyform.add:
   $Url = Url::fromUri('internal:/mypath/to/style.css');
 ```
 
+#### Obtener nombre routing de la ruta actual
+```
+$url_object = \Drupal::service('path.validator')->getUrlIfValid(\Drupal::service('path.current')->getPath());
+$route_name = $url_object->getRouteName();
+```
+
+#### Redireccionamiento
+```
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+$response = new RedirectResponse("quotation?id=" . $idQuotationClient);
+$response->send();
+
+$path = Url::fromRoute('mi_nombre_ruta')->toString();
+$response = new RedirectResponse($path);
+$response->send();
+```
+
+
 #### Referencias
 Posibilidades de las rutas: https://www.drupal.org/node/2092643
 Cheatsheet https://cryptic.zone/blog/drupal-8-cheatsheet-developers
