@@ -36,7 +36,7 @@ ln -s /usr/local/bin/<nombre_app> /usr/bin/composer/<nombre_app>
 #### POR HACER
 
 * Corregir trozos de código antiguos que tienen mejores prácticas por estos días.
-* Completar las scciones que se encuentran en [empezando] y [semi-completo].
+* Completar las seciones que se encuentran en [empezando] y [semi-completo].
 
 #### LLAMADO
 Cualquier persona puede contribuir a estos documentos:
