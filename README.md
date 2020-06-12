@@ -8,14 +8,17 @@ principios de esta guía:
 * Contiene comandos y trozos de código útiles.
 * Intentar abarcar todos los conocimientos básicos que un programador en Drupal 8 debe tener.
 
-#### Backend [semi-completo]
-Se trada de trozos de código y refencias para realizar trabajos con el API de drupal. 
+#### Back-end [semi-completo]
+Trozos de código y refencias para realizar trabajos con el API de drupal. 
 
 #### Contribución [completo]
 Guías para montar un entorno de contribución productivo y poder corregir-mejorar el código de Drupal. 
 
 #### Ecosistema [empezando]
 Módulos, Temas, Distribuciones y recursos disponibles y listos para montar. 
+
+#### Front-end [empezando]
+Trozos de código y referencias para trabajar en la GUI que va desplegar drupal. 
 
 #### Infraestructura [semi-completo]
 Se trada de guías para montar un ambiente productivo 
