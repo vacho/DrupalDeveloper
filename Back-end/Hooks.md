@@ -22,13 +22,37 @@ function nombre_modulo_entity_presave(Drupal\Core\Entity\EntityInterface $entity
 /**
  * Implements hook_form_alter().
  */
-function nombre_modulo_form_alter(&$form, &$form_state, $form_id) {
+function nombre_modulo_form_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id) {
   if ($form_id == 'node_people_edit_form') {
     $form['field_is_single']['widget'][0]['value']['#attributes']['readonly'] = TRUE;
     ...
     return $form;
   }
-}```
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mombre_modulo_form_id_del_formulario_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  // Prepare form for using AJAX.
+  $form['#attached']['library'][] = 'core/drupal.dialog.ajax';
+  $form['caption'] = [
+    '#type' => 'html_tag',
+    '#tag' => 'div',
+    '#value' => t('Want to join our community ?'),
+    '#weight' => -25,
+    '#attributes' => [
+      'class' => [
+        'newsletter-form-caption',
+        'a-block-title',
+        'a-block-title--size--small',
+      ],
+    ],
+  ];
+  ...
+}
+
+```
 
 ENLACES Y FUENTES
 =================
