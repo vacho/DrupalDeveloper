@@ -5,6 +5,11 @@ MÓDULOS
 Compartir en redes sociales
 https://www.drupal.org/project/addtoany
 
+### Campos
+Permisos sobre los campos
+https://www.drupal.org/project/field_permissions
+
+
 ENLACES Y FUENTES
 =================
 Cómo crear subtemas, documentación oficial
