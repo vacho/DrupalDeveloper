@@ -51,7 +51,20 @@ function mombre_modulo_form_id_del_formulario_alter(array &$form, FormStateInter
   ];
   ...
 }
+```
+Modificar una view
+===
 
+```
+/**
+ * Implementation of hook_views_query_alter().
+ */
+function nombre_modulo_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+  if ($view->id() == 'id_de_la_view') {
+    $query->addField('node_field_data', 'nid', '', ['function' => 'groupby']);
+    $query->addGroupBy('node_field_data.nid');
+  }
+}
 ```
 
 ENLACES Y FUENTES
