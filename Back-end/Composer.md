@@ -45,7 +45,8 @@ $ composer require drupal/flexslider:^dev
 php -d memory_limit=-1 composer require 
 ```
 
-
+#### Actualizar el core
+https://www.drupal.org/docs/updating-drupal/update-drupal-core-via-composer
 
 
 ENLACES Y FUENTES

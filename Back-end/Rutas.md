@@ -47,6 +47,13 @@ $url_object = \Drupal::service('path.validator')->getUrlIfValid(\Drupal::service
 $route_name = $url_object->getRouteName();
 ```
 
+#### Parametros
+```
+// Obtener un parametro
+$currentRoute = \Drupal::routeMatch();
+$currentRoute->getParameter('nombre_parametro');
+```
+
 #### Redireccionamiento
 ```
 use Symfony\Component\HttpFoundation\RedirectResponse;
