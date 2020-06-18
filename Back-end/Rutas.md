@@ -30,7 +30,9 @@ sale.onlyform.add:
 ```
 #### Obtener una url
 ```
-  $path = $Url->toString();
+  // Obtener la ruta actual
+  $currentRoute = \Drupal::routeMatch();
+
   // o usando como base el nombre de la ruta
   $path = \Drupal::url($route_name)
   
