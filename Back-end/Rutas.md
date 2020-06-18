@@ -24,7 +24,9 @@ sale.onlyform.add:
   $Url = new Url($route_name, $params)​;
 
   // O mediante el método estático de la url
-  $Url = Url::fromRoute($route_name, $params)​
+  $url = Url::fromRoute($route_name, $params)​
+  // Ejemplo
+  $url = Url::fromRoute('view.glossary_terms.glossary_page', ['arg_0' => 'all'])->toString();
 ```
 #### Obtener una url
 ```
