@@ -9,6 +9,9 @@ https://www.drupal.org/project/addtoany
 Permisos sobre los campos
 https://www.drupal.org/project/field_permissions
 
+### SEO
+Metatags
+https://www.drupal.org/project/metatag
 
 ENLACES Y FUENTES
 =================
