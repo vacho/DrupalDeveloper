@@ -72,6 +72,15 @@ quotation.proposal:
     _permission: quotation.proposal
 ```
 
+#### Manipulación programática
+Utilizar version traducida de una entidad.
+```
+  $category = Term::load($id_category);
+  $curr_langcode = \Drupal::languageManager()->getCurrentLanguage(\Drupal\Core\Language\LanguageInterface::TYPE_CONTENT)->getId();
+  $translated = \Drupal::service('entity.repository')->getTranslationFromContext($category, $curr_langcode);
+```
+
+
 ENLACES Y FUENTES
 =================
 Documentación traducción de código drupal
