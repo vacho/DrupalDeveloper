@@ -51,7 +51,10 @@ $route_name = $url_object->getRouteName();
 ```
 // Obtener un parametro
 $currentRoute = \Drupal::routeMatch();
-$currentRoute->getParameter('nombre_parametro');
+$query = $currentRoute->getParameter('nombre_parametro');
+Vs
+
+$query = \Drupal::request()->query->get('name');
 ```
 
 #### Redireccionamiento
