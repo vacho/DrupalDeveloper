@@ -71,10 +71,12 @@ function nombre_modulo_views_query_alter(ViewExecutable $view, QueryPluginBase $
  */
 function banana_programs_views_pre_render(ViewExecutable $view) {
   // Update title for category view.
-  $category = Term::load($id_category);
-  $curr_langcode = \Drupal::languageManager()->getCurrentLanguage(\Drupal\Core\Language\LanguageInterface::TYPE_CONTENT)->getId();
-  $translated = \Drupal::service('entity.repository')->getTranslationFromContext($category, $curr_langcode);
-  $view->setTitle($translated->getName());
+  if (isset($view) && ($view->storage->id() == 'commerce_cart_block')) {
+    $category = Term::load($id_category);
+    $curr_langcode = \Drupal::languageManager()->getCurrentLanguage(\Drupal\Core\Language\LanguageInterface::TYPE_CONTENT)->getId();
+    $translated = \Drupal::service('entity.repository')->getTranslationFromContext($category, $curr_langcode);
+    $view->setTitle($translated->getName());
+  }
 }
 ```
 
