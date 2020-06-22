@@ -93,6 +93,8 @@ Buscar en el contenido de los archivos
   $ grep -lir "texto buscado"
 Buscar en el contenido de los archivos con retorno parcial del contenido
   $ grep -r "texto buscado"
+Buscar en determinados tipos de archivos
+  $ grep -lir 'langcode' --include \*.schema.yml  
 ```
 Redes
 ===
