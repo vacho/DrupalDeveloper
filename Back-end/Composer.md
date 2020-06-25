@@ -55,3 +55,6 @@ ENLACES Y FUENTES
 =================
 Resolver dependencias de webform
 https://www.drupal.org/docs/8/modules/webform/webform-frequently-asked-questions/how-to-use-composer-to-install-libraries
+
+Todas las opciones de actualización
+https://www.drupal.org/docs/updating-drupal
