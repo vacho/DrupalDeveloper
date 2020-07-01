@@ -39,6 +39,9 @@ drush sql-query 'DELETE FROM sessions WHERE uid = 2;'
 # Reconstruir rutas
 drush ev '\Drupal::service("router.builder")->rebuild();'
 
+# loguear como admin
+drush uli --uri local.misitio.com
+
 ```
 
 #### REFERENCIAS
