@@ -116,6 +116,18 @@ function nombre_modulo_config_schema_info_alter(&$definitions) {
 }  
 ```
 
+#### Modificar un tipo de contenido
+```
+/**
+ * Implements hook_entity_type_build().
+ */
+function nombre_modulo_entity_type_build(array &$entity_types) {
+  if (isset($entity_types['node'])) {
+    $entity_types['node']->addConstraint('UniqueIdCatalog', []);
+  }
+}
+```
+
 
 ENLACES Y FUENTES
 =================
