@@ -48,5 +48,9 @@ $ drush dcer node <node_id> --folder=modules/custom/<carpeta_módulo_custom>/con
 $ drush pmu default_content better_normalizers
 ```
 
+### Utilizando migrate_generator
+https://www.drupal.org/project/migrate_generator
+(por revizar)
+
 ENLACES Y FUENTES
 =================
