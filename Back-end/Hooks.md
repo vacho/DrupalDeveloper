@@ -128,6 +128,17 @@ function nombre_modulo_entity_type_build(array &$entity_types) {
 }
 ```
 
+#### Agregar una librería a una página
+```
+/**
+ * Implements hook_page_attachments().
+ */
+function nombre_modulo_page_attachments(array &$attachments) {
+  // Gigya adds scripts in all pages so we add throbber script too.
+  $attachments['#attached']['library'][] = 'nombre_modulo/nombre_libreria';
+}
+```
+
 
 ENLACES Y FUENTES
 =================
