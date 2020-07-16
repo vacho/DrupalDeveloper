@@ -144,7 +144,7 @@ ENLACES Y FUENTES
 =================
 Lista de hooks
 
-https://api.drupal.org/api/drupal/core%21core.api.php/group/hooks/8.2.x
+https://api.drupal.org/api/drupal/core!core.api.php/group/hooks/8.2.x
 
 
 Que son los hooks
