@@ -139,6 +139,34 @@ function nombre_modulo_page_attachments(array &$attachments) {
 }
 ```
 
+#### Modificar un widget
+```
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function nombre_modulo_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
+  $field_definition = $context['items']->getFieldDefinition();
+  $paragraph_entity_reference_field_name = $field_definition->getName();
+
+  if ($paragraph_entity_reference_field_name == 'additionnal_informations') {
+    $widget_state = WidgetBase::getWidgetState($element['#field_parents'], $paragraph_entity_reference_field_name, $form_state);
+    $paragraph_instance = $widget_state['paragraphs'][$element['#delta']]['entity'];
+    // Duration field should be invisible if type of contract != CDD.
+    if ($paragraph_instance->bundle() == 'job_offer_informations') {
+      if (isset($element['subform']['duration'])) {
+        $dependee_field_name = 'type_of_contract';
+        $selector = sprintf('select[name="%s[%d][subform][%s]"]', $paragraph_entity_reference_field_name, $element['#delta'], $dependee_field_name);
+        $element['subform']['duration']['#states'] = [
+          'visible' => [
+            $selector => ['value' => 'cdd'],
+          ],
+        ];
+      }
+    }
+  }
+}
+```
+
 
 ENLACES Y FUENTES
 =================
