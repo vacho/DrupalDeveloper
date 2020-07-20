@@ -20,6 +20,8 @@ JS lint https://www.drupal.org/node/2490140
 
 Doc page https://www.drupal.org/node/1955232
 
+Buscar código en todos los proyectos contribuidos http://grep.xnddx.ru/
+
 #### Referencias
 Cómo realizar re-roll
 https://www.drupal.org/patch/reroll
