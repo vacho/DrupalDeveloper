@@ -22,6 +22,10 @@ https://www.drupal.org/project/menu_link_attributes
 Colocar una vista como un campo en a otras entidades (Manage fields)
 https://www.drupal.org/project/viewsreference
 
+### Layouts
+Permitir editar arrastrando la presentación de paragraphs
+https://www.drupal.org/project/layout_paragraphs
+
 
 ENLACES Y FUENTES
 =================
