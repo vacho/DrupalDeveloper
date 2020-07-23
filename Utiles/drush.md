@@ -42,6 +42,18 @@ drush ev '\Drupal::service("router.builder")->rebuild();'
 # loguear como admin
 drush uli --uri local.misitio.com
 
+# verificar una configuración activa
+drush cget nombre_configuracion
+
+# actualizar base de datos
+drush updb -y
+
+# importar configuraciones
+drush cim -y
+
+# importar contenido por defecto
+drush default-content:import-all
+
 ```
 
 #### REFERENCIAS
