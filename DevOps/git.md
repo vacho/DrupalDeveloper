@@ -179,6 +179,14 @@ $ git add .
 $ git commit -m "reiciniamos git"
 ```
 
+Ver reportes gráficos del repositorio
+===
+```
+// ver el historial de cambios de un archivo
+$ gitk nombre_archivo.extension
+```
+
+
 REFERENCIAS
 ---
 https://www.atlassian.com/git/tutorials/merging-vs-rebasing/conceptual-overview
