@@ -27,14 +27,15 @@ $ mkdir docroot/modules/custom/<carpeta_módulo_custom>/content
 
 #### 5. Generar los contenidos para ser reutilizados usando comandos.
 ```
-$ drush dcer node <node id>
-$ drush dcer taxonomy_term <taxonomy term id> 
-$ drush dcer file <file id> 
-$ drush dcer media <media id>
-$ drush dcer menu_link_content <menu link id>
-$ drush dcer block_content <block id>
+$ drush dcer node <node_id>
+$ drush dcer taxonomy_term <taxonomy_term_id> 
+$ drush dcer file <file_id> 
+$ drush dcer media <media_id>
+$ drush dcer menu_link_content <menu_link_id>
+$ drush dcer block_content <block_id>
 $ drush dcer user <user_id>
-$ drush dcer commerce_product 1
+$ drush dcer commerce_store <store_id>
+$ drush dcer commerce_product <product_id>
 ```
 
 Comandos para genear contenidos customizando la ruta donde colocarlo.
