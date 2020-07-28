@@ -33,7 +33,7 @@ function nombre_modulo_form_alter(&$form, \Drupal\Core\Form\FormStateInterface &
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function mombre_modulo_form_id_del_formulario_alter(array &$form, FormStateInterface $form_state, $form_id) {
+function mombre_modulo_form_id_del_formulario_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
   // Prepare form for using AJAX.
   $form['#attached']['library'][] = 'core/drupal.dialog.ajax';
   $form['caption'] = [
