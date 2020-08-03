@@ -26,6 +26,9 @@ https://www.drupal.org/project/viewsreference
 Permitir editar arrastrando la presentación de paragraphs
 https://www.drupal.org/project/layout_paragraphs
 
+### Media
+Enla a la entidad padre.
+https://www.drupal.org/project/media_parent_entity_link
 
 ENLACES Y FUENTES
 =================
