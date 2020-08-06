@@ -3,6 +3,9 @@ SEO
 
 #### Módulos
 
+Pixeles de facebook
+https://www.drupal.org/project/facebook_pixel
+
 
 ### Plataformas google que debes de manejar
 Google analitycs
