@@ -167,6 +167,29 @@ function nombre_modulo_field_widget_form_alter(&$element, FormStateInterface $fo
 }
 ```
 
+#### Modifcar un menu operations
+```
+/**
+ * Implements hook_entity_operation_alter().
+ */
+function nombre_modulo_entity_operation_alter(array &$operations, EntityInterface $entity) {
+  // Add 'Edit all' operation to webform submissions items.
+  if ($entity->getEntityTypeId() === "webform_submission") {
+    /* @var $edit_operation_url Drupal\Core\Url */
+    $edit_operation_url = $operations['edit']['url'];
+    if (isset($edit_operation_url)) {
+      $url = \Drupal\Core\Url::fromRoute('entity.webform_submission.edit_form.all', $edit_operation_url->getRouteParameters());
+      $operation = [
+        'title' => t('Edit all'),
+        'weight' => 0,
+        'url' => $url,
+      ];
+      array_push($operations, $operation);
+    }
+  }
+}
+```
+
 
 ENLACES Y FUENTES
 =================
