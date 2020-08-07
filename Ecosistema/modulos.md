@@ -30,6 +30,10 @@ https://www.drupal.org/project/layout_paragraphs
 Enla a la entidad padre.
 https://www.drupal.org/project/media_parent_entity_link
 
+### Varios
+Redireccionar despues de loguearse por roles.
+https://www.drupal.org/project/redirect_after_login
+
 ENLACES Y FUENTES
 =================
 Cómo crear subtemas, documentación oficial
