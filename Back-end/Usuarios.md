@@ -2,12 +2,12 @@ Usuarios
 ========
 #### Usuario actual
 ```
-//Obtener usuario actual
+// Obtener usuario actual
 $user = \Drupal::currentUser();
-//Verificar si el usuario tiene un permiso
+// Verificar si el usuario tiene un permiso
 \Drupal::currentUser()->hasPermission("id_del_permiso")
 
-//Verificar si un usuario tiene un rol
+// Verificar si un usuario tiene un rol
 $current_user = \Drupal::currentUser();
 $user = User::load($current_user->id());
 $has_role = $user->hasRole('contributor');
@@ -18,13 +18,13 @@ $has_role = $user->hasRole('contributor');
 $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
 $user = \Drupal\user\Entity\User::create();
 
-//Mandatory settings
+// Configuraciones de campos clave
 $user->setPassword('clave');
 $user->enforceIsNew();
 $user->setEmail('email');
 $user->setUsername('nombre_usuario');
 
-//Configuraciones opcionales
+// Configuraciones opcionales
 $user->set("init", 'email');
 $user->set("langcode", $language);
 $user->set("preferred_langcode", $language);
