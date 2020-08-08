@@ -6,6 +6,11 @@ Usuarios
 $user = \Drupal::currentUser();
 //Verificar si el usuario tiene un permiso
 \Drupal::currentUser()->hasPermission("id_del_permiso")
+
+//Verificar si un usuario tiene un rol
+$current_user = \Drupal::currentUser();
+$user = User::load($current_user->id());
+$has_role = $user->hasRole('contributor');
 ```
 
 #### Crear usuarios
