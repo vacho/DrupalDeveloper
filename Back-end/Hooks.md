@@ -190,6 +190,22 @@ function nombre_modulo_entity_operation_alter(array &$operations, EntityInterfac
 }
 ```
 
+#### Modificar o filtrar plugins por tipo y por consumidor
+```
+/**
+ * Implements hook_plugin_filter_TYPE__CONSUMER_alter().
+ */
+function nombre_modulo_plugin_filter_block__layout_builder_alter(&$definitions) {
+  /* @var $user Drupal\user\Entity\User */
+  $current_user = \Drupal::currentUser();
+  $user = User::load($current_user->id());
+  // User 'contributor' can't use share this block.
+  if ($user->hasRole('contributor')) {
+    unset($definitions['sharethis_widget_block']);
+  }
+}
+```
+
 
 ENLACES Y FUENTES
 =================
