@@ -33,7 +33,11 @@ https://www.drupal.org/docs/8/core/modules/layout-builder/additional-modules
 Enla a la entidad padre.
 https://www.drupal.org/project/media_parent_entity_link
 
-### Varios
+### CKEditor
+Crear enlace con texto definido.
+https://www.drupal.org/project/ckeditor_link_with_text
+
+### Usuarios
 Redireccionar despues de loguearse por roles.
 https://www.drupal.org/project/redirect_after_login
 
