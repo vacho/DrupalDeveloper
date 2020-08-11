@@ -51,6 +51,16 @@ function mombre_modulo_form_id_del_formulario_alter(array &$form, \Drupal\Core\F
   ];
   ...
 }
+
+
+/**
+ * Implements hook_webform_submission_form_alter().
+ */
+function real_form_webform_submission_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  // Disable inline form errors summary for all webforms.
+  $form['#disable_inline_form_errors_summary'] = TRUE;
+}
+
 ```
 
 #### Modificar una view
