@@ -38,6 +38,13 @@ $ composer require drupal/better_normalizers:^1@beta
 $ composer require drupal/flexslider:^dev
 
 ```
+
+#### Remover un componente
+
+```
+$ composer remove drupal/config_filter
+```
+
 #### Pulgins
 https://www.drupaleasy.com/blogs/ultimike/2020/06/composer-plugins-drupal-developers?utm_source=drupal-newsletter&utm_medium=email&utm_campaign=drupal-newsletter-20200625
 
