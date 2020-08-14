@@ -62,7 +62,8 @@ $form['platforms'] = [
   '#title' => $this->t('Platforms:'),
   '#type' => 'checkboxes',
   '#description' => $this->t('Select platforms to use as social media links.'),
-  '#options' => $options,
+  '#options' => ['key_a'=> 'text a', 'key_b'=> 'text b', 'key_c'=> 'text c'],
+  '#default_value' => ['key_a, 'key_c'],
 ];
 
 // Radios
