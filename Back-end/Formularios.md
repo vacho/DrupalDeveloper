@@ -57,6 +57,14 @@ $form['payment'] = [
   '#default_value' => 'CASH',
 ];
 
+// Checkboxes
+$form['platforms'] = [
+  '#title' => $this->t('Platforms:'),
+  '#type' => 'checkboxes',
+  '#description' => $this->t('Select platforms to use as social media links.'),
+  '#options' => $options,
+];
+
 // Radios
 $active = [1 => t('Yes'), 0 => t('No')];
 $form['typepurchase'] = [
