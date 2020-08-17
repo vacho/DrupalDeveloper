@@ -216,6 +216,19 @@ function nombre_modulo_plugin_filter_block__layout_builder_alter(&$definitions) 
 }
 ```
 
+#### Alterar las tareas de instalación - configuraciones
+```
+/**
+ * Implements hook_install_tasks_alter().
+ */
+function nombre_modulo_install_tasks_alter(&$tasks, $install_state) {
+  // Moves the language config import task to the end of the install tasks so
+  // that it is run after the final import of languages.
+  $task = $tasks['sdd_install_import_language_config'];
+  unset($tasks['sdd_install_import_language_config']);
+  $tasks = array_merge($tasks, ['sdd_install_import_language_config' => $task]);
+}
+```
 
 ENLACES Y FUENTES
 =================
