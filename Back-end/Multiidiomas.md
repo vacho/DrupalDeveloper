@@ -75,9 +75,19 @@ quotation.proposal:
 #### Manipulación programática
 Utilizar version traducida de una entidad.
 ```
-  $category = Term::load($id_category);
-  $curr_langcode = \Drupal::languageManager()->getCurrentLanguage(\Drupal\Core\Language\LanguageInterface::TYPE_CONTENT)->getId();
-  $translated = \Drupal::service('entity.repository')->getTranslationFromContext($category, $curr_langcode);
+$category = Term::load($id_category);
+$curr_langcode = \Drupal::languageManager()->getCurrentLanguage(\Drupal\Core\Language\LanguageInterface::TYPE_CONTENT)->getId();
+$translated = \Drupal::service('entity.repository')->getTranslationFromContext($category, $curr_langcode);
+```
+
+Utilizar el manejador de lenguaje del core
+```
+$language_manager = \Drupal::languageManager();
+$site_default_langcode = $language_manager->getDefaultLanguage()->getId();
+
+// Obtener las configuraciones de un lenguage
+$config_name = basename($file_name, '.yml');
+$config = $language_manager->getLanguageConfigOverride($langcode, $config_name);
 ```
 
 
