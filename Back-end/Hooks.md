@@ -230,6 +230,23 @@ function nombre_modulo_install_tasks_alter(&$tasks, $install_state) {
 }
 ```
 
+#### Hook update
+```
+/**
+ * Implementions of hook_update_N().
+ */
+function nombre_modulo_update_8001(&$sandbox) {
+  $field_storage = FieldStorageConfig::loadByName('block_content', 'placement');
+  $allowed_values = $field_storage->getSetting('allowed_values');
+  if (!isset($allowed_values['cashback_checkout'])) {
+    $allowed_values['cashback_checkout'] = 'Cashback checkout';
+    $field_storage->setSetting('allowed_values', $allowed_values);
+    $field_storage->save();
+  }
+}
+
+```
+
 ENLACES Y FUENTES
 =================
 Lista de hooks
