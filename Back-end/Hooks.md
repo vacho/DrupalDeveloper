@@ -245,6 +245,48 @@ function nombre_modulo_update_8001(&$sandbox) {
   }
 }
 
+/**
+ * Implements hook_update_n() for new fields in node type Event.
+ */
+function real_extra_fields_update_8001() {
+  $storage_definitions = [
+    'audience_type' => BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Audience type'))
+      ->setSetting('target_type', 'taxonomy_term')
+      ->setCardinality(3),
+
+    'date' => BaseFieldDefinition::create('datetime')
+      ->setLabel(t('Date'))
+      ->setSetting('datetime_type', 'date')
+      ->setCardinality(1),
+
+    'details_participation_fee' => BaseFieldDefinition::create('text_long')
+      ->setLabel(t('Participation fees (details)'))
+      ->setTranslatable(TRUE)
+      ->setDisplayOptions('form', [
+        'type' => 'text_long',
+        'weight' => 0,
+      ])
+      ->setCardinality(1),
+
+    'repl' => BaseFieldDefinition::create('link')
+      ->setLabel(t('Replay'))
+      ->setSettings([
+        'link_type' => LinkItemInterface::LINK_GENERIC,
+        'title' => 1,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'link_default',
+      ])
+      ->setCardinality(1),
+  ];
+
+  $entity_definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+  foreach ($storage_definitions as $field_name => $storage_definition) {
+    $entity_definition_update_manager->installFieldStorageDefinition($field_name, 'node', 'node', $storage_definition);
+  }
+}
+
 ```
 
 ENLACES Y FUENTES
