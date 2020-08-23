@@ -1,6 +1,10 @@
 Vistas
 ===
 
+#### Filtros
+Crear un filtro complejo programaticamente
+https://www.axelerant.com/resources/team-blog/creating-a-custom-exposed-view-filter-in-drupal-8-to-use-with-workflow-states
+
 #### Obtener datos
 Obtener los datos de una vista programaticamente
 https://jbloomfield.codes/2018/09/24/drupal-8-getting-data-from-viewfield.html
