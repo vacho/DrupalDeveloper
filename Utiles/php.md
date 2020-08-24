@@ -34,36 +34,36 @@ $edit_operation_url = $operations['edit']['url'];
 Gestión de arreglos
 ```
 //Recorrido
-$arr = array(1, 2, 3, 4);
+$arr = [1, 2, 3, 4];
 foreach ($arr as &$value) {
     $value = $value * 2;
 }
 
 //Agregar campos en un array asociativo
-$options = array();
+$options = [];
 foreach ($stores as $store) {
-  $options = $options + array(
+  $options = $options + [
     $store->getId() => $store->getName(),
-  );
+  ];
 }
 
 //Agregar array en un array de arrays asociativos
-$options = array();
+$options = [];
 foreach ($stores as $store) {
-  $options[] = array(
+  $options[] = [
     $store->getId() => $store->getName(),
-  );
+  ];
 }
 
 //Array de arrays asociativos
-$eventsTaron[] = array(
+$eventsTaron[] = [
   'id' => $idEvent,
   'city' => $event['city_name'],
   'country' => $event['country_name'],
   'place' => $place,
   'product_type' => $productType,
   'date' => $event['event_date'],
-);
+];
 
 ```
 Gestión de números
