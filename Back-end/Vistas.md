@@ -8,6 +8,7 @@ https://www.axelerant.com/resources/team-blog/creating-a-custom-exposed-view-fil
 Modificar el html de unos filtros
 https://leanderlindahl.se/filter-content-in-a-drupal-8-view-with-ajax/
 http://www.softdecoder.com/blog/dynamically-filter-content-drupal-view
+http://www.ermohitbansal.com/2019/08/31/how-we-can-create-custom-exposed-filter-in-views-and-fetch-results-accordingly-in-drupal-8/
 
 #### Obtener datos
 Obtener los datos de una vista programaticamente
