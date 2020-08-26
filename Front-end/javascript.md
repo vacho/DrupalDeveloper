@@ -29,7 +29,7 @@ $render'#attached']['drupalSettings'] = [
 
 3. Implementamos el js en Drupal.attachBehaviours (cuando la página esta completamente cargada)
 ```
-(function (Drupal, $, drupalSettings) {
+(function (Drupal, $) {
   "use strict";
   Drupal.behaviours.helloWorld = {
     attach: function (context, settings) {
@@ -37,7 +37,7 @@ $render'#attached']['drupalSettings'] = [
         var date = new Date();
         $(context).find('.time').html(date.toLocaleTimeString());
       }
-      var clock = '<div>The time is <span class="time"> ' + drupalSettigs.node_type + '</span></div>'
+      var clock = '<div>The time is <span class="time"> ' + settings.node_type + '</span></div>'
       $(document).find('.hello').append(clock);
       setInterval(function() {
         watch();
@@ -48,9 +48,7 @@ $render'#attached']['drupalSettings'] = [
 ```
 context:Contiene sólo las partes nuevas de la página.
 
-settings: Contiene datos pasados desde php
-
-drupalSettings: Contiene datos pasados desde drupal
+settings: Contiene datos pasados desde php (Drupal)
 
 ENLACES Y FUENTES
 =================
