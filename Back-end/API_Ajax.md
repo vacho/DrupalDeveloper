@@ -44,9 +44,26 @@ public function hideBlock(Request $request) {
   return $response;
 }
 ```
-Nota: Se puede usar en Botones ajax mediante la clase 'use-ajax-submit' de manera similar.
+Nota: Se puede usar en Botones ajax mediante la clase 'use-ajax-submit'.
 
 #### Formularios AJAX
+Elemento de formulario que tiene un recargado ajax
+```
+$form['plugin'] = [
+  '#type' => 'select',
+  '#title' => $this->t('Plugin'),
+  '#default_value' => $importer->getPluginId(),
+  '#options' => $options,
+  '#description' => $this->t('The plugin to be used with this importer'),
+  '#required' => TRUE,
+  '#empty_option' => $this->t('Please select a plugin'),
+  '#ajax' => [
+    'callback' => [$this, 'pluginConfigAjaxCallback'],
+    'wrapper' => 'plugin-configuration-wrapper'
+  ]
+]
+```
+
 
 #### Referencias
 Lista de todos los métodos ajax que podemos usar desde php
