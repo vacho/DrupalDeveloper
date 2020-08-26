@@ -1,7 +1,8 @@
 API de ajax
 ========
 
-#### Enlaces ajax mediante la clase 'use-ajax'
+Enlaces ajax mediante la clase 'use-ajax'
+==
 Trabajamos en el método que dibuja un bloque (build()).
 ```
 public function build() {
@@ -46,7 +47,8 @@ public function hideBlock(Request $request) {
 ```
 Nota: Se puede usar en Botones ajax mediante la clase 'use-ajax-submit'.
 
-#### Formularios AJAX
+Formularios AJAX
+==
 Elemento de formulario que tiene un recargado ajax
 ```
 $form['plugin'] = [
@@ -63,6 +65,46 @@ $form['plugin'] = [
   ]
 ]
 ```
+
+Otras opciones que se pueden usar dentro de #ajax:
+- 'method': Metodo jQuery que se ejecuta sobre sobre 'wrapper'. Por defecto es replaceWith()
+- 'event': El evento que será disparado
+- 'progress': Arreglo indicando el avance del procesamiento de ajax
+- 'url': En caso de que no usemos 'callback' (\Drupal\Core\Url)
+```
+<div class="container">
+  <div class="inner first">Hello</div>
+  <div class="inner second">And</div>
+</div>
+
+$( "div.second" ).replaceWith( "<h2>New heading</h2>" );
+
+<div class="container">
+  <div class="inner first">Hello</div>
+  <h2>New heading</h2>
+</div>
+```
+También se puede utilizar: append(), html() y otros
+```
+<div class="demo-container">
+  <div class="demo-box">Demonstration Box</div>
+</div>
+
+$( "div.demo-container" ).html( "<p>All new content. <em>You bet!</em></p>" );
+
+<div class="demo-container">
+  <p>All new content. <em>You bet!</em></p>
+</div>
+```
+
+
+Método que realiza el remplazo en 'plugin-configuration-wrapper'
+```
+public function pluginConfigAjaxCallback($form, FormStateInterface $form_state) {
+  return $form['plugin_configuration']
+}
+```
+
 
 
 #### Referencias
