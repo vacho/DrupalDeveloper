@@ -104,6 +104,18 @@ $form['pr']['obs'] = [
   '#attributes' => ['title' => t('Observation')],
   '#suffix' => '</div>',
 ];
+
+// Hidden con ramas abiertas(arreglo multidimencional) enviadas cuando el formulario sea guardado.
+$form['plugin_configuration'] = [
+  '#type' => 'hidden',
+  '#tree' => TRUE,
+  '#open' => TRUE,
+]
+$form['plugin_configuration'][$id] = [
+  '#process' => [[get_class($this), 'processPluginConfiguration']],
+  '#plugin' => $plugin,
+]
+
 ```
 
 
