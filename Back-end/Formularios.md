@@ -118,6 +118,44 @@ $form['plugin_configuration'][$id] = [
 
 ```
 
+#### Estados
+Permiten condicionar el comportamiento de un elemento de formulario a partir del estado otro elemento.
+```
+$form['boys'] = [
+  '#type' => 'checkbox',
+  '#title' => $this->t('Do you have boys?'),
+];
+
+$form['boys_nomber'] = [
+  '#type' => 'textfield',
+  '#title' => $this->t('How many boys do you have?'),
+  '#states' => [
+    'visible' => [
+      'input[name="boys"]' => ['checked' => TRUE],
+    ]
+  ]
+];
+
+```
+Estados: 
+- visible
+- invisible
+- enabled
+- disabled
+- required
+- optional
+- checked
+- unchecked
+- collapsed
+
+Detonantes:
+- checked
+- empty
+- filled
+- unchecked
+- expanded
+- collapsed
+- value
 
 ENLACES Y FUENTES
 =================
@@ -126,3 +164,4 @@ https://api.drupal.org/api/drupal/8
 
 Documentación de la comunidad
 https://www.drupal.org/developing/api/8
+
