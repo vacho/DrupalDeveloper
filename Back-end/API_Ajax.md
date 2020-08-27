@@ -1,8 +1,7 @@
 API de ajax
 ========
 
-Enlaces ajax mediante la clase 'use-ajax'
-==
+#### Enlaces ajax mediante la clase 'use-ajax'
 Trabajamos en el método que dibuja un bloque (build()).
 ```
 public function build() {
@@ -23,6 +22,7 @@ public function build() {
   return $build; 
 }
 ```
+
 La ruta para el método que va realizar el trabajo en drupal-php
 ```
 hello.hide_block:
@@ -47,8 +47,8 @@ public function hideBlock(Request $request) {
 ```
 Nota: Se puede usar en Botones ajax mediante la clase 'use-ajax-submit'.
 
-Formularios AJAX
-==
+#### Formularios AJAX
+
 Elemento de formulario que tiene un recargado ajax
 ```
 $form['plugin'] = [
@@ -97,7 +97,6 @@ $( "div.demo-container" ).html( "<p>All new content. <em>You bet!</em></p>" );
 </div>
 ```
 
-
 Método que realiza el remplazo en 'plugin-configuration-wrapper'
 ```
 public function pluginConfigAjaxCallback($form, FormStateInterface $form_state) {
@@ -106,7 +105,7 @@ public function pluginConfigAjaxCallback($form, FormStateInterface $form_state) 
 ```
 
 
-
-#### Referencias
+Referencias
+===
 Lista de todos los métodos ajax que podemos usar desde php
 https://api.drupal.org/api/drupal/core%21core.api.php/group/ajax/9.1.x
