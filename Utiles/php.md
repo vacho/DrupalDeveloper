@@ -1,7 +1,7 @@
 PHP
 ===
-Gestión de rutas, directorio y archivos
 
+#### Gestión de rutas, directorio y archivos
 ```
 $_SERVER[REQUEST_URI]
 //Ruta actual del proyecto
@@ -24,14 +24,13 @@ curl_exec($ch);
 curl_close($ch);
 ```
 
-Documentar una variable como una clase
+#### Documentar una variable como una clase
 ```
 /* @var $edit_operation_url Drupal\Core\Url */
 $edit_operation_url = $operations['edit']['url'];
 ```
 
-
-Gestión de arreglos
+#### Gestión de arreglos
 ```
 //Recorrido
 $arr = [1, 2, 3, 4];
@@ -66,7 +65,8 @@ $eventsTaron[] = [
 ];
 
 ```
-Gestión de números
+
+#### Gestión de números
 ```
 //Redondeo
 round( $my_number, 2, PHP_ROUND_HALF_UP)
@@ -83,7 +83,7 @@ if ($questionAnswer instanceof Question)
 ...
 ```
 
-Gestion de cadenas
+#### Gestion de cadenas
 ```
 //Remplazar ocurrencias de una cadena por otra cadena
 $resultado = str_replace("texto a remplazar", "texto remplazador", "texto original");
@@ -118,7 +118,7 @@ $pieces = explode(" ", $pizza);
 
 ``` 
 
-Timestamp y fechas
+#### Timestamp y fechas
 ```
 $now = time() //Ahora...
 $iniDay = strtotime("midnight", $now); //inicio del día
@@ -153,21 +153,23 @@ $minutes = floor($seconds / 60);
 $utc = $this->getHours($hours).":".$this->getMins($minutes);
 
 ```
-Errores
+
+#### Errores
 ```
 // escribir en el log de errores de apache
 error_log("Pablito clavo un clavito...!", 0);
 ```
-Javascript
+
+#### Javascript
 ```
 //Codificar un arreglo php para ser rescatado desde js
 $arrayEncodedToJs = json_encode($array);
 
 //Recuperar en un arreglo de php un arreglo js codificado
 $arrayDecodedFromJs = json_decode($array);
-
 ```
-Google API
+
+#### Google API
 ```
 //Librería oficial
 https://developers.google.com/api-client-library/php/
@@ -188,6 +190,7 @@ http://googleappsdeveloper.blogspot.com.es/2012/01/tips-on-using-apis-discovery-
 https://developers.google.com/google-apps/products
 
 ```
+
 POO
 ===
 INTERFACES
