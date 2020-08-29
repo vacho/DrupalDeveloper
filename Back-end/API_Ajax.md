@@ -111,7 +111,7 @@ Referencias
 Conceptops básicos
 - https://www.drupal.org/docs/drupal-apis/ajax-api/basic-concepts
 
-Documentación oficial de ajax en formularios
+Documentación oficial de ajax en formularios - ejemplos
 - https://www.drupal.org/docs/drupal-apis/javascript-api/ajax-forms
 
 Lista de todos los métodos ajax que podemos usar desde php
