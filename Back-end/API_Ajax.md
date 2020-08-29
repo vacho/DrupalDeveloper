@@ -84,6 +84,7 @@ $( "div.second" ).replaceWith( "<h2>New heading</h2>" );
   <h2>New heading</h2>
 </div>
 ```
+
 También se puede utilizar: append(), html() y otros
 ```
 <div class="demo-container">
@@ -107,5 +108,12 @@ public function pluginConfigAjaxCallback($form, FormStateInterface $form_state) 
 
 Referencias
 ===
+Conceptops básicos
+- https://www.drupal.org/docs/drupal-apis/ajax-api/basic-concepts
+
+Documentación oficial de ajax en formularios
+- https://www.drupal.org/docs/drupal-apis/javascript-api/ajax-forms
+
 Lista de todos los métodos ajax que podemos usar desde php
 - https://api.drupal.org/api/drupal/core%21core.api.php/group/ajax/9.1.x
+
