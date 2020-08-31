@@ -117,3 +117,6 @@ Documentación oficial de ajax en formularios - ejemplos
 Lista de todos los métodos ajax que podemos usar desde php
 - https://api.drupal.org/api/drupal/core%21core.api.php/group/ajax/9.1.x
 
+
+Notas importantes sobre ajax a formularios mediante hook_form_alter
+- https://www.reddit.com/r/drupal/comments/c7bph8/adding_ajax_callback_to_form_element_using_hook/
