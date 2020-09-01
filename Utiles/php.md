@@ -198,6 +198,7 @@ INTERFACES
 - Todos los métodos declarados en una interface son públicos.
 - Es posible declarar constructores.
 - Pueden ser extendidas por el operador "extend"
+- Son clases template de otras clases y en programación moderna se los usa directamente para instanciar esas otras clases que lo usan de template.
 ```
 interface iTemplate {
   public function setVariable($name, $var);
