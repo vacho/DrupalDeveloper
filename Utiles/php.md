@@ -239,6 +239,25 @@ class C implements A {
 }
 ```
 
+TRAITS
+- Permiten declaran métodos abstractos y no abstractos que pueden ser usados por múltiples clases.
+- Resuelven el problema de que una clases no puede heredar de muchas otras clases
+```
+trait message1 {
+public function msg1() {
+    echo "OOP is fun! ";
+  }
+}
+
+class Welcome {
+  use message1;
+}
+
+$obj = new Welcome();
+$obj->msg1();
+?>
+```
+
 PHP 7 nuevas sintaxis
 ===
 NULLABLE
