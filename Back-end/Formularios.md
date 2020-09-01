@@ -116,6 +116,16 @@ $form['plugin_configuration'][$id] = [
   '#plugin' => $plugin,
 ]
 
+// Nombre de sistema (machine name)
+$form['id'] = [
+  '#type' => 'machine_name',
+  '#default_value' => $importer->id(),
+  '#machine_name' => [
+    'exists' => '\Drupal\products\Entity\Importer::load',
+  ],
+  '#disabled' => !$importer->isNew(),
+];
+
 ```
 
 #### Estados
