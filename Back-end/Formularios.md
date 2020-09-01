@@ -126,6 +126,15 @@ $form['id'] = [
   '#disabled' => !$importer->isNew(),
 ];
 
+// Enlace url
+$form['url'] = [
+  '#type' => 'url',
+  '#default_value' => $importer->getUrl() instanceof Url ? $importer->getUrl()->toString() : '',
+  '#title' => $this->t('Url'),
+  '#description' => $this->t('The url to the import resource'),
+  '#required' => TRUE,
+];
+
 ```
 
 #### Estados
