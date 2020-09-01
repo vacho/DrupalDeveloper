@@ -131,6 +131,9 @@ Trabajar como fork de un repositorio y actualizar
 # Añadir repositorio remoto, llamarlo "upstream":
 git remote add upstream https://github.com/whoever/whatever.git
 
+# Añadir repositorio remoto, para usarlo en repo github
+git remote add origin git@github.com:usuario_github/nombre_mi_proyecto.git
+
 # Extraer todos los branchs
 git fetch upstream
 
