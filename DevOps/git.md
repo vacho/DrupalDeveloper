@@ -195,8 +195,12 @@ $ gitk nombre_archivo.extension
 
 REFERENCIAS
 ---
-https://www.atlassian.com/git/tutorials/merging-vs-rebasing/conceptual-overview
-Hostgator
-http://www.codigogratis.com.ar/como-utilizar-git-con-hostgator/
+Reponer archivos eliminados
+- https://www.git-tower.com/learn/git/faq/restoring-deleted-files
+
+- https://www.atlassian.com/git/tutorials/merging-vs-rebasing/conceptual-overview
+
+- http://www.codigogratis.com.ar/como-utilizar-git-con-hostgator/
+
 Fin de línea
-https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-what-is-that-and-is-it-important
+- https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-what-is-that-and-is-it-important
