@@ -59,6 +59,9 @@ Retrocedemos a el último commit y no perdemos los cambiosn hechos; apareceran p
 Cancelar commit (antes de hacer push)
   $ git reset --hard HEAD~1
 
+Reponer archivo eliminado que no ha sido comiteado
+  $ git checkout HEAD <ruta_nombre_de_archivo>
+
 Ver cambios de un commit
   $ git show <id_commit>
 
