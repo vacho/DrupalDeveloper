@@ -312,12 +312,12 @@ function mi_modulo_link_alter(&$variables) {
 ENLACES Y FUENTES
 =================
 Lista de hooks
-
-https://api.drupal.org/api/drupal/core!core.api.php/group/hooks/8.2.x
+- https://api.drupal.org/api/drupal/core!core.api.php/group/hooks/8.2.x
 
 
 Que son los hooks
+- https://drupalize.me/tutorial/what-are-hooks?p=2766
+- https://www.drupal.org/docs/creating-custom-modules/understanding-hooks
 
-https://drupalize.me/tutorial/what-are-hooks?p=2766
-
-https://www.drupal.org/docs/creating-custom-modules/understanding-hooks
+Ejemplos Hooks update
+- https://www.drupal.org/docs/7/creating-custom-modules/howtos/examples-for-database-update-scripts-using-hook_update_n-how
