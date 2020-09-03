@@ -230,6 +230,17 @@ function nombre_modulo_install_tasks_alter(&$tasks, $install_state) {
 }
 ```
 
+#### Quitar una pestaña del menu de tabs de webform
+```
+/**
+ * Implements hook_local_tasks_alter().
+ */
+function nombre_modylo_local_tasks_alter(&$local_tasks) {
+  // Unset webform submissions because we replace it by a view page with tabs for each form.
+  unset($local_tasks['entity.webform_submission.collection']);
+}
+```
+
 #### Hook update
 ```
 /**
