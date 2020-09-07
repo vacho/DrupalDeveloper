@@ -22,7 +22,7 @@ function nombre_modulo_entity_presave(Drupal\Core\Entity\EntityInterface $entity
 /**
  * Implements hook_form_alter().
  */
-function nombre_modulo_form_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id) {
+function nombre_modulo_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if ($form_id == 'node_people_edit_form') {
     $form['field_is_single']['widget'][0]['value']['#attributes']['readonly'] = TRUE;
     ...
