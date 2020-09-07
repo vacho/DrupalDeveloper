@@ -1,4 +1,7 @@
+HOOKS
+========
 
+#### Trozos de código para obtener programaticamente.
 
 Obtener un arbol de ls terminos de una taxonomía.
 ```
@@ -9,3 +12,9 @@ $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree(
       TRUE             // Obtener la entidad del termino entera o un Stdclass.
     );
 ```
+
+
+ENLACES Y FUENTES
+=================
+Terminos y niveles.
+- https://boylesoftware.com/blog/drupal-8-get-taxonomy-terms-level/
