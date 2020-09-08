@@ -39,6 +39,19 @@ $ composer require drupal/flexslider:^dev
 
 ```
 
+#### Actualizar un módulo, tema
+
+```
+// Listar actualizaciones posibles.
+$ composer outdated "drupal/*"
+
+// Listar actualizaciones de seguridad.
+$ drush pm:security
+
+// Instalar actualizaciones
+$ composer update drupal/nombre_modulo --with-dependencies
+```
+
 #### Remover un componente
 
 ```
@@ -64,7 +77,10 @@ https://www.drupal.org/docs/upgrading-drupal/upgrading-from-drupal-8-to-drupal-9
 ENLACES Y FUENTES
 =================
 Resolver dependencias de webform
-https://www.drupal.org/docs/8/modules/webform/webform-frequently-asked-questions/how-to-use-composer-to-install-libraries
+- https://www.drupal.org/docs/8/modules/webform/webform-frequently-asked-questions/how-to-use-composer-to-install-libraries
 
 Todas las opciones de actualización
-https://www.drupal.org/docs/updating-drupal
+- https://www.drupal.org/docs/updating-drupal
+
+Actualizando módulos y temas
+- https://www.drupal.org/docs/updating-drupal/updating-modules-and-themes-using-composer
