@@ -4,7 +4,8 @@ Vistas
 #### Filtros
 Crear un filtro expuesto mediante plugins
 - https://www.axelerant.com/resources/team-blog/creating-a-custom-exposed-view-filter-in-drupal-8-to-use-with-workflow-states
-
+Agregar - customizar elementos del formulario del plugin.
+- https://www.drupal.org/project/drupal/issues/2852299
 
 Crear un filtro expuesto mediante hooks
 - http://www.ermohitbansal.com/2019/08/31/how-we-can-create-custom-exposed-filter-in-views-and-fetch-results-accordingly-in-drupal-8/
