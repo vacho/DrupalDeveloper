@@ -56,10 +56,24 @@ function mombre_modulo_form_id_del_formulario_alter(array &$form, \Drupal\Core\F
 /**
  * Implements hook_webform_submission_form_alter().
  */
-function real_form_webform_submission_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+function nombe_modulo_webform_submission_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
   // Disable inline form errors summary for all webforms.
   $form['#disable_inline_form_errors_summary'] = TRUE;
 }
+
+/**
+ * Implements hook_webform_element_alter().
+ */
+function nombre_modulo_webform_element_alter(array &$element, FormStateInterface $form_state, array $context) {
+  if ($element["#webform_id"] == 'job_application--job_offer_title') {
+    if (isset($_GET["job_offer"])) {
+      $node = Node::load($_GET["job_offer"]);
+      if ($node instanceof NodeInterface) {
+        $element['#markup'] = t("To apply for the « @title » offer, please complete the following form :", ['@title' => $node->getTitle()]);
+      }
+    }
+  }
+
 
 ```
 
