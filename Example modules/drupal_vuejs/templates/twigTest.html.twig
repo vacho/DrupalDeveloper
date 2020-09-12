@@ -1,0 +1,16 @@
+<div>
+  <h2>{{ test_var }} {{ test_var2 }}</h2>
+</div>
+
+<div id="app">
+  <h3>[[ hello ]]</h3>
+
+  <input v-model="hello">
+  <h3>{% trans %} List generated with Vuejs {% endtrans %}</h3>
+  <ul>
+    <li v-for='name in names'>
+      [[ name.firstname ]]
+      [[ name.lastname ]]
+    </li>
+  </ul>
+</div>

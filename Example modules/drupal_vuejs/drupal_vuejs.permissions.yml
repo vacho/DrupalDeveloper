@@ -1,0 +1,4 @@
+administer drupal_vuejs configuration:
+  title: 'Administer drupal_vuejs configuration'
+  description: 'Optional description.'
+  restrict access: true

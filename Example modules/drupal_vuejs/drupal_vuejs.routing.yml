@@ -1,0 +1,7 @@
+drupal_vuejs.twigtest:
+  path: '/drupal-vuejs/test'
+  defaults:
+    _title: 'Test of vue js functionality'
+    _controller: '\Drupal\drupal_vuejs\Controller\drupalVuejsController::testContent'
+  requirements:
+    _permission: 'access content'

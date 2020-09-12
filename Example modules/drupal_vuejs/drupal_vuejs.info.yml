@@ -1,0 +1,6 @@
+name: Drupal vuejs
+type: module
+description: Example for integration of drupal and vuejs
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9

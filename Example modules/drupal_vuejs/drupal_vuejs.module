@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for drupal vuejs module.
+ *
+ * @DCG
+ * This file is no longer required in Drupal 8.
+ * @see https://www.drupal.org/node/2217931
+ */
+
+ /**
+ * Implements hook_theme().
+ */
+function drupal_vuejs_theme() {
+  $theme['twigTest'] = [
+    'variables' => [
+      'test_var' => NULL,
+      'test_var2' => NULL
+    ],
+    'template' => 'twigTest',
+  ];
+  return $theme;
+}
