@@ -31,17 +31,10 @@ $render'#attached']['drupalSettings'] = [
 ```
 (function (Drupal, $) {
   "use strict";
-  Drupal.behaviours.helloWorld = {
+  Drupal.behaviors.helloWorld = {
     attach: function (context, settings) {
-      function watch() {
-        var date = new Date();
-        $(context).find('.time').html(date.toLocaleTimeString());
-      }
-      var clock = '<div>The time is <span class="time"> ' + settings.node_type + '</span></div>'
-      $(document).find('.hello').append(clock);
-      setInterval(function() {
-        watch();
-      }, 1000);
+      var message = '<div>Hello ' + settings.node_type + '</span></div>'
+      $(document).find('.hello').append(message);
     }
   }
 }) (Drupal, jQuery)
