@@ -8,10 +8,10 @@ hello_world:
   version: 1.x
   js:
     js/hello.js: {}
-    dependencies:
-      - core/jquert
-      - core/drupal
-      - core/jquery.once
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
 ```
 
 2. Agregar al render la libreria
