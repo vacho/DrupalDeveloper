@@ -28,11 +28,13 @@ https://www.drupal.org/project/commerce_stock
 ```
 
 ### Diagrama relación de entidades
-https://docs.drupalcommerce.org/commerce2/developer-guide/core/relationships
+- https://docs.drupalcommerce.org/commerce2/developer-guide/core/relationships
 
 
 ENLACES Y FUENTES
 =================
 Documentación API para drupal 8 (commerce 2)
-https://docs.drupalcommerce.org/commerce2/getting-started
+- https://docs.drupalcommerce.org/commerce2/getting-started
 
+Recetas de código
+- https://docs.drupalcommerce.org/commerce2/developer-guide/products/product-management/code-recipes
