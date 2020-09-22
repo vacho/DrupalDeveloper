@@ -205,7 +205,8 @@ Aplicaciones útiles para desarrollo
 - Kazam
 Permite grabar screenshots, videos de areas de la pantalla.
 
-
+- Kompare
+Permite comparar 2 carpetas, de manera muy similar a git.
 
 
 Referencias
