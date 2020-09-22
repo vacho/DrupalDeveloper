@@ -200,6 +200,14 @@ Copiar archivo de un servido a tu equipo
   $ sudo scp -P 2222 nombres_usuario@ip_servidor:/ruta_al_archivo /ruta_destino
 ```
 
+Aplicaciones útiles para desarrollo
+===
+- Kazam
+Permite grabar screenshots, videos de areas de la pantalla.
+
+
+
+
 Referencias
 ===
 Screen
