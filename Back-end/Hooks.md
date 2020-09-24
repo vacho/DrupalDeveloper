@@ -312,6 +312,39 @@ function real_extra_fields_update_8001() {
   }
 }
 
+/**
+ * Implements hook_update_N().
+ *
+ * Update date_of_stay values from datetime to date.
+ */
+function siblu_field_update_8004() {
+  $database = \Drupal::database();
+
+  $fields = ['end_date_of_stay_value', 'start_date_of_stay_value'];
+  $tables = ['paragraph__end_date_of_stay', 'paragraph__start_date_of_stay'];
+  $revision_tables = ['paragraph_revision__end_date_of_stay', 'paragraph_revision__start_date_of_stay'];
+
+  $i = 0;
+  foreach ($fields as $field) {
+    $sql = "SELECT entity_id, revision_id, $field FROM {$tables[$i]}";
+    $result = $database->query($sql, []);
+    if ($result) {
+      while ($row = $result->fetchAssoc()) {
+        $date_long = $row[$field];
+        $timestamp = strtotime($date_long);
+        $date_short = date('Y-m-d', $timestamp);
+        $id = $row['entity_id'];
+        // Update field table value.
+        $database->query("UPDATE {$tables[$i]} SET {$field} = '$date_short' WHERE {$tables[$i]}.entity_id = :id", [":id" => $id]);
+        // Update revision field table value.
+        $database->query("UPDATE {$revision_tables[$i]} SET {$field} = '$date_short' WHERE {$revision_tables[$i]}.entity_id = :id", [":id" => $id]);
+      }
+    }
+    $i++;
+  }
+}
+
+
 ```
 ### Alterar los links de menús, campos de tipo link
 ```
