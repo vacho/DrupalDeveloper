@@ -54,6 +54,12 @@ drush cim -y
 # importar contenido por defecto
 drush default-content:import-all
 
+# Manejar hook_update
+drush php-eval "echo drupal_get_installed_schema_version('siblu_field');"
+drush php-eval "echo drupal_set_installed_schema_version('siblu_field', '8004');"
+drush updb -y
+
+
 ```
 
 #### REFERENCIAS
