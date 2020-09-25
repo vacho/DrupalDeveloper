@@ -60,3 +60,6 @@ Documentación API para drupal 8 (commerce 2)
 
 Recetas de código
 - https://docs.drupalcommerce.org/commerce2/developer-guide/products/product-management/code-recipes
+
+Código para agregar al carrito
+- https://www.valuebound.com/resources/blog/how-to-add-a-product-programmatically-to-drupal-commerce-cart
