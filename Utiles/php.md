@@ -293,10 +293,11 @@ function FunctionName ($a, $b) : string  {
 Referencias
 ====
 Programación orientada a objetos
-http://www.startutorial.com/homes/oo_beginner
+- http://www.startutorial.com/homes/oo_beginner
 
 Buena guía de curl (ingles)
-http://codular.com/curl-with-php
+- http://codular.com/curl-with-php
 
 Patrones de diseño: Interfaces
-https://phptherightway.com/pages/Design-Patterns.html
+- https://phptherightway.com/pages/Design-Patterns.html
+
