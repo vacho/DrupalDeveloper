@@ -1,5 +1,10 @@
 PHP
 ===
+#### Comparadores cortos
+```
+// Asignación de valor en if/else
+$result = $condition ? 'foo' : 'bar';
+```
 
 #### Gestión de rutas, directorio y archivos
 ```
