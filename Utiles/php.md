@@ -2,8 +2,12 @@ PHP
 ===
 #### Comparadores cortos
 ```
-// Asignación de valor en if/else
+// Asignación de valor en if/else.
 $result = $condition ? 'foo' : 'bar';
+
+// Asignación con conparación a nulo.
+$result = $variable ?? 'valor_si_variable_no_es_nulo'; // 'fallback'
+
 ```
 
 #### Gestión de rutas, directorio y archivos
