@@ -22,4 +22,5 @@ Obtener los datos de una vista programaticamente
 Ejecutar una vista programaticamente
 - https://www.trivali.be/blog/drupal-8-execute-a-view-programmaticaly
 
-
+Customizar crear propio paginador
+- http://djevans.info/article/creating-views-pager-plugins-drupal-8
