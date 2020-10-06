@@ -68,6 +68,12 @@ https://www.drupaleasy.com/blogs/ultimike/2020/06/composer-plugins-drupal-develo
 php -d memory_limit=-1 composer require 
 ```
 
+```
+//  [ErrorException]
+//  Undefined index: extra 
+composer update zaporylie/composer-drupal-optimizations --no-plugins && composer update --lock
+```
+
 #### Actualizar el core
 ```
 $ composer update drupal/core-recommended --with-dependencies
