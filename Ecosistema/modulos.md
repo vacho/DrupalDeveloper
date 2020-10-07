@@ -50,6 +50,13 @@ Redireccionar despues de loguearse por roles.
 Autenticación con validación mediante email, celular
 - https://www.drupal.org/project/tfa
 
+### Geolocalización
+Almacenar datos geográficos
+- https://www.drupal.org/project/geofield
+
+Mapas compatibles con geofield
+- https://www.drupal.org/project/geofield_map
+
 ENLACES Y FUENTES
 =================
 Cómo crear subtemas, documentación oficial
