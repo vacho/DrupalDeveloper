@@ -57,6 +57,9 @@ Almacenar datos geográficos
 Mapas compatibles con geofield
 - https://www.drupal.org/project/geofield_map
 
+Para integrar buscador
+- https://www.drupal.org/project/geocoder
+
 ENLACES Y FUENTES
 =================
 Cómo crear subtemas, documentación oficial
