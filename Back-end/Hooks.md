@@ -366,6 +366,37 @@ function mi_modulo_link_alter(&$variables) {
   }
 }
 ```
+### Alterar el modo de vista de un formulario de nodo (remover una opcion de visualización)
+```
+/**
+ * Implements hook_form_FORM_ID_alter() for views_exposed_form.
+ */
+function nombre_modulo_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (isset($form['#id']) && $form['#id'] == 'views-exposed-form-trombinoscope-student-trombi') {
+    $query = \Drupal::entityQuery('node')
+      ->condition('type', 'people')
+      ->condition('status', 1)
+      ->condition('promotion', NULL, 'IS NOT NULL');
+    $nids = $query->execute();
+    if (!empty($nids)) {
+      $nodes = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($nids);
+      foreach ($nodes as $node) {
+        $promotion[] = $node->promotion->target_id;
+      }
+      $terms = Term::loadMultiple(array_unique($promotion));
+      $options = [];
+      foreach ($terms as $id => $term) {
+        $options[$id] = $term->name->value;
+      }
+      $form["promotion_target_id"]["#options"] = $options;
+    }
+    else {
+      unset($form["promotion_target_id"]);
+    }
+  }
+}
+
+```
 
 ENLACES Y FUENTES
 =================
