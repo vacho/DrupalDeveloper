@@ -290,21 +290,6 @@ $fields ['category'] = BaseFieldDefinition::create ('entity_reference')
       ->setDisplayConfigurable('view', TRUE);
 ```
 
-#### Actualizar entidad en base de datos
-Mediante el múdulo devel_entity_updates
-```
-$ devel_entity_updates
-```
-
-Mediante hook_update_N()
-```
-function mi_modulo_update_9000(&$sandbox) {
-  \Drupal::entityTypeManager()->clearCacheDefinitions();
-  $entity_type =  \Drupal::entityTypeManager()->getDefinition('nombre_entidad');
-   \Drupal::entityDefinitionUpdateManager()->installEntityType($entity_type);
-}
-```
-
 
 PROGRAMAR REGISTRO DE ENTIDADES EN TRANSACCIONES
 =======
