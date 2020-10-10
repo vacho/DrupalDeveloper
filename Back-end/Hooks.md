@@ -366,36 +366,65 @@ function mi_modulo_link_alter(&$variables) {
   }
 }
 ```
-### Alterar el modo de vista de un formulario de nodo (remover una opcion de visualización)
+### Alterar el modo de vista de un nodo
 ```
 /**
- * Implements hook_form_FORM_ID_alter() for views_exposed_form.
+ * Implements hook_node_view().
  */
-function nombre_modulo_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if (isset($form['#id']) && $form['#id'] == 'views-exposed-form-trombinoscope-student-trombi') {
-    $query = \Drupal::entityQuery('node')
-      ->condition('type', 'people')
-      ->condition('status', 1)
-      ->condition('promotion', NULL, 'IS NOT NULL');
-    $nids = $query->execute();
-    if (!empty($nids)) {
-      $nodes = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($nids);
-      foreach ($nodes as $node) {
-        $promotion[] = $node->promotion->target_id;
-      }
-      $terms = Term::loadMultiple(array_unique($promotion));
-      $options = [];
-      foreach ($terms as $id => $term) {
-        $options[$id] = $term->name->value;
-      }
-      $form["promotion_target_id"]["#options"] = $options;
-    }
-    else {
-      unset($form["promotion_target_id"]);
+function nombre_modulo_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($entity->bundle() == 'landing_page' && $view_mode == "teaser") {
+    if (empty($build['hea'][0])) {
+      $id_empty_image = 39;
+      $media_entity = Media::load($id_empty_image);
+
+      $build['hea']['#theme'] = 'field';
+      $build['hea']['#title'] = 'Header image';
+      $build['hea']['#label_display'] = 'hidden';
+      $build['hea']['#view_mode'] = 'teaser';
+      $build['hea']['#language'] = $entity->language()->getId();
+      $build['hea']['#field_name'] = 'hea';
+      $build['hea']['#field_type'] = 'entity_reference';
+      $build['hea']['#field_translatable'] = FALSE;
+      $build['hea']['#entity_type'] = 'node';
+      $build['hea']['#bundle'] = 'landing_page';
+      $build['hea']['#object'] = $entity;
+      $build['hea']['#formatter'] = 'entity_reference_entity_view';
+      $build['hea']['#is_multiple'] = FALSE;
+      $build['hea']['#third_party_settings'] = [];
+      $build['hea'][0] = [
+        '#media' => $media_entity,
+        '#view_mode' => 'card',
+        '#cache' => [
+          'tags' => [
+            '0' => "media:" . $id_empty_image,
+            '1' => "media_view",
+          ],
+          'contexts' => [
+            '0' => "route.name.is_layout_builder_ui",
+            '1' => "user.permissions",
+          ],
+          'max-age' => -1,
+          'keys' => [
+            '0' => "entity_view",
+            '1' => "media",
+            '2' => $id_empty_image,
+            '3' => "card",
+          ],
+          'bin' => "render",
+        ],
+        '#theme' => 'media',
+        '#weight' => 0,
+        '#pre_render' => [
+          '0' => [
+            '0' => \Drupal::entityTypeManager()->getViewBuilder('media'),
+            '1' => 'build',
+          ],
+        ],
+      ];
+      $build['hea']['#weight'] = 0;
     }
   }
 }
-
 ```
 
 ENLACES Y FUENTES
