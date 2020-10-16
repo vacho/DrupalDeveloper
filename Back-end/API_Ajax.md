@@ -32,6 +32,7 @@ hello.hide_block:
   requirements:
     _permission: 'access content'  
 ```
+
 El método en el Controlador
 ```
 public function hideBlock(Request $request) {
@@ -45,6 +46,7 @@ public function hideBlock(Request $request) {
   return $response;
 }
 ```
+
 Nota: Se puede usar en Botones ajax mediante la clase 'use-ajax-submit'.
 
 #### Formularios AJAX
@@ -104,7 +106,10 @@ public function pluginConfigAjaxCallback($form, FormStateInterface $form_state) 
   return $form['plugin_configuration']
 }
 ```
-
+#### Recomendaciones importantes
+- En formularios, los métodos validate() y submit() se ejecutan antes de los métodos ajax y se pueden usar para actualiazar los valores de form_state. Debido a que cuando se actualiza un elemento de formulario en los métodos ajax no se actualizan sus valores form_state.
+- En formularios, no es buena idea generar nuevos elementos de formulario en los métodos ajax. Esto provoca errores.
+- En formularios, lo más usual es generar todos los elementos en el método build() para luego manipular su renderizado mediante los métodos callback ajax, form_state y el método validate()
 
 Referencias
 ===
