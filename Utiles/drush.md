@@ -33,7 +33,7 @@ drush user-unblock vacho
 # Desloguear todos los usuarios
 drush sql-query 'TRUNCATE TABLE sessions;'
 
-# Desloguear un usuario en específoc
+# Desloguear un usuario en específico
 drush sql-query 'DELETE FROM sessions WHERE uid = 2;'
 
 # Reconstruir rutas
@@ -50,6 +50,9 @@ drush updb -y
 
 # importar configuraciones
 drush cim -y
+
+# exportar configuraciones
+drush cex
 
 # importar contenido por defecto
 drush default-content:import-all
