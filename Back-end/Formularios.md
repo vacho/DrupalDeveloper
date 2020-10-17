@@ -135,6 +135,15 @@ $form['url'] = [
   '#required' => TRUE,
 ];
 
+// Template twig en línea
+$form['answer'] = [
+  '#type' => 'inline_template',
+  '#template' => "{% trans %} Hello {% endtrans %} {{user_name}}",
+  #context' => [
+    'user_name' => $user_name,
+  ],
+];
+
 ```
 
 #### Estados
