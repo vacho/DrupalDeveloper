@@ -60,6 +60,10 @@ Mapas compatibles con geofield
 Para integrar buscador
 - https://www.drupal.org/project/geocoder
 
+### Subscripciones
+Para newsletters
+- https://www.drupal.org/project/simplenews
+
 ENLACES Y FUENTES
 =================
 Cómo crear subtemas, documentación oficial
