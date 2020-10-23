@@ -344,6 +344,53 @@ function siblu_field_update_8004() {
   }
 }
 
+/**
+ * Update unused layouts 'layout_x' and 'layout_y'.
+ */
+function asf_layout_builder_ui_post_update_unused_layouts(&$sandbox = NULL) {
+  // Need to update existing nodes' layout sections in following way:
+  // 'layout_x' => 'new_layout_x' and
+  // 'layout_y' => 'new_layout_y'.
+  $field_name = OverridesSectionStorage::FIELD_NAME;
+  $layout_ids = [
+    'layout_x' => 'new_layout_x',
+    'layout_y' => 'new_layout_y',
+  ];
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+  if (!isset($sandbox['ids'])) {
+    $sandbox['ids'] = $node_storage->getQuery()->exists($field_name)->execute();
+    $sandbox['count'] = count($sandbox['ids']);
+  }
+
+  for ($i = 0; $i < 10 && count($sandbox['ids']); $i++) {
+    $id = array_shift($sandbox['ids']);
+    $save = FALSE;
+    $node = $node_storage->load($id);
+    $sections = $node->get($field_name)->getSections();
+    foreach ($sections as $delta => $section) {
+      $layout_id = $section->getLayoutId();
+      if (in_array($layout_id, array_keys($layout_ids))) {
+        $new_section = Section::fromArray([
+          'layout_id' => $layout_ids[$layout_id],
+          'components' => array_values(array_map(
+            function (SectionComponent $component) {
+              return $component->toArray();
+            }, $section->getComponents())),
+        ]);
+        $sections[$delta] = $new_section;
+        $save = TRUE;
+      }
+    }
+    if ($save) {
+      $node->get($field_name)->setValue($sections);
+      $node->save();
+    }
+  }
+
+  $sandbox['#finished'] = empty($sandbox['ids']) ? 1 : ($sandbox['count'] - count($sandbox['ids'])) / $sandbox['count'];
+}
+
+
 
 ```
 ### Alterar los links de menús, campos de tipo link
