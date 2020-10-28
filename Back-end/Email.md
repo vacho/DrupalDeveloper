@@ -41,12 +41,14 @@ function nombreModulo_mail_alter(&$message) {
 ENLACES Y FUENTES
 =================
 Documentación SwiftMailer
-https://www.drupal.org/node/1590154
+- https://www.drupal.org/node/1590154
 
 Inspiración para le hook
-http://code.tutsplus.com/tutorials/using-and-extending-the-drupal-8-mail-api-part-1--cms-23419
+- http://code.tutsplus.com/tutorials/using-and-extending-the-drupal-8-mail-api-part-1--cms-23419
 
-https://api.drupal.org/api/drupal/core!core.api.php/function/hook_mail_alter/8.2.x
+- https://api.drupal.org/api/drupal/core!core.api.php/function/hook_mail_alter/8.2.x
 
-https://www.drupal.org/node/2677530#comment-11226949
+- https://www.drupal.org/node/2677530#comment-11226949
 
+Actualizado envio de email
+- https://www.lucius.digital/en/blog/sending-html-mails-drupal-89-programmatically-example-drupal-module-including-twig-template
