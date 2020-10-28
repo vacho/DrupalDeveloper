@@ -103,6 +103,43 @@ function nombre_modulo_views_pre_render(ViewExecutable $view) {
 }
 ```
 
+#### Modificar un bloque 
+```
+/**
+ * Implements hook_block_build_BASE_BLOCK_ID_alter().
+ */
+function nombre_modulo_block_build_lang_drop_down_switcher_alter(array &$build, BlockPluginInterface $block) {
+  $langcodes = _get_configurable_languages();
+  $languages_disabled = 0;
+
+  foreach ($langcodes as $configurableLanguage) {
+    $disabled = $configurableLanguage->getThirdPartySetting('disable_language', 'disable');
+    if (isset($disabled) && $disabled == 1) {
+      $languages_disabled++;
+    }
+  }
+
+  if ($languages_disabled == count($langcodes) || $languages_disabled == count($langcodes) - 1) {
+    $build['#access'] = FALSE;
+  }
+}
+
+function _get_configurable_languages() {
+  $configurableLanguages = [];
+
+  // Get all languages.
+  $languages = \Drupal::languageManager()->getLanguages();
+
+  // The language itself doesn't own the thirdPartySetting,
+  // So we need to use its matching ConfigEntity
+  // Getting the ConfigurableLanguageManager.
+  $configManager = \Drupal::entityTypeManager()->getStorage('configurable_language');
+  $configurableLanguages = $configManager->loadMultiple(array_keys($languages));
+
+  return $configurableLanguages;
+}
+```
+
 #### Modificar algo en el theme
 ```
 /**
