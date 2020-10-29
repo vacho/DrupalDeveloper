@@ -1,5 +1,16 @@
 Rutas
 ========
+#### Obtener rutas del proyecto
+Obtener el host. Ej: drupal9.local
+```
+$host = \Drupal::request()->getHost();
+```
+
+Obtener ruta base completa. Ej: https://drupal8.local
+```
+$base_uri = \Drupal::request()->getSchemeAndHttpHost();;
+```
+
 #### Crear una ruta
 En el archivo miarchivo.routing.yml
 ```
