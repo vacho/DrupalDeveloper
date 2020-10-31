@@ -37,6 +37,14 @@ function nombreModulo_mail_alter(&$message) {
   $message['body'][0] = Markup::create($message['body'][0]);
 }
 ```
+Tambien funciona
+```
+ check_markup(
+      $token->replace($settings->get('confirmation_body'), $data),
+      $settings->get('confirmation_body_format')
+    ),
+```
+
 
 ENLACES Y FUENTES
 =================
