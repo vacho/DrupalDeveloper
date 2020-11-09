@@ -50,6 +50,9 @@ $ drush pm:security
 
 // Instalar actualizaciones
 $ composer update drupal/nombre_modulo --with-dependencies
+$ drush updatedb
+$ drush cache:rebuild
+$ drush config:export --diff
 ```
 
 #### Remover un componente
