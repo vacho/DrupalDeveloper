@@ -3,7 +3,7 @@ Taxonomías
 
 #### Trozos de código para obtener programaticamente.
 
-Obtener el arbol de terminos de una taxonomía.
+Obtener el arbol de términos de una taxonomía.
 ```
 $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree(
       'id_vocabulario',
@@ -13,13 +13,18 @@ $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree(
     );
 ```
 
-Obtener todos los terminos padre de un termino.
+Obtener todos los terminos padre de un término.
 ```
 $ancestors = \Drupal::service('entity_type.manager')->getStorage("taxonomy_term")->loadAllParents($tid);
 $list = [];
 foreach ($ancestors as $term) {
   $list[$term->id()] = $term->label();
 }
+```
+Obtener el padre directo de un término.
+```
+$parent = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($termId);
+$parent = reset($parent);
 ```
 
 
