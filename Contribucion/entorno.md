@@ -73,7 +73,10 @@ $  phpcs --standard=Drupal  /ruta_a_carpeta_o_archivo/
 ENLACES Y FUENTES
 =================
 Ejecutar tests unitarios
-https://www.drupal.org/docs/8/phpunit/running-phpunit-tests
+- https://www.drupal.org/docs/8/phpunit/running-phpunit-tests
 
 Estándares del código
-https://www.drupal.org/node/1419988
+- https://www.drupal.org/node/1419988
+
+Trabajar con git y gitlab
+- https://www.drupal.org/docs/develop/git/using-git-to-contribute-to-drupal/creating-issue-forks-and-merge-requests?utm_source=Drupal+Project+Maintainers&utm_campaign=ed227e9b0b-EMAIL_CAMPAIGN_2020_09_10_08_14_COPY_03&utm_medium=email&utm_term=0_42888f3d61-ed227e9b0b-298566141
