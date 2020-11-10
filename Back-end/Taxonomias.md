@@ -30,5 +30,5 @@ $parent = reset($parent);
 
 ENLACES Y FUENTES
 =================
-Terminos y niveles.
+Términos y niveles.
 - https://boylesoftware.com/blog/drupal-8-get-taxonomy-terms-level/
