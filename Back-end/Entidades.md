@@ -325,24 +325,18 @@ catch (\Exception $e) {
 ENLACES Y FUENTES
 =================
 Documentación oficial
-https://api.drupal.org/api/drupal/8
+- https://api.drupal.org/api/drupal/8
 
 Documentación de la comunidad
-https://www.drupal.org/developing/api/8
-
-Hoja resumida de codigo
-http://wizzlern.nl/sites/wizzlern.nl/files/artikel/drupal8_content_entity.pdf
+- https://www.drupal.org/developing/api/8
 
 Watchdow drupal 8
-https://www.drupal.org/node/2270941
+- https://www.drupal.org/node/2270941
 
 Entidades
-http://talks.shawnduncan.org/entity_talk/#/overview
+- http://talks.shawnduncan.org/entity_talk/#/overview
+- http://talks.shawnduncan.org/entity_talk/images/Entity.svg
 
-http://talks.shawnduncan.org/entity_talk/images/Entity.svg
-
-Recurso sobre entidades
-http://shawnduncan.org/entities-core-custom
 
 Tipos de campos
-http://bit.ly/1qhjSQ6
+- http://bit.ly/1qhjSQ6
