@@ -1,6 +1,17 @@
 Composer
 ========
 
+#### Crear un nuevo proyecto
+Version especifica
+```
+$ composer create-project drupal/recommended-project:8.9.8 my_site_name_dir
+```
+
+Version recomendada
+```
+$ composer create-project drupal/recommended-project my_site_name_dir
+```
+
 #### Resolver dependencias de librerias js de módulos contribuidos
 
 Resolver dependencias haciendo un merge. Útil para proyectos en github
