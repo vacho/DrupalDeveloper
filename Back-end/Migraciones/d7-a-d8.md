@@ -122,14 +122,14 @@ Luego de migrar el contenido y las configuraciones. Es muy posible que hayan mó
 ENLACES Y FUENTES
 =================
 Documentación oficinal de drupal
-https://www.drupal.org/docs/8/upgrade/upgrading-from-drupal-6-or-7-to-drupal-8-and-newer
+- https://www.drupal.org/docs/8/upgrade/upgrading-from-drupal-6-or-7-to-drupal-8-and-newer
 
 Lista de módulos útiles para la migración
-https://www.drupal.org/docs/8/upgrade/drupal-8-migrate-modules
+- https://www.drupal.org/docs/8/upgrade/drupal-8-migrate-modules
 
 Actualizar mediante navegador web
-https://www.drupal.org/docs/8/upgrade/upgrade-using-web-browser
+- https://www.drupal.org/docs/8/upgrade/upgrade-using-web-browser
 
 Actualizar mediante drush
-https://www.drupal.org/docs/8/upgrade/upgrade-using-drush
+- https://www.drupal.org/docs/8/upgrade/upgrade-using-drush
 
