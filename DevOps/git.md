@@ -192,6 +192,15 @@ Ver reportes gráficos del repositorio
 $ gitk nombre_archivo.extension
 ```
 
+Deshacer cambios como rebases
+===
+```
+$ git reflog
+// Supongamos que el commit más viejo es HEAD@{5} en el log log:
+$ git reset --hard HEAD@{5}
+
+```
+
 
 REFERENCIAS
 ---
