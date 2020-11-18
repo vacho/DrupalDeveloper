@@ -185,21 +185,31 @@ $ git add .
 $ git commit -m "reiciniamos git"
 ```
 
-Ver reportes gráficos del repositorio
+Ver reportes gráficos del repositorio.
 ===
 ```
 // ver el historial de cambios de un archivo
 $ gitk nombre_archivo.extension
 ```
 
-Deshacer cambios como rebases
+Deshacer cambios como rebases.
 ===
 ```
 $ git reflog
 // Supongamos que el commit más viejo es HEAD@{5} en el log log:
 $ git reset --hard "HEAD@{5}"
-
 ```
+Juntar los 2 commits finales en uno mismo.
+===
+```
+// Si estas en el commit_1 y quieres mergear el commit_2" en el commit_1.
+$ git rebase -i HEAD~2
+// Lo cual muestra en el editor la lista de todos los commits para hacer rebase.
+// Veras 2 líneas que comienzan con "pick". 
+// Cambiar la primera palabra de la segunda línea de "pick" a "squash". 
+// Guardar el archivo.
+```
+
 
 
 REFERENCIAS
