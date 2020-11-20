@@ -523,3 +523,4 @@ Que son los hooks
 
 Ejemplos Hooks update
 - https://www.drupal.org/docs/8/api/update-api/updating-database-schema-andor-data-in-drupal-8
+- https://www.drupal.org/docs/7/creating-custom-modules/howtos/examples-for-database-update-scripts-using-hook_update_n-how
