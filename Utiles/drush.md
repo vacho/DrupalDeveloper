@@ -48,6 +48,12 @@ drush cget nombre_configuracion
 # actualizar base de datos
 drush updb -y
 
+# Entrar modo consola a la base de datos
+$ drush sql-cli
+
+# Sacar backup de la base de datos.
+$ drush sql-dump
+
 # importar configuraciones
 drush cim -y
 
