@@ -22,7 +22,7 @@ $render[#attached] = [
     'mi_modulo/hello_world'
   ]
 ]
-$render'#attached']['drupalSettings'] = [
+$render['#attached']['drupalSettings'] = [
   'node_type' => $node->type->entity->label(),
 ];    
 ```
