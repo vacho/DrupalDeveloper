@@ -102,7 +102,6 @@ $form['pr']['obs'] = [
   '#type' => 'textarea',
   '#placeholder' => '_' . t('Observation'),
   '#attributes' => ['title' => t('Observation')],
-  '#suffix' => '</div>',
 ];
 
 // Hidden con ramas abiertas(arreglo multidimencional) enviadas cuando el formulario sea guardado.
