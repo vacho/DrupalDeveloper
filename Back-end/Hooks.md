@@ -426,10 +426,32 @@ function asf_layout_builder_ui_post_update_unused_layouts(&$sandbox = NULL) {
 
   $sandbox['#finished'] = empty($sandbox['ids']) ? 1 : ($sandbox['count'] - count($sandbox['ids'])) / $sandbox['count'];
 }
-
-
-
 ```
+### Cargar nuevas configuraciones
+```
+/**
+ * Create 'Duration', 'Model' vocabularies.
+ */
+function siblu_field_update_8004() {
+  $configs = [
+    'taxonomy.vocabulary.model',
+    'taxonomy.vocabulary.duration',
+    'language.content_settings.taxonomy_term.model',
+    'language.content_settings.taxonomy_term.duration',
+  ];
+  $module_installer = \Drupal::service('module_installer');
+  $module_installer->install([
+    'config_import',
+  ], TRUE);
+  /* @var \Drupal\config_import\ConfigImporterServiceInterface $config_importer */
+  $config_importer = \Drupal::service('config_import.importer');
+  $config_importer->importConfigs($configs);
+  $module_installer->uninstall([
+    'config_import',
+  ], TRUE);
+}
+```
+
 ### Alterar los links de menús, campos de tipo link
 ```
 /**
