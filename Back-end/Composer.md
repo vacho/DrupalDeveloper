@@ -96,6 +96,28 @@ $ composer update drupal/core-recommended --with-dependencies
 - https://www.drupal.org/docs/updating-drupal/update-drupal-core-via-composer
 - https://www.drupal.org/docs/upgrading-drupal/upgrading-from-drupal-8-to-drupal-9-or-higher
 
+#### Instalar librería externa
+```
+En `composer.json` agregar este código dentro de la sección `repositories`:
+```
+    {
+      "type": "package",
+      "package": {
+          "name": "library-magnific/magnific-popup",
+          "version": "1.1.0",
+          "type": "drupal-library",
+          "source": {
+              "url": "https://github.com/dimsemenov/Magnific-Popup",
+              "type": "git",
+              "reference": "1.1.0"
+          }
+      }
+    },
+```
+Ejecutar `composer require --prefer-dist library-magnific/magnific-popup:1.1.*` para instalar.
+
+```
+
 
 ENLACES Y FUENTES
 =================
