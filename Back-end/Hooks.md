@@ -292,7 +292,12 @@ function nombre_modylo_local_tasks_alter(&$local_tasks) {
 }
 ```
 
-#### Hook update
+#### Hook 
+Para ejecutar los hooks update:
+```
+$ drush updb -y
+```
+
 ```
 /**
  * Implementions of hook_update_N().
