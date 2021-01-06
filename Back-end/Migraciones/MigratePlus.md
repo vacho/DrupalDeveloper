@@ -12,3 +12,6 @@ Ejemplos de migraciones: nodos, taxonomias, terminos, usuarios, archivos e imág
 
 Ejemplos básicos de process
 - https://www.drupal.org/docs/8/api/migrate-api/migrate-process-plugins/migrate-process-overview
+
+Lista de plugins para process
+- https://www.drupal.org/docs/8/api/migrate-api/migrate-process-plugins/list-of-core-migrate-process-plugins
