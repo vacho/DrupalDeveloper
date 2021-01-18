@@ -82,5 +82,6 @@ $response->send();
 
 
 #### Referencias
-Posibilidades de las rutas: https://www.drupal.org/node/2092643
-Cheatsheet https://cryptic.zone/blog/drupal-8-cheatsheet-developers
+- Posibilidades de las rutas: https://www.drupal.org/node/2092643
+- Cheatsheet https://cryptic.zone/blog/drupal-8-cheatsheet-developers
+- Redireccionamiento https://x-team.com/blog/drupal-goto/
