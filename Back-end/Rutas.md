@@ -78,6 +78,8 @@ $response->send();
 $path = Url::fromRoute('mi_nombre_ruta')->toString();
 $response = new RedirectResponse($path);
 $response->send();
+
+// Para rutas externas usar TrustedRedirectResponse
 ```
 
 
