@@ -33,6 +33,14 @@ Instanciar el servicio al momento de crear el objeto.
         ...
       );
     }
+
+
+  // Ejemplo de create sin necesidad de reescribir el constructor.
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+    $instance->entityTypeManager = $container->get('entity_type.manager');
+    return $instance;
+  }
 ```
 
 Utilizar el servicio.
