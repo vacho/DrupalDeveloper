@@ -35,7 +35,7 @@ curl_close($ch);
 
 #### Documentar una variable como una clase
 ```
-/* @var $edit_operation_url Drupal\Core\Url */
+/* @var $edit_operation_url \Drupal\Core\Url */
 $edit_operation_url = $operations['edit']['url'];
 ```
 
