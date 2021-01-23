@@ -4,7 +4,7 @@ ENTIDADES
 #### Consultas mediante Entidades
 
 ```
-//crear entidad
+// Crear entidad
 $values =  [
   'name' => 'Jose',
   'lastname' => 'Lopez',
@@ -17,13 +17,13 @@ $id = $Person->id();
 $Entity = NombreEntidad::load($id);
 $Entity->delete();
 
-//Actualizar una entidad
+// Actualizar una entidad
 $configuration = Configuration::load($id);
 $configuration->set('valuation_method', $valuationMethod);
 $configuration->set('costs_method', $costMethod);
 $configuration->save();
 
-//obtener una entidad mediante consulta
+// Obtener una entidad mediante consulta
 $ids = \Drupal::entityQuery('k_accountplan')
 ->condition('iden', $entity, '=')
 ->condition('idac', $account->getIdac(), '=')
@@ -32,7 +32,7 @@ $ids = \Drupal::entityQuery('k_accountplan')
 ->execute();
 $AccountPlan = AccountPlan::load(reset($ids));
 
-//obtener multiples entidades mediante consulta
+// Obtener multiples entidades mediante consulta
 $ids = \Drupal::entityQuery('k_accountingentry')
 ->condition('idvo', $voucher->getIdvo(), '=')
 ->execute();
@@ -41,22 +41,22 @@ foreach ($entries as $entrie) {
  ... hacer algo con las entidades ...
 }
 
-//Obtener entidades con tags (Busca las entidades que tienen el tag 'cats')
+// Obtener entidades con tags (Busca las entidades que tienen el tag 'cats')
 $query = \Drupal::entityQuery('node')
     ->condition('status', 1)
     ->condition('field_tags.entity.name', 'cats');
 $nids = $query->execute();
 
-//Operadores de consulta 
+// Operadores de consulta 
 '=', '<>', '>', '>=', '<', '<=', 'STARTS_WITH', 'CONTAINS', 'ENDS_WITH'
 'IN', 'NOT IN', 'IS, 'IS NOT': Esperan un $value en un array de textos del mismo tipo del campo.
 'BETWEEN': Espera un $value en un array de 2 literales del mismo tipo del campo.
       
-//obtener datos de entidades foraneas
+// Obtener datos de entidades foraneas
 $entity->idac->target_id;
 $entity->idac->entity->label();
       
-//obtner valor de un atributo de la entidad
+// Obtner valor de un atributo de la entidad
 $rule->get('variable')->value
 
 // Guardar imagenes en una entidad
