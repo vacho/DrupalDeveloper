@@ -66,3 +66,6 @@ https://api.drupal.org/api/drupal/8
 
 Documentación de la comunidad
 https://www.drupal.org/developing/api/8
+
+La manera correcta de implementar
+https://www.drupal.org/docs/drupal-apis/services-and-dependency-injection/dependency-injection-for-a-form
