@@ -138,7 +138,7 @@ $form['url'] = [
 $form['answer'] = [
   '#type' => 'inline_template',
   '#template' => "{% trans %} Hello {% endtrans %} {{user_name}}",
-  #context' => [
+  '#context' => [
     'user_name' => $user_name,
   ],
 ];
