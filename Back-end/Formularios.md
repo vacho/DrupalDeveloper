@@ -197,4 +197,5 @@ Documentación de la comunidad
 Implementar un formulario en un modal llamando desde otro formulario con ajax
 - https://www.drupal.org/project/drupal/issues/2934463
 
-
+Alterar un formulario extendiendolo
+- https://www.foreach.be/blog/how-manipulate-forms-drupal-8
