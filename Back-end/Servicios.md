@@ -76,4 +76,8 @@ INYECTAR SERVICIOS
 ```
 
 #### Referencias
-Cheatsheet https://cryptic.zone/blog/drupal-8-cheatsheet-developers
+Cheatsheet 
+- https://cryptic.zone/blog/drupal-8-cheatsheet-developers
+
+Sobrescribir servicios
+- https://www.bounteous.com/insights/2017/04/19/drupal-how-override-core-drupal-8-service/
