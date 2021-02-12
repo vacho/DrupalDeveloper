@@ -53,6 +53,8 @@ $ drush sql-cli
 
 # Sacar backup de la base de datos.
 $ drush sql-dump
+$ drush sql-dump > default.sql
+
 
 # importar configuraciones
 drush cim -y
@@ -73,10 +75,12 @@ drush updb -y
 
 #### REFERENCIAS
 ```
-
-https://orga.cat/posts/most-useful-drush-commands
+Comandos más utilizados
+- https://orga.cat/posts/most-useful-drush-commands
 
 Instalar drush 8 (Drupal 8 + Drupal 7)
-wget http://files.drush.org/drush.phar
+- wget http://files.drush.org/drush.phar
 
+Comandos base de datos
+- https://drushcommands.com/drush-8x/sql/
 ```
