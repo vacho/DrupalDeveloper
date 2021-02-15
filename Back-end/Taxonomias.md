@@ -2,6 +2,10 @@ Taxonomías
 ========
 
 #### Trozos de código para obtener programaticamente.
+Optener el id de vocuabulario de un término
+```
+$vocabulary_id = $term->bundle();
+```
 
 Obtener el arbol de términos de una taxonomía.
 ```
