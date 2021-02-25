@@ -199,5 +199,9 @@ Implementar un formulario en un modal llamando desde otro formulario con ajax
 
 Alterar un formulario extendiendolo
 - https://www.foreach.be/blog/how-manipulate-forms-drupal-8
+
 Sobreescribir la ruta pasando parametros en array
 - http://www.impraveen.com/override-route-controller-drupal-8
+
+Tablas con paginador
+- https://zanzarra.com/blog/drupal-custom-pager-and-table-header-sortable-without-sql-query
