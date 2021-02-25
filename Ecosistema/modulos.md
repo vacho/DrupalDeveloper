@@ -64,6 +64,10 @@ Para integrar buscador
 Para newsletters
 - https://www.drupal.org/project/simplenews
 
+### Backups
+Entorno para sacar backups
+- https://www.droptica.com/blog/how-backup-drupal-overview-backup-and-migrate-module/?amp%25253Butm_medium=rss&%25253Butm_content=rss%25253Futm_source%25253Drss?utm_source=drupal-newsletter&utm_medium=email&utm_campaign=drupal-newsletter-20210225
+
 ENLACES Y FUENTES
 =================
 Cómo crear subtemas, documentación oficial
