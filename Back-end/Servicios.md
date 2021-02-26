@@ -3,6 +3,9 @@ SERVICIOS
 
 #### Acceder a un servicio
 ```
+  // Listar todos los servicios disponibles.
+  \Drupal::getContainer()->getServiceIds()
+
   $my_service = \Drupal::service('my_service_name');
   
   // Dentro un controlador se puede acceder mediante su contenedor
