@@ -70,7 +70,15 @@ drush php-eval "echo drupal_get_installed_schema_version('siblu_field');"
 drush php-eval "echo drupal_set_installed_schema_version('siblu_field', '8004');"
 drush updb -y
 
+# Deploy
+drush deploy
 
+Drush deploy ejecuta:
+drush updatedb --no-cache-clear
+drush cache:rebuild
+drush config:import
+drush cache:rebuild
+drush deploy:hook
 ```
 
 #### REFERENCIAS
