@@ -79,6 +79,11 @@ drush cache:rebuild
 drush config:import
 drush cache:rebuild
 drush deploy:hook
+
+# Search API
+drush search-api:rebuild-tracker && drush search-api:index
+drush crons
+
 ```
 
 #### REFERENCIAS
