@@ -431,7 +431,47 @@ function asf_layout_builder_ui_post_update_unused_layouts(&$sandbox = NULL) {
 
   $sandbox['#finished'] = empty($sandbox['ids']) ? 1 : ($sandbox['count'] - count($sandbox['ids'])) / $sandbox['count'];
 }
+
+/**
+ * Update used sandbox and at file nombre_modulo.post_update.php 
+ */
+
+function nombre_modulo_post_update_change_product_webform_field_value4(&$sandbox) {
+  $storage = \Drupal::entityTypeManager()->getStorage('commerce_product');
+  // Initialize some variables during the first pass through.
+  if (!isset($sandbox['total'])) {
+    $ids = $storage->getQuery()
+      ->condition('webform_ads', 'contact_project', '<>')
+      ->count()
+      ->execute();
+    if ($ids == 0) {
+      $sandbox['#finished'] = 1;
+      return;
+    }
+    $sandbox['total'] = $ids;
+    $sandbox['current'] = 0;
+  }
+  // Handle one pass through.
+  $ids = $storage->getQuery()
+    ->condition('webform_ads', 'contact_project', '<>')
+    ->range($sandbox['current'], $sandbox['current'] + 25)
+    ->execute();
+  $products = $storage->loadMultiple($ids);
+  if (empty($products)) {
+    $sandbox['#finished'] = 1;
+    return;
+  }
+  foreach ($products as $product) {
+    $product->webform_ads->target_id = 'contact_project';
+    $product->save();
+    $sandbox['current']++;
+  }
+  \Drupal::messenger()->addStatus($sandbox['current'] . ' products processed.');
+  $sandbox['#finished'] = ($sandbox['current'] / $sandbox['total']);
+}
+
 ```
+
 ### Cargar nuevas configuraciones
 ```
 /**
