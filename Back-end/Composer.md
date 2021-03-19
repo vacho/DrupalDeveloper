@@ -36,6 +36,9 @@ From now on, every time the "composer.json" file is updated, it will also read t
 #### Requerir un nuevo componente
 
 ```
+// Ver todas las versiones de un proyecto.
+$ composer show  drupal/account_field_split --all
+
 // Versión en producción
 $ composer require drupal/adminimal_theme:^1.3
 
