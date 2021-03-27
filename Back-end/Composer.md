@@ -50,6 +50,7 @@ $ composer require drupal/better_normalizers:^1@beta
 
 // Rama en desarrollo
 $ composer require drupal/flexslider:^dev
+$ composer require drupal/http_status_code:1.x-dev
 
 // Requerir un proyecto para un determinado ambiente (dev)
 composer require --dev phpunit/phpunit
