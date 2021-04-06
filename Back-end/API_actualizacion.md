@@ -305,7 +305,7 @@ function nombre_modulo_post_update_nombre_de_la_funcion(&$sandbox) {
 ```
 
 ### Cargar nuevas configuraciones
-```
+```php
 /**
  * Create 'Duration', 'Model' vocabularies.
  */
