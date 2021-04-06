@@ -31,7 +31,7 @@ function nombre_modulo_entity_presave(Drupal\Core\Entity\EntityInterface $entity
       $gender = $entity->get('field_gender')->value;
       $entity->set('field_gender2', $cgender);
       break;
-    ...  
+    //...  
   }
 }
 ```
@@ -44,7 +44,7 @@ function nombre_modulo_entity_presave(Drupal\Core\Entity\EntityInterface $entity
 function nombre_modulo_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if ($form_id == 'node_people_edit_form') {
     $form['field_is_single']['widget'][0]['value']['#attributes']['readonly'] = TRUE;
-    ...
+    //...
     return $form;
   }
 }
@@ -68,9 +68,8 @@ function mombre_modulo_form_id_del_formulario_alter(array &$form, \Drupal\Core\F
       ],
     ],
   ];
-  ...
+  //...
 }
-
 
 /**
  * Implements hook_webform_submission_form_alter().
