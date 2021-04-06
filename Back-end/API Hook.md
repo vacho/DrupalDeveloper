@@ -290,3 +290,93 @@ function nombre_modylo_local_tasks_alter(&$local_tasks) {
 }
 ```
 
+### Alterar los links de menús, campos de tipo link
+```php
+/**
+ * Implements hook_link_alter().
+ *
+ * Add target="_blank" to all external links.
+ */
+function mi_modulo_link_alter(&$variables) {
+  if ($variables['url']->isExternal()) {
+    $webUri = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+    /* @var $url Drupal\Core\Url */
+    $url = $variables['url'];
+    $linkUri = $url->toString();
+    if (str_contains($linkUri, $webUri) === FALSE) {
+      $variables['options']['attributes']['target'] = '_blank';
+      $variables['options']['attributes']['rel'] = 'noopener';
+    }
+  }
+}
+```
+### Alterar el modo de vista de un nodo
+```php
+/**
+ * Implements hook_node_view().
+ */
+function nombre_modulo_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($entity->bundle() == 'landing_page' && $view_mode == "teaser") {
+    if (empty($build['hea'][0])) {
+      $id_empty_image = 39;
+      $media_entity = Media::load($id_empty_image);
+
+      $build['hea']['#theme'] = 'field';
+      $build['hea']['#title'] = 'Header image';
+      $build['hea']['#label_display'] = 'hidden';
+      $build['hea']['#view_mode'] = 'teaser';
+      $build['hea']['#language'] = $entity->language()->getId();
+      $build['hea']['#field_name'] = 'hea';
+      $build['hea']['#field_type'] = 'entity_reference';
+      $build['hea']['#field_translatable'] = FALSE;
+      $build['hea']['#entity_type'] = 'node';
+      $build['hea']['#bundle'] = 'landing_page';
+      $build['hea']['#object'] = $entity;
+      $build['hea']['#formatter'] = 'entity_reference_entity_view';
+      $build['hea']['#is_multiple'] = FALSE;
+      $build['hea']['#third_party_settings'] = [];
+      $build['hea'][0] = [
+        '#media' => $media_entity,
+        '#view_mode' => 'card',
+        '#cache' => [
+          'tags' => [
+            '0' => "media:" . $id_empty_image,
+            '1' => "media_view",
+          ],
+          'contexts' => [
+            '0' => "route.name.is_layout_builder_ui",
+            '1' => "user.permissions",
+          ],
+          'max-age' => -1,
+          'keys' => [
+            '0' => "entity_view",
+            '1' => "media",
+            '2' => $id_empty_image,
+            '3' => "card",
+          ],
+          'bin' => "render",
+        ],
+        '#theme' => 'media',
+        '#weight' => 0,
+        '#pre_render' => [
+          '0' => [
+            '0' => \Drupal::entityTypeManager()->getViewBuilder('media'),
+            '1' => 'build',
+          ],
+        ],
+      ];
+      $build['hea']['#weight'] = 0;
+    }
+  }
+}
+```
+ENLACES Y FUENTES
+=================
+Lista de hooks
+- https://api.drupal.org/api/drupal/core!core.api.php/group/hooks/8.2.x
+
+
+Que son los hooks
+- https://drupalize.me/tutorial/what-are-hooks?p=2766
+- https://www.drupal.org/docs/creating-custom-modules/understanding-hooks
+
