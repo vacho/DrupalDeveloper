@@ -337,7 +337,6 @@ APi de actualización
 
 Ejemplos Hooks update
 - https://www.drupal.org/docs/8/api/update-api/updating-database-schema-andor-data-in-drupal-8
-- https://www.drupal.org/docs/7/creating-custom-modules/howtos/examples-for-database-update-scripts-using-hook_update_n-how
 
 Hooks post update
 - https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Extension%21module.api.php/function/hook_post_update_NAME/8.2.x
