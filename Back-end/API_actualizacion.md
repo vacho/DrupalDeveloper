@@ -7,12 +7,12 @@ Se utiliza cuando se realizan cambios en la configuración que afectan a datos a
 - Dependencias. (Ejemplo de un plugin)
 - Etc.
 
-#### Para ejecutar los hooks update:
+### Para ejecutar los hooks update:
 ```
 $ drush updb -y
 ```
 
-#### Funciones para actualizar entidades y schemas
+### Funciones para actualizar entidades y schemas
 ```
 - getEntityType($entity_type_id)
 - installEntityType(EntityTypeInterface $entity_type)
@@ -97,7 +97,6 @@ function entity_test_update_8001() {
   }
   $insert_query->execute();
 }
-
 
 /**
  * Hacer el campo 'user_id' de multiple a uno y migrar sus datos.
