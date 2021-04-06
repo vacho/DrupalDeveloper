@@ -43,6 +43,92 @@ function node_update_8001() {
 }
 ```
 
+#### Campos existentes promovidos a claves para la entidad
+```php
+/**
+ * Promover los campos 'status' y 'uid' a claves de las entidades.
+ */
+function node_update_8003() {
+  $manager = \Drupal::entityDefinitionUpdateManager();
+  $entity_type = $manager->getEntityType('node');
+  $entity_keys = $entity_type->getKeys();
+  $entity_keys['status'] = 'status';
+  $entity_keys['uid'] = 'uid';
+  $entity_type->set('entity_keys', $entity_keys);
+  $manager->updateEntityType($entity_type);
+
+  // @todo Lo de arriba deberá ser suficiente en le futuro. https://www.drupal.org/node/2554245.
+  foreach (array('status', 'uid') as $field_name) {
+    $manager->updateFieldStorageDefinition($manager->getFieldStorageDefinition($field_name, 'node'));
+  }
+}
+```
+
+#### Cambiar la cadinalidad de un campo con datos de uno a muchos y viceversa.
+```php
+/**
+ * Hacer del campo 'user_id' un campo multiple y migrar sus datos.
+ */
+function entity_test_update_8001() {
+  $database = \Drupal::database();
+
+  // Recuperar datos existentes.
+  $user_ids = $database->select('entity_test', 'et')
+    ->fields('et', ['id', 'user_id'])
+    ->execute()
+    ->fetchAllKeyed();
+
+  // Borrar los datos del almacenamiento.
+  $database->update('entity_test')
+    ->fields(['user_id' => NULL])
+    ->execute();
+
+  // Actualiar definiciones y schemas.
+  $manager = \Drupal::entityDefinitionUpdateManager();
+  $storage_definition = $manager->getFieldStorageDefinition('user_id', 'entity_test');
+  $storage_definition->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED);
+  $manager->updateFieldStorageDefinition($storage_definition);
+
+  // Restaurar los datos en el nuevo schema.
+  $insert_query = $database->insert('entity_test__user_id')
+    ->fields(['bundle', 'deleted', 'entity_id', 'revision_id', 'langcode', 'delta', 'user_id_target_id']);
+  foreach ($user_ids as $id => $user_id) {
+    $insert_query->values(['entity_test', 0, $id, $id, 'en', 0, $user_id]);
+  }
+  $insert_query->execute();
+}
+
+
+/**
+ * Hacer el campo 'user_id' de multiple a uno y migrar sus datos.
+ */
+function entity_test_update_8002() {
+  $database = \Drupal::database();
+
+  // Recuperar datos existentes.
+  $query = $database->select('entity_test__user_id', 'et')
+    ->fields('et', ['entity_id', 'user_id_target_id']);
+  $query->condition('et.delta', 0);
+  $user_ids = $query->execute()->fetchAllKeyed();
+
+  // Eliminar del almacenamiento.
+  $database->truncate('entity_test__user_id')->execute();
+
+  // Actualizar definiciones y schemas.
+  $manager = \Drupal::entityDefinitionUpdateManager();
+  $storage_definition = $manager->getFieldStorageDefinition('user_id', 'entity_test');
+  $storage_definition->setCardinality(1);
+  $manager->updateFieldStorageDefinition($storage_definition);
+
+  // Restaurar datos y schema en la entidad.
+  foreach ($user_ids as $id => $user_id) {
+    $database->update('entity_test')
+      ->fields(['user_id' => $user_id])
+      ->condition('id', $id)
+      ->execute();
+  }
+}
+```
 
 
 ```
