@@ -1,5 +1,24 @@
-HOOKS
+API de actualización
 ========
+Se utiliza cuando se realizan cambios en la configuración que afectan a datos almacenados.
+- Campos de una entidad.
+- Schemas.
+- Tipos de datos, valores permitidos o estructura de arreglos para una key de configuración.
+- Dependencias. (Ejemplo de un plugin)
+- Etc.
+
+#### Funciones para actualizar entidades y schemas
+```
+- getEntityType($entity_type_id)
+- installEntityType(EntityTypeInterface $entity_type)
+- updateEntityType(EntityTypeInterface $entity_type)
+- uninstallEntityType(EntityTypeInterface $entity_type)
+- getFieldStorageDefinition($name, $entity_type_id)
+- installFieldStorageDefinition($name, $entity_type_id, $provider, FieldStorageDefinitionInterface $storage_definition)
+- updateFieldStorageDefinition(FieldStorageDefinitionInterface $storage_definition)
+- uninstallFieldStorageDefinition(FieldStorageDefinitionInterface $storage_definition)
+```
+
 
 #### Preguardado de una entidad
 ```
@@ -581,6 +600,9 @@ function nombre_modulo_node_view(array &$build, EntityInterface $entity, EntityV
 
 ENLACES Y FUENTES
 =================
+APi de actualización
+- https://www.drupal.org/docs/drupal-apis/update-api/introduction-to-update-api-for-drupal-8
+
 Lista de hooks
 - https://api.drupal.org/api/drupal/core!core.api.php/group/hooks/8.2.x
 
