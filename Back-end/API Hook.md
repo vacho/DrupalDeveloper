@@ -2,24 +2,6 @@ API de Hookss
 ========
 Los hooks son funciones a las cuales te puedes colgar para modificar comportamientos de partes de Drupal
 
-```php
-/**
- * Agregar el nuevo campo 'revision_translation_affected' a las entidades de tipo node.
- */
-function node_update_8001() {
-  // Crear la definición del nuevo campo.
-  $storage_definition = BaseFieldDefinition::create('boolean')
-      ->setLabel(t('Revision translation affected'))
-      ->setDescription(t('Indicates if the last edit of a translation belongs to current revision.'))
-      ->setReadOnly(TRUE)
-      ->setRevisionable(TRUE)
-      ->setTranslatable(TRUE);
-
-  \Drupal::entityDefinitionUpdateManager()
-    ->installFieldStorageDefinition('revision_translation_affected', 'node', 'node', $storage_definition);
-}
-```
-
 #### Preguardado de una entidad
 ```php
 /**

@@ -7,6 +7,11 @@ Se utiliza cuando se realizan cambios en la configuración que afectan a datos a
 - Dependencias. (Ejemplo de un plugin)
 - Etc.
 
+#### Para ejecutar los hooks update:
+```
+$ drush updb -y
+```
+
 #### Funciones para actualizar entidades y schemas
 ```
 - getEntityType($entity_type_id)
@@ -21,11 +26,24 @@ Se utiliza cuando se realizan cambios en la configuración que afectan a datos a
 
 #### Un nuevo campo ha sido agregado a un tipo de contenido (nodo)
 ```php
-#### Hook 
-Para ejecutar los hooks update:
+/**
+ * Agregar el nuevo campo 'revision_translation_affected' a las entidades de tipo node.
+ */
+function node_update_8001() {
+  // Crear la definición del nuevo campo.
+  $storage_definition = BaseFieldDefinition::create('boolean')
+      ->setLabel(t('Revision translation affected'))
+      ->setDescription(t('Indicates if the last edit of a translation belongs to current revision.'))
+      ->setReadOnly(TRUE)
+      ->setRevisionable(TRUE)
+      ->setTranslatable(TRUE);
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('revision_translation_affected', 'node', 'node', $storage_definition);
+}
 ```
-$ drush updb -y
-```
+
+
 
 ```
 /**
