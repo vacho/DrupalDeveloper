@@ -3,7 +3,7 @@ Tokens
 
 #### Crear nuevos tokens
 En el archivo mi_modulo.tokens.inc
-```
+```php
 /**
  * @file
  * Contains functions related to tokens for Siblu.
