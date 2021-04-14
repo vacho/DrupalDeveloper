@@ -3,7 +3,7 @@ FORMULARIOS
 
 #### Manejo
 
-```
+```php
 //Obtener todos los elementos de un form_state
 foreach ($form_state->getValues() as $key => $value) {
       drupal_set_message($key . ': ' . $value);
@@ -14,7 +14,7 @@ $searched = $form_state->getValue('nombre_elemento_formulario');
 ```
 
 #### Campos de formularios
-```
+```php
 // Date
 $form['date'] = [
   '#type' => 'date',
@@ -147,7 +147,7 @@ $form['answer'] = [
 
 #### Estados
 Permiten condicionar el comportamiento de un elemento de formulario a partir del estado otro elemento.
-```
+```php
 $form['boys'] = [
   '#type' => 'checkbox',
   '#title' => $this->t('Do you have boys?'),
