@@ -2,7 +2,7 @@ DRUSH
 ========
 
 #### Instalar
-```
+```bash
 # Visitar https://github.com/drush-ops/drush/releases y descargar drush.phar (8.x recomendado).
 
 # Verificar archivo.
@@ -17,9 +17,9 @@ drush init
 ```
 
 #### Comandos más útiles
-```
+```bash
 # Actualizar un proyecto drupal: saca backup, actualiza el código y actualiza la base de datos
-$ drush up
+drush up
 
 # Cambiar la contraseña de un usuario
 drush user-password USERNAME --password="SOMEPASSWORD"
