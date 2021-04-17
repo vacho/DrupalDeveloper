@@ -21,20 +21,11 @@ drush init
 # Actualizar un proyecto drupal: saca backup, actualiza el código y actualiza la base de datos
 drush up
 
+# Lista de módulos activos que no son del core.
+drush pm-list --type=Module --no-core   --status=enabled
+
 # Cambiar la contraseña de un usuario
 drush user-password USERNAME --password="SOMEPASSWORD"
-
-# Bloquear un usuario
-drush user-block vacho
-
-# Desbloquear un usuario
-drush user-unblock vacho
-
-# Desloguear todos los usuarios
-drush sql-query 'TRUNCATE TABLE sessions;'
-
-# Desloguear un usuario en específico
-drush sql-query 'DELETE FROM sessions WHERE uid = 2;'
 
 # Reconstruir rutas
 drush ev '\Drupal::service("router.builder")->rebuild();'
@@ -81,7 +72,20 @@ $ drush sql-dump > default.sql
 drush default-content:import-all
 ```
 
+# Comandos usuarios
+```bash
+# Bloquear un usuario
+drush user-block vacho
 
+# Desbloquear un usuario
+drush user-unblock vacho
+
+# Desloguear todos los usuarios
+drush sql-query 'TRUNCATE TABLE sessions;'
+
+# Desloguear un usuario en específico
+drush sql-query 'DELETE FROM sessions WHERE uid = 2;'
+```
 
 # Comandos para manipular configuraciones
 ```bash
