@@ -45,26 +45,6 @@ drush uli --uri local.misitio.com
 # verificar una configuración activa
 drush cget nombre_configuracion
 
-# actualizar base de datos
-drush updb -y
-
-# Entrar modo consola a la base de datos
-$ drush sql-cli
-
-# Sacar backup de la base de datos.
-$ drush sql-dump
-$ drush sql-dump > default.sql
-
-
-# importar configuraciones
-drush cim -y
-
-# exportar configuraciones
-drush cex
-
-# importar contenido por defecto
-drush default-content:import-all
-
 # Manejar hook_update
 drush php-eval "echo drupal_get_installed_schema_version('siblu_field');"
 drush php-eval "echo drupal_set_installed_schema_version('siblu_field', '8004');"
@@ -84,6 +64,35 @@ drush deploy:hook
 drush search-api:rebuild-tracker && drush search-api:index
 drush crons
 
+```
+# Comandos base de datos
+```bash
+# actualizar base de datos
+drush updb -y
+
+# Entrar modo consola a la base de datos
+$ drush sql-cli
+
+# Sacar backup de la base de datos.
+$ drush sql-dump
+$ drush sql-dump > default.sql
+
+# importar contenido por defecto
+drush default-content:import-all
+```
+
+
+
+# Comandos para manipular configuraciones
+```bash
+# Editar configuración activa
+drush config-edit <numero>
+
+# importar configuraciones
+drush cim -y
+
+# exportar configuraciones
+drush cex
 ```
 
 #### REFERENCIAS
