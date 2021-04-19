@@ -2,17 +2,21 @@ Entorno
 ========
 #### Docker con mysql, apache, tests unitarios en DOCKSAL
 ```
+Para drupal 8
 https://github.com/docksal/drupal8-contrib
 
 Clonar el repositorio
 $ git clone git@github.com:docksal/drupal8-contrib.git drupal8
 
+Para drupal 9 
+https://github.com/docksal/drupal9-contrib
+Clonar el repositorio
+$ git clone git@github.com:docksal/drupal9-contrib.git
+
+
 Levantar el entorno
-$ cd drupal8
+$ cd >carpeta>
 $ fin init
-La ruta http://drupal8.docksal/ 
-El usuario y clave proporcionada en el shell despues de instalar drupal.
-Ej: Installation complete.  User name: admin  User password: XGBV34qWJu 
 
 Ejecutar tests unitarios
 $ fin bash
