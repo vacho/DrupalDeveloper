@@ -1,7 +1,7 @@
 MVC
 ========
 #### Ruta: en mimodulo/mimodulo.routing.yml
-```
+```yml
 mimodulo.nombre_de_la_ruta:
     path: /ruta/que-se-requiera
     defaults:
@@ -12,7 +12,7 @@ mimodulo.nombre_de_la_ruta:
 ```
 
 #### Permiso: en mimodulo/mimodulo.permissions.yml
-```
+```yml
 mimodulo.nombre_del_permiso:
   title: "Título del privilegio"
   description: "Descripción del privilegio"
@@ -21,7 +21,7 @@ mimodulo.nombre_del_permiso:
 ```
 
 #### Hoock en el módulo: en mimodulo/mimodulo.module
-```
+```php
 function mimodulo_theme() {
   $theme['nombre_template'] = [
     'variables' => [ 'variable_1' => NULL, 'variable_n' => NULL],
@@ -32,7 +32,7 @@ function mimodulo_theme() {
 ```
 
 #### Controlador: en mimodulo/src/Controller/NombreControladorController.php 
-```
+```php
 <?php
 
 /**
@@ -74,7 +74,7 @@ class NombreControladorController extends ControllerBase {
 ```
 
 #### Template: en mimodulo/templates/nombre_template.html.twig 
-```
+```html
 <div>
 
     <h2>{{ audio }}</h2>
