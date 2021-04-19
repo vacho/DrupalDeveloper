@@ -20,6 +20,7 @@ $node_storage = \Drupal::entityTypeManager()->getStorage('node');
 // Obtener todos los nodos de un tipo de contenido
 $nids = \Drupal::entityQuery('node')->condition('type','my_custom_type')->execute();
 $nodes =  \Drupal\node\Entity\Node::loadMultiple($nids);
+
 ```
 
 
