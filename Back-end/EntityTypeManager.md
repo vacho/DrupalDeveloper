@@ -4,7 +4,7 @@ EntityTypeManager
 #### Servicio para realizar consultas a entidades
 
 Operar sobre el formuario de una entidad
-```
+```php
 protected function getBundleForm($entity_type_id, $bundle, $bundle_label, array $form, FormStateInterface $form_state, $bundle_count) {
     $entityType = $this->entityTypeManager->getDefinition($entity_type_id);
     $entity = $this->entityTypeManager->getStorage($entity_type_id)->create([
