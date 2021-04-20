@@ -1,33 +1,64 @@
 EMAIL
 ========
-#### SwiftMailer
+#### Envío de email por código
+```php
+// En caso de tener que enviar un archivo adjunto.
+$file = file_save_data($output, $destination, FileSystemInterface::EXISTS_REPLACE);
+$file->setTemporary();
+$file->save();
+$this->fileName = $file->label();
+$attachment = [
+  'filecontent' => file_get_contents($destination),
+  'filename' => $file->label(),
+  'filemime' => 'application/pdf'
+];
+
+// Obtener las configuraciones para enviar.
+$tempstore = \Drupal::service('tempstore.private');
+$store = $tempstore->get('views_bulk_operations_' . $this->view->id() . '_' . $this->view->current_display);
+$subject = $store->get('subject');
+$email = $store->get('email');
+$body = $store->get('body');
+
+// Enviar el email.
+$mail_manager = \Drupal::service('plugin.manager.mail');
+$lang_code = \Drupal::languageManager()->getCurrentLanguage()->getId();
+$params = [
+  'subject' => $subject,
+  'to' => $email,
+  'body' => $body,
+];
+$params['attachments'][] = $attachment;
+$mail_manager->mail('alzped_views', 'alzped_views', $params['to'], $lang_code, $params, NULL, TRUE);
 ```
-//Estando en la rais del proyecto drupal
-$ composer require swiftmailer/swiftmailer
 
-// Instalar el módulo SwiftMailer
-$ drupal module:download swiftmailer
-$ drupal module:install swiftmailer
-Configurar en la ruta: /admin/config/swiftmailer/transport
-Transport types puede estar en el de tu preferencia
-En la pestaña mensajes elige HTML y desmarca "Respect provided e-mail format."
+#### SwiftMailer
+```bash
+# Estando en la rais del proyecto drupal
+composer require swiftmailer/swiftmailer
 
-// Instalar el módulo MailSystem
-$ drupal module:download mailsystem
-$ drupal module:install mailsystem
-Configurar en la ruta admin/config/system/mailsystem
-Formater y Sender deben estar en SwiftMailer, Theme puede estar en el Tema por defecto o en SwiftMailer
+# Instalar el módulo SwiftMailer
+drupal module:download swiftmailer
+drupal module:install swiftmailer
 
-// Customizar el template html
-En la ruta /modules/swiftmailer/templates/swiftmailer.html.twig se encuentra el template base.
+# Configurar en la ruta: /admin/config/swiftmailer/transport
+# Transport types puede estar en el de tu preferencia
+# En la pestaña mensajes elige HTML y desmarca "Respect provided e-mail format."
 
+# Instalar el módulo MailSystem
+drupal module:download mailsystem
+drupal module:install mailsystem
+# Configurar en la ruta admin/config/system/mailsystem
+# Formater y Sender deben estar en SwiftMailer, Theme puede estar en el Tema por defecto o en SwiftMailer
+
+# Customizar el template html
+# En la ruta /modules/swiftmailer/templates/swiftmailer.html.twig se encuentra el template base.
 ```
 
 #### Bug..
 Si aunque este todo bien configurado el sitio no logra mandar email html.. este hook lo resuelve
-```
+```php
 use Drupal\Core\Render\Markup;
-
 
 /**
  * Implements hook_mail_alter()
