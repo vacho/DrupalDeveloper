@@ -8,12 +8,12 @@ Se utiliza cuando se realizan cambios en la configuración que afectan a datos a
 - Etc.
 
 ### Para ejecutar los hooks update:
-```
-$ drush updb -y
+```bash
+drush updb -y
 ```
 
 ### Funciones para actualizar entidades y schemas
-```
+```php
 - getEntityType($entity_type_id)
 - installEntityType(EntityTypeInterface $entity_type)
 - updateEntityType(EntityTypeInterface $entity_type)
