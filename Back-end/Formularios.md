@@ -63,11 +63,11 @@ $form['platforms'] = [
   '#type' => 'checkboxes',
   '#description' => $this->t('Select platforms to use as social media links.'),
   '#options' => ['key_a'=> 'text a', 'key_b'=> 'text b', 'key_c'=> 'text c'],
-  '#default_value' => ['key_a, 'key_c'],
+  '#default_value' => ['key_a'],
 ];
 
 // Radios
-$active = [1 => t('Yes'), 0 => t('No')];
+$active = [1 => $this->('Yes'), 0 => $this->('No')];
 $form['typepurchase'] = [
   '#type' => 'radios',
   '#title' => t('This purchases will be in the inventory of merchandise:'),
@@ -95,6 +95,12 @@ $form['shortDescription'] = [
     'placeholder' => '_' . t('Short Description'),
   ],
   '#weight' => 1000,
+];
+
+// Número telefónico
+$form['phone_number'] = [
+  '#type' => 'tel',
+  '#title' => $this->t('Example phone'),
 ];
 
 // Textarea
