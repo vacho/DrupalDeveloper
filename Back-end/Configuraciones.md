@@ -2,7 +2,7 @@ Configuraciones
 ===
 
 #### Operaciones con el API
-```
+```php
 //Cron
 \Drupal::config('system.cron')->get('threshold.autorun')
 \Drupal::state()->get('system.cron_last')
@@ -38,3 +38,24 @@ $resources[$resource_id][$method]['supported_auth'] = array("cookie");
   ->save();
 
 ```
+
+Config Split
+```bash
+# Drush 8 o anterior:
+drush config-split-import config_dev
+
+# Drush 9 o posterior:
+drush config-split:import config_dev
+
+## Verificar la configuraciones sobreescritas.
+
+# Drush 8 o anterior:
+drush config-export
+
+# Drush 9 o posterior:
+drush config:export
+```
+
+### Referencias
+- Config split
+https://www.drupal.org/docs/contributed-modules/configuration-split/creating-a-simple-split-configuration-dev-modules-only
