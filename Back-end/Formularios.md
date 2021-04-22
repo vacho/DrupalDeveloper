@@ -193,12 +193,8 @@ Detonantes:
 ENLACES Y FUENTES
 =================
 Documentación oficial
-- https://api.drupal.org/api/drupal/8
 - https://api.drupal.org/api/drupal/core%21core.api.php/group/form_api/9.1.x
 
-
-Documentación de la comunidad
-- https://www.drupal.org/developing/api/8
 
 Implementar un formulario en un modal llamando desde otro formulario con ajax
 - https://www.drupal.org/project/drupal/issues/2934463

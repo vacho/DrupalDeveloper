@@ -29,7 +29,7 @@ $params = [
   'body' => $body,
 ];
 $params['attachments'][] = $attachment;
-$mail_manager->mail('alzped_views', 'alzped_views', $params['to'], $lang_code, $params, NULL, TRUE);
+$mail_manager->mail('nombre_modulo', 'nombre_modulo', $params['to'], $lang_code, $params, NULL, TRUE);
 ```
 
 #### SwiftMailer
