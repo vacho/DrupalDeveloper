@@ -2,7 +2,7 @@ Consultas
 ===
 
 #### Consultas mediante sql
-```
+```php
 $db = \Drupal::database();
 
 //Método 1
