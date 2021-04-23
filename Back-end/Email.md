@@ -29,7 +29,26 @@ $params = [
   'body' => $body,
 ];
 $params['attachments'][] = $attachment;
-$mail_manager->mail('nombre_modulo', 'nombre_modulo', $params['to'], $lang_code, $params, NULL, TRUE);
+$mail_manager->mail('nombre_modulo', 'clave_envio', $params['to'], $lang_code, $params, NULL, TRUE);
+
+// @Por verificar pero algunas veces se necesita este hook más
+/**
+ * Implements hook_mail().
+ */
+function mi_modulo_mail($key, &$message, $params) {
+  $options = [
+    'langcode' => 'es',
+  ];
+
+  switch ($key) {
+    case 'clave_envio':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['to'] = $params['to'];
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['body'];
+      break;
+  }
+}
 ```
 
 #### SwiftMailer
