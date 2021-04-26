@@ -2,7 +2,7 @@ ARCHIVOS
 ========
 
 #### Escribir en un archivo
-```
+```php
   $file = File::create([
     'uid' => 1,
     'filename' => 'nombre_archivo.txt',
