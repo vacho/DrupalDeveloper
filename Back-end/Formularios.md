@@ -190,6 +190,31 @@ Detonantes:
 - collapsed
 - value
 
+
+#### Webform
+Consultas
+```php
+$submission_storage = \Drupal::entityTypeManager()->getStorage('webform_submission');
+$ids_ws = $submission_storage->getQuery()
+  ->accessCheck(FALSE)
+  ->condition('uuid', $submission_uuid)
+  ->execute();
+if (count($ids_ws) == 1) {
+  $id_ws = reset($ids_ws);
+  $webform_submission = $submission_storage->load($id_ws);
+  $webform_submission_data = $webform_submission->getData();
+
+  if ($webform_submission_data['numero_de_socio'] == $codigo_de_socio) {
+    $email = $webform_submission_data['correo_electronico'];
+    $whatsapp_number = $webform_submission_data['numero_celular_con_whatsapp'];
+    $status = TRUE;
+  }
+  else {
+    $status = FALSE;
+  }
+}
+```
+
 ENLACES Y FUENTES
 =================
 Documentación oficial
