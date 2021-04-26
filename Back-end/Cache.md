@@ -2,7 +2,7 @@ Cache
 ===
 
 ### Operaciones sobre la cache
-```
+```php
 // Vaciar caches persistentes
 use Drupal\Core\Cache\Cache;
 
