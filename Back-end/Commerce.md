@@ -2,7 +2,7 @@ Commerce el ecosistema para hacer comercio electrónico de Drupal
 ========
 
 #### Manipular entidades programaticamente
-```
+```php
 // Obener productos
 $query = \Drupal::entityQuery('commerce_product')
       ->condition('status', 1);
@@ -38,16 +38,14 @@ $price_currency = $product_variation->get('price')->getValue()[0]['currency_code
 
 #### Módulos recomendads
 Commerce Reporting
+
 Nos da reportes gráficos y en tablas de clientes, productos, pagos por periodos de tiempo.
-```
-https://www.drupal.org/project/commerce_reports
-```
+- https://www.drupal.org/project/commerce_reports
 
 Commerce Stock
+
 Permite gestionar el stock para las Tiendas.
-```
-https://www.drupal.org/project/commerce_stock
-```
+- https://www.drupal.org/project/commerce_stock
 
 ### Diagrama relación de entidades
 - https://docs.drupalcommerce.org/commerce2/developer-guide/core/relationships
