@@ -3,9 +3,7 @@ Condiciones
 Las condiciones se puede agregar en cualquier campo que lo requiera (panels, commerce cart, descuentos, bloques condicionales etc)
 
 #### Ejemplo condición extendida de base (usable desde commerce conditions)
-```
-<?php
-
+```php
 namespace Drupal\extended_commerce\Plugin\Commerce\Condition;
 
 use Drupal\commerce\Plugin\Commerce\Condition\ConditionBase;
@@ -75,7 +73,7 @@ class OrderSpecificCustomer extends ConditionBase {
 }
 ```
 #### Ejemplo condición extendida de plugin base (usable desde panels, etc)
-```
+```php
 <?php
 
 namespace Drupal\field_mode\Plugin\Condition;
@@ -171,8 +169,6 @@ class ViewingFieldNode extends ConditionPluginBase implements ContainerFactoryPl
 
 ENLACES Y FUENTES
 =================
-
-
 Colección de condition plugins
-https://www.drupal.org/project/condition_plugins
+- https://www.drupal.org/project/condition_plugins
 
