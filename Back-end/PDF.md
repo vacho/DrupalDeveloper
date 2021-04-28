@@ -20,7 +20,7 @@ $rand = substr(hash('ripemd160', uniqid()), 0, 8);
 $filename = 'nombre_del_archivo'. '-' . $rand . '.' . 'pdf';
 $destination = $wrapper . '://' . $filename;
 
-$dompdf->loadHtml($twig->render('@alzped/pdf/nombre_template.html.twig', [
+$dompdf->loadHtml($twig->render('@nombre_modulo_theme/folder_del_template/nombre_template.html.twig', [
   'parametro_1_para_twig' => 'valor_1',
   'parametro_3_para_twig' => 'valor_2',
 ]));
