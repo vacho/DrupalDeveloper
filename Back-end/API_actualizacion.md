@@ -161,6 +161,18 @@ function siblu_field_update_8004() {
 - Las funciones se ejecutan en orden alfabetico.
 
 ```php
+/**
+ * Remove if exist the account.profile menu_link.
+ *
+ * @param array $sandbox
+ *   Stores information for batch updates.
+ */
+function mi_modulo_post_update_remove_account_profile_menu_link(array &$sandbox) {
+  $menu_link = \Drupal::entityTypeManager()->getStorage('menu_link_content')->load('id_item_de_menu');
+  if ($menu_link) {
+    $menu_link->delete();
+  }
+}
 
 ```
 
