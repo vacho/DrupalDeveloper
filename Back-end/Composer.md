@@ -131,3 +131,6 @@ Todas las opciones de actualización
 
 Actualizando módulos y temas
 - https://www.drupal.org/docs/updating-drupal/updating-modules-and-themes-using-composer
+
+Para actualizar composer from 1 to 2
+- https://www.drupal.org/docs/develop/using-composer/preparing-your-site-for-composer-2
