@@ -57,5 +57,8 @@ drush config:export
 ```
 
 ### Referencias
-- Config split
-https://www.drupal.org/docs/contributed-modules/configuration-split/creating-a-simple-split-configuration-dev-modules-only
+Config split
+- https://www.drupal.org/docs/contributed-modules/configuration-split/creating-a-simple-split-configuration-dev-modules-only
+
+Buena guía de módulos, comandos y algo de código.
+- https://www.daggerhartlab.com/drupal-8-configuration-management-with-config-split/
