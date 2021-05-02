@@ -101,6 +101,18 @@ composer update drupal/core-recommended --with-dependencies
 - https://www.drupal.org/docs/updating-drupal/update-drupal-core-via-composer
 - https://www.drupal.org/docs/upgrading-drupal/upgrading-from-drupal-8-to-drupal-9-or-higher
 
+#### Usar composer en un proyecto que fue instalado sin composer
+- 
+
+### Actualizar composer
+```bash
+# Degrada a composer 1.
+sudo composer self-update --1
+
+# Actualizar a composer 2
+sudo composer self-update --2
+```
+
 #### Instalar librería externa
 En `composer.json` agregar este código dentro de la sección `repositories`:
 ```json
