@@ -102,7 +102,7 @@ composer update drupal/core-recommended --with-dependencies
 - https://www.drupal.org/docs/upgrading-drupal/upgrading-from-drupal-8-to-drupal-9-or-higher
 
 #### Usar composer en un proyecto que fue instalado sin composer
-- 
+- Si el proyecto es Drupal 8.8.0 este ya tiene composer y sólo es necesario entonces instalar todos los módulos en la versión actual.
 
 ### Actualizar composer
 ```bash
@@ -146,3 +146,6 @@ Actualizando módulos y temas
 
 Para actualizar composer from 1 to 2
 - https://www.drupal.org/docs/develop/using-composer/preparing-your-site-for-composer-2
+
+Para actualizar un propyecto que fue instalado sin composer
+- https://www.drupal.org/docs/installing-drupal/add-composer-to-an-existing-site
