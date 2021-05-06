@@ -128,9 +128,16 @@ git checkout -- <ruta completa archivo>
 git update-index --skip-worktree /sites/default/settings.php
 
 ```
+
 Trabajar como fork de un repositorio y actualizar
 ===
 ```bash
+# Mostrar repositorios remotos
+git remote -v
+
+# Eliminar repositorios
+git remote rm <fuente>
+
 # Añadir repositorio remoto, llamarlo "upstream":
 git remote add upstream https://github.com/whoever/whatever.git
 
