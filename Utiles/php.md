@@ -1,7 +1,7 @@
 PHP
 ===
 #### Comparadores cortos
-```
+```php
 // Asignación de valor en if/else.
 $result = $condition ? 'foo' : 'bar';
 
@@ -11,7 +11,7 @@ $result = $variable ?? 'valor_si_variable_no_es_nulo'; // 'fallback'
 ```
 
 #### Gestión de rutas, directorio y archivos
-```
+```php
 $_SERVER[REQUEST_URI]
 //Ruta actual del proyecto
 getcwd()
@@ -34,13 +34,13 @@ curl_close($ch);
 ```
 
 #### Documentar una variable como una clase
-```
+```php
 /* @var $edit_operation_url \Drupal\Core\Url */
 $edit_operation_url = $operations['edit']['url'];
 ```
 
 #### Gestión de arreglos
-```
+```php
 //Recorrido
 $arr = [1, 2, 3, 4];
 foreach ($arr as &$value) {
@@ -76,7 +76,7 @@ $eventsTaron[] = [
 ```
 
 #### Gestión de números
-```
+```php
 //Redondeo
 round( $my_number, 2, PHP_ROUND_HALF_UP)
 ```
@@ -93,7 +93,7 @@ if ($questionAnswer instanceof Question)
 ```
 
 #### Gestion de cadenas
-```
+```php
 //Remplazar ocurrencias de una cadena por otra cadena
 $resultado = str_replace("texto a remplazar", "texto remplazador", "texto original");
 
@@ -128,7 +128,7 @@ $pieces = explode(" ", $pizza);
 ``` 
 
 #### Timestamp y fechas
-```
+```php
 $now = time() //Ahora...
 $iniDay = strtotime("midnight", $now); //inicio del día
 $endDay = strtotime("tomorrow", $iniDay) - 1; //final del día
@@ -164,13 +164,13 @@ $utc = $this->getHours($hours).":".$this->getMins($minutes);
 ```
 
 #### Errores
-```
+```php
 // escribir en el log de errores de apache
 error_log("Pablito clavo un clavito...!", 0);
 ```
 
 #### Javascript
-```
+```php
 //Codificar un arreglo php para ser rescatado desde js
 $arrayEncodedToJs = json_encode($array);
 
@@ -179,7 +179,7 @@ $arrayDecodedFromJs = json_decode($array);
 ```
 
 #### Google API
-```
+```php
 //Librería oficial
 https://developers.google.com/api-client-library/php/
 
@@ -211,7 +211,7 @@ INTERFACES
 - Es posible declarar constructores.
 - Pueden ser extendidas por el operador "extend"
 - Son clases template de otras clases y en programación moderna se los usa directamente para instanciar esas otras clases que lo usan de template.
-```
+```php
 interface iTemplate {
   public function setVariable($name, $var);
 }
@@ -223,7 +223,7 @@ class Template implements iTemplate {
   }
 }
 ```
-```
+```php
 // Una clase puede implementar n interfaces.
 // Se usa para estandarizar clases.
 interface A {
@@ -237,7 +237,7 @@ class C implements A, B {
   ...
 }
 ```
-```
+```php
 // Un interface puede ser implementada por n clases.
 // se usa para estandarizar los nombres de los métodos de un grupo de clases equivalentes.
 interface A {
@@ -254,7 +254,7 @@ class C implements A {
 TRAITS
 - Permiten declaran métodos abstractos y no abstractos que pueden ser usados por múltiples clases.
 - Resuelven el problema de que una clases no puede heredar de muchas otras clases
-```
+```php
 trait message1 {
 public function msg1() {
     echo "OOP is fun! ";
@@ -273,7 +273,7 @@ $obj->msg1();
 PHP 7 nuevas sintaxis
 ===
 NULLABLE
-```
+```php
 // Puede retornar NULL o String
 function a(): ?string { }
 
@@ -281,7 +281,7 @@ function a(): ?string { }
 function test(?string $name) { }
 ```
 STRICT MODE
-```
+```php
 // Los tipos de datos se respetan de manera estrícta.
 <?php declare(strict_types=1); // strict mode
 ```
