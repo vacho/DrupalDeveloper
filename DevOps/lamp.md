@@ -24,6 +24,9 @@ sudo apt-get install libapache2-mod-php
 # o
 sudo apt-get install php php-cli libapache2-mod-php
 
+# Camniar version de php que se desea utilizar.
+sudo update-alternatives --config php
+
 # Buscar paquetes php a instalar
 sudo apt-cache search php
 
