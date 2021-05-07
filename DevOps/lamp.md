@@ -25,7 +25,10 @@ sudo apt-get install libapache2-mod-php
 sudo apt-get install php php-cli libapache2-mod-php
 
 # Camniar version de php que se desea utilizar.
+sudo a2dismod php7.2
 sudo update-alternatives --config php
+# o
+sudo a2enmod php7.4
 
 # Buscar paquetes php a instalar
 sudo apt-cache search php
