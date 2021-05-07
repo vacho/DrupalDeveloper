@@ -2,7 +2,7 @@ Mensajes
 ===
 
 #### Mensajes a la interface del usuario
-```
+```php
 //Mensajes del sistema
 \Drupal::messenger()->addMessage(t('An error occurred and processing did not complete.'), 'error');
 
@@ -12,7 +12,7 @@ Mensajes
 ```
 
 #### Mensajes al sistema de logs (Whatchdog)
-```
+```php
 // Noticias
 \Drupal::logger('mi_modulo')->notice($message);
 
