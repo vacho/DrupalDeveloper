@@ -85,6 +85,9 @@ ls -la
 #  2->escritura
 #  1->ejecución
 
+# Cambiar permisos a sólo directorios.
+find -type d -print0 |xargs -0 chmod 755
+
 # Cambiar dueño
 chown usuario:grupo /ruta/carpeta
 # Enlaces simbólicos
