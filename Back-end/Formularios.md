@@ -213,6 +213,18 @@ if (count($ids_ws) == 1) {
     $status = FALSE;
   }
 }
+
+
+$select = \Drupal::service('database')
+  ->select('webform_submission_data', 'wsd')
+  ->fields('wsd', array('sid'))
+  ->orderBy('wsd.sid', 'DESC')
+  ->condition('wsd.webform_id', 'id_formulario', '=')
+  ->condition('wsd.name', 'nombre_sistema_del_campo', '=')
+  ->condition('wsd.value', $some_value, '=')
+  ->execute();
+$results = $select->fetchAll(\PDO::FETCH_COLUMN);
+
 ```
 
 ENLACES Y FUENTES
