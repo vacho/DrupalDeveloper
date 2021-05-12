@@ -11,14 +11,14 @@ public function submitForm(array &$form, FormStateInterface $form_state) {
   $email_ids = $form_state->getValue('emailids');
   $emails = explode("\n",$email_ids);
     
-  $batch = array(
-    'title' => t('Verifying Emails...'),
+  $batch = [
+    'title' => t('Sending emails...'),
     'operations' => [],
     'init_message'     => t('Starting'),
     'progress_message' => t('Processed @current out of @total.'),
     'error_message'    => t('An error occurred during processing'),
     'finished' => '\Drupal\batch_example\DeleteNode::ExampleFinishedCallback',
-  );
+  ];
   foreach ($emails as $key => $value) {
     $email = trim($value);
     $batch['operations'][] = ['\Drupal\batch_example\EmailCheck::checkEmailExample',[$email]];
