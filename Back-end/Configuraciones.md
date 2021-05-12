@@ -54,6 +54,9 @@ drush config-export
 
 # Drush 9 o posterior:
 drush config:export
+
+# Editar una configuración activa
+drush config-edit nombre.configuración
 ```
 
 ### Referencias
