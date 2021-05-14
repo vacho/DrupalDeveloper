@@ -1,7 +1,7 @@
 Javascript
 ===
 Arreglos
-```
+```js
 // Recorrido de arreglos
 array.forEach(function(item){
   ...
