@@ -150,6 +150,22 @@ function siblu_field_update_8004() {
     'config_import',
   ], TRUE);
 }
+
+/**
+ * Actualizar los valores permitidos de un campo.
+ */
+/**
+ * Add new option on "Header color" field.
+ */
+function nombre_modulo_update_8002() {
+  $entity_definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+  $field_storage_definition = $entity_definition_update_manager->getFieldStorageDefinition('header_color', 'node');
+  $allowed_values = $field_storage_definition->getSetting('allowed_values');
+  $allowed_values['Black on white'] = 'Black on white';
+  $field_storage_definition->setSetting('allowed_values', $allowed_values);
+  $entity_definition_update_manager->updateFieldStorageDefinition($field_storage_definition);
+}
+
 ```
 
 
