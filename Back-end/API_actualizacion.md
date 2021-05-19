@@ -189,3 +189,6 @@ Hooks post update
 
 Documentación aclaraciones
 - https://www.drupal.org/project/drupal/issues/3087479
+
+Actualización de entidades
+- https://www.drupal.org/node/3034742
