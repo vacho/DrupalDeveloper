@@ -1,11 +1,12 @@
 Crear un módulo y contribuirlo
 ========
+
 Crear el proyecto en drupal.org
 1. Ir a https://www.drupal.org/project/user
 2. Crear en el link "Add a new project"
 
 Subir el código al repositorio oficial de drupal
-```
+```bash
 mkdir total_visitor_counter
 cd total_visitor_counter
 git init
