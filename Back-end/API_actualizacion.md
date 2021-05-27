@@ -190,6 +190,56 @@ function mi_modulo_post_update_remove_account_profile_menu_link(array &$sandbox)
   }
 }
 
+/**
+ * Remove legacy fields content.
+ */
+function mi_modulo_post_update_descripcion_corta_metodo(array &$sandbox) {
+  $content_types = [
+    'content_1',
+    'content_2',
+  ];
+
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+  // Initialize some variables during the first pass through.
+  if (!isset($sandbox['total'])) {
+    $nids = $node_storage->getQuery()
+      ->condition('type', $content_types, 'IN')
+      ->execute();
+    $sandbox['total'] = count($nids);
+    $sandbox['current'] = 0;
+  }
+
+  // Handle one pass through.
+  $nids = $node_storage->getQuery()
+    ->condition('type', $content_types, 'IN')
+    ->range($sandbox['current'], $sandbox['current'] + 25)
+    ->execute();
+  $nodes = $node_storage->loadMultiple($nids);
+
+  foreach ($nodes as $node) {
+    /** @var \Drupal\node\NodeInterface $node */
+    $sandbox['current']++;
+
+    if ($node->hasField('field_paragraphs') && !$node->field_paragraphs->isEmpty()) {
+      foreach ($node->field_paragraphs->referencedEntities() as $key => $paragraph) {
+        /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+        if ($paragraph->bundle() == 'product_promotion') {
+          $node->field_paragraphs->removeItem($key);
+          $paragraph->delete();
+        }
+      }
+      $node->save();
+    }
+    elseif ($node->hasField('selection_categories') &&
+      !$node->selection_categories->isEmpty()) {
+
+      $node->selection_categories->target_id = NULL;
+      $node->save();
+    }
+  }
+  \Drupal::messenger()->addStatus($sandbox['current'] . ' nodes processed.');
+  $sandbox['#finished'] = ($sandbox['current'] / $sandbox['total']);
+}
 ```
 
 ENLACES Y FUENTES
