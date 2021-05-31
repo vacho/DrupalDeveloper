@@ -149,6 +149,21 @@ $form['answer'] = [
   ],
 ];
 
+// Elementos tag html
+$form['title'] = [
+  '#type' => 'html_tag',
+  '#tag' => 'h2',
+  '#value' => $this->t('Regret cancellation'),
+];
+$form['intro'] = [
+  '#type' => 'html_tag',
+  '#tag' => 'p',
+  '#value' => $this->t('Do you confirm that you want keep your membership %subscription instead of cancelling it on %date?', [
+    '%subscription' => $subscription_label,
+    '%date' => $date,
+    ]),
+  ];
+
 ```
 
 #### Estados
