@@ -1,7 +1,7 @@
 Usuarios
 ========
 #### Usuario actual
-```
+```php
 // Obtener usuario actual
 $user = \Drupal::currentUser();
 // Verificar si el usuario tiene un permiso
@@ -14,7 +14,7 @@ $has_role = $user->hasRole('contributor');
 ```
 
 #### Crear usuarios
-```
+```php
 $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
 $user = \Drupal\user\Entity\User::create();
 
@@ -37,19 +37,19 @@ $res = $user->save();
 ```
 
 #### Loguear usuario
-```
+```php
 $account = user_load_by_name('nombre_usuario');
 user_user_login($account);
 user_login_finalize($account);
 ```
 
 #### Desloguear usuario
-```
+```php
 user_logout();
 ```
 
 #### Recuperar todos los usuarios y hacer consultas
-```
+```php
 $idsUsers = \Drupal::entityQuery('user')->execute();
 $users = User::loadMultiple($idsUsers);
 foreach ($users as $user) {
@@ -62,19 +62,18 @@ foreach ($users as $user) {
 ```
 
 #### Recuperar un usuario
-```
+```php
 $user = User::load($idUser);
 
 ```
 
 #### Cerrar sesión de un usuario
-```
+```php
 user_login_finalize($user);
-
 ```
 
 #### Asignar privilegios a un rol
-```
+```php
 $role = \Drupal\user\Entity\Role::load('authenticated');
 $role->grantPermission('access comments');
 $role->save();
