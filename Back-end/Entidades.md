@@ -3,7 +3,7 @@ ENTIDADES
 
 #### Consultas mediante Entidades
 
-```
+```php
 // Crear entidad
 $values =  [
   'name' => 'Jose',
@@ -76,7 +76,7 @@ $person->save();
 ```
 
 #### Campos de Entidades
-```
+```php
 // String
 $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
@@ -293,7 +293,7 @@ $fields ['category'] = BaseFieldDefinition::create ('entity_reference')
 
 PROGRAMAR REGISTRO DE ENTIDADES EN TRANSACCIONES
 =======
-```
+```php
 $database = \Drupal::database();
 $transaction = $database->startTransaction();
 $id_branch = null;
