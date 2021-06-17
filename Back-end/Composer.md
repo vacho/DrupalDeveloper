@@ -149,3 +149,6 @@ Para actualizar composer from 1 to 2
 
 Para actualizar un propyecto que fue instalado sin composer
 - https://www.drupal.org/docs/installing-drupal/add-composer-to-an-existing-site
+
+Guía completa drupal-composer
+- https://www.drupal.org/docs/develop/using-composer/using-composer-to-install-drupal-and-manage-dependencies
