@@ -2,18 +2,18 @@ Rutas
 ========
 #### Obtener rutas del proyecto
 Obtener el host. Ej: drupal9.local
-```
+```php
 $host = \Drupal::request()->getHost();
 ```
 
 Obtener ruta base completa. Ej: https://drupal8.local
-```
+```php
 $base_uri = \Drupal::request()->getSchemeAndHttpHost();;
 ```
 
 #### Crear una ruta
 En el archivo miarchivo.routing.yml
-```
+```yml
 sale.onlyform.add:
   path: '/sales/sales-add'
   defaults:
@@ -23,14 +23,14 @@ sale.onlyform.add:
     _permission: sale.onlyform.add
 ```
 En el archivo miarchivo.permission.yml
-```
+```yml
 sale.onlyform.add:
   title: 'Add Sale'
   description: 'Add Sale'
   restrict access: true
 ```
 #### Crear urls
-```
+```php
   use Drupal\Core\Url;
   $Url = new Url($route_name, $params)​;
 
@@ -40,7 +40,7 @@ sale.onlyform.add:
   $url = Url::fromRoute('view.glossary_terms.glossary_page', ['arg_0' => 'all'])->toString();
 ```
 #### Obtener una url
-```
+```php
   // Obtener la ruta actual
   $currentRoute = \Drupal::routeMatch();
 
@@ -53,23 +53,24 @@ sale.onlyform.add:
 ```
 
 #### Obtener nombre routing de la ruta actual
-```
+```php
 $url_object = \Drupal::service('path.validator')->getUrlIfValid(\Drupal::service('path.current')->getPath());
 $route_name = $url_object->getRouteName();
 ```
 
 #### Parametros
-```
+```php
 // Obtener un parametro
 $currentRoute = \Drupal::routeMatch();
 $query = $currentRoute->getParameter('nombre_parametro');
-Vs
+
+// Vs
 
 $query = \Drupal::request()->query->get('name');
 ```
 
 #### Redireccionamiento
-```
+```php
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 $response = new RedirectResponse("quotation?id=" . $idQuotationClient);
@@ -84,6 +85,11 @@ $response->send();
 
 
 #### Referencias
-- Posibilidades de las rutas: https://www.drupal.org/node/2092643
-- Cheatsheet https://cryptic.zone/blog/drupal-8-cheatsheet-developers
-- Redireccionamiento https://x-team.com/blog/drupal-goto/
+- Posibilidades de las rutas: 
+https://www.drupal.org/node/2092643
+
+- Cheatsheet 
+https://cryptic.zone/blog/drupal-8-cheatsheet-developers
+
+- Redireccionamiento
+https://x-team.com/blog/drupal-goto/
