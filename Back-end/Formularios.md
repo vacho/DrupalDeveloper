@@ -259,3 +259,6 @@ Sobreescribir la ruta pasando parametros en array
 
 Tablas con paginador
 - https://zanzarra.com/blog/drupal-custom-pager-and-table-header-sortable-without-sql-query
+
+Crear y actualizar envios de webform
+- https://www.drupal.org/docs/8/modules/webform/webform-cookbook/how-to-programmatically-create-and-update-a-submission
