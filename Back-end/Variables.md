@@ -2,7 +2,7 @@ Variables
 ===
 
 #### Variables de estado
-```
+```php
 // Obtener un valor
 $value = \Drupal::state()->get('name_variable');
 
