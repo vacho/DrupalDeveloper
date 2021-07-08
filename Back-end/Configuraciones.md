@@ -62,6 +62,7 @@ drush config-edit nombre.configuración
 ### Referencias
 Config split
 - https://www.drupal.org/docs/contributed-modules/configuration-split/creating-a-simple-split-configuration-dev-modules-only
+- https://www.specbee.com/blogs/how-to-split-configurations-across-different-sites-on-drupal-9?utm_source=drupal-newsletter&utm_medium=email&utm_campaign=drupal-newsletter-20210708
 
 Buena guía de módulos, comandos y algo de código.
 - https://www.daggerhartlab.com/drupal-8-configuration-management-with-config-split/
