@@ -36,14 +36,16 @@ Views, Bloques, Formularios, Tipos de contenidos, Formatos de fecha, Estilos de 
 
 #### Programar etiquetas en otros idiomas
 
-```
+```php
 // En php
 t('Instalación', array(), array('langcode' => 'es', 'context' => 'khipu' ))
 
 // En javascript
 Drupal.t('Delirant'))
 Drupal.t('Mayo', {}, {context: "Calendario", 'langcode': 'es'});
+```
 
+```twig
 // En twig
 {{ 'Free carita gift box'|t }}
 
@@ -58,8 +60,9 @@ Delirante
 </label>
 
 <input value="{% trans 'Delirio' with {'context': 'pms', 'langcode': 'es'} %}">
+```
 
-
+```yml
 // En yml
 quotation.proposal:
   path: '/quotations/proposal'
@@ -74,14 +77,15 @@ quotation.proposal:
 
 #### Manipulación programática
 Utilizar version traducida de una entidad.
-```
+
+```php
 $category = Term::load($id_category);
 $curr_langcode = \Drupal::languageManager()->getCurrentLanguage(\Drupal\Core\Language\LanguageInterface::TYPE_CONTENT)->getId();
 $translated = \Drupal::service('entity.repository')->getTranslationFromContext($category, $curr_langcode);
 ```
 
 Utilizar el manejador de lenguaje del core
-```
+```php
 $language_manager = \Drupal::languageManager();
 $site_default_langcode = $language_manager->getDefaultLanguage()->getId();
 
@@ -94,7 +98,7 @@ $config = $language_manager->getLanguageConfigOverride($langcode, $config_name);
 ENLACES Y FUENTES
 =================
 Documentación traducción de código drupal
-https://www.drupal.org/developing/api/8/localization
+- https://www.drupal.org/developing/api/8/localization
 
 Documentación traducción twig
-http://symfony.com/doc/current/book/translation.html
+- http://symfony.com/doc/current/book/translation.html
