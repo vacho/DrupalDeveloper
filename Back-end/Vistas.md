@@ -1,6 +1,26 @@
 Vistas
 ===
 
+Recuperar una vista la configuración de un display
+```php
+use Drupal\views\Views;
+
+$view = Views::getView('gestion_des_formulaires');
+$view->setDisplay('page_2');
+$display = $view->getDisplay();
+
+
+if (isset($display->options['filter_groups']['operator'])) {
+  $operator = $display->options['filter_groups']['operator'];
+  $filter_operators = $display->options['filter_groups']['groups'];
+  foreach ($display->options['filters'] as $filter) {
+    if ($filter['exposed']) {
+      //...
+    }
+  }
+}
+```
+
 #### Filtros
 Crear un filtro expuesto mediante plugins
 - https://www.axelerant.com/resources/team-blog/creating-a-custom-exposed-view-filter-in-drupal-8-to-use-with-workflow-states
