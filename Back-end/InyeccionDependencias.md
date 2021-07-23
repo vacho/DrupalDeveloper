@@ -4,12 +4,12 @@ Inyección de dependencias
 #### Servicio para realizar consultas a entidades
 
 Llamar al servicio
-```
+```php
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 ```
 
 Inyectar el servicio en el constructor.
-```
+```php
    * ...
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   Entity type manager.
@@ -24,7 +24,7 @@ Inyectar el servicio en el constructor.
 ```
 
 Instanciar el servicio al momento de crear el objeto.
-```
+```php
   ...
     public static function create(..., ContainerInterface $container, ...) {
       return new static(
@@ -44,7 +44,7 @@ Instanciar el servicio al momento de crear el objeto.
 ```
 
 Utilizar el servicio.
-```
+```php
   $entityTypeDefinition = $this->entityTypeManager->getDefinition($entity_type_id);
     if ($bundle_key = $entityTypeDefinition->getKey('bundle')) {
       $results = $this->entityTypeManager->getStorage('node')->loadByProperties([
@@ -62,10 +62,10 @@ Utilizar el servicio.
 ENLACES Y FUENTES
 =================
 Documentación oficial
-https://api.drupal.org/api/drupal/8
+- https://api.drupal.org/api/drupal/8
 
 Documentación de la comunidad
-https://www.drupal.org/developing/api/8
+- https://www.drupal.org/developing/api/8
 
 La manera correcta de implementar
-https://www.drupal.org/docs/drupal-apis/services-and-dependency-injection/dependency-injection-for-a-form
+- https://www.drupal.org/docs/drupal-apis/services-and-dependency-injection/dependency-injection-for-a-form
