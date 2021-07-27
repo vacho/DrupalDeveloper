@@ -8,7 +8,12 @@ $host = \Drupal::request()->getHost();
 
 Obtener ruta base completa. Ej: https://drupal8.local
 ```php
-$base_uri = \Drupal::request()->getSchemeAndHttpHost();;
+$base_uri = \Drupal::request()->getSchemeAndHttpHost();
+```
+
+Obtener la ruta actual
+```php
+$current_path = \Drupal::service('path.current')->getPath();
 ```
 
 #### Crear una ruta
