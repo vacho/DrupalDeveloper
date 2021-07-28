@@ -258,3 +258,6 @@ Documentación aclaraciones
 
 Actualización de entidades
 - https://www.drupal.org/node/3034742
+
+Módulo con un monton de código para actualizar y una API
+- https://www.drupal.org/project/hook_update_deploy_tools
