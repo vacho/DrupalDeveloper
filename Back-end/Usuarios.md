@@ -13,6 +13,15 @@ $user = User::load($current_user->id());
 $has_role = $user->hasRole('contributor');
 ```
 
+### Usuario esta logueado
+```php
+// Usuario actual está autentitcado
+$logged_in = \Drupal::currentUser()->isAuthenticated();
+
+// Usuario actual es anónimo
+\Drupal::currentUser()->isAnonymous();
+```
+
 #### Crear usuarios
 ```php
 $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
