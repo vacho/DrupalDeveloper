@@ -24,7 +24,10 @@ mimodulo.nombre_del_permiso:
 ```php
 function mimodulo_theme() {
   $theme['nombre_template'] = [
-    'variables' => [ 'variable_1' => NULL, 'variable_n' => NULL],
+    'variables' => [ 
+      'variable_1' => NULL, 
+      'variable_n' => NULL
+    ],
     'template' => 'nombre_template',
   ];
   return $theme;
