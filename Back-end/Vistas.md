@@ -9,7 +9,6 @@ $view = Views::getView('gestion_des_formulaires');
 $view->setDisplay('page_2');
 $display = $view->getDisplay();
 
-
 if (isset($display->options['filter_groups']['operator'])) {
   $operator = $display->options['filter_groups']['operator'];
   $filter_operators = $display->options['filter_groups']['groups'];
