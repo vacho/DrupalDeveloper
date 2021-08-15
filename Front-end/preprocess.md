@@ -31,3 +31,35 @@ function nombre_theme_preprocess_paragraph__full_width_push(array &$variables) {
     \Drupal::service('renderer')->addCacheableDependency($variables, $media);
   }
 }
+
+/**
+ * Implements hook_preprocess_views_view_unformatted__clubs__clubs_activities_schedule().
+ */
+function koala_ecommerce_preprocess_field__commerce_product__title(&$variables) {
+  /** @var Drupal\commerce_product\Entity\Product $product */
+  if ($product = $variables['element']['#object']) {
+    $product_id = $product->id();
+    // @todo work with more than one variation.
+    $variations = $product->getVariationIds();
+    $variation_id = reset($variations);
+    $category_id = $product->get('field_categoy')->getValue()[0]['target_id'];
+    $term = Term::load($category_id);
+    $subcategory_id = 0;
+    $id = $term->id();
+    $parent_id = $term->parent->target_id;
+    if ($parent_id > 0) {
+      $category_id = $parent_id;
+      $subcategory_id = $id;
+    }
+
+    $params = [
+      'product_id' => $product_id,
+      'product_variation_id' => $variation_id,
+      'category' => $category_id,
+      'subcategory' => $subcategory_id,
+    ];
+    $url = new Url('koala_ecommerce.product_page', $params);
+    $variables['items'][0]['content']['#url'] = $url;
+  }
+}
+```
