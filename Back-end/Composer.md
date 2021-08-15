@@ -95,6 +95,7 @@ composer update zaporylie/composer-drupal-optimizations --no-plugins && composer
 #### Actualizar el core
 ```bash
 composer update drupal/core-recommended --with-dependencies
+composer update drupal/core --with-dependencies
 ```
 
 - https://www.drupal.org/docs/updating-drupal/updating-drupal-core-via-composer#update-all-steps
