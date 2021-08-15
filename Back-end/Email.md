@@ -54,19 +54,17 @@ function mi_modulo_mail($key, &$message, $params) {
 #### SwiftMailer
 ```bash
 # Estando en la rais del proyecto drupal
-composer require swiftmailer/swiftmailer
+composer require drupal/swiftmailer 
 
 # Instalar el módulo SwiftMailer
-drupal module:download swiftmailer
-drupal module:install swiftmailer
+drush en swiftmailer
 
 # Configurar en la ruta: /admin/config/swiftmailer/transport
 # Transport types puede estar en el de tu preferencia
 # En la pestaña mensajes elige HTML y desmarca "Respect provided e-mail format."
 
 # Instalar el módulo MailSystem
-drupal module:download mailsystem
-drupal module:install mailsystem
+drush en mailsystem
 # Configurar en la ruta admin/config/system/mailsystem
 # Formater y Sender deben estar en SwiftMailer, Theme puede estar en el Tema por defecto o en SwiftMailer
 
