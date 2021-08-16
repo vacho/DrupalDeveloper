@@ -74,11 +74,20 @@ drush default-content:import-all
 
 # Comandos usuarios
 ```bash
+# Crear usuario
+drush user-create <usuario>
+
+# Cambiar de clave usuario
+drush user-password <usuario> <contraseña>
+
+# Agregar rol a usuario
+drush user-add-role <rol> <usuario>
+
 # Bloquear un usuario
-drush user-block vacho
+drush user-block <usuario>
 
 # Desbloquear un usuario
-drush user-unblock vacho
+drush user-unblock <usuario>
 
 # Desloguear todos los usuarios
 drush sql-query 'TRUNCATE TABLE sessions;'
