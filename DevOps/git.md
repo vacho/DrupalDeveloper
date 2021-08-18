@@ -152,6 +152,11 @@ git checkout master
 
 # Reescribir todos los commits
 git rebase upstream/master
+
+# Juntar 2 o más commits en uno. N viene a ser el número de commits que deseas juntar.
+git rebase --interactive HEAD~N
+# Luego en la edición tienes que cambiar <pick> por <squash> en cada línea de commit que deseas juntar.
+
 ```
 
 Montar repositorio para trabajar en remoto
