@@ -50,7 +50,7 @@ sale.onlyform.add:
   $currentRoute = \Drupal::routeMatch();
 
   // o usando como base el nombre de la ruta
-  $path = \Drupal::url($route_name)
+  $path = Url::fromRoute($route_name);
   
   // Sin una ruta como base
   use Drupal\Core\Url;
