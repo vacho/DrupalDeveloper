@@ -75,6 +75,16 @@ $person = DefaultBien::create($values);
 $person->save();
 ```
 
+#### Codigos útiles
+```php
+// Obtener el id del campo por defecto de una imagen media.
+$nids = \Drupal::entityQuery('node')->condition('type','<tipo_contenido>')->execute();
+$entity = \Drupal::entityTypeManager()->getStorage('node')->load(reset($nids));
+$default_id_media = $entity->get('media')->getFieldDefinition()->getDefaultValue($entity);
+if ($default_id_media) {
+  $default_id_media = reset($default_id_media)['target_id'];
+}
+```
 #### Campos de Entidades
 ```php
 // String
