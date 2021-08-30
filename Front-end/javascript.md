@@ -15,7 +15,7 @@ hello_world:
 ```
 
 2. Agregar al render la libreria
-```
+```php
 $render[#target] = $this->t('Hello');
 $render[#attached] = [
   'library' => [
@@ -28,7 +28,7 @@ $render['#attached']['drupalSettings'] = [
 ```
 
 3. Implementamos el js en Drupal.attachBehaviours (cuando la página esta completamente cargada)
-```
+```js
 (function (Drupal, $) {
   "use strict";
   Drupal.behaviors.helloWorld = {
