@@ -370,6 +370,24 @@ function nombre_modulo_node_view(array &$build, EntityInterface $entity, EntityV
   }
 }
 ```
+
+### Aterar el form display de una entidad.
+```php
+/**
+ * Implements hook_entity_form_display_alte().
+ */
+function mi_modulo_entity_form_display_alter(&$form_display, $context) {
+  if ($context['entity_type'] == 'user' && $context['bundle'] == 'user') {
+    $user = \Drupal::currentUser();
+    $user_roles = $user->getRoles();
+    if (array_intersect($user_roles, ['admin', 'webmaster'])) {
+      $storage = \Drupal::service('entity_type.manager')->getStorage('entity_form_display');
+      $form_display = $storage->load('user.user.default');
+    }
+  }
+}
+
+```
 ENLACES Y FUENTES
 =================
 Lista de hooks
