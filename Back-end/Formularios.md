@@ -110,6 +110,14 @@ $form['pr']['obs'] = [
   '#attributes' => ['title' => t('Observation')],
 ];
 
+// Texto procesado.
+'confirmation_message' => [
+  '#type' => 'processed_text',
+  '#text' => '',
+  '#format' => 'basic_html',
+],
+
+
 // Hidden con ramas abiertas(arreglo multidimencional) enviadas cuando el formulario sea guardado.
 $form['plugin_configuration'] = [
   '#type' => 'hidden',
