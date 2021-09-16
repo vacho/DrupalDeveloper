@@ -133,6 +133,27 @@ En `composer.json` agregar este código dentro de la sección `repositories`:
 ```
 Ejecutar `composer require --prefer-dist library-magnific/magnific-popup:1.1.*` para instalar.
 
+### Resolver problemas de compatibilidad.
+Agregar el MR de gitlab,
+```yml
+"repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8",
+      "exclude": [
+        "drupal/rng"
+      ]
+    },
+    {
+        "type": "git",
+        "url": "https://git.drupalcode.org/issue/rng-3218000.git"
+    }
+  ],
+```
+Ejecutar comando:
+```bash
+$ composer require drupal/rng:dev-8.x-1.x
+```
 
 ENLACES Y FUENTES
 =================
