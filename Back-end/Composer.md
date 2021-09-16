@@ -153,3 +153,6 @@ Para actualizar un propyecto que fue instalado sin composer
 
 Guía completa drupal-composer
 - https://www.drupal.org/docs/develop/using-composer/using-composer-to-install-drupal-and-manage-dependencies
+
+Resolver problemas de compatibilidad
+- https://www.drupal.org/docs/develop/git/using-git-to-contribute-to-drupal/creating-issue-forks-and-merge-requests#s-useissue-forks-to-makecompatibility-fixes-work-with-composer
