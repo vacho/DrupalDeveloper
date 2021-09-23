@@ -347,6 +347,8 @@ Entidades
 - http://talks.shawnduncan.org/entity_talk/#/overview
 - http://talks.shawnduncan.org/entity_talk/images/Entity.svg
 
-
 Tipos de campos
 - http://bit.ly/1qhjSQ6
+
+Entidades traducibles
+- https://www.drupal.org/docs/develop/translating-custom-entities
