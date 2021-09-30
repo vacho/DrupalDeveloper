@@ -166,6 +166,60 @@ function nombre_modulo_update_8002() {
   $entity_definition_update_manager->updateFieldStorageDefinition($field_storage_definition);
 }
 
+/**
+ * Update ct plant with 'site' system name by plant with 'plant' system name.
+ */
+function nombre_modulo_update_8001() {
+  // Backup of all content 'site' in data structure and then remove.
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+  $ids = $node_storage->getQuery()
+    ->condition('type', 'site', '=')
+    ->execute();
+  $nodes = $node_storage->loadMultiple($ids);
+  $temp_nodes = [];
+  foreach ($nodes as $node) {
+    $temp_nodes[] = $node;
+    $node->delete();
+  }
+
+  // Run configurations: remove ct 'site' and create ct 'plant'.
+  /** @var SiteAliasManager $alias_manager */
+  $alias_manager = Drush::service('site.alias.manager');
+  Drush::drush($alias_manager->getSelf(), 'config:import')->run();
+
+  // Load content backed up to ct 'plant'.
+  foreach ($temp_nodes as $temp_node) {
+    $paragraph = Paragraph::create([
+      'type' => 'snmp',
+      'field_snmp_authentication_password' => $temp_node->get('snmp_authentication_password')->getValue()[0]['value'],
+      'field_snmp_encryption_password'     => $temp_node->get('snmp_encryption_password')->getValue()[0]['value'],
+      'field_snmp_ip'                      => $temp_node->get('snmp_ip')->getValue()[0]['value'],
+      'field_snmp_port'                    => $temp_node->get('snmp_port')->getValue()[0]['value'],
+      'field_snmp_username'                => $temp_node->get('snmp_username')->getValue()[0]['value'],
+    ]);
+    $paragraph->save();
+    $members = [];
+    foreach ($temp_node->get('members')->getValue() as $member) {
+      $members[] = $member['target_id'];
+    }
+    $node = Node::create([
+      'type'           => 'plant',
+      'title'          => $temp_node->get('title')->value,
+      'ems_id'         => $temp_node->get('ems_id')->getValue()[0]['value'],
+      'gelocation'     => $temp_node->get('gelocation')->getValue()[0],
+      'address'        => $temp_node->get('address')->getValue()[0],
+      'ip'             => $temp_node->get('ip')->getValue()[0]['value'],
+      'members'        => $members,
+      'snmp_reference' => [
+        'target_id' => $paragraph->id(),
+        'target_revision_id' => $paragraph->getRevisionId(),
+      ],
+    ]);
+    $node->save();
+  }
+}
+
+
 ```
 
 
