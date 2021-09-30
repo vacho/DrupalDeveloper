@@ -219,6 +219,22 @@ function nombre_modulo_update_8001() {
   }
 }
 
+/**
+ * Removing "arbol" nodes and content type.
+ */
+function mi_module_update_8001() {
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+  $ids = $node_storage->getQuery()
+    ->condition('type', 'arbol', '=')
+    ->execute();
+  $nodes = $node_storage->loadMultiple($ids);
+  foreach ($nodes as $node) {
+    $node->delete();
+  }
+  $content_type = \Drupal::entityTypeManager()->getStorage('node_type')->load('arbol');
+  $content_type->delete();
+}
+
 
 ```
 
