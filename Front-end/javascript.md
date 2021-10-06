@@ -3,7 +3,7 @@ Javascript
 #### 
 
 1. Implementar Libreria en mi_modulo/hello.libraries.yml
-```
+```yml
 hello_world:
   version: 1.x
   js:
@@ -47,5 +47,4 @@ ENLACES Y FUENTES
 =================
 
 Estándares de programación js dentro de drupal
-
-https://www.drupal.org/node/172169
+- https://www.drupal.org/node/172169
