@@ -88,6 +88,20 @@ $role->grantPermission('access comments');
 $role->save();
 ```
 
+#### Validar la contraseña de un usuario
+```php
+$password = 'clave a validar';
+$database = \Drupal::database();
+$query = $database->query("SELECT pass FROM {users_field_data} WHERE uid = :uid;", [':uid' => $user->id()]);
+$current_password = $query->fetchAssoc()['pass'];
+$pass = $this->passwordHasher->check($password, $current_password);
+$result = 'failure';
+if ($pass) {
+  $result = 'success';
+}
+```
+
+
 ENLACES Y FUENTES
 =================
 Módulo User 
