@@ -222,6 +222,18 @@ git rebase -i HEAD~2
 # Guardar el archivo.
 ```
 
+Revisar el log de commits.
+===
+```bash
+# ver el historial de cambios.
+git log
+
+# ver sólo los archivos modificados.
+git diff-tree --no-commit-id --name-only -r <codigo_commit>
+
+# Ver el detalle de los cambios en un archivo.
+git show <codigo_commit>
+```
 
 
 REFERENCIAS
