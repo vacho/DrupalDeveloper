@@ -331,3 +331,6 @@ Actualización de entidades
 
 Módulo con un monton de código para actualizar y una API
 - https://www.drupal.org/project/hook_update_deploy_tools
+
+Actualización de configuraciones
+- https://www.drupal.org/docs/drupal-apis/update-api/updating-configuration-in-drupal-8
