@@ -41,7 +41,7 @@ $ git rebase 8.7.x
 Si hay conflictos: Realizar los conflictos del rebase.
 https://www.drupal.org/node/2723783
 
-Si no hay conflictoss
+Si no hay conflictos
 - RESOLVER LOS PROBLEMAS EN EL PARCHE
 $ git add -p
 $ git commit -m "Solving problem at patch from issue 2599228 comment 12852422"
