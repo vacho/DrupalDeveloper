@@ -3,12 +3,12 @@ Taxonomías
 
 #### Trozos de código para obtener programaticamente.
 Optener el id de vocuabulario de un término
-```
+```php
 $vocabulary_id = $term->bundle();
 ```
 
 Obtener el arbol de términos de una taxonomía.
-```
+```php
 $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree(
       'id_vocabulario',
       0,               // id del termino padre(tid). "0" para obterner todos.
@@ -18,7 +18,7 @@ $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree(
 ```
 
 Obtener todos los terminos padre de un término.
-```
+```php
 $ancestors = \Drupal::service('entity_type.manager')->getStorage("taxonomy_term")->loadAllParents($tid);
 $list = [];
 foreach ($ancestors as $term) {
