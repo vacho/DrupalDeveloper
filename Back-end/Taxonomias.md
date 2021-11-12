@@ -25,8 +25,9 @@ foreach ($ancestors as $term) {
   $list[$term->id()] = $term->label();
 }
 ```
+
 Obtener el padre directo de un término.
-```
+```php
 $parent = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($termId);
 $parentEntity = reset($parent);
 $parent_term_id = array_key_first($parent)
