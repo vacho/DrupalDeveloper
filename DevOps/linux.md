@@ -23,7 +23,8 @@ atop
 df -h 
 # muestra el tamaño aprox. en nodos
 df -i
-
+# Espacio de disco en todas las unidades
+df -TH
 ```
 
 Gestión usuarios
