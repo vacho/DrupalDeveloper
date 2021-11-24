@@ -91,8 +91,10 @@ find -type d -print0 |xargs -0 chmod 755
 
 # Cambiar dueño
 chown usuario:grupo /ruta/carpeta
-# Enlaces simbólicos
+# Crear enlace simbólicos (soft)
 ln -s /ruta/carpeta/ nombre_enlace
+# Remover enlace simbólico (soft)
+unlink nombre_enlace
 # Posibilitar que un archivo se ejecute desde cualquier lugar llamando desde la consola
 mv archivo.phar /usr/local/bin/nombre_comando
 # Buscar en el contenido de los archivos
