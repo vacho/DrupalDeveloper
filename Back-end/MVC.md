@@ -67,9 +67,9 @@ class NombreControladorController extends ControllerBase {
       '#theme' => 'nombre_template',
       '#variable_1' => $x,
       '#variable_n' => $y,
-      '#cache' => array(
+      '#cache' => [
             'max-age' => 0,
-      ),
+      ],
     ];
   }
 
