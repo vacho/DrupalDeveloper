@@ -88,6 +88,12 @@ $response->send();
 // Para rutas externas usar TrustedRedirectResponse
 ```
 
+### route_name de vistas
+```
+view.VIEW_MACHINE_NAME.PAGE_MACHINENAME
+view.$view_id.$display_id"
+```
+
 
 #### Referencias
 - Posibilidades de las rutas: 
