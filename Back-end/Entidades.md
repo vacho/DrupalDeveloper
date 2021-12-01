@@ -107,7 +107,22 @@ $fields['name'] = BaseFieldDefinition::create('string')
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
-      
+
+// Link
+    $fields['url_test'] = BaseFieldDefinition::create('link')
+      ->setLabel(t('URL test'))
+      ->setDescription(t('URL link.'))
+      ->setSettings([
+        'link_type' => LinkItemInterface::LINK_GENERIC,
+        'title' => DRUPAL_DISABLED,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'link_default',
+        'weight' => 0,
+      ])
+      ->setDisplayConfigurable('form', TRUE);
+
+
 //Lista de strings (Select list)
 $fields['test'] = BaseFieldDefinition::create('list_string')
       ->setLabel(t('List'))
