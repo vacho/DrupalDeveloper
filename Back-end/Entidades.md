@@ -23,6 +23,19 @@ $configuration->set('valuation_method', $valuationMethod);
 $configuration->set('costs_method', $costMethod);
 $configuration->save();
 
+// Obtener ids de una entidad con consulta con or condition.
+$storage = $this->entityTypeManager->getStorage('alternate_hreflang');
+$query = $storage->getQuery();
+$group = $query
+  ->orConditionGroup()
+  ->condition('url_x__uri', $url, '=')
+  ->condition('url_a__uri', $url, '=')
+  ->condition('url_b__uri', $url, '=');
+$ids = $query
+  ->condition('status', TRUE, '=')
+  ->condition($group)
+  ->execute();
+
 // Obtener una entidad mediante consulta
 $ids = \Drupal::entityQuery('k_accountplan')
 ->condition('iden', $entity, '=')
