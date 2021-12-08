@@ -18,6 +18,9 @@ drush init
 
 #### Comandos más útiles
 ```bash
+# Ver log de errores
+drush watchdog-show
+
 # Actualizar un proyecto drupal: saca backup, actualiza el código y actualiza la base de datos
 drush up
 
