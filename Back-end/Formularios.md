@@ -109,6 +109,21 @@ $form['phone_number'] = [
   '#title' => $this->t('Example phone'),
 ];
 
+// Número
+$form['page_counts'] = [
+  '#type' => 'number',
+  '#title' => $this->t('Visited page counter'),
+  '#description' => $this->t("Examples:<br>
+    0 = Show popup after each page visited<br>
+    1 = Show popup on the first page visited<br>
+    n = Show popup on n page visited"),
+  '#default_value' => 3,
+  '#attributes' => [
+    'min' => 0,
+    'max' => 100,
+  ],
+];
+
 // Textarea
 $form['pr']['obs'] = [
   '#type' => 'textarea',
