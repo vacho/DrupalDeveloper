@@ -77,10 +77,6 @@ $form['frequency_options'] = [
         'stay_time' => $this->t('Use visitor stay time frequency'),
       ],
       "#default_value" => 'visit_counts',
-      '#attributes' => [
-        'id' => 'frequency_options',
-        'name' => 'frequency_options',
-      ],
       '#weight' => -2,
     ];
 
