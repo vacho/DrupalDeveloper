@@ -67,13 +67,23 @@ $form['platforms'] = [
 ];
 
 // Radios
-$active = [1 => $this->('Yes'), 0 => $this->('No')];
-$form['typepurchase'] = [
-  '#type' => 'radios',
-  '#title' => t('This purchases will be in the inventory of merchandise:'),
-  '#default_value' => 1,
-  '#options' => $active
-];
+$form['frequency_options'] = [
+      '#type' => 'radios',
+      '#title' => $this->t('Select the type to frequency to use.'),
+      '#options' => [
+        'visit_counts' => $this->t('Use visit counts frequency'),
+        'time_frequency' => $this->t('Use time frequency'),
+        'pages_counts' => $this->t('Use pages visitor counter frequency'),
+        'stay_time' => $this->t('Use visitor stay time frequency'),
+      ],
+      "#default_value" => 'visit_counts',
+      '#attributes' => [
+        'id' => 'frequency_options',
+        'name' => 'frequency_options',
+      ],
+      '#weight' => -2,
+    ];
+
 
 // Button
 $form['minus'] = [
