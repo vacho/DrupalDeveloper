@@ -49,6 +49,8 @@ composer require drupal/better_normalizers:^1@beta
 # Rama en desarrollo
 composer require drupal/flexslider:^dev
 composer require drupal/http_status_code:1.x-dev
+# Fork
+composer require drupal/entity_reference_facet_link:dev-3254358-can-not-update
 
 # Requerir un proyecto para un determinado ambiente (dev)
 composer require --dev phpunit/phpunit
