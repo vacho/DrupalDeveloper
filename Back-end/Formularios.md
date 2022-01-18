@@ -193,6 +193,15 @@ $form['intro'] = [
     ]),
   ];
 
+// Picker de color
+$form['icon_hovered'] = [
+  '#type' => 'color',
+  '#title' => $this->t('Icon hovered'),
+  '#maxlength' => 8,
+  '#size' => 8,
+  '#default_value' => $data['icon_hovered'],
+];  
+
 ```
 
 #### Estados
