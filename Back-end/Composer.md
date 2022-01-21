@@ -98,6 +98,10 @@ composer update zaporylie/composer-drupal-optimizations --no-plugins && composer
 ```bash
 composer update drupal/core-recommended --with-dependencies
 composer update drupal/core --with-dependencies
+
+// Actualizar manualment composer.json los valores roecommended luego
+composer update drupal/core "drupal/core-*" --with-all-dependencies
+
 ```
 
 - https://www.drupal.org/docs/updating-drupal/updating-drupal-core-via-composer#update-all-steps
@@ -179,3 +183,6 @@ Guía completa drupal-composer
 
 Resolver problemas de compatibilidad
 - https://www.drupal.org/docs/develop/git/using-git-to-contribute-to-drupal/creating-issue-forks-and-merge-requests#s-useissue-forks-to-makecompatibility-fixes-work-with-composer
+
+Composer update para d9 drupal/core-recommended
+- https://www.drupal.org/docs/updating-drupal/updating-drupal-core-via-composer
