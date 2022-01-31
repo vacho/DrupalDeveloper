@@ -64,7 +64,19 @@ $nids = $query->execute();
 '=', '<>', '>', '>=', '<', '<=', 'STARTS_WITH', 'CONTAINS', 'ENDS_WITH'
 'IN', 'NOT IN', 'IS', 'IS NOT': Esperan un $value en un array de textos del mismo tipo del campo.
 'BETWEEN': Espera un $value en un array de 2 literales del mismo tipo del campo.
-      
+
+// OR CONDITION
+$storage = $this->entityTypeManager->getStorage('node');
+// 2147483647 us timestamp in published_at field when no fill.
+$or_group = $storage->getQuery()->orConditionGroup()
+  ->notExists('published_at')
+  ->condition('published_at', 2147483647, '=');
+$query = $storage->getQuery()
+  ->condition('type', 'node_type')
+  ->condition($or_group);
+$node_ids = $query->execute();
+
+
 // Obtener datos de entidades foraneas
 $entity->idac->target_id;
 $entity->idac->entity->label();
