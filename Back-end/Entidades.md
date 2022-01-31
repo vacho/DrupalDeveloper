@@ -62,7 +62,7 @@ $nids = $query->execute();
 
 // Operadores de consulta 
 '=', '<>', '>', '>=', '<', '<=', 'STARTS_WITH', 'CONTAINS', 'ENDS_WITH'
-'IN', 'NOT IN', 'IS, 'IS NOT': Esperan un $value en un array de textos del mismo tipo del campo.
+'IN', 'NOT IN', 'IS', 'IS NOT': Esperan un $value en un array de textos del mismo tipo del campo.
 'BETWEEN': Espera un $value en un array de 2 literales del mismo tipo del campo.
       
 // Obtener datos de entidades foraneas
