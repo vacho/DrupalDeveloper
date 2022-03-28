@@ -3,7 +3,7 @@ TempStorage
 
 #### Manejo
 
-```
+```php
 
 // Para poner valores en tempstorage
 $tempstore = \Drupal::service('tempstore.private');
