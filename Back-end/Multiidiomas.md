@@ -92,6 +92,11 @@ $site_default_langcode = $language_manager->getDefaultLanguage()->getId();
 // Obtener las configuraciones de un lenguage
 $config_name = basename($file_name, '.yml');
 $config = $language_manager->getLanguageConfigOverride($langcode, $config_name);
+// Ejemplo
+$langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+$config_name = basename('role_expire_notification.config', '.yml');
+$config = \Drupal::languageManager()->getLanguageConfigOverride($langcode, $config_name);
+$configuration_values = $config->get('role_expire_notification_points');
 ```
 
 
