@@ -146,7 +146,9 @@ fish_config
 chsh -s /usr/bin/fish
   
 #  Sin embargo, en Fish, se encadena comandos con ";" en lugar de "&&" por lo que si necesitas concatenar puedes salirte momentaneamente de fish
-fish bash
+$ fish bash
+ó
+$ bash
 # Para volver
 fish
 
