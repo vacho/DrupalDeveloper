@@ -104,3 +104,6 @@ https://cryptic.zone/blog/drupal-8-cheatsheet-developers
 
 - Redireccionamiento
 https://x-team.com/blog/drupal-goto/
+
+- Links, URLs, URIs
+https://www.hashbangcode.com/article/drupal-9-programmatically-creating-and-using-urls-and-links
