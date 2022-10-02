@@ -36,6 +36,9 @@ drush ev '\Drupal::service("router.builder")->rebuild();'
 # loguear como admin
 drush uli --uri local.misitio.com
 
+# Ver todos los servicios
+drush devel-container-services
+
 # verificar una configuración activa
 drush cget nombre_configuracion
 
