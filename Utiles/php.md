@@ -1,5 +1,10 @@
 PHP
 ===
+### Cambiar entre versiones de php
+```bash
+sudo update-alternatives --config php
+```
+
 #### Comparadores cortos
 ```php
 // Asignación de valor en if/else.
@@ -7,7 +12,6 @@ $result = $condition ? 'foo' : 'bar';
 
 // Asignación con conparación a nulo.
 $result = $variable ?? 'valor_si_variable_no_es_nulo'; // 'fallback'
-
 ```
 
 #### Gestión de rutas, directorio y archivos
