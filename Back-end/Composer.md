@@ -1,5 +1,16 @@
 Composer
 ========
+#### Manejar varias version
+```bash
+# Cambiar a la version 1
+composer self-update --1
+
+# Cambiar a la version 2
+composer self-update --2
+
+# Volver a la version anterior
+composer self-update --rollback
+```
 
 #### Crear un nuevo proyecto
 ```bash
