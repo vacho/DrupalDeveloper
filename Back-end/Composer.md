@@ -70,6 +70,9 @@ composer update drupal/nombre_modulo --with-dependencies
 drush updatedb
 drush cache:rebuild
 drush config:export --diff
+
+# Actualiza módulo para apartado require-dev
+composer require --dev drupal/upgrade_status:^3.17 --with-all-dependencies
 ```
 
 #### Remover un componente
