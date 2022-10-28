@@ -44,3 +44,6 @@ Ejecutar una vista programaticamente
 Customizar crear propio paginador
 - http://djevans.info/article/creating-views-pager-plugins-drupal-8
 - https://blog.werk21.de/en/2017/04/21/programmatically-change-views-pager-type-or-options
+
+Ejemplos de los principales hooks
+- https://drupalium.com/articles/insert-replace-delete-rows-from-view-results
