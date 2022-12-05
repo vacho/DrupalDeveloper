@@ -7,6 +7,11 @@ curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 # Para fedora, aws EC2
 ln -s /usr/local/bin/composer /usr/bin/composer
+
+#Evitar el corte por tiempo de espera excesivo
+"config": {
+  "process-timeout": 0,
+},
 ```
 
 
