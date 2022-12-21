@@ -14,3 +14,6 @@ foreach (Cache::getBins() as $service_id => $cache_backend) {
 ENLACES Y FUENTES
 =================
 https://api.drupal.org/api/drupal/core%21core.api.php/group/cache/8.2.x
+
+- Errores y casos comunes
+https://www.lullabot.com/articles/common-max-age-pitfalls-with-drupal-cache
