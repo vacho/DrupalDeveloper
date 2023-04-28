@@ -2,7 +2,7 @@ SERVICIOS
 ========
 
 #### Acceder a un servicio
-```
+```php
   // Listar todos los servicios disponibles.
   \Drupal::getContainer()->getServiceIds()
 
@@ -52,7 +52,7 @@ En services.yml
 
 INYECTAR SERVICIOS
 ===
-```
+```php
   use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
   use Symfony\Component\DependencyInjection\ContainerInterface;
   use Drupal\Core\Entity\Query\QueryFactory;

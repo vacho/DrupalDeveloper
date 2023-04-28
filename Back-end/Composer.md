@@ -113,7 +113,7 @@ composer update zaporylie/composer-drupal-optimizations --no-plugins && composer
 composer update drupal/core-recommended --with-dependencies
 composer update drupal/core --with-dependencies
 
-// Actualizar manualment composer.json los valores roecommended luego
+// Actualizar manualmente composer.json los valores roecommended luego
 composer update drupal/core "drupal/core-*" --with-all-dependencies
 
 ```
