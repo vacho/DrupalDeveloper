@@ -24,7 +24,7 @@ public function build() {
 ```
 
 La ruta para el método que va realizar el trabajo en drupal-php
-```
+```yml
 hello.hide_block:
   path: '/hide-block'
   defaults:
@@ -53,59 +53,52 @@ Nota: Se puede usar en Botones ajax mediante la clase 'use-ajax-submit'.
 
 Elemento de formulario que tiene un recargado ajax
 ```php
-$form['plugin'] = [
+$form['example_select'] = [
   '#type' => 'select',
-  '#title' => $this->t('Plugin'),
-  '#default_value' => $importer->getPluginId(),
-  '#options' => $options,
-  '#description' => $this->t('The plugin to be used with this importer'),
-  '#required' => TRUE,
-  '#empty_option' => $this->t('Please select a plugin'),
+  '#title' => $this->t('Example select field'),
+  '#options' => [
+    '1' => $this->t('One'),
+    '2' => $this->t('Two'),
+    '3' => $this->t('Three'),
+    '4' => $this->t('From New York to Ger-ma-ny!'),
+  ],
   '#ajax' => [
-    'callback' => [$this, 'pluginConfigAjaxCallback'],
-    'wrapper' => 'plugin-configuration-wrapper'
+    'callback' => '::myAjaxCallback', // don't forget :: when calling a class method.
+    //'callback' => [$this, 'myAjaxCallback'], //alternative notation
+    'disable-refocus' => FALSE, // Or TRUE to prevent re-focusing on the triggering element.
+    'event' => 'change',
+    'wrapper' => 'edit-output', // This element is updated with this AJAX callback.
+    'progress' => [
+      'type' => 'throbber',
+      'message' => $this->t('Verifying entry...'),
+    ],
   ]
-]
-```
+];
 
-Otras opciones que se pueden usar dentro de #ajax:
-- 'method': Metodo jQuery que se ejecuta sobre sobre 'wrapper'. Por defecto es replaceWith()
-- 'event': El evento que será disparado
-- 'progress': Arreglo indicando el avance del procesamiento de ajax
-- 'url': En caso de que no usemos 'callback' (\Drupal\Core\Url)
+$form['output'] = [
+  '#type' => 'textfield',
+  '#size' => '60',
+  '#disabled' => TRUE,
+  '#value' => 'Hello, Drupal!!1',
+  '#prefix' => '<div id="edit-output">',
+  '#suffix' => '</div>',
+];
 
-```html
-<div class="container">
-  <div class="inner first">Hello</div>
-  <div class="inner second">And</div>
-</div>
-
-$( "div.second" ).replaceWith( "<h2>New heading</h2>" );
-
-<div class="container">
-  <div class="inner first">Hello</div>
-  <h2>New heading</h2>
-</div>
-```
-
-También se puede utilizar: append(), html() y otros
-```html
-<div class="demo-container">
-  <div class="demo-box">Demonstration Box</div>
-</div>
-
-$( "div.demo-container" ).html( "<p>All new content. <em>You bet!</em></p>" );
-
-<div class="demo-container">
-  <p>All new content. <em>You bet!</em></p>
-</div>
+if ($selectedValue = $form_state->getValue('example_select')) {
+  // Get the text of the selected option.
+  $selectedText = $form['example_select']['#options'][$selectedValue];
+  // Place the text of the selected option in our textfield.
+  $form['output']['#value'] = $selectedText;
+}
 ```
 
 Método que realiza el remplazo en 'plugin-configuration-wrapper'
 ```php
-public function pluginConfigAjaxCallback($form, FormStateInterface $form_state) {
-  return $form['plugin_configuration']
+public function myAjaxCallback(array &$form, FormStateInterface $form_state) {
+  // Return the prepared textfield.
+  return $form['output'];
 }
+
 ```
 #### Recomendaciones importantes
 - En formularios, los métodos validate() y submit() se ejecutan antes de los métodos ajax y se pueden usar para actualiazar los valores de form_state. Debido a que cuando se actualiza un elemento de formulario en los métodos ajax no se actualizan sus valores form_state.
