@@ -5,10 +5,10 @@ PHP
 sudo update-alternatives --config php
 sudo a2dismod php7.4
 sudo a2enmod php8.1
+sudo systemctl restart apache2
 
 sudo a2dismod php8.1
 sudo a2enmod php7.4
-
 sudo systemctl restart apache2
 
 ```

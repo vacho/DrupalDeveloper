@@ -310,7 +310,255 @@ function mi_modulo_post_update_descripcion_corta_metodo(array &$sandbox) {
   \Drupal::messenger()->addStatus($sandbox['current'] . ' nodes processed.');
   $sandbox['#finished'] = ($sandbox['current'] / $sandbox['total']);
 }
+
 ```
+
+Ejemplo completo
+---
+```php
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Skilld Fields module.
+ */
+
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldConfig;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Site\Settings;
+use Drupal\Core\Entity\Entity\EntityFormDisplay;
+use Drupal\Core\Entity\EntityDisplayRepositoryInterface;
+use Drupal\layout_builder\Entity\LayoutBuilderEntityViewDisplay;
+
+/**
+ * Set the old values in the new fields for paragraph _image_carousel_slide.
+ */
+function skilld_fields_update_8007(&$sandbox) {
+  $entity_type_id = 'paragraph';
+  $bundle = '_image_carousel_slide';
+
+  // Create new fields.
+  foreach (_get_fields_mapping($bundle) as $new_field_name) {
+    _create_new_field($entity_type_id, $bundle, $new_field_name);
+  }
+
+  // Move the content from old fields to new fields.
+  drupal_flush_all_caches();
+  $storage = \Drupal::entityTypeManager()->getStorage($entity_type_id);
+  if (!isset($sandbox['total'])) {
+    $sandbox['count'] = 0;
+    $ids = $storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', $bundle)
+      ->sort('id', 'ASC')
+      ->execute();
+    $sandbox['total'] = count($ids);
+    $sandbox['chunked_items'] = array_chunk($ids, 50);
+  }
+  if (!empty($sandbox['chunked_items'])) {
+    $chunk = array_shift($sandbox['chunked_items']);
+    if (!$chunk) {
+      return;
+    }
+    foreach ($storage->loadMultiple($ids) as $entity) {
+      foreach (_get_fields_mapping($bundle) as $old_field => $new_field) {
+        if ($entity->hasField($old_field) && !$entity->{$old_field}->isEmpty()) {
+          $entity->{$new_field} = $entity->{$old_field};
+          unset($entity->{$old_field});
+        }
+      }
+      $entity->save();
+      $sandbox['count']++;
+    }
+  }
+
+  // Remove old fields.
+  _update_form_view($entity_type_id, $bundle);
+  _update_display($entity_type_id, $bundle);
+  foreach (_get_fields_mapping($bundle) as $old_field_name => $new_field_name) {
+    FieldConfig::loadByName($entity_type_id, $bundle, $old_field_name)->delete();
+  }
+}
+
+/**
+ * Set the old values in the new fields for paragraph how_it_works_sub_section.
+ */
+function skilld_fields_update_8008(&$sandbox) {
+  $entity_type_id = 'paragraph';
+  $bundle = 'how_it_works_sub_section';
+
+  // Create new fields.
+  foreach (_get_fields_mapping($bundle) as $new_field_name) {
+    _create_new_field($entity_type_id, $bundle, $new_field_name);
+  }
+
+  // Move the content from old fields to new fields.
+  drupal_flush_all_caches();
+  $storage = \Drupal::entityTypeManager()->getStorage($entity_type_id);
+  if (!isset($sandbox['total'])) {
+    $sandbox['count'] = 0;
+    $ids = $storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', $bundle)
+      ->sort('id', 'ASC')
+      ->execute();
+    $sandbox['total'] = count($ids);
+    $sandbox['chunked_items'] = array_chunk($ids, 50);
+  }
+  if (!empty($sandbox['chunked_items'])) {
+    $chunk = array_shift($sandbox['chunked_items']);
+    if (!$chunk) {
+      return;
+    }
+    foreach ($storage->loadMultiple($ids) as $entity) {
+      foreach (_get_fields_mapping($bundle) as $old_field => $new_field) {
+        if ($entity->hasField($old_field) && !$entity->{$old_field}->isEmpty()) {
+          $entity->{$new_field} = $entity->{$old_field};
+          unset($entity->{$old_field});
+        }
+      }
+      $entity->save();
+      $sandbox['count']++;
+    }
+  }
+
+  // Remove old fields.
+  _update_form_view($entity_type_id, $bundle);
+  _update_display($entity_type_id, $bundle);
+  foreach (_get_fields_mapping($bundle) as $old_field_name => $new_field_name) {
+    if ($old_field_config = FieldConfig::loadByName($entity_type_id, $bundle, $old_field_name)) {
+      $old_field_config->delete();
+    }
+  }
+}
+
+/**
+ * To get fields to update mapping.
+ *
+ * @param string $bundle
+ *   The entity machine name.
+ *
+ * @return array
+ *   The fields.
+ */
+function _get_fields_mapping($bundle) {
+  $result = [];
+  switch ($bundle) {
+    case '_image_carousel_slide':
+      $result = [
+        'media' => 'mobile_image',
+      ];
+      break;
+
+    case 'how_it_works_sub_section':
+      $result = [
+        'slide_image' => 'image',
+      ];
+      break;
+
+  }
+
+  return $result;
+}
+
+/**
+ * Create new field based on YAML config.
+ *
+ * @param string $entity_type_id
+ *   The entity type.
+ * @param string $bundle
+ *   The bundle.
+ * @param string $field_name
+ *   The field name.
+ */
+function _create_new_field(string $entity_type_id, string $bundle, string $field_name) {
+  // Create field storage.
+  $sync_directory = Settings::get('config_sync_directory', FALSE);
+  if (!FieldStorageConfig::load("{$entity_type_id}.{$field_name}")) {
+    $field_storage_path = $sync_directory . "/field.storage.{$entity_type_id}.{$field_name}.yml";
+    $field_storage = FieldStorageConfig::create(Yaml::parseFile($field_storage_path));
+    $field_storage->save();
+  }
+
+  // Create field config.
+  if (!FieldConfig::load("{$entity_type_id}.{$bundle}.{$field_name}")) {
+    $field_config_path = $sync_directory . "/field.field.{$entity_type_id}.{$bundle}.{$field_name}.yml";
+    $field = FieldConfig::create(Yaml::parseFile($field_config_path));
+    $field->save();
+  }
+}
+
+/**
+ * Update a entity form view Update a entity display from a YAML config.
+ *
+ * @param string $entity_type_id
+ *   The entity type.
+ * @param string $bundle
+ *   The bundle.
+ */
+function _update_form_view(string $entity_type_id, string $bundle) {
+  $form_display = EntityFormDisplay::load("{$entity_type_id}.{$bundle}.default");
+  foreach (_get_fields_mapping($bundle) as $old_field => $new_field) {
+    $component = $form_display->getComponent($old_field);
+    $form_display->delete($old_field);
+    if (isset($component)) {
+      $form_display->setComponent($new_field, $component);
+    }
+  }
+  $form_display->save();
+}
+
+/**
+ * Update a entity display from a YAML config.
+ *
+ * @param string $_entity_type_id
+ *   The entity type.
+ * @param string $_bundle
+ *   The bundle.
+ */
+function _update_display(string $_entity_type_id, string $_bundle) {
+  $view_modes = array_keys(\Drupal::service('entity_display.repository')
+    ->getViewModes($_entity_type_id));
+  $view_modes[] = EntityDisplayRepositoryInterface::DEFAULT_DISPLAY_MODE;
+  $view_display_ids = array_map(function ($view_mode) {
+    global $_entity_type_id, $_bundle;
+    return "{$_entity_type_id}.{$_bundle}.{$view_mode}";
+  }, $view_modes);
+  $entity_view_display_storage = \Drupal::entityTypeManager()
+    ->getStorage('entity_view_display');
+  /** @var \Drupal\Core\Entity\Display\EntityViewDisplayInterface $view_display */
+  foreach ($entity_view_display_storage->loadMultiple($view_display_ids) as $view_display) {
+    if ($view_display instanceof LayoutBuilderEntityViewDisplay) {
+      foreach ($view_display->getSections() as $section) {
+        foreach ($section->getComponents() as &$component) {
+          foreach (_get_fields_mapping($_bundle) as $old_field => $new_field) {
+            if ($component->getPluginId() === "field_block:{$_entity_type_id}:{$_bundle}:{$old_field}") {
+              $configuration = $component->toArray()['configuration'];
+              $configuration['id'] = "field_block:{$_entity_type_id}:{$_bundle}:{$new_field}";
+              $component->setConfiguration($configuration);
+            }
+          }
+        }
+      }
+    }
+    else {
+      foreach (_get_fields_mapping($_bundle) as $old_field => $new_field) {
+        if ($component = $view_display->getComponent($old_field)) {
+          $view_display->delete($old_field);
+          $view_display->setComponent($new_field, $component);
+        }
+      }
+    }
+    $view_display->save();
+  }
+}
+
+
+```
+
+
+
 
 ENLACES Y FUENTES
 =================
