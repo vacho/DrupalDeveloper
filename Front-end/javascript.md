@@ -48,3 +48,7 @@ ENLACES Y FUENTES
 
 Estándares de programación js dentro de drupal
 - https://www.drupal.org/node/172169
+
+
+Nuevas formas de usar jquery ui
+- https://www.drupal.org/docs/upgrading-drupal/upgrading-from-drupal-8-or-later/upgrading-from-drupal-9-to-drupal-10-0/migrating-dependencies-on-core-jquery-ui-libraries
