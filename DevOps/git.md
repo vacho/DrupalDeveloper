@@ -235,6 +235,15 @@ git diff-tree --no-commit-id --name-only -r <codigo_commit>
 git show <codigo_commit>
 ```
 
+Omitir archivo previamente agregado.
+===
+```bash
+echo debug.log >> .gitignore
+git rm --cached debug.log
+rm 'debug.log'
+git commit -m "Start ignoring debug.log"
+```
+
 
 REFERENCIAS
 ---
