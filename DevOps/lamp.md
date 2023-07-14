@@ -47,6 +47,12 @@ sudo apt-get install php-bcmath
 # o
 sudo apt-get install php-mysql php-gd php-curl php-cgi php-pear php-mcrypt php7.0-mbstring php-mbstring php-gettext php-bcmath
 
+# permitir instalar mas versiones de php
+ sudo add-apt-repository -y ppa:ondrej/php
+$ sudo apt update
+$ sudo apt install php5.6
+$ sudo apt install php8.1
+
   
 # Levantar/Detener/Reiniciar servicios(apache2/httpd/mysql)
 sudo service apache2 [start/stop/restart]
