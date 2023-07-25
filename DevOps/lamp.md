@@ -24,6 +24,16 @@ sudo apt-get install libapache2-mod-php
 # o
 sudo apt-get install php php-cli libapache2-mod-php
 
+## Vs 
+
+# Instalar PHP multiversion
+sudo apt -y install software-properties-common
+sudo add-apt-repository -y ppa:ondrej/php
+sudo apt update
+sudo apt install php7.4
+sudo apt install php8.1
+
+
 # Camniar version de php que se desea utilizar.
 sudo a2dismod php7.2
 sudo update-alternatives --config php
@@ -47,12 +57,10 @@ sudo apt-get install php-bcmath
 # o
 sudo apt-get install php-mysql php-gd php-curl php-cgi php-pear php-mcrypt php7.0-mbstring php-mbstring php-gettext php-bcmath
 
-# permitir instalar mas versiones de php
- sudo add-apt-repository -y ppa:ondrej/php
-$ sudo apt update
-$ sudo apt install php5.6
-$ sudo apt install php8.1
-
+# Desinstalar php completamente
+sudo apt-get purge 'php*'
+sudo apt-get autoclean
+sudo apt-get autoremove
   
 # Levantar/Detener/Reiniciar servicios(apache2/httpd/mysql)
 sudo service apache2 [start/stop/restart]
@@ -165,3 +173,6 @@ Drupal al sur
 
 Optimizar mysql
 - http://www.speedemy.com/17-key-mysql-config-file-settings-mysql-5-7-proof/
+
+Instalar php multiversion
+- https://www.digitalocean.com/community/tutorials/how-to-install-php-7-4-and-set-up-a-local-development-environment-on-ubuntu-18-04
