@@ -235,6 +235,180 @@ function mi_module_update_8001() {
   $content_type->delete();
 }
 
+```
+### Para crear un servicio o API de actualización de campos
+En el archivo mi_modulo.install
+```php
+/**
+ * @file
+ * Install, update and uninstall functions for the Zen fields module.
+ */
+
+use Drupal\Core\Site\Settings;
+use Drupal\Core\Config\FileStorage;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\Core\Entity\Entity\EntityFormDisplay;
+use Drupal\Core\Entity\EntityDisplayRepositoryInterface;
+use Drupal\layout_builder\Entity\LayoutBuilderEntityViewDisplay;
+use Symfony\Component\Yaml\Yaml;
+
+
+function my_module_update_8001(&$sandbox) {
+  // Create new field.
+  _create_new_field('paragraph', 'nombre_paragraph', 'nombre_campo_crear');
+
+  $fields = [
+    'nombre_campo_eliminar' => 'nombre_campo_crear',
+  ];
+
+  // Move contend form old to new field.
+  _move_content('paragraph', 'nombre_paragraph', $fields, $sandbox);
+
+  // Remove old field.
+  _update_form_view('paragraph', 'nombre_paragraph', $fields);
+  _update_display('paragraph', 'nombre_paragraph', $fields);
+  FieldConfig::loadByName('paragraph', 'nombre_paragraph', 'nombre_campo_eliminar')->delete();
+}
+
+/**
+ * Create new field based on YAML config.
+ *
+ * @param string $entity_type_id
+ *   The entity type.
+ * @param string $bundle
+ *   The bundle.
+ * @param string $field_name
+ *   The field name.
+ */
+function _create_new_field(string $entity_type_id, string $bundle, string $field_name) {
+  // Create field storage.
+  $sync_directory = Settings::get('config_sync_directory', FALSE);
+  if (!FieldStorageConfig::load("{$entity_type_id}.{$field_name}")) {
+    $field_storage_path = $sync_directory . "/field.storage.{$entity_type_id}.{$field_name}.yml";
+    $field_storage = FieldStorageConfig::create(Yaml::parseFile($field_storage_path));
+    $field_storage->save();
+  }
+
+  // Create field config.
+  if (!FieldConfig::load("{$entity_type_id}.{$bundle}.{$field_name}")) {
+    $field_config_path = $sync_directory . "/field.field.{$entity_type_id}.{$bundle}.{$field_name}.yml";
+    $field = FieldConfig::create(Yaml::parseFile($field_config_path));
+    $field->save();
+  }
+}
+
+/**
+ * Update a entity form view Update a entity display from a YAML config.
+ *
+ * @param string $entity_type_id
+ *   The entity type.
+ * @param string $bundle
+ *   The bundle.
+ * @param array $fields
+ *   The old => new array fields.
+ */
+function _update_form_view(string $entity_type_id, string $bundle, array $fields) {
+  $form_display = EntityFormDisplay::load("{$entity_type_id}.{$bundle}.default");
+  foreach ($fields as $old_field => $new_field) {
+    $component = $form_display->getComponent($old_field);
+    $form_display->delete($old_field);
+    if (isset($component)) {
+      $form_display->setComponent($new_field, $component);
+    }
+  }
+  $form_display->save();
+}
+
+/**
+ * Update a entity display from a YAML config.
+ *
+ * @param string $entity_type_id
+ *   The entity type.
+ * @param string $bundle
+ *   The bundle.
+ * @param array $fields
+ *   The old => new array fields.
+ */
+function _update_display(string $entity_type_id, string $bundle, array $fields) {
+  $view_modes = array_keys(\Drupal::service('entity_display.repository')
+    ->getViewModes($entity_type_id));
+  $view_modes[] = EntityDisplayRepositoryInterface::DEFAULT_DISPLAY_MODE;
+  $view_display_ids = array_map(function ($view_mode) {
+    global $_entity_type_id, $_bundle;
+    return "{$_entity_type_id}.{$_bundle}.{$view_mode}";
+  }, $view_modes);
+  $entity_view_display_storage = \Drupal::entityTypeManager()
+    ->getStorage('entity_view_display');
+  /** @var \Drupal\Core\Entity\Display\EntityViewDisplayInterface $view_display */
+  foreach ($entity_view_display_storage->loadMultiple($view_display_ids) as $view_display) {
+    if ($view_display instanceof LayoutBuilderEntityViewDisplay) {
+      foreach ($view_display->getSections() as $section) {
+        foreach ($section->getComponents() as &$component) {
+          foreach ($fields as $old_field => $new_field) {
+            if ($component->getPluginId() === "field_block:{$entity_type_id}:{$bundle}:{$old_field}") {
+              $configuration = $component->toArray()['configuration'];
+              $configuration['id'] = "field_block:{$entity_type_id}:{$bundle}:{$new_field}";
+              $component->setConfiguration($configuration);
+            }
+          }
+        }
+      }
+    }
+    else {
+      foreach ($fields as $old_field => $new_field) {
+        if ($component = $view_display->getComponent($old_field)) {
+          $view_display->delete($old_field);
+          $view_display->setComponent($new_field, $component);
+        }
+      }
+    }
+    $view_display->save();
+  }
+}
+
+/**
+ * Move the content from old fields to new fields.
+ *
+ * @param string $entity_type_id
+ *   The entity type id.
+ * @param string $bundle
+ *   The entity bundle.
+ * @param array $fields
+ *   The old => new array fields.
+ * @param array $sandbox
+ *   The sandbox.
+ */
+function _move_content(string $entity_type_id, string $bundle, array $fields, array &$sandbox) {
+  drupal_flush_all_caches();
+  $storage = \Drupal::entityTypeManager()->getStorage($entity_type_id);
+  if (!isset($sandbox['total'])) {
+    $sandbox['count'] = 0;
+    $ids = $storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', $bundle)
+      ->sort('id', 'ASC')
+      ->execute();
+    $sandbox['total'] = count($ids);
+    $sandbox['chunked_items'] = array_chunk($ids, 50);
+  }
+  if (!empty($sandbox['chunked_items'])) {
+    $chunk = array_shift($sandbox['chunked_items']);
+    if (!$chunk) {
+      return;
+    }
+    foreach ($storage->loadMultiple($ids) as $entity) {
+      foreach ($fields as $old_field => $new_field) {
+        if ($entity->hasField($old_field) && !$entity->{$old_field}->isEmpty()) {
+          $entity->{$new_field} = $entity->{$old_field};
+          unset($entity->{$old_field});
+        }
+      }
+      $entity->save();
+      $sandbox['count']++;
+    }
+  }
+}
 
 ```
 
@@ -310,14 +484,11 @@ function mi_modulo_post_update_descripcion_corta_metodo(array &$sandbox) {
   \Drupal::messenger()->addStatus($sandbox['current'] . ' nodes processed.');
   $sandbox['#finished'] = ($sandbox['current'] / $sandbox['total']);
 }
-
 ```
 
 Ejemplo completo
 ---
 ```php
-<?php
-
 /**
  * @file
  * Install, update and uninstall functions for the Skilld Fields module.
