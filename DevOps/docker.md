@@ -1,28 +1,28 @@
 DOCKER
 ========
 #### Instalar docker en ubuntu 18.04
-```
-Desinstalar versiones antiguas de docker
+```bash
+# Desinstalar versiones antiguas de docker
 $ sudo apt-get -y remove docker docker-engine docker.io
 $ sudo apt-get update
 
-Instalar paquetes necesarios para la instalación
+# Instalar paquetes necesarios para la instalación
 $ sudo apt-get install -y apt-transport-https software-properties-common ca-certificates curl wget
 
-Agregar clave GPG para el repositorio de Docker
+# Agregar clave GPG para el repositorio de Docker
 $ wget https://download.docker.com/linux/ubuntu/gpg 
 $ sudo apt-key add gpg
 $ sudo apt-get update
 
-Agregar el repositorio docker a las fuentes APT
+# Agregar el repositorio docker a las fuentes APT
 $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 
-Actualizar la base de datos de paquetes
+# Actualizar la base de datos de paquetes
 $ sudo apt-get update
 
-Asegurarse de que se va instalar docker del repositorio oficial y no del por defecto de ubuntu
+# Asegurarse de que se va instalar docker del repositorio oficial y no del por defecto de ubuntu
 $ apt-cache policy docker-ce
-Esto desplegará algo como esto:
+#Esto desplegará algo como esto:
 Output of apt-cache policy docker-ce
 docker-ce:
   Installed: (none)
@@ -32,33 +32,33 @@ docker-ce:
         500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
 Note que docker-ce no está instalado y toma como candidato una versión de repositorio oficial para Ubuntu 18.04 (bionic).
 
-Instalar Docker
+# Instalar Docker
 $ sudo apt-get -y install docker-ce
 
-Verificar la instalación de docker
+# Verificar la instalación de docker
 $ sudo systemctl status docker
 
-Decirle al sistema que arranque siempre con docker
+# Decirle al sistema que arranque siempre con docker
 $ sudo systemctl start docker
 $ sudo systemctl enable docker
 
-Verificar que docker funciona correctamente
+# Verificar que docker funciona correctamente
 $ sudo docker run hello-world
 
-Opcional: Agregar usuario al grupo docker para evitar esribir sudo todo el tiempo
+# Opcional: Agregar usuario al grupo docker para evitar esribir sudo todo el tiempo
 $ sudo usermod -aG docker <nombre_usuario>
-Aplicar la membresía al grupo
+# Aplicar la membresía al grupo
 $ su - <nombre_usuario>
-Confirmar que el usuario se encuentra en el grupo de docker
+# Confirmar que el usuario se encuentra en el grupo de docker
 $ id -nG
 
-Instalar docker-compose
-Desactivar fish
+# Instalar docker-compose
+# Desactivar fish
 $ bash
-Instalar
+# Instalar
 $ sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
-Revisar si se encuentra bien instalado
+#Revisar si se encuentra bien instalado
 $ docker-compose --version
 ```
 
