@@ -7,6 +7,11 @@ sudo apt-get install apache2
 # Ver log de errores de apache 
 vim /var/log/apache2/error.log
 
+# Instalar MariaDB
+sudo apt update
+sudo apt install mariadb-server
+sudo mysql_secure_installation
+
 # Instalar Mysql
 sudo apt-get install mysql-server mysql-client
 
@@ -176,3 +181,6 @@ Optimizar mysql
 
 Instalar php multiversion
 - https://www.digitalocean.com/community/tutorials/how-to-install-php-7-4-and-set-up-a-local-development-environment-on-ubuntu-18-04
+
+Instalar mariabd
+- https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-22-04
