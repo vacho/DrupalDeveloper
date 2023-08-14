@@ -2,7 +2,7 @@ GIT
 ===
 ```bash
 # Instalación en sistemas debian, ubuntu
-  apt-get install git
+  sudo apt-get install git
 
 # Configuración de usuario
   git config --global user.name usuario
