@@ -7,38 +7,34 @@ sudo apt-get install apache2
 # Ver log de errores de apache 
 vim /var/log/apache2/error.log
 
-# Instalar MariaDB
+# Instalar MariaDB o mysql
+
+# MariaDB
 sudo apt-get install wget software-properties-common dirmngr ca-certificates apt-transport-https -y
 sudo apt update
 sudo apt install mariadb-server mariadb-client
 sudo mysql_secure_installation
-
-# Instalar Mysql
+# Mysql
 sudo apt-get install mysql-server mysql-client
-
-# Ajustar opciones de Seguridad de Mysql
 sudo mysql_secure_installation
 
 # Habilitar que el usuario root puede loguearse por consola y web
 sudo mysql -u root
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mi_clave'; 
 
-# Instalar PHP
+# Instalar PHP general o multiversion
+
+# PHP general
 sudo apt-get install php
 sudo apt-get install php-cli
 sudo apt-get install libapache2-mod-php
-# o
-sudo apt-get install php php-cli libapache2-mod-php
 
-## Vs 
-
-# Instalar PHP multiversion
+# PHP multiversion
 sudo apt -y install software-properties-common
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update
 sudo apt install php7.4
 sudo apt install php8.1
-
 
 # Camniar version de php que se desea utilizar.
 sudo a2dismod php7.2
