@@ -8,8 +8,9 @@ sudo apt-get install apache2
 vim /var/log/apache2/error.log
 
 # Instalar MariaDB
+sudo apt-get install wget software-properties-common dirmngr ca-certificates apt-transport-https -y
 sudo apt update
-sudo apt install mariadb-server
+sudo apt install mariadb-server mariadb-client
 sudo mysql_secure_installation
 
 # Instalar Mysql
