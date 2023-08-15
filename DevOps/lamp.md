@@ -56,8 +56,7 @@ sudo apt-get install php7.0-mbstring
 sudo apt-get install php-mbstring
 sudo apt-get install php-gettext
 sudo apt-get install php-bcmath
-# o
-sudo apt-get install php-mysql php-gd php-curl php-cgi php-pear php-mcrypt php7.0-mbstring php-mbstring php-gettext php-bcmath
+sudo apt-get install php-dom
 
 # Desinstalar php completamente
 sudo apt-get purge 'php*'
