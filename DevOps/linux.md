@@ -109,6 +109,9 @@ Redes
 ```bash
 #Lista todas las interfaces de red y su estado
 rfkill list all
+
+#Instalar open ssh para permitir acceso remoto
+https://www.cyberciti.biz/faq/ubuntu-linux-install-openssh-server/
 ```
 
 Gestion Ubuntu
