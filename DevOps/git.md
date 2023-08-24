@@ -244,6 +244,16 @@ rm 'debug.log'
 git commit -m "Start ignoring debug.log"
 ```
 
+Editar .gitignore
+===
+```bash
+-- Hacer cambios en .gitignore
+git rm -r --cached . 
+git add .
+git commit -m "..."
+
+```
+
 
 REFERENCIAS
 ---
