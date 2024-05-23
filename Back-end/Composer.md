@@ -84,6 +84,12 @@ drush config:export --diff
 
 # Actualiza módulo para apartado require-dev
 composer require --dev drupal/upgrade_status:^3.17 --with-all-dependencies
+
+# Actualizaciones con revisión previa de compatibilidad
+composer require 'drupal/core-recommended:^10' 'drupal/core-composer-scaffold:^10' 'drupal/core-project-message:^10' --no-update
+composer update --dry-run
+composer update
+composer install
 ```
 
 #### Remover un componente
