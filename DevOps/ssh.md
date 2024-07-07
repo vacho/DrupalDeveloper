@@ -7,6 +7,9 @@ SSH
 # Logueo remoto por ssh
   ssh -p 2222 usuario@200.58.81.32
 
+# Generar key para conexion en remoto: va a generar una clave privada y una publica .pub
+  ssh-keygen -t ed25519 -C "algun comentario"
+
 ```
 
 
