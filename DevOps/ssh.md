@@ -10,6 +10,10 @@ SSH
 # Generar key para conexion en remoto: va a generar una clave privada y una publica .pub
   ssh-keygen -t ed25519 -C "algun comentario"
 
+# Copiar key ssh a servidor: y ahora conecta sin necesidad del password del sistema operativo, sino solo con la clave del key creado
+  ssh-copy-id -i ~/.ssh/id_ed25519.pub 200.58.81.32
+  ssh 200.58.81.32
+
 ```
 
 
