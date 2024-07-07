@@ -14,6 +14,8 @@ SSH
   ssh-copy-id -i ~/.ssh/id_ed25519.pub 200.58.81.32
   ssh 200.58.81.32
 
+# Iniciar conexion sin escribir contraseña
+
 ```
 
 
