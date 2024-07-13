@@ -7,6 +7,14 @@ KUBERNETES
  - Windows, Mac, Linux => Minikube: Maquina virtual con kubernetes + plugins
  - Entorno remoto clopud => DigitalOcean
 #
+
+# Administrar kubernetes remotos mediante Config file.
+- 1: tener instalado kubectl
+- 2: Descagar el archivo "Config File" por ejemplo de digitlocean o servidor que aloja la administracion de kubernetes => xxx-kubeconfig.yml
+- 3: Permitir de khubectl reconozca la configuracion
+  export KUBECONFIG=/some-path/xxxx-kubeconfig.yaml
+- 4. Provar con comando para ver todos los nods
+  kubectl get nodes
 ```
 
 
