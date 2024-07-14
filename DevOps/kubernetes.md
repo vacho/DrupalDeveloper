@@ -6,7 +6,14 @@ KUBERNETES
  - Linux => kind
  - Windows, Mac, Linux => Minikube: Maquina virtual con kubernetes + plugins
  - Entorno remoto clopud => DigitalOcean
-#
+
+# Conceptos principales
+= Container.-Unidad de software que empaqueta y ejecuta una aplicacion entera.
+- Aplicacion containerizada.- Un aplicacion que ha sido especialmente construida para ejecutarse en containers.
+- Pod.- Coleccion de una o mas Aplicaciones Containerizadas.
+- Node.- Maquina fisica o virtual que colecciona uno o mas Pods. Tambien llamnado como Worker Machine.
+  Componentes de un node: Kubelet, Container runtume and Kube-proxy.
+- Kubenetes Cluster.- A set of Nodes.
 
 # Administrar kubernetes remotos mediante Config file.
 - 1: tener instalado kubectl
@@ -15,6 +22,9 @@ KUBERNETES
   export KUBECONFIG=/some-path/xxxx-kubeconfig.yaml
 - 4. Provar con comando para ver todos los nods
   kubectl get nodes
+
+
+
 ```
 
 
