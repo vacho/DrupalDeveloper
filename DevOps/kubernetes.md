@@ -20,7 +20,9 @@ Conceptos y comandos para empezar
 
 # Conceptos de infraestructura
 - Deployment.- Manifiesto yml que contiene los pods, replicas y containers. Kubernetes se encarga de que se cumpla esa infraestructura, siempre que se pueda.
-- Daemontset.- Manifiesto yml que contiene un Deployment, y que se debe desplegar en todos los nodos.
+- DaemonSet.- Manifiesto yml que contiene un Deployment, y que se debe desplegar en todos los nodos.
+- StatefulSet.- Manifiesto yml que contiene un deployment y que se cotendra en volumen atado, utilizado para base de datos.
+- pvc.- Persistent Volume Claim.
 
 # Administrar kubernetes remotos mediante Config file.
 - 1: tener instalado kubectl
@@ -59,8 +61,12 @@ kubectl apply -f nombre_archivo_contiene_info_pod.yml
 
  # Dar de baja un manifiesto: deployment, daemontset
  kubectl delete -f nombre_archivo_contiene_manifiesto.yaml
+ 
+ # Ver todos los pvc
+ kubectl get pvc
 
-
+ # Describir un recurso: pod, node, pvc, etc.
+ kubectl describe <nombre_recurso>
 ```
 
 
