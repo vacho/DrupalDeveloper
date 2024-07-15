@@ -2,14 +2,14 @@ KUBERNETES
 ===
 
 Conceptos y comandos para empezar
-```text
+```md
 # Tecnologias recomendadas 
  - Windows, Mac, Linux => DockerDesktop
  - Linux => kind
  - Windows, Mac, Linux => Minikube: Maquina virtual con kubernetes + plugins
  - Entorno remoto clopud => DigitalOcean
 
-# Conceptos principales
+# Conceptos basicos
 = Container.-Unidad de software que empaqueta y ejecuta una aplicacion entera.
 - Aplicacion containerizada.- Un aplicacion que ha sido especialmente construida para ejecutarse en containers.
 - Pod.- Coleccion de una o mas Aplicaciones Containerizadas.
@@ -17,6 +17,10 @@ Conceptos y comandos para empezar
   Componentes de un node: Kubelet, Container runtume and Kube-proxy.
 - Kubenetes Cluster.- Una coleccion de Nodos.
 - Namespace.- Division logica de tu cluster de kubernetes.
+
+# Conceptos de infraestructura
+- Deployment.- Manifiesto yml que contiene los pods, replicas y containers. Kubernetes se encarga de que se cumpla esa infraestructura, siempre que se pueda.
+- Daemontset.- Manifiesto yml que contiene un Deployment, y que se debe desplegar en todos los nodos.
 
 # Administrar kubernetes remotos mediante Config file.
 - 1: tener instalado kubectl
@@ -49,12 +53,16 @@ kubectl apply -f nombre_archivo_contiene_info_pod.yml
 
 # Entrar modo ssh a un pod
  kubectl exec -it nombre_pod -- sh
+
+ # Levantar un manifiesto: deployment, daemontset
+ kubectl apply -f nombre_archivo_contiene_manifiesto.yaml
+
+ # Dar de baja un manifiesto: deployment, daemontset
+ kubectl delete -f nombre_archivo_contiene_manifiesto.yaml
+
+
 ```
 
-Deployment
-```bash
-
-```
 
 REFERENCIAS
 ---
