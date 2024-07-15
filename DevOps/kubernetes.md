@@ -24,6 +24,12 @@ Conceptos y comandos para empezar
 - StatefulSet.- Manifiesto yml que contiene un deployment y que se cotendra en volumen atado, utilizado para base de datos.
 - pvc.- Persistent Volume Claim.
 
+# Concepto: Servicios
+- Cluster IP.- Ip fija dentro del clouster, osea ip privada para uso unico dentro del clouster.
+- Node Port.- Crea un puerto en cada nodo, para recibir el trafico y mandar a los pods que se necesite enviar mediante el puerto.
+- Load Balancer.- Balanceador de carga con el proveedor de nube.
+
+
 # Administrar kubernetes remotos mediante Config file.
 - 1: tener instalado kubectl
 - 2: Descagar el archivo "Config File" por ejemplo de digitlocean o servidor que aloja la administracion de kubernetes => xxx-kubeconfig.yml
@@ -56,16 +62,19 @@ kubectl apply -f nombre_archivo_contiene_info_pod.yml
 # Entrar modo ssh a un pod
  kubectl exec -it nombre_pod -- sh
 
- # Levantar un manifiesto: deployment, daemontset
+# Entrar modo bash a un pod
+ kubectl exec -it ubuntu -- bash
+
+# Levantar un manifiesto: deployment, daemontset
  kubectl apply -f nombre_archivo_contiene_manifiesto.yaml
 
- # Dar de baja un manifiesto: deployment, daemontset
+# Dar de baja un manifiesto: deployment, daemontset
  kubectl delete -f nombre_archivo_contiene_manifiesto.yaml
  
- # Ver todos los pvc
+# Ver todos los pvc
  kubectl get pvc
 
- # Describir un recurso: pod, node, pvc, etc.
+# Describir un recurso: pod, node, pvc, etc.
  kubectl describe <nombre_recurso>
 ```
 
