@@ -51,10 +51,11 @@ kubectl get nodes
 kubectl get ns
 
 # Ver los pods
+kubectl -n nombre_namespace get pods
 kubectl -n kube-system get pods
 
 # Borrar un pod
-kubectl -n kube-system delete pod <nombre_pod>
+kubectl -n kube-system delete pod nombre_pod
 
 # Levantar un pod
 kubectl apply -f nombre_archivo_contiene_info_pod.yml
