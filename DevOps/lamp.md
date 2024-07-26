@@ -22,19 +22,14 @@ sudo mysql_secure_installation
 sudo mysql -u root
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mi_clave'; 
 
-# Instalar PHP general o multiversion
-
-# PHP general
-sudo apt-get install php
-sudo apt-get install php-cli
-sudo apt-get install libapache2-mod-php
-
 # PHP multiversion
 sudo apt -y install software-properties-common
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update
 sudo apt install php7.4
 sudo apt install php8.1
+sudo apt-get install php-cli
+sudo apt-get install libapache2-mod-php
 
 # Camniar version de php que se desea utilizar.
 sudo a2dismod php7.2
