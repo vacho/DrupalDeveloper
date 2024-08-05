@@ -136,3 +136,5 @@ https://docs.docker.com/engine/reference/commandline/docker/
 Entorno drupal con las herramientas más útiles
 https://cloud.wodby.com/stackhub/ada51e9b-2204-45ee-8e49-a4151912a168/overview
 
+Montar docker en windows wsl
+https://dev.to/felipecrs/simply-run-docker-on-wsl2-3o8
