@@ -64,7 +64,7 @@ $ docker-compose --version
 
 
 #### Instalar docker en ubuntu 16.04
-```
+```bash
 Crear una cuenta de usuario que no sea root, con privilegios de sudo
 $ adduser docker
 $ usermod -aG sudo docker
@@ -104,7 +104,7 @@ $ sudo apt-get install make
 ```
 
 #### Montar drupal y ejecutarlo
-```
+```bash
 Bajar contenedor oficial de drupal ()
 $ docker pull drupal
 
