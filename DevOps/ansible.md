@@ -27,6 +27,8 @@ ansible all -m ping
 ansible all --list-hosts
 # info detallada de los servidores.
 ansible all -m gather_facts
+# info detallada de un servidor y una variable.
+ansible all -m gather_facts --limit 172.16.250.134 | grep ansible_distribution
 # Equivalente a "sudo apt-get update" (ubuntu)
 ansible all -m apt -a update_cache=true --become --ask-become-pass
 # Equivalente a "sudo apt-get install vim-nox" (ubuntu)
@@ -65,7 +67,7 @@ ansible-playbook --ask-become-pass install_apache.yml
 ```
 
 ```bash
-# Agregamos a inventory un 4to servidor con SO Centos
+# Agregamos a inventory un 4to servidor con SO Centos y optimizamos el yml.
 <inventory>
 172.16.250.132
 172.16.250.133
@@ -79,25 +81,31 @@ ansible-playbook --ask-become-pass install_apache.yml
   become: true
   tasks:
 
-  - name: update repository index
+  - name: install apache2 and php for Ubuntu
     apt:
+      name:
+        - apache2
+        - libapache2-mod-php
+      state: latest
       update_cache: yes
-    when: ansible_distribution == "Ubuntu"
+    when: ansible_distribution == ["Debian", "Ubuntu"]
 
-  - name: install apache2
-    apt:
-      name: apache2
+  - name: install apache and php for CentOS
+    dnf:
+      name:
+        - httpd
+        - php
       state: latest
-    when: ansible_distribution == "Ubuntu"
-
-  - name: add php support for apache
-    apt:
-      name: libapache2-mod-php
-      state: latest
-    when: ansible_distribution == "Ubuntu"
+      update_cache: yes
+    when: ansible_distribution == "CentOS"
 
 # Comando
 ansible-playbook --ask-become-pass install_apache.yml
+```
+
+```bash
+# uso de variables.
+
 ```
 
 
