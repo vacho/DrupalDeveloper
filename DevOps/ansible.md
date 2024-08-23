@@ -105,6 +105,26 @@ ansible-playbook --ask-become-pass install_apache.yml
 
 ```bash
 # uso de variables.
+<inventory>
+172.16.250.132 apache_package=apache2 php_package=libapache2-mod-php
+172.16.250.133 apache_package=apache2 php_package=libapache2-mod-php
+172.16.250.134 apache_package=apache2 php_package=libapache2-mod-php
+172.16.250.248 apache_package=httpd php_package=php
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install apache2 and php
+    package:
+      name:
+        - "{{ apache_package }}"
+        - "{{ php_package }}"
+      state: latest
+      update_cache: yes
+
+# Comando
+ansible-playbook --ask-become-pass install_apache.yml
 
 ```
 
