@@ -130,7 +130,7 @@ ansible-playbook --ask-become-pass install_apache.yml
 ```
 
 ```bash
-# Playboook etiquetando nodos
+# Playboook agrupando y etiquetando nodos
 <inventory>
 [web_servers]
 172.16.250.132
@@ -148,12 +148,14 @@ ansible-playbook --ask-become-pass install_apache.yml
   tasks:
 
   - name: install updates (CentOS)
+    tags: always
     dnf:
       update_only: yes
       update_cache: yes
     when: ansible_distribution == "CentOS"  
 
   - name: install updates (Ubuntu)
+    tags: always
     apt:
       upgrade: yes
       update_cache: yes
@@ -164,6 +166,7 @@ ansible-playbook --ask-become-pass install_apache.yml
   tasks:
 
   - name: install apache2 and php for Ubuntu
+    tags: apache, apache2, ubuntu
     apt:
       name:
         - apache2
@@ -173,6 +176,7 @@ ansible-playbook --ask-become-pass install_apache.yml
     when: ansible_distribution == ["Debian", "Ubuntu"]
 
   - name: install apache and php for CentOS
+    tags: apache, httpd, centos
     dnf:
       name:
         - httpd
@@ -186,12 +190,14 @@ ansible-playbook --ask-become-pass install_apache.yml
   tasks:
   
   - name: install mariadb package (CentOS)
+    tags: centos, db, mariadb
     dnf:
       name: mariadb
       state: latest
     when: ansible_distribution == "CentOS"
 
   - name: install mariadb package (Ubuntu)
+    tags: ubuntu, db, mariadb
     apt:
       name: mariadb-server
       state: latest
@@ -202,12 +208,18 @@ ansible-playbook --ask-become-pass install_apache.yml
   tasks:
 
   - name: install samba package
+    tags: samba
     package:
       name: samba
       state: latest
 
 # Comando
+ansible-playbook --list-tags site.yml
 ansible-playbook --ask-become-pass site.yml
+# Ejecutar sólo los playbooks para los que tienen la etiqueta "centos"
+ansible-playbook --tags centos --ask-become-pass site.yml
+# Ejecutar sólo los playbooks para los que tienen la etiqueta "db y apache"
+ansible-playbook --tags "db,apache" --ask-become-pass site.yml
 
 ```
 
