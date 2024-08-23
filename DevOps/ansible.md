@@ -23,7 +23,6 @@ private_key_file = ~/.ssh/ansible
 172.16.250.133
 172.16.250.134
 
-
 ansible all -m ping
 ansible all --list-hosts
 # info detallada de los servidores.
@@ -38,7 +37,30 @@ ansible all -m apt -a "name=snapd state=latest" --become --ask-become-pass
 ansible all -m apt -a "upgrade=dist" --become --ask-become-pass
 ```
 ```bash
-# 
+# Playbooks: instalar apache en los servidores ubuntu.
+<install_apache.yml>
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repository index
+    apt:
+      update_cache: yes
+
+  - name: install apache2
+    apt:
+      name: apache2
+      state: latest
+  
+  - name: add php support for apache
+    apt:
+      name: libapache2-mod-php
+      state: latest
+
+ansible-playbook --ask-become-pass install_apache.yml
+# Nota: "state: absent" para desinstalar
 ```
 
 
