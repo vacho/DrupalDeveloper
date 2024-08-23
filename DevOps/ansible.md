@@ -224,6 +224,13 @@ ansible-playbook --tags "db,apache" --ask-become-pass site.yml
 
 ```bash
 # Manejando archivos
+<inventory>
+...
+
+[workstations]
+172.16.250.135
+
+
 <files/default_site.html>
 <html>
   <title>Web-site test</title>
@@ -235,6 +242,23 @@ ansible-playbook --tags "db,apache" --ask-become-pass site.yml
 # Agregamos a site.yml
 <site.yml>
 ...
+- hosts: workstations
+  became: true
+  tasks:
+  
+  - name: install unzip
+    package:
+      name: unzip
+  
+  - name: install terraform
+    unarchive:
+      src: https://releases.hashicorp.com/terraform/0.12.28.terraform_0.12.28_linux_amd64.zip
+      dest: /usr/local/bin
+      remote_src: yes
+      mode: 0755
+      owner: root
+      group: root
+
 - hosts: web_servers
   become: true
   tasks:

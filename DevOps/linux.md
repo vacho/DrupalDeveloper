@@ -155,6 +155,9 @@ $ bash
 # Para volver
 fish
 
+# Warp: una utilidad para la terminal que incluyo autocompletar, bloques, ia, drive.
+https://www.warp.dev/
+
 # Descargar un archivo de internet
 wget http://www.nombreweb.com/archivo.ext
   
