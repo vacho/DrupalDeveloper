@@ -38,6 +38,7 @@ ansible all -m apt -a "name=snapd state=latest" --become --ask-become-pass
 # Equivalente a "sudo apt-get dist-upgrade"(ubuntu)
 ansible all -m apt -a "upgrade=dist" --become --ask-become-pass
 ```
+
 ```bash
 # Playbooks: instalar apache en los servidores ubuntu.
 <install_apache.yml>
@@ -111,6 +112,7 @@ ansible-playbook --ask-become-pass install_apache.yml
 172.16.250.134 apache_package=apache2 php_package=libapache2-mod-php
 172.16.250.248 apache_package=httpd php_package=php
 
+<install_apache.yml>
 - hosts: all
   become: true
   tasks:
@@ -125,9 +127,89 @@ ansible-playbook --ask-become-pass install_apache.yml
 
 # Comando
 ansible-playbook --ask-become-pass install_apache.yml
-
 ```
 
+```bash
+# Playboook etiquetando nodos
+<inventory>
+[web_servers]
+172.16.250.132
+172.16.250.248
+
+[db_servers]
+172.16.250.133
+
+[file_servers]
+172.16.250.134
+
+<site.yml>
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install updates (CentOS)
+    dnf:
+      update_only: yes
+      update_cache: yes
+    when: ansible_distribution == "CentOS"  
+
+  - name: install updates (Ubuntu)
+    apt:
+      upgrade: yes
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"  
+
+- hosts: web_servers
+  become: true
+  tasks:
+
+  - name: install apache2 and php for Ubuntu
+    apt:
+      name:
+        - apache2
+        - libapache2-mod-php
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == ["Debian", "Ubuntu"]
+
+  - name: install apache and php for CentOS
+    dnf:
+      name:
+        - httpd
+        - php
+       state: latest
+      update_cache: yes
+    when: ansible_distribution == "CentOS"
+
+- hosts: db_servers
+  become: true
+  tasks:
+  
+  - name: install mariadb package (CentOS)
+    dnf:
+      name: mariadb
+      state: latest
+    when: ansible_distribution == "CentOS"
+
+  - name: install mariadb package (Ubuntu)
+    apt:
+      name: mariadb-server
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+- hosts: file_servers
+  become: true
+  tasks:
+
+  - name: install samba package
+    package:
+      name: samba
+      state: latest
+
+# Comando
+ansible-playbook --ask-become-pass site.yml
+
+```
 
 
 REFERENCIAS
