@@ -59,8 +59,45 @@ ansible all -m apt -a "upgrade=dist" --become --ask-become-pass
       name: libapache2-mod-php
       state: latest
 
+# Comando
 ansible-playbook --ask-become-pass install_apache.yml
 # Nota: "state: absent" para desinstalar
+```
+
+```bash
+# Agregamos a inventory un 4to servidor con SO Centos
+<inventory>
+172.16.250.132
+172.16.250.133
+172.16.250.134
+172.16.250.248
+
+<install_apache.yml>
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repository index
+    apt:
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+  - name: install apache2
+    apt:
+      name: apache2
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: add php support for apache
+    apt:
+      name: libapache2-mod-php
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+# Comando
+ansible-playbook --ask-become-pass install_apache.yml
 ```
 
 
