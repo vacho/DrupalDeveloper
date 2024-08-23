@@ -220,11 +220,43 @@ ansible-playbook --ask-become-pass site.yml
 ansible-playbook --tags centos --ask-become-pass site.yml
 # Ejecutar sólo los playbooks para los que tienen la etiqueta "db y apache"
 ansible-playbook --tags "db,apache" --ask-become-pass site.yml
-
 ```
 
+```bash
+# Manejando archivos
+<files/default_site.html>
+<html>
+  <title>Web-site test</title>
+  <body>
+  <p>Ansible is awesome!</p>
+  </body>
+</html>
+
+# Agregamos a site.yml
+<site.yml>
+...
+- hosts: web_servers
+  become: true
+  tasks:
+
+  ...
+
+  - name: Copy default html file for site
+    tags: apache, apache2, httpd
+    copy:
+      src: default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+
+
+```
 
 REFERENCIAS
 ---
 Tutorial completo ansible
 - https://www.youtube.com/watch?v=-Q4T9wLsvOQ&list=PLT98CRl2KxKEUHie1m24-wkyHpEsa4Y70&index=2
+
+Repositorio del curso
+- https://github.com/LearnLinuxTV/getting_started_with_ansible
