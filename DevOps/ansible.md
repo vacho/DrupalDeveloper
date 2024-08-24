@@ -1,13 +1,17 @@
 ANSIBLE
 ===
+
+Instalación
+--
 ```bash
 # Instalación en servidor ubuntu
   sudo apt-get install ansible
 ```
 
+Comandos ad-hoc
+--
 ```bash
-# Comandos ad-hoc
-  sudo apt-get install ansible
+sudo apt-get install ansible
 
 ansible all --key-file ~/.ssh/ansible -i inventory -m ping
 
@@ -39,8 +43,9 @@ ansible all -m apt -a "name=snapd state=latest" --become --ask-become-pass
 ansible all -m apt -a "upgrade=dist" --become --ask-become-pass
 ```
 
+Playbooks: instalar apache en los servidores ubuntu.
+--
 ```bash
-# Playbooks: instalar apache en los servidores ubuntu.
 <install_apache.yml>
 ---
 
@@ -67,8 +72,9 @@ ansible-playbook --ask-become-pass install_apache.yml
 # Nota: "state: absent" para desinstalar
 ```
 
+Agregamos a inventory un 4to servidor con SO Centos y optimizamos el yml.
+--
 ```bash
-# Agregamos a inventory un 4to servidor con SO Centos y optimizamos el yml.
 <inventory>
 172.16.250.132
 172.16.250.133
@@ -104,8 +110,9 @@ ansible-playbook --ask-become-pass install_apache.yml
 ansible-playbook --ask-become-pass install_apache.yml
 ```
 
+Uso de variables.
+--
 ```bash
-# uso de variables.
 <inventory>
 172.16.250.132 apache_package=apache2 php_package=libapache2-mod-php
 172.16.250.133 apache_package=apache2 php_package=libapache2-mod-php
@@ -129,8 +136,9 @@ ansible-playbook --ask-become-pass install_apache.yml
 ansible-playbook --ask-become-pass install_apache.yml
 ```
 
+Playboook agrupando y etiquetando nodos
+--
 ```bash
-# Playboook agrupando y etiquetando nodos
 <inventory>
 [web_servers]
 172.16.250.132
@@ -222,8 +230,9 @@ ansible-playbook --tags centos --ask-become-pass site.yml
 ansible-playbook --tags "db,apache" --ask-become-pass site.yml
 ```
 
+Manejando archivos
+--
 ```bash
-# Manejando archivos
 <inventory>
 ...
 
@@ -278,8 +287,9 @@ ansible-playbook --tags "db,apache" --ask-become-pass site.yml
 ansible-playbook --ask-become-pass site.yml
 ```
 
+Playbook servicios
+--
 ```bash
-# Playbook servicios
 # Agregamos a site.yml
 <site.yml>
 - hosts: all
@@ -323,8 +333,9 @@ ansible-playbook --ask-become-pass site.yml
 ansible-playbook --ask-become-pass site.yml
 ```
 
+Playbook Crear usuarios
+--
 ```bash
-# Playbook create user
 <files/sudoer_simone>
 simone ALL=(ALL) NOPASWD: ALL
 
@@ -367,8 +378,9 @@ remote_user = simone
 ansible-playbook site.yml
 ```
 
+Playboos bootstrap
+--
 ```bash
-#Playboos bootstrap
 <bootstrap.yml>
 - hosts: all
   become: true
