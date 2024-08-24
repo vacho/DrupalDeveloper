@@ -274,8 +274,57 @@ ansible-playbook --tags "db,apache" --ask-become-pass site.yml
       group: root
       mode: 0644
 
+#comando
+ansible-playbook --ask-become-pass site.yml
+```
+
+```bash
+# Playbook servicios
+# Agregamos a site.yml
+<site.yml>
+- hosts: all
+  become: true
+  tasks:
+
+...
+
+- hosts: web_servers
+  become: true
+  tasks:
+
+...
+
+  - name: start httpd (CentOS)
+    tags: apache, centos, httpd
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+    when: ansible_distribution == "CentOS"
+
+  # Change ServerAdmin in httpd.conf
+  - name: change e-mail address for admin
+    tags: apache, centos, httpd
+    lineinfile:
+      path: /etc/httpd/conf/httpd.conf
+      regexp: '^ServerAdmin'
+      line: ServerAdmin somebody@gmail.com
+    when: ansible_distribution == "CentOS"
+    register: httpd
+ 
+  - name: restar httpd (CentOS)
+    tags: apache, centos, httpd
+    service:
+      name: httpd
+      state: restarted
+    when: httpd.changed
+
+#comando
+ansible-playbook --ask-become-pass site.yml
 
 ```
+
+
 
 REFERENCIAS
 ---
