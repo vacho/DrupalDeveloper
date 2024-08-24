@@ -321,9 +321,51 @@ ansible-playbook --ask-become-pass site.yml
 
 #comando
 ansible-playbook --ask-become-pass site.yml
-
 ```
 
+```bash
+# Playbook create user
+<files/sudoer_simone>
+simone ALL=(ALL) NOPASWD: ALL
+
+<ansible.cfg>
+[defaults]
+inventory = inventory
+private_key_file = ~/.ssh/ansible
+remote_user = simone
+
+<site.yml>
+
+...
+
+- hosts: all
+  become: true
+  tasks: 
+
+  - name: create simone user
+    tags: always
+    user:
+      name: simone
+      groups: root
+  
+  - name: add ssh key for simone
+    tags: always
+    authorized_key:
+      user: simone
+      key: "ssh-ed23...."
+  
+  - name: add sudoers file for simone
+    tags: always
+    copy:
+      src: sudoer_simone
+      dest: /etc/sudoers.d/simone
+      owner: root
+      group: root
+      mode: 0440
+
+#comando ejecuta como simone sin "--ask-become-pass"
+ansible-playbook site.yml
+```
 
 
 REFERENCIAS
