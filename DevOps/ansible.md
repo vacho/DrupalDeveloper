@@ -578,6 +578,67 @@ Roles
 ansible-playbook site.yml
 ```
 
+Host variables y Handlers
+--
+```bash
+<host_vars/172.16.250.132.yml>
+<host_vars/172.16.250.133.yml>
+<host_vars/172.16.250.134.yml>
+apache_package_name: apache2
+apache_service: apache2
+php_package_name: libapache2-mod-php
+
+<host_vars/172.16.250.248.yml>
+apache_package_name: httpd
+apache_service: htppd
+php_package_name: php
+
+<roles/web_servers/tasks/main.yml>
+- name: install apache and php packages
+  tags: apache,httpd,php
+  package:
+    name:
+      - "{{ apache_package_name }}"
+      - "{{ php_package_name }}"
+    state: latest
+
+- name: start and enable apache service
+  tags: apache,httpd
+  service:
+    name: "{{ apache_service }}"
+    state: started
+    enabled: yes
+
+# Change ServerAdmin in httpd.conf
+- name: change e-mail address for admin
+  tags: apache,centos,httpd
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: '^ServerAdmin'
+    line: ServerAdmin somebody@gmail.com
+  when: ansible_distribution == "CentOS"
+  notify: restart_apache
+
+- name: copy default html file for site
+  tags: apache,apache2,httpd
+  copy:
+    src: default_site.html
+    dest: /var/www/html/index.html
+    owner: root
+    group: root
+    mode: 0644
+
+<roles/webservers/handlers/main.yml>
+- name: restart_apache
+  service:
+    name: "{{ apache_service}}"
+    state: restarted
+
+#Comando
+ansible-playbook site.yml
+
+```
+
 REFERENCIAS
 ---
 Tutorial completo ansible
