@@ -423,6 +423,160 @@ Playboos bootstrap
 
 ```
 
+Roles
+--
+```bash
+<site.yml>
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: update repository index (CentOS)
+    tags: always
+    dnf:
+      update_cache: yes
+    changed_when: false
+    when: ansible_distribution == "CentOS"
+
+  - name: update repository index (Ubuntu)
+    tags: always
+    apt:
+      update_cache: yes
+    changed_when: false
+    when: ansible_distribution == "Ubuntu"
+
+- hosts: all
+  become: true
+  roles:
+    - base
+      
+- hosts: workstations
+  become: true
+  roles:
+    - workstations
+  
+- hosts: web_servers
+  become: true
+  roles:
+    - web_servers
+
+- hosts: db_servers
+  become: true
+  roles:
+    - db_servers
+
+- hosts: file_servers
+  become: true
+  roles:
+    - file_servers
+
+
+<roles/base/tasks/main.yml>
+- name: add ssh key for simone
+  authorized_key:
+    user: simone
+    key: "ssh-ed23..."
+
+<roles/db_servers/tasks/main.yml>
+- name: install mariadb package (CentOS)
+  tags: centos, db, mariadb
+  dnf:
+    name: mariadb
+    state: latest
+  when: ansible_distribution == "CentOS"
+
+- name: install mariadb package (Ubuntu)
+  tags: ubuntu, db, mariadb
+  apt:
+    name: mariadb-server
+    state: latest
+  when: ansible_distribution == "Ubuntu"
+
+<roles/file_servers/tasks/main.yml>
+- name: install samba package
+  tags: samba
+  package:
+    name: samba
+    state: latest
+
+<roles/web_servers/tasks/main.yml>
+- name: install httpd package (CentOS)
+  dnf:
+    name:
+      - httpd
+      - php
+    state: latest
+  when: ansible_distribution == "CentOS"
+
+- name: start and enable httpd (CentOS)
+  tags: apache,centos,httpd
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+  when: ansible_distribution == "CentOS"
+
+- name: install apache2 (Ubuntu)
+  apt:
+    name:
+      - apache2
+      - libapache2-mod-php
+    state: latest
+  when: ansible_distribution == "Ubuntu"
+
+# Change ServerAdmin in httpd.conf
+- name: change e-mail address for admin
+  tags: apache,centos,httpd
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: '^ServerAdmin'
+    line: ServerAdmin somebody@gmail.com
+  when: ansible_distribution == "CentOS"
+  register: httpd
+
+- name: restar httpd (CentOS)
+  tags: apache,centos,httpd
+  service:
+    name: httpd
+    state: restarted
+  when: httpd.changed
+
+- name: copy default html file for site
+  tags: apache,apache2,httpd
+  copy:
+    src: default_site.html
+    dest: /var/www/html/index.html
+    owner: root
+    group: root
+    mode: 0644
+
+<roles/workstations/tasks/main.yml>
+- name: install unzip
+  package:
+    name: unzip
+
+- name: install terraform
+  unarchive:
+    src: https://releases.hashicorp.com/terraform/0.12.28.terraform_0.12.28_linux_amd64.zip
+    dest: /usr/local/bin
+    remote_src: yes
+    mode: 0755
+    owner: root
+    group: root
+
+<roles/webservers/files/default_site.html>
+<html>
+  <title>Web-site test</title>
+  <body>
+  <p>Ansible is awesome!</p>
+  </body>
+</html>
+
+#comando
+ansible-playbook site.yml
+```
 
 REFERENCIAS
 ---
