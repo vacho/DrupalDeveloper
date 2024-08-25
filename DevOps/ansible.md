@@ -636,8 +636,58 @@ php_package_name: php
 
 #Comando
 ansible-playbook site.yml
-
 ```
+
+Templates
+--
+```bash
+<roles/base/templates/sshd_config_centos.j2>
+...
+AllowUsers {{ ssh_users }}
+...
+
+<roles/base/templates/sshd_config_ubuntu.j2>
+...
+AllowUsers {{ ssh_users }}
+...
+
+<host_vars/172.16.250.132.yml>
+<host_vars/172.16.250.133.yml>
+<host_vars/172.16.250.134.yml>
+<host_vars/172.16.250.135.yml>
+apache_package_name: apache2
+apache_service: apache2
+php_package_name: libapache2-mod-php
+ssh_users: "jay simone"
+ssh_template_file: sshd_config_ubuntu.j2
+<host_vars/172.16.250.248.yml>
+apache_package_name: httpd
+apache_service: httpd
+php_package_name: php
+ssh_users: "jay simone"
+ssh_template_file: sshd_config_centos.j2
+
+<roles/base/tasks/main.yml>
+- name: generate sshd_config file from template
+  tags: ssh
+  template:
+    src: "{{ ssh_template_file }}"
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart_sshd
+
+<roles/base/handlres/main.yml>
+- name: restart_sshd
+  service:
+    name: sshd
+    state: restarted
+
+# Comando
+ansible-playbook site.yml
+```
+
 
 REFERENCIAS
 ---
