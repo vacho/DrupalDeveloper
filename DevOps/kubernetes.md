@@ -324,7 +324,7 @@ go install sigs.k8s.io/cloud-provider-kind@latest
 sudo cloud-provider-kind
 ```
 
-Jobs.- Asegura que los pods se estén ejecutando
+Jobs.- Asegura que los pods se ejecute
 ```bash
 <Jobs.yaml>
 apiVersion: batch/v1
@@ -365,7 +365,56 @@ spec:
 
 # Comandos
 kubectl apply -f Job.yaml
+```
 
+CronJob
+```bash
+<cronjob.yaml>
+
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: echo-date-better
+  namespace: 04--cronjob
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      parallelism: 1
+      completions: 1
+      activeDeadlineSeconds: 100
+      backoffLimit: 1
+      template:
+        metadata:
+          labels:
+            app: echo-date
+        spec:
+          containers:
+            - name: echo
+              image: cgr.dev/chainguard/busybox:latest
+              command: ["date"]
+              resources:
+                limits:
+                  memory: "50Mi"
+                requests:
+                  memory: "50Mi"
+                  cpu: "250m"
+              securityContext:
+                allowPrivilegeEscalation: false
+                privileged: false
+                runAsUser: 1001
+                runAsGroup: 1001
+                runAsNonRoot: true
+          restartPolicy: Never
+          securityContext:
+            seccompProfile:
+              type: RuntimeDefault
+
+#comandos
+kubectl apply -f cronjob.yaml
+kubectl get jobs
+#Ejecutar un crojob manualmente.
+kubectl create job --from=cronjob/echo-date-better manually-triggered
 ```
 
 REFERENCIAS
