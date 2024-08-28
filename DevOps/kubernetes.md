@@ -126,6 +126,7 @@ spec:
 
 # Comandos
 kubectl apply -f Pod.yaml
+kubectl port-forward -n ${NAMESPACE} nginx-better 8080:8080
 ```
 
 Replicas
@@ -232,6 +233,93 @@ kubectl get deployments.apps
 kubectl rollout restart deployment nginx-better
 kubectl rollout undo deployment nginx-better
 ```
+
+Services.- Expone los pods con un loadbalancer
+```bash
+<deploy.yaml>
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-minimal
+  labels:
+    foo: deployment-label
+  annotations:
+    bar: deployment-annotation
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      baz: pod-label
+  template:
+    metadata:
+      labels:
+        baz: pod-label
+      annotations:
+        bing: pod-annotation
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.26.0
+
+<clusterip.yaml>
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-clusterip
+  labels:
+    foo: service-label
+  annotations:
+    bar: service-annotation
+spec:
+  type: ClusterIP # This is the default value
+  selector:
+    baz: pod-label
+  ports:
+    - protocol: TCP
+      port: 80 # Port the service is listening on
+      targetPort: 80 # Port the container is listening on (if unset, defaults to equal port value)
+
+<nodeport.yaml>
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-nodeport
+spec:
+  type: NodePort
+  selector:
+    baz: pod-label
+  ports:
+    - protocol: TCP
+      port: 80 # Port the service is listening on
+      targetPort: 80 # Port the container is listening on (if unset, defaults to equal port value)
+      # nodePort: 30XXX (if unset, kubernetes will assign a port within 30000-32767)
+
+<loadbalancer.yaml>
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-loadbalancer
+spec:
+  type: LoadBalancer # Will only work if cluster is configured to provision one from an external source (e.g. cloud provider)
+  selector:
+    baz: pod-label
+  ports:
+    - protocol: TCP
+      port: 80 # Port the service is listening on
+      targetPort: 80 # Port the container is listening on (if unset, defaults to equal port value)
+
+# Comandos
+kubectl apply -f deploy.yaml
+kubectl apply -f clusterip.yaml
+kubectl apply -f nodeport.yaml
+kubectl apply -f loadbalancer.yaml
+kubectl get service
+
+# Para poder usar loadbalancer en kind
+go install sigs.k8s.io/cloud-provider-kind@latest
+sudo cloud-provider-kind
+```
+
 
 REFERENCIAS
 ---
