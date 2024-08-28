@@ -80,7 +80,7 @@ kubectl apply -f nombre_archivo_contiene_info_pod.yml
 
 Namespaces
 ```bash
-<Namespace.yml>
+<Namespace.yaml>
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -91,7 +91,7 @@ kubectl apply -f Namespace.yaml
 
 Pods
 ```bash
-<Pod.yml>
+<Pod.yaml>
 apiVersion: v1
 kind: Pod
 metadata:
@@ -130,7 +130,7 @@ kubectl apply -f Pod.yaml
 
 Replicas
 ```bash
-<Replicas.yml>
+<Replicas.yaml>
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
@@ -179,6 +179,55 @@ kubectl apply -f Replicas.yaml
 kubectl get replicasets.apps
 ```
 
+Deployments
+```bash
+<Deployment.yaml>
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-better
+  namespace: 04--deployment
+  labels:
+    app: nginx-better
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-better
+  template:
+    metadata:
+      labels:
+        app: nginx-better
+    spec:
+      containers:
+        - name: nginx
+          image: cgr.dev/chainguard/nginx:latest
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+          resources:
+            limits:
+              memory: "50Mi"
+            requests:
+              memory: "50Mi"
+              cpu: "250m"
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+        runAsUser: 1001
+        runAsGroup: 1001
+        runAsNonRoot: true
+
+#Comandos
+kubectl apply -y Deployment.yaml
+```
 
 REFERENCIAS
 ---
