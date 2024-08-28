@@ -227,6 +227,10 @@ spec:
 
 #Comandos
 kubectl apply -y Deployment.yaml
+kubectl get deployments.apps
+#Rollout - Rollback
+kubectl rollout restart deployment nginx-better
+kubectl rollout undo deployment nginx-better
 ```
 
 REFERENCIAS
