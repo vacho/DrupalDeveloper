@@ -87,6 +87,10 @@ metadata:
   name: 04--pod
 
 kubectl apply -f Namespace.yaml
+
+#Commando
+kubectl apply -f Namespace.yaml
+kubectl delete -f Namespace.yaml
 ```
 
 Pods
@@ -320,6 +324,49 @@ go install sigs.k8s.io/cloud-provider-kind@latest
 sudo cloud-provider-kind
 ```
 
+Jobs.- Asegura que los pods se estén ejecutando
+```bash
+<Jobs.yaml>
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: echo-date-better
+  namespace: 04--job
+spec:
+  parallelism: 2
+  completions: 2
+  activeDeadlineSeconds: 100
+  backoffLimit: 1
+  template:
+    metadata:
+      labels:
+        app: echo-date
+    spec:
+      containers:
+        - name: echo
+          image: cgr.dev/chainguard/busybox:latest
+          command: ["date"]
+          resources:
+            limits:
+              memory: "50Mi"
+            requests:
+              memory: "50Mi"
+              cpu: "250m"
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+            runAsUser: 1001
+            runAsGroup: 1001
+            runAsNonRoot: true
+      restartPolicy: Never
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+
+# Comandos
+kubectl apply -f Job.yaml
+
+```
 
 REFERENCIAS
 ---
