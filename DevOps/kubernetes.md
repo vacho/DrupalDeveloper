@@ -29,13 +29,12 @@ Conceptos y comandos para empezar
 - Node Port.- Crea un puerto en cada nodo, para recibir el trafico y mandar a los pods que se necesite enviar mediante el puerto.
 - Load Balancer.- Balanceador de carga con el proveedor de nube.
 
-
 # Administrar kubernetes remotos mediante Config file.
 - 1: tener instalado kubectl
-- 2: Descagar el archivo "Config File" por ejemplo de digitlocean o servidor que aloja la administracion de kubernetes => xxx-kubeconfig.yml
+- 2: Descagar el archivo "Config File" por ejemplo de digitalocean o servidor que aloja la administracion de kubernetes => xxx-kubeconfig.yml
 - 3: Permitir de khubectl reconozca la configuracion
 $  export KUBECONFIG=/some-path/xxxx-kubeconfig.yaml
-- 4. Provar con comando para ver todos los nods
+- 4. Provar con comando para ver todos los nodos
 $  kubectl get nodes
 ```
 
@@ -79,6 +78,107 @@ kubectl apply -f nombre_archivo_contiene_info_pod.yml
  kubectl describe <nombre_recurso>
 ```
 
+Namespaces
+```bash
+<Namespace.yml>
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: 04--pod
+
+kubectl apply -f Namespace.yaml
+```
+
+Pods
+```bash
+<Pod.yml>
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-better
+  namespace: 04--pod
+spec:
+  containers:
+    - name: nginx
+      image: cgr.dev/chainguard/nginx:latest
+      ports:
+        - containerPort: 8080
+          protocol: TCP
+      readinessProbe:
+        httpGet:
+          path: /
+          port: 8080
+      resources:
+        limits:
+          memory: "50Mi"
+        requests:
+          memory: "50Mi"
+          cpu: "250m"
+      securityContext:
+        allowPrivilegeEscalation: false
+        privileged: false
+  securityContext:
+    seccompProfile:
+      type: RuntimeDefault
+    runAsUser: 1001
+    runAsGroup: 1001
+    runAsNonRoot: true
+
+# Comandos
+kubectl apply -f Pod.yaml
+```
+
+Replicas
+```bash
+<Replicas.yml>
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-better
+  namespace: 04--replicaset
+  labels:
+    app: nginx-better
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-better
+  template:
+    metadata:
+      labels:
+        app: nginx-better
+    spec:
+      containers:
+        - name: nginx
+          image: cgr.dev/chainguard/nginx:latest
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+          resources:
+            limits:
+              memory: "50Mi"
+            requests:
+              memory: "50Mi"
+              cpu: "250m"
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+        runAsUser: 1001
+        runAsGroup: 1001
+        runAsNonRoot: true
+
+# Comandos
+kubectl apply -f Replicas.yaml
+kubectl get replicasets.apps
+```
+
 
 REFERENCIAS
 ---
@@ -96,3 +196,6 @@ Kind
 
 Minikube
 - https://minikube.sigs.k8s.io/docs/
+
+Video tutorial curso completo ingles
+- https://github.com/sidpalas/devops-directive-kubernetes-course?tab=readme-ov-file
