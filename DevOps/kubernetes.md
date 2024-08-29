@@ -578,7 +578,6 @@ spec:
       configMap:
         name: file-like-keys
 
-
 #Comandos
 kubectl apply -f ConfigMap.file-like-keys.yaml
 kubectl apply -f ConfigMap.property-like-keys.yaml
@@ -589,15 +588,152 @@ kubectl exec configmap-example -c nginx -- cat /etc/config/conf.yml
 kubectl exec configmap-example -c nginx -- printenv
 ```
 
-
+GatewayAPI Vs Ingress
 ```bash
-
 #Comandos
 kubectl apply -f 
 ```
+
+PersitentVolume & PersistentVolume Claim
 ```bash
-#Comandos
-kubectl apply -f 
+#### Estático
+<PersistentVolume.manual-kind.yaml>
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: manual-kind-worker
+  labels:
+    name: manual-kind
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 100Mi
+  storageClassName: standard
+  local:
+    path: /some/path/in/container # Replace with the path to your local storage
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - kind-worker
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: manual-kind-worker2
+  labels:
+    name: manual-kind
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 100Mi
+  storageClassName: standard
+  local:
+    path: /some/path/in/container # Replace with the path to your local storage
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - kind-worker2
+
+<PersistentVolumeClaim.manual-pv-kind.yaml>
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: manual-pv-kind
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
+  selector:
+    matchLabels:
+      name: manual-kind
+  storageClassName: standard
+
+<Pod.manual-pv-and-pvc-kind.yaml>
+apiVersion: v1
+kind: Pod
+metadata:
+  name: manual-pv-and-pvc
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.26.0
+      volumeMounts:
+        - name: storage
+          mountPath: /some/mount/path
+  volumes:
+    - name: storage
+      persistentVolumeClaim:
+        claimName: manual-pv-kind
+
+kubectl get storageclasses.storage.k8s.io
+kubectl apply -f PersistentVolume.manual-kind.yaml
+kubectl apply -f PersistentVolumeClaim.manual-pv-kind.yaml
+kubectl apply -f Pod.manual-pv-and-pvc-kind.yaml
+kubectl get pv
+kubectl get pvc
+# Ingresar modo consola en el pod para ver los archivos
+kubectl exec -it manual-pv-and-pvc -- bash
+
+#### Dinámico
+<PersistentVolumeClaim.dynamic-pv-kind.yaml>
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dynamic-pv-kind
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
+  storageClassName: standard
+
+<Deployment.shared-pvc-kind.yaml>
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shared-pvc-kind
+spec:
+  # Both pods can only run simultaneously on the same node because
+  # PVC has accessModes: [ReadWriteOnce]. Would be better to demo this
+  # on multi-node cluster
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.26.0
+          volumeMounts:
+            - name: data
+              mountPath: /some/mount/path
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: dynamic-pv-kind
+
+
+kubectl apply -f PersistentVolumeClaim.dynamic-pv-kind.yaml
+kubectl apply -f Deployment.shared-pvc-kind.yaml
+
+
 ```
 
 
