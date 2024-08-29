@@ -535,10 +535,61 @@ kubectl port-forward nginx-with-init-conainer-0 8080:80
 # tambien se puede correr para kubectl port-forward nginx-with-init-conainer-1 8080:80 o kubectl port-forward nginx-with-init-conainer-2 8080:80
 ```
 
+ConfigMaps
 ```bash
+<ConfigMap.file-like-keys.yaml>
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: file-like-keys
+data:
+  conf.yml: |
+    name: YourAppName
+    version: 1.0.0
+    author: YourName
+
+<ConfigMap.property-like-keys.yaml>
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: property-like-keys
+data:
+  NAME: YourAppName
+  VERSION: 1.0.0
+  AUTHOR: YourName
+
+<Pod.configmap-example.yaml>
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-example
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.26.0
+      volumeMounts:
+        - name: configmap-file-like-keys
+          mountPath: /etc/config
+      envFrom:
+        - configMapRef:
+            name: property-like-keys
+  volumes:
+    - name: configmap-file-like-keys
+      configMap:
+        name: file-like-keys
+
+
 #Comandos
-kubectl apply -f 
+kubectl apply -f ConfigMap.file-like-keys.yaml
+kubectl apply -f ConfigMap.property-like-keys.yaml
+kubectl apply -f Pod.configmap-example.yaml
+# Mostrar el contenido del archivo conf.yml
+kubectl exec configmap-example -c nginx -- cat /etc/config/conf.yml
+# Mostrar las variables de entorno
+kubectl exec configmap-example -c nginx -- printenv
 ```
+
+
 ```bash
 
 #Comandos
