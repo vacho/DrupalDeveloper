@@ -417,6 +417,139 @@ kubectl get jobs
 kubectl create job --from=cronjob/echo-date-better manually-triggered
 ```
 
+DaemonSet
+```bash
+<Daemonset.yaml>
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluentd-minimal
+  namespace: 04--daemonset
+spec:
+  selector:
+    matchLabels:
+      app: fluentd
+  template:
+    metadata:
+      labels:
+        app: fluentd
+    spec:
+      containers:
+        - name: fluentd
+          image: fluentd:v1.16-1
+
+#Comandos
+kubectl apply -f Daemonset.yaml
+kubectl get pods -o wide
+```
+
+StatefulSet
+```bash
+<Service.nginx.yaml>
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx # singular since it points to a single cluster IP
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+<Service.nginxs.yaml>
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginxs # Plural because it sets up DNS for each replica in the StatefulSet (e.g. nginx-0.nginxs.default.svc.cluster.local)
+spec:
+  type: ClusterIP
+  clusterIP: None # This makes it a "headless" service
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+<StatefulSet.nginx-with-init-container.yaml>
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nginx-with-init-conainer
+spec:
+  serviceName: nginxs
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      initContainers:
+        - name: populate-default-html
+          image: nginx:1.26.0
+          # Nginx is a silly example to use for a stateful application (you should use a deployment for nginx)
+          # but this demonstrates how you can use an init container to pre-populate a pod specific config file
+          # For example, you might configure a database StatefulSet with some pods having read/write access, and
+          # others only providing read access.
+          #
+          # See: https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/
+          command:
+            - bash
+            - "-c"
+            - |
+              set -ex
+              [[ $HOSTNAME =~ -([0-9]+)$ ]] || exit 1
+              ordinal=${BASH_REMATCH[1]}
+              echo "<h1>Hello from pod $ordinal</h1>" >  /usr/share/nginx/html/index.html
+          volumeMounts:
+            - name: data
+              mountPath: /usr/share/nginx/html
+      containers:
+        - name: nginx
+          image: nginx:1.26.0
+          volumeMounts:
+            - name: data
+              mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: "standard"
+        resources:
+          requests:
+            storage: 100Mi
+
+
+#Comandos
+kubectl apply -f Service.nginx.yaml
+kubectl apply -f Service.nginxs.yaml
+kubectl apply -f StatefulSet.nginx-with-init-container.yaml
+kubectl port-forward nginx-with-init-conainer-0 8080:80
+# tambien se puede correr para kubectl port-forward nginx-with-init-conainer-1 8080:80 o kubectl port-forward nginx-with-init-conainer-2 8080:80
+```
+
+```bash
+#Comandos
+kubectl apply -f 
+```
+```bash
+
+#Comandos
+kubectl apply -f 
+```
+```bash
+#Comandos
+kubectl apply -f 
+```
+
+
 REFERENCIAS
 ---
 Video tutorial utilizando DigitalOcean
