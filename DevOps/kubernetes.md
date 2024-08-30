@@ -732,10 +732,48 @@ spec:
 
 kubectl apply -f PersistentVolumeClaim.dynamic-pv-kind.yaml
 kubectl apply -f Deployment.shared-pvc-kind.yaml
-
-
 ```
 
+Heml.- Package manager for kubernetes
+```bash
+<Namespace.yml>
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: 05--postgresql
+
+kubectl apply -f Namespace.yaml
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm search repo bitnami/postgresql --versions
+
+# Use your dockerhub username and password!"
+helm registry login registry-1.docker.io
+
+oras repo tags registry-1.docker.io/bitnamicharts/postgresql
+helm pull bitnami/postgresql --version=15.4.2
+tar -xzf postgresql-15.4.2.tgz
+helm show values bitnami/postgresql --version=15.4.2
+
+helm install postgresql bitnami/postgresql \
+          --version=${POSTGRES_VERSION_1} \
+          --create-namespace \
+          --values=values.yaml
+
+helm upgrade --install postgresql bitnami/postgresql \
+          --version=${POSTGRES_VERSION_2} \
+          --create-namespace \
+          --values=values.yaml
+
+helm rollback postgresql
+helm list -n 05--postgresql
+helm get values postgresql
+helm get manifest postgresql
+helm uninstall postgresql
+
+cmd: gum style "🚨 Deleting the namespace recursively deletes the resources inside of it! 🚨 "
+        silent: true
+      - kubectl delete -f Namespace.yaml
+```
 
 REFERENCIAS
 ---
@@ -756,3 +794,4 @@ Minikube
 
 Video tutorial curso completo ingles
 - https://github.com/sidpalas/devops-directive-kubernetes-course?tab=readme-ov-file
+- https://www.youtube.com/watch?v=2T86xAtR6Fo&t=10377s
