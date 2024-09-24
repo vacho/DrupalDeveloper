@@ -2,6 +2,7 @@ KUBERNETES
 ===
 
 Conceptos y comandos para empezar
+--
 ```md
 # Tecnologias recomendadas 
  - Windows, Mac, Linux => DockerDesktop
@@ -11,14 +12,14 @@ Conceptos y comandos para empezar
 
 # Conceptos basicos
 Cluster > Nodes > Pods > Containers
+- Kubenetes Cluster.- Una coleccion de Nodos.
+- Node.- Maquina fisica o virtual que colecciona uno o mas Pods. Tambien llamnado como Worker Machine.
+  Componentes de un node: Kubelet, Container runtime and Kube-proxy.
+- Pod.- Coleccion de una o mas Aplicaciones Containerizadas.
+  Cada pod tiene una ip.
 - Container.-Unidad de software que empaqueta y ejecuta una aplicacion entera.
   Compoarte la ip del pod.
 - Aplicacion containerizada.- Un aplicacion que ha sido especialmente construida para ejecutarse en containers.
-- Pod.- Coleccion de una o mas Aplicaciones Containerizadas.
-  Cada pod tiene una ip.
-- Node.- Maquina fisica o virtual que colecciona uno o mas Pods. Tambien llamnado como Worker Machine.
-  Componentes de un node: Kubelet, Container runtume and Kube-proxy.
-- Kubenetes Cluster.- Una coleccion de Nodos.
 - Namespace.- Division logica de tu cluster de kubernetes.
 
 # Conceptos de infraestructura
@@ -42,6 +43,7 @@ $  kubectl get nodes
 ```
 
 Comandos utiles
+--
 ```bash
 # Ver todo
 kubectl get all
@@ -98,6 +100,7 @@ kubectl get pvc
 ```
 
 Namespaces
+--
 ```bash
 <Namespace.yaml>
 apiVersion: v1
@@ -113,6 +116,7 @@ kubectl delete -f Namespace.yaml
 ```
 
 Pods
+--
 ```bash
 <Pod.yaml>
 apiVersion: v1
@@ -153,6 +157,7 @@ kubectl port-forward -n ${NAMESPACE} nginx-better 8080:8080
 ```
 
 Replicas
+--
 ```bash
 <Replicas.yaml>
 apiVersion: apps/v1
@@ -204,6 +209,7 @@ kubectl get replicasets.apps
 ```
 
 Deployments
+--
 ```bash
 <Deployment.yaml>
 apiVersion: apps/v1
@@ -258,6 +264,7 @@ kubectl rollout undo deployment nginx-better
 ```
 
 Services.-Forma para poder contactar aplicaciones: ClusterIP, NodePort, LoadBalancer
+--
 ```bash
 <deploy.yaml>
 apiVersion: apps/v1
@@ -344,6 +351,7 @@ sudo cloud-provider-kind
 ```
 
 Jobs.- Asegura que los pods se ejecute
+--
 ```bash
 <Jobs.yaml>
 apiVersion: batch/v1
@@ -387,6 +395,7 @@ kubectl apply -f Job.yaml
 ```
 
 CronJob
+--
 ```bash
 <cronjob.yaml>
 
@@ -437,6 +446,7 @@ kubectl create job --from=cronjob/echo-date-better manually-triggered
 ```
 
 DaemonSet.- Despliega 1 pod en cada uno de los nodos
+--
 ```bash
 <Daemonset.yaml>
 apiVersion: apps/v1
@@ -463,6 +473,7 @@ kubectl get pods -o wide
 ```
 
 StatefulSet.- Despliega 1 pod con un volumen persistente (útil para BD)
+--
 ```bash
 <Service.nginx.yaml>
 apiVersion: v1
@@ -555,6 +566,7 @@ kubectl port-forward nginx-with-init-conainer-0 8080:80
 ```
 
 ConfigMaps
+--
 ```bash
 <ConfigMap.file-like-keys.yaml>
 apiVersion: v1
@@ -608,6 +620,7 @@ kubectl exec configmap-example -c nginx -- printenv
 ```
 
 GatewayAPI Vs Ingress: Accesos a los servicios basados en el path.
+--
 ```bash
 # Ingress:  es nginx
 <ingress.yaml>
@@ -641,6 +654,7 @@ kubectl -n ingress-nginx get pods
 ```
 
 PersitentVolume & PersistentVolume Claim
+--
 ```bash
 #### Estático
 <PersistentVolume.manual-kind.yaml>
@@ -666,7 +680,7 @@ spec:
               operator: In
               values:
                 - kind-worker
----
+
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -780,7 +794,8 @@ kubectl apply -f PersistentVolumeClaim.dynamic-pv-kind.yaml
 kubectl apply -f Deployment.shared-pvc-kind.yaml
 ```
 
-Heml.- Package manager for kubernetes
+Helm.- Package manager for kubernetes
+--
 ```bash
 <Namespace.yml>
 apiVersion: v1
