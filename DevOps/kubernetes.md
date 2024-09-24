@@ -72,6 +72,8 @@ kubectl describe pod nginx
 kubectl describe svc hello
 kubectl logs ubuntu --all-containers=true
 
+kubectl describe pod -n <nombre_namespace> <nombre_nodo>
+
 # Levantar un manifiesto
 kubectl apply -f <manifiesto.yaml>
 kubectl apply -f deployment.yaml
