@@ -77,23 +77,16 @@ kubectl apply -f <manifiesto.yaml>
 kubectl apply -f deployment.yaml
 
 # Dar de baja un manifiesto
-kubectl apply -f <manifiesto.yaml>
+kubectl delete -f <manifiesto.yaml>
 kubectl delete -f deployment.yaml
 
 # Entrar modo ssh a un pod
 kubectl exec -it <nombre_pod> -- sh
 kubectl exec -it nginx -- sh
-kubectl exec -it ubuntu -- bash
 
 # Entrar modo bash a un pod
 kubectl exec -it ubuntu -- bash
 
-# Levantar un manifiesto: deployment, daemontset
-kubectl apply -f nombre_archivo_contiene_manifiesto.yaml
-
-# Dar de baja un manifiesto: deployment, daemontset
-kubectl delete -f nombre_archivo_contiene_manifiesto.yaml
- 
 # Ver todos los pvc
 kubectl get pvc
 
