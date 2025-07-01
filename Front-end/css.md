@@ -98,8 +98,12 @@ Box Model
 ````
 
 Example
+```
 Total width = content width + padding + border + margin
-= 200 + (10*2) + (5*2) + (20*2) = 270px (from outside edge to outside edge)
+= 200 + (10*2) + (5*2) + (20*2) = 270px 
+(from outside edge to outside edge)
+```
+
 ```css
 .box {
   width: 200px;
