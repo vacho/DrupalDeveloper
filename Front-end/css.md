@@ -111,6 +111,7 @@ Total width = content width + padding + border + margin
   border: 5px solid black;
   margin: 20px;
 }
+```
 Tip: You can use box-sizing: border-box; to include padding & border inside the width. 
 ```css
 .box {
