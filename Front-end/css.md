@@ -142,6 +142,87 @@ Flexbox
 ====
 Flexbox (Flexible Box Layout) is a layout model that makes it easy to design flexible and responsive layout structures without using floats or positioning.
 
+# Flex container properties
+| Property          | What it does                                |
+| ----------------- | ------------------------------------------- |
+| `flex-direction`  | Sets the direction of the main axis         |
+| `justify-content` | Aligns items along the main axis            |
+| `align-items`     | Aligns items along the cross axis           |
+| `align-content`   | Aligns multiple rows of items (if wrapping) |
+| `flex-wrap`       | Controls whether items wrap to next line    |
+
+## 1 flex-direction
+| Value            | Description             |
+| ---------------- | ----------------------- |
+| `row`            | (default) Left to right |
+| `row-reverse`    | Right to left           |
+| `column`         | Top to bottom           |
+| `column-reverse` | Bottom to top           |
+
+```css
+.container {
+  flex-direction: row;
+}
+```
+
+## 2 justify-content
+Aligns items horizontally (main axis)
+
+| Value           | Description                   |
+| --------------- | ----------------------------- |
+| `flex-start`    | Start of the container        |
+| `flex-end`      | End of the container          |
+| `center`        | Centered                      |
+| `space-between` | Equal space between           |
+| `space-around`  | Equal space around            |
+| `space-evenly`  | Even space between and around |
+
+```css
+.container {
+  justify-content: center;
+}
+```
+
+## 3 align-items
+Aligns items vertically(cross axis)
+| Value        | Description                               |
+| ------------ | ----------------------------------------- |
+| `stretch`    | (default) Items stretch to fill container |
+| `flex-start` | Aligned to start of cross axis            |
+| `flex-end`   | Aligned to end of cross axis              |
+| `center`     | Centered                                  |
+| `baseline`   | Aligned by text baseline                  |
+
+```css
+.container {
+  align-items: center;
+}
+```
+
+## 4 flex-wrap
+Allows items to wrap to the next line
+| Value          | Description            |
+| -------------- | ---------------------- |
+| `nowrap`       | (default) No wrapping  |
+| `wrap`         | Wraps to next line     |
+| `wrap-reverse` | Wraps in reverse order |
+
+```css
+.container {
+  flex-wrap: wrap;
+}
+```
+
+## Flex item properties
+| Property      | What it does                             |
+| ------------- | ---------------------------------------- |
+| `flex-grow`   | Grow to fill space                       |
+| `flex-shrink` | Shrink to fit space                      |
+| `flex-basis`  | Initial size before growing/shrinking    |
+| `flex`        | Shorthand for grow, shrink, basis        |
+| `align-self`  | Override `align-items` for a single item |
+| `order`       | Changes the visual order of items        |
+
 # Basic Example.
 
 index.html
