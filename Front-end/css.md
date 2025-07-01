@@ -82,6 +82,7 @@ styles.css
 ```
 Box Model
 ===
+```
 +-------------------------------+
 |         margin                |  ← Margin
 |  +------------------------+   |
@@ -94,6 +95,7 @@ Box Model
 |  |  +------------------+  |  |
 |  +------------------------+  |
 +-------------------------------+
+````
 
 Example
 Total width = content width + padding + border + margin
