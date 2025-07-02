@@ -1,54 +1,209 @@
 Javascript
 ========
-#### 
 
-1. Implementar Libreria en mi_modulo/hello.libraries.yml
+# Drupal behaviors and attach method
+- Drupal.behaviours is an object inside Javascript structure in Drupal, which allows us to attach functions to be executed at certain times during the execution of the application.
+- Drupal.behaviours is called when the DOM is fully loaded, but these behaviours can be called again.
+- Drupal documentations suggest that modules should implement Javascript by attaching logic to Drupal.behaviours.
+
+### Why do we need Drupal behaviors
+- They are automatically re-applied to any content that is loaded through AJAX.
+- The can be called anytime whith a context that represents new additions or changes to the DOM.
+- This is better than $(document).ready() or document.DOMContentLoaded where the code is just run once.
+
+### When is Drupal behaviors unwanted?
+- When need to execute some code which does not affect the DOM. Eg: init an external script like google analytics.
+- When some js operation needs to be performed on the DOM just once, knowing that the element will be available when page loads. (This scenario is different form using Once)
+
+### When is Drupal behaviors callend
+- After an administration overlay has been loaded into the page.
+- After the AJAX Form API has submitted a form.
+- When an AJAX request return a command that modifies the HTML, such as ajax_command_replace().
+- CTools calls it after a modal has been loaded.
+- Media calls it after the media browser has been loaded.
+- Panels calls it after in-place editing has beend completed.
+- Views calls it after loading a new page that uses AJAX.
+- Views Load More calls it after loading the next chunk of items.
+- JavaScript from custom modules may call Drupal.attachBehaviors() when they add or change parts of the page.
+
+
+# Context
+- When calling the attach method for all behaviors, Drupal passes along a context variable.
+- The context variable that is passed often give a better idea of what DOM element is being processed.
+- During the initial page load this will be the complete HTMLDocument; during subsequent calls this will be just the elements that are being added to the page
+
+# Once
+- Once ensures that something is processed only once by adding a data-once attribute in a DOM element after the code has been executed.
+- If the behavior is called again, the element with the data-once attribute is skipped for further execution.
+- Once is modern implementation of jQuery.once (which is an endeavour to move away from jQuery)
+
+# Detach method
+
+### IIFE
+
+
+
+
+
+# Example displaying from a block
+my_module/hello.libraries.yml
 ```yml
 hello_world:
   version: 1.x
   js:
     js/hello.js: {}
   dependencies:
-    - core/jquery
     - core/drupal
-    - core/jquery.once
+    - code/once
 ```
 
-2. Agregar al render la libreria
+my_module/src/Plugin/Block/HelloWorldBlock.php
 ```php
-$render[#target] = $this->t('Hello');
-$render[#attached] = [
-  'library' => [
-    'mi_modulo/hello_world'
-  ]
-]
-$render['#attached']['drupalSettings'] = [
-  'node_type' => $node->type->entity->label(),
-];    
-```
+<?php
 
-3. Implementamos el js en Drupal.attachBehaviours (cuando la página esta completamente cargada)
-```js
-(function (Drupal, $) {
-  "use strict";
-  Drupal.behaviors.helloWorld = {
-    attach: function (context, settings) {
-      var message = '<div>Hello ' + settings.node_type + '</span></div>'
-      $(document).find('.hello').append(message);
-    }
+namespace Drupal\hello_world\Plugin\Block;
+
+use Drupal\Core\Block\BlockBase;
+
+/**
+ * Provides a Hello World block.
+ *
+ * @Block(
+ *   id = "hello_world_block",
+ *   admin_label = @Translation("Hello World Block")
+ * )
+ */
+class HelloWorldBlock extends BlockBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function build() {
+    return [
+      '#markup' => '<div class="hello-world-target"></div>',
+      '#attached' => [
+        'library' => [
+          'hello_world/hello_world',
+        ],
+      ],
+    ];
   }
-}) (Drupal, jQuery)
+}
 ```
-context:Contiene sólo las partes nuevas de la página.
 
-settings: Contiene datos pasados desde php (Drupal)
+js/hello.js
+```js
+(function (Drupal, once) {
+  Drupal.behaviors.helloWorldBehavior = {
+    attach: function (context, settings) {
+      once('hello-world', '.hello-world-target', context).forEach(function (el) {
+        const message = document.createElement('p');
+        message.textContent = 'Hello World from Drupal.behaviors!';
+        message.classList.add('hello-world-message');
+        el.appendChild(message);
+      });
+    }
+  };
+})(Drupal, once);
+```
+# Example displaying MVC
 
-ENLACES Y FUENTES
+hello.routing.yml
+```yml
+hello_worl.hello:
+path: '/hello'
+defaults:
+  _controller: '\Drupal\hello_world\Controller\HelloWorldController::hello'
+  _title: 'Hello World'
+requirements:
+  _permission: 'access content'
+```
+
+js/hello.js
+```js
+(function (Drupal, once) {
+  Drupal.behaviors.helloWorldBehavior = {
+    attach: function (context, settings) {
+      once('hello-world', '.hello-world-target', context).forEach(function (el) {
+        el.innerHTML = '<p class="hello-js">Hello World from JavaScript via Drupal.behaviors!</p>';
+      });
+    }
+  };
+})(Drupal, once);
+```
+src/Controller/HelloWorldController.php
+```php
+<?php
+
+namespace Drupal\hello_world_mvc\Controller;
+
+use Drupal\Core\Controller\ControllerBase;
+
+class HelloWorldController extends ControllerBase {
+
+  public function hello() {
+    return [
+      '#theme' => 'hello_world',
+      '#attached' => [
+        'library' => [
+          'hello/hello_world',
+        ],
+      ],
+    ];
+  }
+
+}
+```
+
+templates/hello-world.html.twig
+```twig
+<div class="hello-world-target"></div>
+```
+
+hello_world.theme
+```php
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function hello_world_mvc_theme($existing, $type, $theme, $path) {
+  return [
+    'hello_world' => [
+      'render element' => 'elements',
+      'template' => 'hello-world',
+    ],
+  ];
+}
+```
+
+**context**: The part of the DOM that this behavior is being applied to.
+```js
+conext.querySelector(".demo");
+```
+
+**settings**: A JS object with configuration data coming from:
+- Drupal core
+- Modules
+- Themes
+- Or custom values set using drupalSettings in PHP
+php file
+```php
+use Drupal\Core\Render\AttachmentsInterface;
+
+$build['#attached']['drupalSettings']['myModule'] = [
+  'foo' => 'bar',
+];
+```
+js file
+```js
+console.log(settings.myModule.foo); // outputs 'bar'
+
+```
+
+
+Sources
 =================
 
-Estándares de programación js dentro de drupal
+Javascript coding standards
 - https://www.drupal.org/node/172169
-
-
-Nuevas formas de usar jquery ui
-- https://www.drupal.org/docs/upgrading-drupal/upgrading-from-drupal-8-or-later/upgrading-from-drupal-9-to-drupal-10-0/migrating-dependencies-on-core-jquery-ui-libraries
