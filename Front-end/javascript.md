@@ -37,10 +37,67 @@ Javascript
 - If the behavior is called again, the element with the data-once attribute is skipped for further execution.
 - Once is modern implementation of jQuery.once (which is an endeavour to move away from jQuery)
 
+Example with mange a click event.
+```js
+(function (Drupal, once) {
+ Drupal.behaviors.exampleBehaviour3 = {
+   attach: (context, settings) => {
+     once("food-header-initialized", ".food-list-header", context).forEach(
+       (header) => {
+         let greatFoodSpan = document.createElement("span");
+         greatFoodSpan.textContent = "Get ready for great ood!!!!!!";
+         header.append(greatFoodSpan);
+       }
+     );
+     once("food-initialized", ".views-row", context).forEach((food) => {
+       food.addEventListener("click", () => {
+         let foodCounter = food.querySelector(".food-click-counter");
+         let timesClicked = parseInt(foodCounter.textContent.trim());
+         foodCounter.textContent = ++timesClicked;
+       });
+     });
+   },
+ };
+})(Drupal, once);
+```
 # Detach method
+- This acts removing whatever we did in attach method.
+- Any code in the detach method wil be called whenever content is removed form the DOM.
+- This helps us to clean our application. Eg: enables us to remove unwanted even listners which consume resources.
+js example
+```js
+(function (Drupal, once) {
+ let counter = 0;
+ let intervalStopper;
+ Drupal.behaviors.exampleBehaviour4 = {
+   attach: (context, settings) => {
+     // Set the timer for user to see the time elapsed
+     once("timer-initialized", ".contact-timer", context).forEach((ele) => {
+       const timer = context.querySelector(".contact-timer-sec");
+       timer.textContent = counter;
+       intervalStopper = setInterval(() => {
+         const timer = document.querySelector(".contact-timer-sec");
+         timer.textContent = ++counter;
+         console.log("This is logging");
+       }, 1000);
+     });
+   },
+   // Clear the timer on confirmation
+   detach: (context, settings, trigger) => {
+     const timer = context.querySelector(".contact-timer-sec");
+     if (trigger == "unload" && timer) {
+       clearInterval(intervalStopper);
+     }
+   },
+ };
+})(Drupal, once);
+```
 
 ### IIFE
-
+Immediately Invoked Function Expressions
+- We have been using IIFE to write our Drupal code.
+- The initial opening helps prevent the function's scope from polluting the global scope of the entire application.
+- You can pass arguments to your anonymous function by including them as arguments at the end of the function definition.
 
 
 
@@ -96,11 +153,11 @@ js/hello.js
 (function (Drupal, once) {
   Drupal.behaviors.helloWorldBehavior = {
     attach: function (context, settings) {
-      once('hello-world', '.hello-world-target', context).forEach(function (el) {
+      once('hello-world', '.hello-world-target', context).forEach(function (element) {
         const message = document.createElement('p');
         message.textContent = 'Hello World from Drupal.behaviors!';
         message.classList.add('hello-world-message');
-        el.appendChild(message);
+        element.appendChild(message);
       });
     }
   };
@@ -124,8 +181,8 @@ js/hello.js
 (function (Drupal, once) {
   Drupal.behaviors.helloWorldBehavior = {
     attach: function (context, settings) {
-      once('hello-world', '.hello-world-target', context).forEach(function (el) {
-        el.innerHTML = '<p class="hello-js">Hello World from JavaScript via Drupal.behaviors!</p>';
+      once('hello-world', '.hello-world-target', context).forEach(function (element) {
+        element.innerHTML = '<p class="hello-js">Hello World from JavaScript via Drupal.behaviors!</p>';
       });
     }
   };
@@ -201,9 +258,12 @@ console.log(settings.myModule.foo); // outputs 'bar'
 
 ```
 
-
 Sources
 =================
 
 Javascript coding standards
 - https://www.drupal.org/node/172169
+
+Blog that explain js wai for Drupal
+- https://www.specbee.com/blogs/taming-javascript-in-drupal
+- https://www.youtube.com/watch?v=72f35d9BKFY&t=193s
