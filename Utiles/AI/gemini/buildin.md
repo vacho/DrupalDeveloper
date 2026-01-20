@@ -16,6 +16,9 @@ To init a gemini project with context information.
 
 # Compress the context in a summary
 /compress
+
+# To add files context to the model
+@
 ```
 
 General commands
