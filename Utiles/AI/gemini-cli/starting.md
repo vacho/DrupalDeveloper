@@ -12,7 +12,7 @@ Common use cases
 - Generate content: spreadsheeds, documents, etc.
 - Generate the code for apps.
 
-Configuration File:
+## Configuration File:
 ~/.gemini/settings.json
 ```yml
 # Add this to let checkpoint automatically
@@ -26,6 +26,21 @@ Configuration File:
     "fileName": ["AGENTS.md", "CONTEXT.md", "GEMINI.md"]
 }
 ```
+## Tools
+Nanobanana
+```bash
+# Install
+gemini extensions install https://github.com/gemini-cli-extensions/nanobanana
+
+# List
+gemini extensions list
+
+export NANOBANANA_GEMINI_API_KEY=somekey
+
+
+gemini
+/nanobanana create a white t-shirt, front view. 
+```
 
 ## References
 - Oficial documentation
@@ -33,5 +48,8 @@ https://geminicli.com/docs/
 
 - Samples
 https://github.com/philschmid/gemini-samples
+
+- Extensions
+https://geminicli.com/extensions/
 
 

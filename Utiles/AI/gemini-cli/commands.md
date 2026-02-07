@@ -25,7 +25,7 @@ gemini --yolo
 gemini --approval-mode yolo
 # Ask each time for permission
 gemini --approval-mode default
-# Let cread or edit filesd without asking
+# Let cread or edit files without asking
 gemini --approval-mode autoedit
 
 # Let shell command to run
