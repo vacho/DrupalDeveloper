@@ -216,6 +216,14 @@ sudo scp -P 2222 nombres_usuario@ip_servidor:/ruta_al_archivo /ruta_destino
 
 Aplicaciones útiles para desarrollo
 ===
+- zsh
+Enpodera el shell con autocompletado, remarcado  mucho mas.
+https://www.zsh.org/
+
+- Flameshoot
+Para sacar screenshots y agregarle notas
+https://flameshot.org/
+
 - Kazam
 Permite grabar screenshots, videos de areas de la pantalla.
 
