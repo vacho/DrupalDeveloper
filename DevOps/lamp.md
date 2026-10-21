@@ -27,7 +27,7 @@ sudo apt -y install software-properties-common
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update
 sudo apt install php7.4
-sudo apt install php8.1
+sudo apt install php8.4
 sudo apt-get install php-cli
 sudo apt-get install libapache2-mod-php
 
@@ -46,6 +46,12 @@ sudo apt-get install php-mbstring
 sudo apt-get install php-gettext
 sudo apt-get install php-bcmath
 sudo apt-get install php-dom
+
+# Paquetes para 8.4 y 7.4
+sudo apt-get install -y \
+  php7.4-mysql php7.4-gd php7.4-curl php7.4-cgi php7.4-mcrypt php7.4-mbstring php7.4-bcmath php7.4-xml \
+  php8.4-mysql php8.4-gd php8.4-curl php8.4-cgi php8.4-mcrypt php8.4-mbstring php8.4-bcmath php8.4-xml \
+  php-pear
 
 # Desinstalar php completamente
 sudo apt-get purge 'php*'
